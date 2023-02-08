@@ -11,17 +11,23 @@
             Value = value;
         }
 
-        public static IntWithStandard operator ++(IntWithStandard i) =>
-            ++i;
+        public static IntWithStandard operator ++(IntWithStandard i)
+        {
+            i.Value++;
+            return i;
+        }
 
-        public static IntWithStandard operator --(IntWithStandard i) =>
-            --i;
+        public static IntWithStandard operator --(IntWithStandard i)
+        {
+             i.Value--;
+             return i;
+        }
 
         public static bool operator >(IntWithStandard a, int b) =>
-            a > b;
+            a.Value > b;
         
         public static bool operator <(IntWithStandard a, int b) =>
-            a < b;
+            a.Value < b;
 
         public bool StandardEqualsValue => Standard == Value;
 

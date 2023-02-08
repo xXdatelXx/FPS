@@ -15,9 +15,9 @@ namespace FPS.Model.Weapons.Bullet
             _origin = origin.ThrowExceptionIfArgumentNull(nameof(origin));
         }
 
-        public void Fire(Vector3 direction)
+        public void Fire()
         {
-            var ray = new Ray(_origin.Position, direction);
+            var ray = new Ray(_origin.Position, _origin.Forward);
             
             if (ray.Cast(out IHealth health)) 
                 health.TakeDamage(_damage);

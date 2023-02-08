@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Source.Runtime.Model.Health
 {
-    [RequireComponent(typeof(Collider))]
+    [RequireComponent(typeof(Collider)), DisallowMultipleComponent]
     public sealed class CharacterOrgan : MonoBehaviour, ICharacterOrgan
     {
         private IHealth _health;

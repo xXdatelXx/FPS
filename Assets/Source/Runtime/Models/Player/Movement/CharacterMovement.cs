@@ -1,5 +1,4 @@
 using System;
-using Cysharp.Threading.Tasks;
 using Source.Runtime.Tools.Extensions;
 using UnityEngine;
 
@@ -8,15 +7,17 @@ namespace FPS.Model
     public sealed class CharacterMovement : ICharacterMovement
     {
         private readonly CharacterController _controller;
-        private readonly IJumpStat _jumpStat;
+        private readonly ICharacterJump _jump;
         private readonly IGravitation _gravitation;
         private readonly ISpeed _speed;
-        public bool CanJump => _controller.isGrounded;
+        public bool Jumping => _jump.Jumping;
+        public bool CanJump => _jump.CanJump;
+        public bool CanGravitate => _gravitation.CanGravitate && !Jumping;
 
-        public CharacterMovement(CharacterController controller, IJumpStat jumpStat, IGravitation gravitation, ISpeed speed)
+        public CharacterMovement(CharacterController controller, ICharacterJump jump, IGravitation gravitation, ISpeed speed)
         {
             _controller = controller.ThrowExceptionIfArgumentNull(nameof(controller));
-            _jumpStat = jumpStat.ThrowExceptionIfArgumentNull(nameof(jumpStat));
+            _jump = jump.ThrowExceptionIfArgumentNull(nameof(jump));
             _gravitation = gravitation.ThrowExceptionIfArgumentNull(nameof(gravitation));
             _speed = speed.ThrowExceptionIfArgumentNull(nameof(speed));
         }
@@ -25,29 +26,15 @@ namespace FPS.Model
         {
             if (direction == Vector3.zero)
                 throw new InvalidOperationException(nameof(Move));
-            
-            var motion = direction * _speed.Value;
-            _controller.Move(motion * deltaTime);
+
+            direction = _controller.TransformDirection(direction);
+            var motion = direction * _speed.Value * deltaTime;
+
+            _controller.Move(motion);
         }
-        
-        public void Gravitate(float deltaTime) => 
-            _gravitation.Gravitate(deltaTime);
 
-        public async void Jump(float deltaTime)
-        {
-            if (!CanJump)
-                throw new InvalidOperationException(nameof(Jump));
+        public void Gravitate(float deltaTime) => _gravitation.Gravitate(deltaTime);
 
-            var evaluatedTime = 0f;
-            var time = _jumpStat.Time;
-
-            while (evaluatedTime < time)
-            {
-                evaluatedTime += deltaTime;
-                await UniTask.Yield();
-
-                _controller.Move((_jumpStat.Motion * _jumpStat.Coefficient.Evaluate(evaluatedTime / time)) * deltaTime);
-            }
-        }
+        public void Jump() => _jump.Jump();
     }
 }

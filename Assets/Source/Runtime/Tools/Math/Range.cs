@@ -1,15 +1,17 @@
 using System;
+using UnityEngine;
 
 namespace Source.Runtime.Tools.Math
 {
+    [Serializable]
     public struct Range
     {
-        public readonly float Min;
-        public readonly float Max;
+        [field: SerializeField] public float Min { get; private set; }
+        [field: SerializeField] public float Max { get; private set; }
 
         public Range(float min, float max)
         {
-            if(max < min)
+            if (max < min)
                 throw new ArgumentException("max < min");
 
             (Max, Min) = (max, min);

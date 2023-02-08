@@ -5,16 +5,16 @@ namespace Source.Runtime.Model.Health
 {
     public sealed class Health : IHealth
     {
-        private float _value;
+        private float _point;
         private readonly IDieStrategy _dieStrategy;
-        public bool Died => _value < 0;
+        public bool Died => _point < 0;
 
         public Health(float value) : this(value, new DieStrategy())
         { }
 
         public Health(float value, IDieStrategy dieStrategy)
         {
-            _value = value.ThrowExceptionIfValueSubOrEqualZero(nameof(Health));
+            _point = value.ThrowExceptionIfValueSubOrEqualZero(nameof(Health));
             _dieStrategy = dieStrategy.ThrowExceptionIfArgumentNull(nameof(dieStrategy));
         }
 
@@ -23,7 +23,7 @@ namespace Source.Runtime.Model.Health
             if (Died)
                 throw new InvalidOperationException(nameof(TakeDamage));
 
-            _value = Math.Min(_value - damage, 0);
+            _point = Math.Min(_point - damage, 0);
 
             if (Died)
                 _dieStrategy.Die();

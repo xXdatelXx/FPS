@@ -1,7 +1,6 @@
 using FPS.Model;
-using FPS.Model.Rotation;
 using Sirenix.OdinInspector;
-using Source.Runtime.CompositeRoot.Weapons;
+using Source.Runtime.Models.Loop;
 using UnityEngine;
 
 namespace Source.Runtime.CompositeRoot
@@ -10,13 +9,12 @@ namespace Source.Runtime.CompositeRoot
     {
         [SerializeField] private ICharacterMovementFactory _movement;
         [SerializeField] private ICharacterRotationFactory _rotation;
-        [SerializeField] private ICharacterWeaponFactory _weapon;
         [SerializeField] private ICharacterHealthFactory _health;
 
-        public IPlayer Create()
+        public IPlayer Create(IReadOnlyGameTime time)
         {
             _health.Create();
-            return new Player(_movement.Create(), _rotation.Create(), new PlayerInput());
+            return new Player(_movement.Create(time), _rotation.Create(), new PlayerMovementInput());
         }
     }
 }

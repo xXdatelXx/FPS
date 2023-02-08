@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace FPS.Model
 {
-    public interface IPlayerInput
+    public interface IPlayerMovementInput
     {
         bool Moving { get; }
         bool Rotating { get; }

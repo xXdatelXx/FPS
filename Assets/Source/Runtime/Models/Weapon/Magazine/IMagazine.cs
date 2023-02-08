@@ -1,6 +1,6 @@
 ﻿namespace FPS.Model.Weapons.Bullet
 {
-    public interface IMagazine
+    public interface IMagazine : IReadOnlyMagazine
     {
         void Get();
         bool CanShoot { get; }

@@ -1,4 +1,5 @@
 using FPS.Model.Rotation;
+using FPS.Model.Weapon;
 using Source.Runtime.Tools.Extensions;
 
 namespace FPS.Model
@@ -7,9 +8,9 @@ namespace FPS.Model
     {
         private readonly ICharacterMovement _movement;
         private readonly ICharacterRotation _rotation;
-        private readonly IPlayerInput _input;
+        private readonly IPlayerMovementInput _input;
 
-        public Player(ICharacterMovement movement, ICharacterRotation rotation, IPlayerInput input)
+        public Player(ICharacterMovement movement, ICharacterRotation rotation, IPlayerMovementInput input)
         {
             _movement = movement.ThrowExceptionIfArgumentNull(nameof(movement));
             _rotation = rotation.ThrowExceptionIfArgumentNull(nameof(rotation));
@@ -20,14 +21,15 @@ namespace FPS.Model
         {
             if (_input.Moving)
                 _movement.Move(_input.Movement(), deltaTime);
-            
+
             if (_input.Rotating)
                 _rotation.Rotate(_input.Rotation());
-            
-            if (_input.Jump())
-                _movement.Jump(deltaTime);
-            
-            _movement.Gravitate(deltaTime);
+
+            if (_input.Jump() && _movement.CanJump)
+                _movement.Jump();
+
+            if (_movement.CanGravitate)
+                _movement.Gravitate(deltaTime);
         }
     }
 }

@@ -8,14 +8,14 @@ namespace FPS.Model.Weapons.Bullet
     public sealed class Magazine : IMagazine
     {
         private readonly ITimer _reloadTimer;
-        private IntWithStandard _bulletCount;
-        public bool CanShoot => _bulletCount > 0 && !_reloadTimer.Playing;
-        public bool CanReload => _bulletCount.StandardEqualsValue;
+        public IntWithStandard Bullets { get; private set; }
+        public bool CanShoot => Bullets > 0 && !_reloadTimer.Playing;
+        public bool CanReload => Bullets.StandardEqualsValue;
 
         public Magazine(ITimer reloadTimer, int bulletCount)
         {
             _reloadTimer = reloadTimer.ThrowExceptionIfArgumentNull(nameof(reloadTimer));
-            _bulletCount = new IntWithStandard(bulletCount.ThrowExceptionIfValueSubZero(nameof(bulletCount)));
+            Bullets = new IntWithStandard(bulletCount.ThrowExceptionIfValueSubZero(nameof(bulletCount)));
         }
 
         public void Get()
@@ -23,7 +23,7 @@ namespace FPS.Model.Weapons.Bullet
             if (!CanShoot)
                 throw new InvalidOperationException(nameof(CanShoot));
 
-            _bulletCount--;
+            Bullets--;
         }
 
         public void Reload()
@@ -32,7 +32,7 @@ namespace FPS.Model.Weapons.Bullet
                 throw new InvalidOperationException(nameof(Reload));
                 
             _reloadTimer.Play();
-            _bulletCount.Reset();
+            Bullets.Reset();
         }
     }
 }

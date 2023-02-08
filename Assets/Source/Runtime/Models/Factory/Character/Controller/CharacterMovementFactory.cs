@@ -1,5 +1,6 @@
 ﻿using FPS.Model;
 using Sirenix.OdinInspector;
+using Source.Runtime.Models.Loop;
 using UnityEngine;
 
 namespace Source.Runtime.CompositeRoot
@@ -8,12 +9,14 @@ namespace Source.Runtime.CompositeRoot
     {
         [SerializeField] private CharacterController _controller;
         [SerializeField] private ISpeed _speed;
-        [SerializeField] private IJumpStat _jumpStat;
+        [SerializeField] private AnimationCurve _jumpMotion;
 
-        public ICharacterMovement Create()
+        public ICharacterMovement Create(IReadOnlyGameTime time)
         {
             var gravitation = new CharacterGravitation(_controller);
-            return new CharacterMovement(_controller, _jumpStat, gravitation, _speed);
+            var jump = new CharacterJump(_controller, _jumpMotion, time);
+
+            return new CharacterMovement(_controller, jump, gravitation, _speed);
         }
     }
 }
