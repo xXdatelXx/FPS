@@ -8,13 +8,11 @@ namespace FPS.Model.Weapons
 {
     public sealed class WeaponWithMagazine : IWeaponWithMagazine
     {
-        private readonly IWeapon _weapon;
         private readonly IMagazine _magazine;
         private readonly ITimer _reloadTimer;
         private readonly IWeaponView _view;
+        private readonly IWeapon _weapon;
         private bool _enabled;
-        public bool CanShoot => _weapon.CanShoot && _magazine.CanGet;
-        public bool CanReload => _magazine.CanReset && !_reloadTimer.Playing;
 
         public WeaponWithMagazine(IWeapon weapon, IMagazine magazine, ITimer reloadTimer, IWeaponView view)
         {
@@ -23,6 +21,9 @@ namespace FPS.Model.Weapons
             _reloadTimer = reloadTimer.ThrowExceptionIfArgumentNull(nameof(reloadTimer));
             _view = view.ThrowExceptionIfArgumentNull(nameof(view));
         }
+
+        public bool CanShoot => _weapon.CanShoot && _magazine.CanGet;
+        public bool CanReload => _magazine.CanReset && !_reloadTimer.Playing;
 
         public void Shoot()
         {

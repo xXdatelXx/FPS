@@ -9,13 +9,14 @@ namespace FPS.Model.Weapons
     {
         private readonly IBulletFactory _factory;
         private readonly IWeaponView _view;
-        public bool CanShoot { get; private set; }
 
         public Weapon(IBulletFactory factory, IWeaponView view)
         {
             _factory = factory.ThrowExceptionIfArgumentNull(nameof(factory));
             _view = view.ThrowExceptionIfArgumentNull(nameof(view));
         }
+
+        public bool CanShoot { get; private set; }
 
         public void Shoot()
         {
@@ -27,6 +28,7 @@ namespace FPS.Model.Weapons
         }
 
         public void Enable() => CanShoot = true;
+
         public void Disable() => CanShoot = false;
     }
 }

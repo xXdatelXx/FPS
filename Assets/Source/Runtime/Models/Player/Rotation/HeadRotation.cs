@@ -1,7 +1,6 @@
-using System;
 using Source.Runtime.Tools.Extensions;
+using Source.Runtime.Tools.Math;
 using UnityEngine;
-using Range = Source.Runtime.Tools.Math.Range;
 
 namespace FPS.Model.Rotation
 {

@@ -18,8 +18,8 @@ namespace FPS.Model.Weapons.Bullet
         public void Fire()
         {
             var ray = new Ray(_origin.Position, _origin.Forward);
-            
-            if (ray.Cast(out IHealth health)) 
+
+            if (ray.Cast(out IHealth health))
                 health.TakeDamage(_damage);
         }
     }

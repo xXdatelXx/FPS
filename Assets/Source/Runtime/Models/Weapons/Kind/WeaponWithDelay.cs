@@ -6,15 +6,16 @@ namespace FPS.Model.Weapons
 {
     public sealed class WeaponWithDelay : IWeapon
     {
-        private readonly IWeapon _weapon;
         private readonly ITimer _delay;
-        public bool CanShoot => _weapon.CanShoot && !_delay.Playing;
+        private readonly IWeapon _weapon;
 
         public WeaponWithDelay(IWeapon weapon, ITimer delay)
         {
             _weapon = weapon.ThrowExceptionIfArgumentNull(nameof(weapon));
             _delay = delay.ThrowExceptionIfArgumentNull(nameof(delay));
         }
+
+        public bool CanShoot => _weapon.CanShoot && !_delay.Playing;
 
         public void Shoot()
         {
@@ -25,16 +26,16 @@ namespace FPS.Model.Weapons
             Delay();
         }
 
-        private void Delay() => _delay.Play();
-
         public void Enable() => _weapon.Enable();
 
         public void Disable()
         {
             _weapon.Disable();
-            
+
             if (!_delay.Playing)
                 _delay.Cancel();
         }
+
+        private void Delay() => _delay.Play();
     }
 }

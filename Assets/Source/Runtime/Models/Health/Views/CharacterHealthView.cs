@@ -6,8 +6,8 @@ namespace Source.Runtime.Model.Health.Views
 {
     public sealed class CharacterHealthView : IHealthView
     {
-        private readonly ITextView _healthText;
         private readonly IGameObject _character;
+        private readonly ITextView _healthText;
 
         public CharacterHealthView(ITextView healthText, IGameObject character)
         {
@@ -15,7 +15,10 @@ namespace Source.Runtime.Model.Health.Views
             _character = character.ThrowExceptionIfArgumentNull(nameof(character));
         }
 
-        public void Damage(float health) => _healthText.Visualize(health);
-        public void Die() => _character.Destroy();
+        public void Damage(float health) => 
+            _healthText.Visualize(health);
+
+        public void Die() => 
+            _character.Destroy();
     }
 }

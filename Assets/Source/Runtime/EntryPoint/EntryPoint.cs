@@ -9,7 +9,7 @@ namespace Source.Runtime.EntryPoint
     {
         [SerializeField] private PlayerFactory _playerFactory;
         [SerializeField] private PlayerWeaponCollectionFactory _playerWeaponFactory;
-        
+
         private void Awake()
         {
             var gameEngine = new GameEngine(_playerFactory, _playerWeaponFactory);

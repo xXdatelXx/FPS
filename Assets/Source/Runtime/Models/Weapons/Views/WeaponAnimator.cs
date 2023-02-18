@@ -18,13 +18,16 @@ namespace Source.Runtime.Models.Weapon.Views
             _reload.ThrowExceptionIfNull(nameof(_reload));
             _enable.ThrowExceptionIfNull(nameof(_enable));
             _disable.ThrowExceptionIfNull(nameof(_disable));
-            
+
             _animator = GetComponent<Animator>();
         }
 
         public void PlayShoot() => _animator.Play(_shoot);
+
         public void PlayReload() => _animator.Play(_reload);
+
         public void PlayEnable() => _animator.Play(_enable);
+
         public void PlayDisable() => _animator.Play(_disable);
     }
 }

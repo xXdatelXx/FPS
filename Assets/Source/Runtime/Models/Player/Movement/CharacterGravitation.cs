@@ -8,7 +8,6 @@ namespace FPS.Model
     {
         private readonly CharacterController _controller;
         private readonly Vector3 _gravityMotion;
-        public bool CanGravitate => !_controller.isGrounded;
 
         public CharacterGravitation(CharacterController controller, float gravityForce = 9.81f)
         {
@@ -16,11 +15,13 @@ namespace FPS.Model
             _gravityMotion = new Vector3(0, -Math.Abs(gravityForce));
         }
 
+        public bool CanGravitate => !_controller.isGrounded;
+
         public void Gravitate(float deltaTime)
         {
             if (!CanGravitate)
                 throw new InvalidOperationException(nameof(Gravitate));
-            
+
             _controller.Move(_gravityMotion * deltaTime);
         }
     }

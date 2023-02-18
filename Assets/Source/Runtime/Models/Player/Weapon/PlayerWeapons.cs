@@ -4,8 +4,8 @@ namespace FPS.Model.Weapon
 {
     public sealed class PlayerWeapons : IPlayerWeapons
     {
-        private readonly IReadOnlyWeaponCollection _weapons;
         private readonly IPlayerWeaponInput _input;
+        private readonly IReadOnlyWeaponCollection _weapons;
         private IPlayerWeapon _weapon;
 
         public PlayerWeapons(IReadOnlyWeaponCollection weapons, IPlayerWeaponInput input)
@@ -19,7 +19,7 @@ namespace FPS.Model.Weapon
         {
             _weapon.Tick(deltaTime);
 
-            if (_input.SwitchNext && _weapons.CanSwitchNext) 
+            if (_input.SwitchNext && _weapons.CanSwitchNext)
                 Switch(_weapons.SwitchNext());
 
             if (_input.SwitchPrevious && _weapons.CanSwitchPrevious)

@@ -2,12 +2,12 @@ using System;
 using Source.Runtime.Tools.Extensions;
 using UnityEngine;
 
-namespace FPS.Model.Rotation 
+namespace FPS.Model.Rotation
 {
     public class CharacterRotation : ICharacterRotation
     {
-        private readonly IHeadRotation _head;
         private readonly IBodyRotation _body;
+        private readonly IHeadRotation _head;
         private readonly Vector2 _sensitivity;
 
         public CharacterRotation(IBodyRotation body, IHeadRotation head, Vector2 sensitivity)

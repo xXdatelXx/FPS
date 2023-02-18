@@ -1,8 +1,8 @@
 ﻿using FPS.Model;
 using Source.Runtime.Model.Health;
-using UnityEngine;
 using Source.Runtime.Model.Health.Views;
 using Source.Runtime.Views.Text;
+using UnityEngine;
 using GameObject = Source.Runtime.Models.GameObjects.GameObject;
 
 namespace Source.Runtime.CompositeRoot

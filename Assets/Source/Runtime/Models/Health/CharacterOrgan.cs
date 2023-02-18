@@ -4,18 +4,20 @@ using UnityEngine;
 
 namespace Source.Runtime.Model.Health
 {
-    [RequireComponent(typeof(Collider)), DisallowMultipleComponent]
+    [RequireComponent(typeof(Collider))]
+    [DisallowMultipleComponent]
     public sealed class CharacterOrgan : MonoBehaviour, ICharacterOrgan
     {
         private IHealth _health;
         private float _multiplier;
-        public bool Died => _health.Died;
 
         public void Construct(IHealth health, float multiplier)
         {
             _health = health.ThrowExceptionIfArgumentNull(nameof(health));
             _multiplier = multiplier.ThrowExceptionIfValueSubZero(nameof(multiplier));
         }
+
+        public bool Died => _health.Died;
 
         public void TakeDamage(float damage)
         {

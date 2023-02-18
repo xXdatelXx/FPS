@@ -10,23 +10,23 @@ namespace Source.Runtime.Loop
 {
     public sealed class GameLoop : IGameLoop
     {
-        private readonly IReadOnlyGameTime _time;
-        private readonly List<ITickable> _tickables = new();
-        private readonly List<ILateTickable> _lateTickables = new();
         private readonly List<IFixedTickable> _fixedTickables = new();
+        private readonly List<ILateTickable> _lateTickables = new();
+        private readonly List<ITickable> _tickables = new();
+        private readonly IReadOnlyGameTime _time;
 
-        public GameLoop(IReadOnlyGameTime time) =>
+        public GameLoop(IReadOnlyGameTime time) => 
             _time = time.ThrowExceptionIfArgumentNull(nameof(time));
 
-        public void Add(ITickable tickable) =>
+        public void Add(ITickable tickable) => 
             _tickables.Add(tickable.ThrowExceptionIfArgumentNull(nameof(tickable)));
 
-        public void Add(ILateTickable tickable) =>
+        public void Add(ILateTickable tickable) => 
             _lateTickables.Add(tickable.ThrowExceptionIfArgumentNull(nameof(tickable)));
 
-        public void Add(IFixedTickable tickable) =>
+        public void Add(IFixedTickable tickable) => 
             _fixedTickables.Add(tickable.ThrowExceptionIfArgumentNull(nameof(tickable)));
-        
+
         public void Start()
         {
             Start(UniTask.Yield(),

@@ -7,9 +7,11 @@ namespace Source.Runtime.Models.GameObjects
     public sealed class GameObject : IGameObject
     {
         private readonly UnityEngine.GameObject _object;
-        public bool Active { get; private set; }
 
-        public GameObject(UnityEngine.GameObject obj) => _object = obj.ThrowExceptionIfArgumentNull(nameof(obj));
+        public GameObject(UnityEngine.GameObject obj) => 
+            _object = obj.ThrowExceptionIfArgumentNull(nameof(obj));
+
+        public bool Active { get; private set; }
 
         public void Enable()
         {

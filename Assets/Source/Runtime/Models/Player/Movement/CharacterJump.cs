@@ -9,19 +9,20 @@ namespace FPS.Model
     public sealed class CharacterJump : ICharacterJump
     {
         private readonly CharacterController _controller;
-        private readonly AnimationCurve _motion;
         private readonly IReadOnlyGameTime _gameTime;
-        public bool Jumping { get; private set; }
-        public bool CanJump => _controller.isGrounded;
+        private readonly AnimationCurve _motion;
 
         public CharacterJump(CharacterController controller, AnimationCurve motion, IReadOnlyGameTime gameTime)
         {
             _controller = controller.ThrowExceptionIfArgumentNull(nameof(controller));
             _gameTime = gameTime.ThrowExceptionIfArgumentNull(nameof(gameTime));
             _motion = motion.ThrowExceptionIfArgumentNull(nameof(motion));
-            foreach (var key in _motion.keys) 
+            foreach (var key in _motion.keys)
                 key.value.ThrowExceptionIfValueSubZero(nameof(motion));
         }
+
+        public bool Jumping { get; private set; }
+        public bool CanJump => _controller.isGrounded;
 
         public async void Jump()
         {

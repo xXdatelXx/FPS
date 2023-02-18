@@ -5,9 +5,9 @@ namespace FPS.Model.Weapon
 {
     public sealed class PlayerWeaponWithMagazine : IPlayerWeapon
     {
+        private readonly IPlayerWeaponInput _input;
         private readonly IPlayerWeapon _playerWeapon;
         private readonly IWeaponWithMagazine _weapon;
-        private readonly IPlayerWeaponInput _input;
 
         public PlayerWeaponWithMagazine(IPlayerWeapon playerWeapon, IWeaponWithMagazine weapon, IPlayerWeaponInput input)
         {
@@ -20,11 +20,12 @@ namespace FPS.Model.Weapon
         {
             if (_input.Reloading && _weapon.CanReload)
                 _weapon.Reload();
-            
+
             _playerWeapon.Tick(deltaTime);
         }
 
         public void Enable() => _playerWeapon.Enable();
+
         public void Disable() => _playerWeapon.Disable();
     }
 }

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
-using FPS.Model;
 using System.Linq;
+using FPS.Model;
 using FPS.Model.Weapon;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -11,7 +11,7 @@ namespace Source.Runtime.CompositeRoot.Weapons
     {
         [SerializeField] private List<IPlayerWeaponFactory> _factories;
 
-        public IPlayerWeapons Create() =>
+        public IPlayerWeapons Create() => 
             new PlayerWeapons(CreateWeaponCollection(), new PlayerWeaponInput());
 
         private IWeaponCollection CreateWeaponCollection()

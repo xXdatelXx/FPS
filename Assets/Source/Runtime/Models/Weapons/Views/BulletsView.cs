@@ -7,8 +7,10 @@ namespace Source.Runtime.Models.Weapon.Views
     {
         private readonly ITextView _text;
 
-        public BulletsView(ITextView text) => _text = text.ThrowExceptionIfArgumentNull(nameof(text));
+        public BulletsView(ITextView text) => 
+            _text = text.ThrowExceptionIfArgumentNull(nameof(text));
 
-        public void Visualize(int bullets) => _text.Visualize(bullets);
+        public void Visualize(int bullets) => 
+            _text.Visualize(bullets);
     }
 }

@@ -1,14 +1,13 @@
 using FPS.Model.Rotation;
-using FPS.Model.Weapon;
 using Source.Runtime.Tools.Extensions;
 
 namespace FPS.Model
 {
     public sealed class Player : IPlayer
     {
+        private readonly IPlayerMovementInput _input;
         private readonly ICharacterMovement _movement;
         private readonly ICharacterRotation _rotation;
-        private readonly IPlayerMovementInput _input;
 
         public Player(ICharacterMovement movement, ICharacterRotation rotation, IPlayerMovementInput input)
         {

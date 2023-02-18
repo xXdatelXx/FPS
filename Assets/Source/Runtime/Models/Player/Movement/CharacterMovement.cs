@@ -7,12 +7,9 @@ namespace FPS.Model
     public sealed class CharacterMovement : ICharacterMovement
     {
         private readonly CharacterController _controller;
-        private readonly ICharacterJump _jump;
         private readonly IGravitation _gravitation;
+        private readonly ICharacterJump _jump;
         private readonly ISpeed _speed;
-        public bool Jumping => _jump.Jumping;
-        public bool CanJump => _jump.CanJump;
-        public bool CanGravitate => _gravitation.CanGravitate && !Jumping;
 
         public CharacterMovement(CharacterController controller, ICharacterJump jump, IGravitation gravitation, ISpeed speed)
         {
@@ -21,6 +18,10 @@ namespace FPS.Model
             _gravitation = gravitation.ThrowExceptionIfArgumentNull(nameof(gravitation));
             _speed = speed.ThrowExceptionIfArgumentNull(nameof(speed));
         }
+
+        public bool Jumping => _jump.Jumping;
+        public bool CanJump => _jump.CanJump;
+        public bool CanGravitate => _gravitation.CanGravitate && !Jumping;
 
         public void Move(Vector3 direction, float deltaTime)
         {
@@ -34,7 +35,7 @@ namespace FPS.Model
         }
 
         public void Gravitate(float deltaTime) => _gravitation.Gravitate(deltaTime);
-
+        
         public void Jump() => _jump.Jump();
     }
 }

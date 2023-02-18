@@ -12,14 +12,14 @@ namespace FPS.Model
         {
             var x = Input.GetAxis("Horizontal");
             var y = Input.GetAxis("Vertical");
-            
-            return new(x, 0, y);
+
+            return new Vector3(x, 0, y);
         }
 
-        public Vector3 Rotation() =>
+        public Vector3 Rotation() => 
             new(-Input.GetAxis("Mouse Y"), Input.GetAxis("Mouse X"));
 
-        public bool Jump() =>
+        public bool Jump() => 
             Input.GetButtonDown("Jump");
     }
 }

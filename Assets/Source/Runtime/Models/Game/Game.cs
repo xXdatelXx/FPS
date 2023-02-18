@@ -7,10 +7,10 @@ namespace Source.Runtime.CompositeRoot
 {
     public sealed class Game : IGame
     {
+        private readonly IGameLoop _gameLoop;
         private readonly IPlayer _player;
         private readonly IPlayerWeapons _weapons;
-        private readonly IGameLoop _gameLoop;
-        
+
         public Game(IGameEngine engine)
         {
             var time = new GameTime();
@@ -18,7 +18,7 @@ namespace Source.Runtime.CompositeRoot
             _weapons = engine.PlayerWeaponFactory.Create();
             _gameLoop = new GameLoop(time);
         }
-        
+
         public void Play()
         {
             _gameLoop.Add(_player);

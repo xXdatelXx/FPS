@@ -6,12 +6,12 @@ namespace FPS.Model.Weapons.Bullet
 {
     public sealed class Magazine : IMagazine
     {
+        public Magazine(int bulletCount) => 
+            Bullets = new IntWithStandard(bulletCount.ThrowExceptionIfValueSubZero(nameof(bulletCount)));
+
         public IntWithStandard Bullets { get; private set; }
         public bool CanGet => Bullets > 0;
         public bool CanReset => !Bullets.StandardEqualsValue;
-
-        public Magazine(int bulletCount) => 
-            Bullets = new IntWithStandard(bulletCount.ThrowExceptionIfValueSubZero(nameof(bulletCount)));
 
         public void Get()
         {
@@ -25,7 +25,7 @@ namespace FPS.Model.Weapons.Bullet
         {
             if (!CanReset)
                 throw new InvalidOperationException(nameof(Reset));
-            
+
             Bullets.Reset();
         }
     }

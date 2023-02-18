@@ -2,10 +2,10 @@
 using FPS.Model.Weapon;
 using FPS.Model.Weapons;
 using FPS.Model.Weapons.Bullet;
-using UnityEngine;
 using Source.Runtime.Model.Timer;
 using Source.Runtime.Models.Weapon.Views;
 using Source.Runtime.Views.Text;
+using UnityEngine;
 
 namespace Source.Runtime.CompositeRoot.Weapons
 {
@@ -17,8 +17,8 @@ namespace Source.Runtime.CompositeRoot.Weapons
         [SerializeField] private Timer _delay;
         [SerializeField] private Timer _enable;
         [SerializeField] private int _bullets;
-        [SerializeField] private TextView _bulletsView;
         [SerializeField] private WeaponAnimator _animator;
+        [SerializeField] private TextView _bulletsView;
 
         public IPlayerWeapon Create()
         {
@@ -26,7 +26,7 @@ namespace Source.Runtime.CompositeRoot.Weapons
             var magazine = new Magazine(_bullets);
             var view = new WeaponView(new BulletsView(_bulletsView), _animator);
             var input = new PlayerWeaponInput();
-            
+
             var weapon = new Weapon(bulletsFactory, view);
             var weaponWithDelay = new WeaponWithDelay(weapon, _delay);
             var handWeapon = new HandWeapon(weaponWithDelay, _enable, view);

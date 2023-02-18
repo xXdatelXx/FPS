@@ -1,12 +1,11 @@
 ﻿using Source.Runtime.Tools.Extensions;
-using Source.Runtime.Views.Text;
 
 namespace Source.Runtime.Models.Weapon.Views
 {
     public sealed class WeaponView : IWeaponView
     {
-        private readonly IBulletView _bullets;
         private readonly IWeaponAnimator _animator;
+        private readonly IBulletView _bullets;
 
         public WeaponView(IBulletView bullets, IWeaponAnimator animator)
         {

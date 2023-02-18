@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
 using Source.Runtime.Tools.Extensions;
 using UnityEngine;
@@ -9,19 +8,20 @@ namespace Source.Runtime.Model.Timer
     [Serializable]
     public sealed class Timer : ITimer
     {
+        private bool _canceled;
+
+        public Timer(float time) => 
+            Time = time.ThrowExceptionIfValueSubZero();
+
         [field: SerializeField] public float Time { get; }
         public bool Playing { get; private set; }
-        private bool _canceled;
-        
-        public Timer(float time) =>
-            Time = time.ThrowExceptionIfValueSubZero();
 
         public async void Play()
         {
             Playing = true;
             await UniTask.Delay(TimeSpan.FromSeconds(Time));
-            
-            if(!_canceled)
+
+            if (!_canceled)
                 Playing = false;
 
             _canceled = false;

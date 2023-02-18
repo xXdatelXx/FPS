@@ -5,8 +5,8 @@ namespace FPS.Model.Weapon
 {
     public sealed class PlayerWeapon : IPlayerWeapon
     {
-        private readonly IWeapon _weapon;
         private readonly IPlayerWeaponInput _input;
+        private readonly IWeapon _weapon;
 
         public PlayerWeapon(IWeaponWithMagazine weapon, IPlayerWeaponInput input)
         {
@@ -21,6 +21,7 @@ namespace FPS.Model.Weapon
         }
 
         public void Enable() => _weapon.Enable();
+
         public void Disable() => _weapon.Disable();
     }
 }

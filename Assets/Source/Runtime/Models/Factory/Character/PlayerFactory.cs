@@ -1,5 +1,4 @@
 using FPS.Model;
-using Sirenix.OdinInspector;
 using Source.Runtime.Models.Loop;
 using UnityEngine;
 

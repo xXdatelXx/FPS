@@ -6,9 +6,6 @@ namespace Source.Runtime.Tools.Math
     [Serializable]
     public struct Range
     {
-        [field: SerializeField] public float Min { get; private set; }
-        [field: SerializeField] public float Max { get; private set; }
-
         public Range(float min, float max)
         {
             if (max < min)
@@ -16,5 +13,8 @@ namespace Source.Runtime.Tools.Math
 
             (Max, Min) = (max, min);
         }
+
+        [field: SerializeField] public float Min { get; private set; }
+        [field: SerializeField] public float Max { get; private set; }
     }
 }

@@ -2,17 +2,15 @@
 using Source.Runtime.Model.Timer;
 using Source.Runtime.Models.Weapon.Views;
 using Source.Runtime.Tools.Extensions;
-using Source.Runtime.Models.Weapon.Views;
 
 namespace FPS.Model.Weapons
 {
     public sealed class HandWeapon : IWeapon
     {
-        private readonly IWeapon _weapon;
         private readonly ITimer _enableTimer;
         private readonly IWeaponView _view;
+        private readonly IWeapon _weapon;
         private bool _enabled;
-        public bool CanShoot => _weapon.CanShoot && _enabled;
 
         public HandWeapon(IWeapon weapon, ITimer enableTimer, IWeaponView view)
         {
@@ -21,11 +19,13 @@ namespace FPS.Model.Weapons
             _view = view.ThrowExceptionIfArgumentNull(nameof(view));
         }
 
+        public bool CanShoot => _weapon.CanShoot && _enabled;
+
         public void Shoot()
         {
             if (!CanShoot)
                 throw new InvalidOperationException(nameof(Shoot));
-             
+
             _weapon.Shoot();
         }
 
@@ -33,10 +33,10 @@ namespace FPS.Model.Weapons
         {
             if (_enabled)
                 throw new InvalidOperationException(nameof(Enable));
-            
+
             _enableTimer.Play();
             _view.OnEnable();
-            
+
             await _enableTimer.End();
 
             _enabled = true;
@@ -46,7 +46,7 @@ namespace FPS.Model.Weapons
         {
             if (!_enabled)
                 throw new InvalidOperationException(nameof(Disable));
-            
+
             _view.OnDisable();
             _enabled = false;
         }

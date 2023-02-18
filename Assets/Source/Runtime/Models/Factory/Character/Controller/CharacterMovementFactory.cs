@@ -8,8 +8,8 @@ namespace Source.Runtime.CompositeRoot
     public sealed class CharacterMovementFactory : SerializedMonoBehaviour, ICharacterMovementFactory
     {
         [SerializeField] private CharacterController _controller;
-        [SerializeField] private ISpeed _speed;
         [SerializeField] private AnimationCurve _jumpMotion;
+        [SerializeField] private ISpeed _speed;
 
         public ICharacterMovement Create(IReadOnlyGameTime time)
         {

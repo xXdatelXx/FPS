@@ -4,8 +4,8 @@ namespace FPS.Model.Weapons.Bullet
 {
     public sealed class RayBulletFactory : IBulletFactory
     {
-        private readonly IBulletSpawnPoint _spawnPoint;
         private readonly float _damage;
+        private readonly IBulletSpawnPoint _spawnPoint;
 
         public RayBulletFactory(IBulletSpawnPoint spawnPoint, float damage)
         {
@@ -13,7 +13,6 @@ namespace FPS.Model.Weapons.Bullet
             _damage = damage.ThrowExceptionIfValueSubZero(nameof(damage));
         }
 
-        public IBullet Create() => 
-            new RayBullet(_damage, _spawnPoint);
+        public IBullet Create() => new RayBullet(_damage, _spawnPoint);
     }
 }

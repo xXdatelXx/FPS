@@ -1,5 +1,4 @@
 ﻿using FPS.Model.Rotation;
-using Sirenix.OdinInspector;
 using Source.Runtime.Tools.Math;
 using UnityEngine;
 

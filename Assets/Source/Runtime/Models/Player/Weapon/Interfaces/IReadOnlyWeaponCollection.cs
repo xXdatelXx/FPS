@@ -3,11 +3,11 @@
     public interface IReadOnlyWeaponCollection
     {
         IPlayerWeapon Weapon { get; }
-        
+
         bool CanSwitchNext { get; }
-        IPlayerWeapon SwitchNext();
 
         bool CanSwitchPrevious { get; }
+        IPlayerWeapon SwitchNext();
         IPlayerWeapon SwitchPrevious();
     }
 }
