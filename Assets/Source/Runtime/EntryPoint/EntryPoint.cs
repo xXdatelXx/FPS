@@ -1,4 +1,3 @@
-using Sirenix.OdinInspector;
 using Source.Runtime.CompositeRoot;
 using Source.Runtime.CompositeRoot.Weapons;
 using UnityEngine;
@@ -6,10 +5,10 @@ using UnityEngine;
 namespace Source.Runtime.EntryPoint
 {
     [DisallowMultipleComponent]
-    public sealed class EntryPoint : SerializedMonoBehaviour
+    public sealed class EntryPoint : MonoBehaviour
     {
-        [SerializeField] private IPlayerFactory _playerFactory;
-        [SerializeField] private IPlayerWeaponCollectionFactory _playerWeaponFactory;
+        [SerializeField] private PlayerFactory _playerFactory;
+        [SerializeField] private PlayerWeaponCollectionFactory _playerWeaponFactory;
         
         private void Awake()
         {

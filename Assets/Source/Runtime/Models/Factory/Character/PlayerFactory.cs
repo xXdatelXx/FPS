@@ -5,11 +5,11 @@ using UnityEngine;
 
 namespace Source.Runtime.CompositeRoot
 {
-    public sealed class PlayerFactory : SerializedMonoBehaviour, IPlayerFactory
+    public sealed class PlayerFactory : MonoBehaviour, IPlayerFactory
     {
-        [SerializeField] private ICharacterMovementFactory _movement;
-        [SerializeField] private ICharacterRotationFactory _rotation;
-        [SerializeField] private ICharacterHealthFactory _health;
+        [SerializeField] private CharacterMovementFactory _movement;
+        [SerializeField] private CharacterRotationFactory _rotation;
+        [SerializeField] private CharacterHealthFactory _health;
 
         public IPlayer Create(IReadOnlyGameTime time)
         {
