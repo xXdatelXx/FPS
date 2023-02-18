@@ -1,6 +1,10 @@
-﻿using Source.Runtime.Model.Health;
+﻿using FPS.Model;
+using Source.Runtime.Model.Health;
 using UnityEngine;
 using Sirenix.OdinInspector;
+using Source.Runtime.Model.Health.Views;
+using Source.Runtime.Views.Text;
+using GameObject = Source.Runtime.Models.GameObjects.GameObject;
 
 namespace Source.Runtime.CompositeRoot
 {
@@ -9,10 +13,14 @@ namespace Source.Runtime.CompositeRoot
         [SerializeField] private ICharacterOrgan _head;
         [SerializeField] private ICharacterOrgan _body;
         [SerializeField] private float _healthPoint;
+        [SerializeField] private Character _character;
+        [SerializeField] private TextView _healthTextView;
 
         public void Create()
         {
-            var health = new Health(_healthPoint);
+            var character = new GameObject(_character.gameObject);
+            var healthView = new CharacterHealthView(_healthTextView, character);
+            var health = new Health(_healthPoint, healthView);
 
             _head.Construct(health, 2);
             _body.Construct(health, 1);

@@ -1,8 +1,9 @@
 using Sirenix.OdinInspector;
+using Source.Runtime.CompositeRoot;
 using Source.Runtime.CompositeRoot.Weapons;
 using UnityEngine;
 
-namespace Source.Runtime.CompositeRoot
+namespace Source.Runtime.EntryPoint
 {
     [DisallowMultipleComponent]
     public sealed class EntryPoint : SerializedMonoBehaviour

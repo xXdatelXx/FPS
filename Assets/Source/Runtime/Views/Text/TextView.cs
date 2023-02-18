@@ -7,15 +7,10 @@ namespace Source.Runtime.Views.Text
     {
         private readonly IText _text;
 
-        public TextView(IText text) => 
+        public TextView(IText text) =>
             _text = text.ThrowExceptionIfArgumentNull();
 
-        public void Visualize(string text) => 
-            _text.Set(text);
-
-        public void Visualize(int text)
-        {
-            throw new System.NotImplementedException();
-        }
+        public void Visualize(object obj) =>
+            _text.Set(obj.ToString());
     }
 }

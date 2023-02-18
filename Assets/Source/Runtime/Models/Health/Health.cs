@@ -1,4 +1,5 @@
 ﻿using System;
+using Source.Runtime.Model.Health.Views;
 using Source.Runtime.Tools.Extensions;
 
 namespace Source.Runtime.Model.Health
@@ -6,16 +7,20 @@ namespace Source.Runtime.Model.Health
     public sealed class Health : IHealth
     {
         private float _point;
-        private readonly IDieStrategy _dieStrategy;
-        public bool Died => _point < 0;
+        private readonly IDeathPolicy _deathPolicy;
+        private readonly IHealthView _view;
+        public bool Died => _deathPolicy.Died(_point);
 
-        public Health(float value) : this(value, new DieStrategy())
+        public Health(float value, IDeathPolicy deathPolicy) : this(value, deathPolicy, new DummyHealthView())
         { }
-
-        public Health(float value, IDieStrategy dieStrategy)
+        
+        public Health(float value, IHealthView view) : this(value, new DeathPolicy(), view)
+        {}
+        
+        public Health(float value, IDeathPolicy deathPolicy, IHealthView view)
         {
             _point = value.ThrowExceptionIfValueSubOrEqualZero(nameof(Health));
-            _dieStrategy = dieStrategy.ThrowExceptionIfArgumentNull(nameof(dieStrategy));
+            _deathPolicy = deathPolicy.ThrowExceptionIfArgumentNull(nameof(deathPolicy));
         }
 
         public void TakeDamage(float damage)
@@ -24,9 +29,10 @@ namespace Source.Runtime.Model.Health
                 throw new InvalidOperationException(nameof(TakeDamage));
 
             _point = Math.Min(_point - damage, 0);
+            _view.Damage(_point);
 
             if (Died)
-                _dieStrategy.Die();
+                _view.Die();
         }
     }
 }
