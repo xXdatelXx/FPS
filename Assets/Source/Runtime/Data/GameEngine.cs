@@ -6,9 +6,9 @@ namespace Source.Runtime.CompositeRoot
     public class GameEngine : IGameEngine
     {
         public IPlayerFactory PlayerFactory { get; }
-        public IPlayerWeaponFactory PlayerWeaponFactory { get; }
+        public IPlayerWeaponCollectionFactory PlayerWeaponFactory { get; }
 
-        public GameEngine(IPlayerFactory playerFactory, IPlayerWeaponFactory playerWeaponFactory)
+        public GameEngine(IPlayerFactory playerFactory, IPlayerWeaponCollectionFactory playerWeaponFactory)
         {
             PlayerFactory = playerFactory.ThrowExceptionIfArgumentNull(nameof(PlayerFactory));
             PlayerWeaponFactory = playerWeaponFactory.ThrowExceptionIfArgumentNull(nameof(playerWeaponFactory));

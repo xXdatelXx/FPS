@@ -12,5 +12,10 @@ namespace Source.Runtime.Views.Text
 
         public void Visualize(string text) => 
             _text.Set(text);
+
+        public void Visualize(int text)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

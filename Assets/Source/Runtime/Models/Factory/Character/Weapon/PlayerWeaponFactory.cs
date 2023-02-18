@@ -1,42 +1,40 @@
-﻿using System.Collections.Generic;
-using FPS.Model;
+﻿using FPS.Model;
 using FPS.Model.Weapon;
 using FPS.Model.Weapons;
 using FPS.Model.Weapons.Bullet;
-using Sirenix.OdinInspector;
+using UnityEngine;
 using Source.Runtime.Model.Timer;
 using Source.Runtime.Models.Weapon.Views;
-using UnityEngine;
+using Source.Runtime.Views.Text;
 
 namespace Source.Runtime.CompositeRoot.Weapons
 {
-    public sealed class PlayerWeaponFactory : SerializedMonoBehaviour, IPlayerWeaponFactory
+    public sealed class PlayerWeaponFactory : MonoBehaviour, IPlayerWeaponFactory
     {
-        [SerializeField, Header("item1 - damage, 2 - reload, 3 - enable, 4 - delay, 5 - bullets, 6 - weaponView, 7 - handWeaponView")]
-        private List<(float damage, ITimer reload, ITimer enable, ITimer delay, int bullets, IWeaponView weaponView, IHandWeaponView handWeaponView)> _weapons;
-
         [SerializeField] private BulletSpawnPoint _bulletSpawnPoint;
+        [SerializeField] private float _damage;
+        [SerializeField] private Timer _reload;
+        [SerializeField] private Timer _delay;
+        [SerializeField] private Timer _enable;
+        [SerializeField] private int _bullets;
+        [SerializeField] private TextView _bulletsView;
+        [SerializeField] private WeaponAnimator _animator;
 
-        public IPlayerWeapon Create() =>
-            new PlayerWeapon(CreateWeaponCollection(), new PlayerWeaponInput());
-
-        private IWeaponCollection<IHandWeapon> CreateWeaponCollection()
+        public IHandWeapon Create()
         {
-            var weaponsCollection = new WeaponCollection<IHandWeapon>();
-
-            foreach (var i in _weapons)
-            {
-                var bulletsFactory = new RayBulletFactory(_bulletSpawnPoint, i.damage);
-                var magazine = new Magazine(i.reload, i.bullets);
-
-                var weapon = new Weapon(magazine, bulletsFactory, i.weaponView);
-                var delayedWeapon = new DelayedWeapon(weapon, i.delay);
-                var handWeapon = new HandWeapon(delayedWeapon, i.enable, i.handWeaponView);
-
-                weaponsCollection.Add(handWeapon);
-            }
-
-            return weaponsCollection;
+            var bulletsFactory = new RayBulletFactory(_bulletSpawnPoint, _damage);
+            var magazine = new Magazine(_bullets);
+            var view = new WeaponView(_bulletsView, _animator);
+            var input = new PlayerWeaponInput();
+            
+            var weapon = new Weapon(bulletsFactory, view);
+            var weaponWithDelay = new WeaponWithDelay(weapon, _delay);
+            var weaponWithMagazine = new WeaponWithMagazine(weapon, magazine, _reload, view);
+            
+            IPlayerWeapon player = new PlayerWeapon()
+            player = new PlayerWeaponWithMagazine(player, weaponWithMagazine, input);
+            
+            return new HandWeapon(weapon, _enable, view);
         }
     }
 }

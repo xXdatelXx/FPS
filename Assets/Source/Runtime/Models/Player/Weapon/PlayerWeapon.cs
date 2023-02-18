@@ -22,9 +22,6 @@ namespace FPS.Model.Weapon
             if (_input.Shooting && _weapon.CanShoot) 
                 _weapon.Shoot();
 
-            if (_input.Reloading && _weapon.CanReload)
-                _weapon.Reload();
-
             if (_input.SwitchNext && _weapons.CanSwitchNext) 
                 Switch(_weapons.SwitchNext());
 

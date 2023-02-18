@@ -30,7 +30,7 @@
             a.Value < b;
 
         public bool StandardEqualsValue => Standard == Value;
-
+        
         public void Reset() => Value = Standard;
     }
 }

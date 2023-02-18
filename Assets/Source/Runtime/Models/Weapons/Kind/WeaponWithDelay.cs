@@ -4,14 +4,13 @@ using Source.Runtime.Tools.Extensions;
 
 namespace FPS.Model.Weapons
 {
-    public sealed class DelayedWeapon : IWeapon
+    public sealed class WeaponWithDelay : IWeapon
     {
         private readonly IWeapon _weapon;
         private readonly ITimer _delay;
         public bool CanShoot => _weapon.CanShoot && !_delay.Playing;
-        public bool CanReload => _weapon.CanReload && !_delay.Playing;
 
-        public DelayedWeapon(IWeapon weapon, ITimer delay)
+        public WeaponWithDelay(IWeapon weapon, ITimer delay)
         {
             _weapon = weapon.ThrowExceptionIfArgumentNull(nameof(weapon));
             _delay = delay.ThrowExceptionIfArgumentNull(nameof(delay));
@@ -26,18 +25,16 @@ namespace FPS.Model.Weapons
             Delay();
         }
 
-        public void Reload()
-        {
-            if (!CanReload)
-                throw new InvalidOperationException(nameof(Reload));
-            
-            _weapon.Reload();
-        }
+        private void Delay() => _delay.Play();
 
-        private async void Delay()
+        public void Enable() => _weapon.Enable();
+
+        public void Disable()
         {
-            _delay.Play();
-            await _delay.End();
+            _weapon.Disable();
+            
+            if (!_delay.Playing)
+                _delay.Cancel();
         }
     }
 }

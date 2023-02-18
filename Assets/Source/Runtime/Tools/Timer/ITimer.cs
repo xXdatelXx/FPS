@@ -7,5 +7,6 @@ namespace Source.Runtime.Model.Timer
         bool Playing { get; }
         void Play();
         UniTask End();
+        void Cancel();
     }
 }

@@ -8,7 +8,7 @@ namespace Source.Runtime.CompositeRoot
     public sealed class EntryPoint : SerializedMonoBehaviour
     {
         [SerializeField] private IPlayerFactory _playerFactory;
-        [SerializeField] private IPlayerWeaponFactory _playerWeaponFactory;
+        [SerializeField] private IPlayerWeaponCollectionFactory _playerWeaponFactory;
         
         private void Awake()
         {

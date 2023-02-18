@@ -3,8 +3,8 @@
     public interface IWeapon
     {
         bool CanShoot { get; }
-        bool CanReload { get; }
         void Shoot();
-        void Reload();
+        void Enable();
+        void Disable();
     }
 }

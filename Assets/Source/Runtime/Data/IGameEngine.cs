@@ -5,6 +5,6 @@ namespace Source.Runtime.CompositeRoot
     public interface IGameEngine
     {
         IPlayerFactory PlayerFactory { get; }
-        IPlayerWeaponFactory PlayerWeaponFactory { get; }
+        IPlayerWeaponCollectionFactory PlayerWeaponFactory { get; }
     }
 }

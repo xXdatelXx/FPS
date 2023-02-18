@@ -7,7 +7,6 @@ namespace FPS.Model
         void Add(ITickable tickable);
         void Add(ILateTickable tickable);
         void Add(IFixedTickable tickable);
-
         void Start();
     }
 }

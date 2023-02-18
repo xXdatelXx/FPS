@@ -5,7 +5,6 @@
         private readonly IWeapon _weapon;
         // private readonly IRecoil _recoil;
         public bool CanShoot => _weapon.CanShoot;
-        public bool CanReload => _weapon.CanReload;
 
         public void Shoot()
         {
@@ -13,6 +12,14 @@
             // _recoil.
         }
 
-        public void Reload() => _weapon.Reload();
+        public void Enable()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void Disable()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
