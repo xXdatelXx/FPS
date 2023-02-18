@@ -8,7 +8,7 @@ namespace FPS.Model.Weapons.Bullet
     {
         public IntWithStandard Bullets { get; private set; }
         public bool CanGet => Bullets > 0;
-        public bool CanReset => Bullets.StandardEqualsValue;
+        public bool CanReset => !Bullets.StandardEqualsValue;
 
         public Magazine(int bulletCount) => 
             Bullets = new IntWithStandard(bulletCount.ThrowExceptionIfValueSubZero(nameof(bulletCount)));

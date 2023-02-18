@@ -20,21 +20,22 @@ namespace Source.Runtime.CompositeRoot.Weapons
         [SerializeField] private TextView _bulletsView;
         [SerializeField] private WeaponAnimator _animator;
 
-        public IHandWeapon Create()
+        public IPlayerWeapon Create()
         {
             var bulletsFactory = new RayBulletFactory(_bulletSpawnPoint, _damage);
             var magazine = new Magazine(_bullets);
-            var view = new WeaponView(_bulletsView, _animator);
+            var view = new WeaponView(new BulletsView(_bulletsView), _animator);
             var input = new PlayerWeaponInput();
             
             var weapon = new Weapon(bulletsFactory, view);
             var weaponWithDelay = new WeaponWithDelay(weapon, _delay);
-            var weaponWithMagazine = new WeaponWithMagazine(weapon, magazine, _reload, view);
-            
-            IPlayerWeapon player = new PlayerWeapon()
-            player = new PlayerWeaponWithMagazine(player, weaponWithMagazine, input);
-            
-            return new HandWeapon(weapon, _enable, view);
+            var handWeapon = new HandWeapon(weaponWithDelay, _enable, view);
+            var weaponWithMagazine = new WeaponWithMagazine(handWeapon, magazine, _reload, view);
+
+            var playerWeapon = new PlayerWeapon(weaponWithMagazine, input);
+            var playerWeaponWithMagazine = new PlayerWeaponWithMagazine(playerWeapon, weaponWithMagazine, input);
+
+            return playerWeaponWithMagazine;
         }
     }
 }

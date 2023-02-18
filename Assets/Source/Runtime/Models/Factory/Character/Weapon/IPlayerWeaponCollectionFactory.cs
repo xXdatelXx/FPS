@@ -4,6 +4,6 @@ namespace Source.Runtime.CompositeRoot.Weapons
 {
     public interface IPlayerWeaponCollectionFactory
     {
-        IPlayerWeapon Create();
+        IPlayerWeapons Create();
     }
 }

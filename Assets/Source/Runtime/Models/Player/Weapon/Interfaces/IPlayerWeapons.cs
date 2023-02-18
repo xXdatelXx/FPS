@@ -2,7 +2,7 @@
 
 namespace FPS.Model.Weapon
 {
-    public interface IPlayerWeapon : ITickable
+    public interface IPlayerWeapons : ITickable
     {
     }
 }

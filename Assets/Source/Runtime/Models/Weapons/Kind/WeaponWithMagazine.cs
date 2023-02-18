@@ -12,8 +12,9 @@ namespace FPS.Model.Weapons
         private readonly IMagazine _magazine;
         private readonly ITimer _reloadTimer;
         private readonly IWeaponView _view;
+        private bool _enabled;
         public bool CanShoot => _weapon.CanShoot && _magazine.CanGet;
-        public bool CanReload => _magazine.CanReset;
+        public bool CanReload => _magazine.CanReset && !_reloadTimer.Playing;
 
         public WeaponWithMagazine(IWeapon weapon, IMagazine magazine, ITimer reloadTimer, IWeaponView view)
         {
@@ -38,12 +39,12 @@ namespace FPS.Model.Weapons
             if (!CanReload)
                 throw new InvalidOperationException(nameof(Reload));
 
-            _reloadTimer.Play();
             _view.OnReload();
+            _reloadTimer.Play();
 
             await _reloadTimer.End();
 
-            if (!CanReload)
+            if (!_enabled)
                 return;
 
             _magazine.Reset();
@@ -54,8 +55,14 @@ namespace FPS.Model.Weapons
         {
             _view.VisualizeBullets(_magazine.Bullets.Value);
             _weapon.Enable();
+            _enabled = true;
         }
 
-        public void Disable() => _weapon.Disable();
+        public void Disable()
+        {
+            _weapon.Disable();
+            _reloadTimer.Cancel();
+            _enabled = false;
+        }
     }
 }

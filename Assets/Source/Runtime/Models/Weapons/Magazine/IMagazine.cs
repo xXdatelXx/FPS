@@ -1,6 +1,4 @@
-﻿using Cysharp.Threading.Tasks;
-
-namespace FPS.Model.Weapons.Bullet
+﻿namespace FPS.Model.Weapons.Bullet
 {
     public interface IMagazine : IReadOnlyMagazine
     {

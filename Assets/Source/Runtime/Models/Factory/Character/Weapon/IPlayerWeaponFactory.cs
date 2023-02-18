@@ -1,9 +1,9 @@
-﻿using FPS.Model.Weapons;
+﻿using FPS.Model.Weapon;
 
 namespace Source.Runtime.CompositeRoot.Weapons
 {
     public interface IPlayerWeaponFactory
     {
-        IHandWeapon Create();
+        IPlayerWeapon Create();
     }
 }

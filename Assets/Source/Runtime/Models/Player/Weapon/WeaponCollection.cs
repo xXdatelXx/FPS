@@ -1,31 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using FPS.Model.Weapons;
 using Source.Runtime.Tools.Extensions;
 
 namespace FPS.Model.Weapon
 {
-    public sealed class WeaponCollection<TWeapon> : IWeaponCollection<TWeapon> where TWeapon : IWeapon
+    public sealed class WeaponCollection : IWeaponCollection
     {
-        private readonly List<TWeapon> _weapons;
+        private readonly List<IPlayerWeapon> _weapons;
         private int _id;
-        public TWeapon Weapon => _weapons[_id];
+        public IPlayerWeapon Weapon => _weapons[_id];
         public bool CanSwitchNext => _id + 1 > _weapons.Count;
         public bool CanSwitchPrevious => _id - 1 < 0;
 
-        public WeaponCollection(params TWeapon[] weapons) : this(weapons.ToList())
+        public WeaponCollection(params IPlayerWeapon[] weapons) : this(weapons.ToList())
         { }
 
-        public WeaponCollection(List<TWeapon> weapons) => 
+        public WeaponCollection(List<IPlayerWeapon> weapons) => 
             _weapons = weapons.ThrowExceptionIfArgumentNull(nameof(weapons));
 
-        public void Add(TWeapon weapon) =>
+        public void Add(IPlayerWeapon weapon) =>
             _weapons.Add(weapon.ThrowExceptionIfArgumentNull(nameof(weapon)));
 
-        public void Remove(TWeapon weapon) => _weapons.Remove(weapon);
+        public void Remove(IPlayerWeapon weapon) => _weapons.Remove(weapon);
 
-        public TWeapon SwitchNext()
+        public IPlayerWeapon SwitchNext()
         {
             if (!CanSwitchNext)
                 throw new InvalidOperationException(nameof(SwitchNext));
@@ -33,7 +32,7 @@ namespace FPS.Model.Weapon
             return _weapons[++_id];
         }
 
-        public TWeapon SwitchPrevious()
+        public IPlayerWeapon SwitchPrevious()
         {
             if (!CanSwitchPrevious)
                 throw new InvalidOperationException(nameof(SwitchNext));

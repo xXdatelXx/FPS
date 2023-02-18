@@ -23,5 +23,8 @@ namespace FPS.Model.Weapon
             
             _playerWeapon.Tick(deltaTime);
         }
+
+        public void Enable() => _playerWeapon.Enable();
+        public void Disable() => _playerWeapon.Disable();
     }
 }

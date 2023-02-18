@@ -2,7 +2,6 @@
 using FPS.Model;
 using System.Linq;
 using FPS.Model.Weapon;
-using FPS.Model.Weapons;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -12,13 +11,13 @@ namespace Source.Runtime.CompositeRoot.Weapons
     {
         [SerializeField] private List<IPlayerWeaponFactory> _factories;
 
-        public IPlayerWeapon Create() =>
-            new PlayerWeapon(CreateWeaponCollection(), new PlayerWeaponInput());
+        public IPlayerWeapons Create() =>
+            new PlayerWeapons(CreateWeaponCollection(), new PlayerWeaponInput());
 
-        private IWeaponCollection<IHandWeapon> CreateWeaponCollection()
+        private IWeaponCollection CreateWeaponCollection()
         {
             var weapons = _factories.Select(i => i.Create()).ToList();
-            return new WeaponCollection<IHandWeapon>(weapons);
+            return new WeaponCollection(weapons);
         }
     }
 }

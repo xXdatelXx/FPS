@@ -5,12 +5,12 @@ namespace Source.Runtime.Models.Weapon.Views
 {
     public sealed class WeaponView : IWeaponView
     {
-        private readonly ITextView _bulletsView;
+        private readonly IBulletView _bullets;
         private readonly IWeaponAnimator _animator;
 
-        public WeaponView(ITextView bulletsView, IWeaponAnimator animator)
+        public WeaponView(IBulletView bullets, IWeaponAnimator animator)
         {
-            _bulletsView = bulletsView.ThrowExceptionIfArgumentNull(nameof(bulletsView));
+            _bullets = bullets.ThrowExceptionIfArgumentNull(nameof(bullets));
             _animator = animator.ThrowExceptionIfArgumentNull(nameof(animator));
         }
 
@@ -18,7 +18,7 @@ namespace Source.Runtime.Models.Weapon.Views
 
         public void OnReload() => _animator.PlayReload();
 
-        public void VisualizeBullets(int bullets) => _bulletsView.Visualize(bullets);
+        public void VisualizeBullets(int bullets) => _bullets.Visualize(bullets);
 
         public void OnEnable() => _animator.PlayEnable();
 

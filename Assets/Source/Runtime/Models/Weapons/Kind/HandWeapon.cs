@@ -6,7 +6,7 @@ using Source.Runtime.Models.Weapon.Views;
 
 namespace FPS.Model.Weapons
 {
-    public sealed class HandWeapon : IHandWeapon
+    public sealed class HandWeapon : IWeapon
     {
         private readonly IWeapon _weapon;
         private readonly ITimer _enableTimer;

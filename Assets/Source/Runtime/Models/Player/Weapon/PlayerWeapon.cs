@@ -5,35 +5,22 @@ namespace FPS.Model.Weapon
 {
     public sealed class PlayerWeapon : IPlayerWeapon
     {
-        private readonly IReadOnlyWeaponCollection<IHandWeapon> _weapons;
+        private readonly IWeapon _weapon;
         private readonly IPlayerWeaponInput _input;
-        private IHandWeapon _weapon;
 
-        public PlayerWeapon(IReadOnlyWeaponCollection<IHandWeapon> weapons, IPlayerWeaponInput input)
+        public PlayerWeapon(IWeaponWithMagazine weapon, IPlayerWeaponInput input)
         {
-            _weapons = weapons.ThrowExceptionIfArgumentNull(nameof(weapons));
+            _weapon = weapon.ThrowExceptionIfArgumentNull(nameof(weapon));
             _input = input.ThrowExceptionIfArgumentNull(nameof(input));
-            _weapon = _weapons.Weapon;
-            _weapon.Enable();
         }
 
         public void Tick(float deltaTime)
         {
-            if (_input.Shooting && _weapon.CanShoot) 
+            if (_input.Shooting && _weapon.CanShoot)
                 _weapon.Shoot();
-
-            if (_input.SwitchNext && _weapons.CanSwitchNext) 
-                Switch(_weapons.SwitchNext());
-
-            if (_input.SwitchPrevious && _weapons.CanSwitchPrevious)
-                Switch(_weapons.SwitchPrevious());
         }
 
-        private void Switch(IHandWeapon nextWeapon)
-        {
-            _weapon.Disable();
-            _weapon = nextWeapon;
-            _weapon.Enable();
-        }
+        public void Enable() => _weapon.Enable();
+        public void Disable() => _weapon.Disable();
     }
 }
