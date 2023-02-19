@@ -1,4 +1,5 @@
 using System;
+using Source.Runtime.Models.Movement;
 using Source.Runtime.Models.Player.Movement.Interfaces;
 using Source.Runtime.Tools.Extensions;
 using UnityEngine;
@@ -7,12 +8,12 @@ namespace Source.Runtime.Models.Player.Movement
 {
     public sealed class CharacterMovement : ICharacterMovement
     {
-        private readonly CharacterController _controller;
+        private readonly IMovement _controller;
         private readonly IGravitation _gravitation;
         private readonly ICharacterJump _jump;
         private readonly ISpeed _speed;
 
-        public CharacterMovement(CharacterController controller, ICharacterJump jump, IGravitation gravitation, ISpeed speed)
+        public CharacterMovement(IMovement controller, ICharacterJump jump, IGravitation gravitation, ISpeed speed)
         {
             _controller = controller.ThrowExceptionIfArgumentNull(nameof(controller));
             _jump = jump.ThrowExceptionIfArgumentNull(nameof(jump));
@@ -29,10 +30,9 @@ namespace Source.Runtime.Models.Player.Movement
             if (direction == Vector3.zero)
                 throw new InvalidOperationException(nameof(Move));
 
-            direction = _controller.TransformDirection(direction);
             var motion = direction * _speed.Value * deltaTime;
 
-            _controller.Move(motion);
+            _controller.MoveByRotation(motion);
         }
 
         public void Gravitate(float deltaTime) => _gravitation.Gravitate(deltaTime);

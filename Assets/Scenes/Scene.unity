@@ -201,23 +201,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 260700d0d399435f8a95cf85ac086e27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects:
-    - {fileID: 411870513}
-    - {fileID: 411870514}
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: _playerFactory
-      Entry: 10
-      Data: 0
-    - Name: _playerWeaponFactory
-      Entry: 10
-      Data: 1
+  _playerFactory: {fileID: 411870513}
+  _playerWeaponFactory: {fileID: 0}
 --- !u!1 &407891308
 GameObject:
   m_ObjectHideFlags: 0
@@ -334,9 +319,6 @@ GameObject:
   m_Component:
   - component: {fileID: 411870510}
   - component: {fileID: 411870513}
-  - component: {fileID: 411870512}
-  - component: {fileID: 411870511}
-  - component: {fileID: 411870514}
   - component: {fileID: 411870515}
   m_Layer: 0
   m_Name: PlayerFactory
@@ -356,11 +338,13 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1237512633}
+  - {fileID: 679011738}
   m_Father: {fileID: 281983125}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &411870511
+--- !u!114 &411870513
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -369,22 +353,68 @@ MonoBehaviour:
   m_GameObject: {fileID: 411870509}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16c08ebf3f71ddd41be0bff43bab11d3, type: 3}
+  m_Script: {fileID: 11500000, guid: a10588766ff589044bb03b6401ea5fa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _head: {fileID: 963194227}
-  _body: {fileID: 1469679155}
-  _sensitivity: {x: 10, y: 10}
-  _xEuler:
-    <Min>k__BackingField: -40
-    <Max>k__BackingField: 40
---- !u!114 &411870512
+  _movement: {fileID: 0}
+  _rotation: {fileID: 0}
+  _health: {fileID: 0}
+--- !u!114 &411870515
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 411870509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7e3b3826e0b4b6591f5aa3011281cd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _head: {fileID: 0}
+  _body: {fileID: 0}
+  _healthPoint: 100
+  _character: {fileID: 0}
+--- !u!1 &679011737
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 679011738}
+  - component: {fileID: 679011740}
+  - component: {fileID: 679011739}
+  m_Layer: 0
+  m_Name: Controller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &679011738
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 679011737}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 411870510}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &679011739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 679011737}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 28cdc1b32457dd64abb68d3964213851, type: 3}
@@ -400,13 +430,7 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes:
     - Name: _speed
-      Entry: 7
-      Data: 0|FPS.Model.Speed, Assembly
-    - Name: <Value>k__BackingField
-      Entry: 4
-      Data: 10
-    - Name: 
-      Entry: 8
+      Entry: 6
       Data: 
   _controller: {fileID: 1469679155}
   _jumpMotion:
@@ -442,159 +466,24 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &411870513
+--- !u!114 &679011740
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 411870509}
+  m_GameObject: {fileID: 679011737}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a10588766ff589044bb03b6401ea5fa1, type: 3}
+  m_Script: {fileID: 11500000, guid: 16c08ebf3f71ddd41be0bff43bab11d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects:
-    - {fileID: 411870512}
-    - {fileID: 411870511}
-    - {fileID: 411870515}
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: _movement
-      Entry: 10
-      Data: 0
-    - Name: _rotation
-      Entry: 10
-      Data: 1
-    - Name: _health
-      Entry: 10
-      Data: 2
---- !u!114 &411870514
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 411870509}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba006a4ba644453f854a41cd781fb09c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: _weapons
-      Entry: 7
-      Data: 0|System.Collections.Generic.List`1[[System.ValueTuple`7[[System.Single,
-        mscorlib],[Source.Runtime.Model.Timer.ITimer, Tools],[Source.Runtime.Model.Timer.ITimer,
-        Tools],[Source.Runtime.Model.Timer.ITimer, Tools],[System.Int32, mscorlib],[Source.Runtime.Models.Weapon.Views.IWeaponView,
-        Assembly],[Source.Runtime.Models.Weapon.Views.IHandWeaponView, Assembly]],
-        mscorlib]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 7
-      Data: System.ValueTuple`7[[System.Single, mscorlib],[Source.Runtime.Model.Timer.ITimer,
-        Tools],[Source.Runtime.Model.Timer.ITimer, Tools],[Source.Runtime.Model.Timer.ITimer,
-        Tools],[System.Int32, mscorlib],[Source.Runtime.Models.Weapon.Views.IWeaponView,
-        Assembly],[Source.Runtime.Models.Weapon.Views.IHandWeaponView, Assembly]],
-        mscorlib
-    - Name: Item1
-      Entry: 4
-      Data: 10
-    - Name: Item2
-      Entry: 7
-      Data: 1|Source.Runtime.Model.Timer.Timer, Tools
-    - Name: <Time>k__BackingField
-      Entry: 4
-      Data: 3
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Item3
-      Entry: 7
-      Data: 2|Source.Runtime.Model.Timer.Timer, Tools
-    - Name: <Time>k__BackingField
-      Entry: 4
-      Data: 1
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Item4
-      Entry: 7
-      Data: 3|Source.Runtime.Model.Timer.Timer, Tools
-    - Name: <Time>k__BackingField
-      Entry: 4
-      Data: 0.5
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Item5
-      Entry: 3
-      Data: 10
-    - Name: Item6
-      Entry: 7
-      Data: 4|Source.Runtime.Models.Weapon.Views.WeaponView, Assembly
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: Item7
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-  _bulletSpawnPoint: {fileID: 1106165688}
---- !u!114 &411870515
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 411870509}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7e3b3826e0b4b6591f5aa3011281cd1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects:
-    - {fileID: 963194230}
-    - {fileID: 1469679160}
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: _head
-      Entry: 10
-      Data: 0
-    - Name: _body
-      Entry: 10
-      Data: 1
-  _healthPoint: 100
+  _head: {fileID: 963194227}
+  _body: {fileID: 1469679155}
+  _sensitivity: {x: 10, y: 10}
+  _xEuler:
+    <Min>k__BackingField: -40
+    <Max>k__BackingField: 40
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1050,6 +939,91 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b962d885e7204982bcc3f6d65ae6a66a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1237512632
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1237512633}
+  - component: {fileID: 1237512635}
+  - component: {fileID: 1237512634}
+  m_Layer: 0
+  m_Name: Weapon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1237512633
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1237512632}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 411870510}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1237512634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1237512632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d6c66e675d74654832d0e8f52d15360, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bulletSpawnPoint: {fileID: 0}
+  _weaponData: {fileID: 0}
+  _animator: {fileID: 0}
+--- !u!114 &1237512635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1237512632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba006a4ba644453f854a41cd781fb09c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: _factories
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[Source.Runtime.Models.Factory.Character.Weapon.IPlayerWeaponFactory,
+        Assembly]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 6
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
 --- !u!1 &1469679154
 GameObject:
   m_ObjectHideFlags: 0
@@ -1063,6 +1037,7 @@ GameObject:
   - component: {fileID: 1469679158}
   - component: {fileID: 1469679160}
   - component: {fileID: 1469679159}
+  - component: {fileID: 1469679161}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -1156,6 +1131,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 87d3773559c842fe9f35ee08b1a14610, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1469679161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1469679154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eda2b1ed0011461aa5ac2ec597114fb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1840656539
