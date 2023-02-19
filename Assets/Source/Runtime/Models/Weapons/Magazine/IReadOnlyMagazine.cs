@@ -1,6 +1,6 @@
 ﻿using Source.Runtime.Tools.Math;
 
-namespace FPS.Model.Weapons.Bullet
+namespace Source.Runtime.Models.Weapons.Magazine
 {
     public interface IReadOnlyMagazine
     {

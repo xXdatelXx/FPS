@@ -3,7 +3,7 @@ using Cysharp.Threading.Tasks;
 using Source.Runtime.Tools.Extensions;
 using UnityEngine;
 
-namespace Source.Runtime.Model.Timer
+namespace Source.Runtime.Tools.Timer
 {
     [Serializable]
     public sealed class Timer : ITimer

@@ -1,4 +1,4 @@
-﻿namespace Source.Runtime.Model.Health
+﻿namespace Source.Runtime.Models.Health.Policy
 {
     public interface IDeathPolicy
     {

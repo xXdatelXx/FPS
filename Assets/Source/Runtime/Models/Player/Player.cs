@@ -1,7 +1,9 @@
-using FPS.Model.Rotation;
+using Source.Runtime.Input;
+using Source.Runtime.Models.Player.Movement.Interfaces;
+using Source.Runtime.Models.Player.Rotation;
 using Source.Runtime.Tools.Extensions;
 
-namespace FPS.Model
+namespace Source.Runtime.Models.Player
 {
     public sealed class Player : IPlayer
     {

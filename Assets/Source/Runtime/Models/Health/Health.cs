@@ -1,8 +1,9 @@
 ﻿using System;
-using Source.Runtime.Model.Health.Views;
+using Source.Runtime.Models.Health.Policy;
+using Source.Runtime.Models.Health.Views;
 using Source.Runtime.Tools.Extensions;
 
-namespace Source.Runtime.Model.Health
+namespace Source.Runtime.Models.Health
 {
     public sealed class Health : IHealth
     {

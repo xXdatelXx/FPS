@@ -1,4 +1,4 @@
-namespace FPS.Model
+namespace Source.Runtime.Models.Player.Movement.Interfaces
 {
     public interface ISpeed
     {

@@ -1,7 +1,7 @@
 ﻿using Source.Runtime.Tools.Extensions;
 using Source.Runtime.Views.Text;
 
-namespace Source.Runtime.Models.Weapon.Views
+namespace Source.Runtime.Models.Weapons.Views
 {
     public sealed class BulletsView : IBulletView
     {

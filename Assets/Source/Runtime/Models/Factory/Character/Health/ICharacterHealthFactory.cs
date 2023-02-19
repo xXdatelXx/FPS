@@ -1,4 +1,4 @@
-﻿namespace Source.Runtime.CompositeRoot
+﻿namespace Source.Runtime.Models.Factory.Character.Health
 {
     public interface ICharacterHealthFactory
     {

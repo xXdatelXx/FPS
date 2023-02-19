@@ -1,8 +1,8 @@
-﻿using Source.Runtime.Models.GameObjects;
-using Source.Runtime.Tools.Extensions;
+﻿using Source.Runtime.Tools.Extensions;
+using Source.Runtime.Views.GameObject;
 using Source.Runtime.Views.Text;
 
-namespace Source.Runtime.Model.Health.Views
+namespace Source.Runtime.Models.Health.Views
 {
     public sealed class CharacterHealthView : IHealthView
     {

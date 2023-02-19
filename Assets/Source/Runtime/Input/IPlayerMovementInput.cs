@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace FPS.Model
+namespace Source.Runtime.Input
 {
     public interface IPlayerMovementInput
     {

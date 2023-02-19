@@ -1,4 +1,4 @@
-﻿namespace Source.Runtime.Models.GameObjects
+﻿namespace Source.Runtime.Views.GameObject
 {
     public interface IGameObject
     {

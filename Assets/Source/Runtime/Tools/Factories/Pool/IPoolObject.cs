@@ -1,4 +1,4 @@
-﻿namespace Source.Runtime.Tools.Pool
+﻿namespace Source.Runtime.Tools.Factories.Pool
 {
     public interface IPoolObject
     {

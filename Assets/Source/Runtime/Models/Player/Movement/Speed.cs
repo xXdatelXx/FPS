@@ -1,7 +1,8 @@
+using Source.Runtime.Models.Player.Movement.Interfaces;
 using Source.Runtime.Tools.Extensions;
 using UnityEngine;
 
-namespace FPS.Model
+namespace Source.Runtime.Models.Player.Movement
 {
     public struct Speed : ISpeed
     {

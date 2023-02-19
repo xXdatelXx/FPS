@@ -1,9 +1,10 @@
-﻿using FPS.Model;
-using Sirenix.OdinInspector;
-using Source.Runtime.Models.Loop;
+﻿using Sirenix.OdinInspector;
+using Source.Runtime.Models.Game.Loop.Time;
+using Source.Runtime.Models.Player.Movement;
+using Source.Runtime.Models.Player.Movement.Interfaces;
 using UnityEngine;
 
-namespace Source.Runtime.CompositeRoot
+namespace Source.Runtime.Models.Factory.Character.Controller
 {
     public sealed class CharacterMovementFactory : SerializedMonoBehaviour, ICharacterMovementFactory
     {

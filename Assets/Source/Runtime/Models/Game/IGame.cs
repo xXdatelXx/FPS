@@ -1,4 +1,4 @@
-﻿namespace Source.Runtime.CompositeRoot
+﻿namespace Source.Runtime.Models.Game
 {
     public interface IGame
     {

@@ -1,8 +1,11 @@
-using FPS.Model;
-using Source.Runtime.Models.Loop;
+using Source.Runtime.Input;
+using Source.Runtime.Models.Factory.Character.Controller;
+using Source.Runtime.Models.Factory.Character.Health;
+using Source.Runtime.Models.Game.Loop.Time;
+using Source.Runtime.Models.Player;
 using UnityEngine;
 
-namespace Source.Runtime.CompositeRoot
+namespace Source.Runtime.Models.Factory.Character
 {
     public sealed class PlayerFactory : MonoBehaviour, IPlayerFactory
     {
@@ -13,7 +16,7 @@ namespace Source.Runtime.CompositeRoot
         public IPlayer Create(IReadOnlyGameTime time)
         {
             _health.Create();
-            return new Player(_movement.Create(time), _rotation.Create(), new PlayerMovementInput());
+            return new Player.Player(_movement.Create(time), _rotation.Create(), new PlayerMovementInput());
         }
     }
 }

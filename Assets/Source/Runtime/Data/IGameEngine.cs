@@ -1,5 +1,5 @@
-﻿using Source.Runtime.CompositeRoot;
-using Source.Runtime.CompositeRoot.Weapons;
+﻿using Source.Runtime.Models.Factory.Character;
+using Source.Runtime.Models.Factory.Character.Weapon;
 
 namespace Source.Runtime.Data
 {

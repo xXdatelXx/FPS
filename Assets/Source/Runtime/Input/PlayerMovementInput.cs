@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace FPS.Model
+namespace Source.Runtime.Input
 {
     //TODO переделать на input system 2.0
     public sealed class PlayerMovementInput : IPlayerMovementInput
@@ -10,16 +10,16 @@ namespace FPS.Model
 
         public Vector3 Movement()
         {
-            var x = Input.GetAxis("Horizontal");
-            var y = Input.GetAxis("Vertical");
+            var x = UnityEngine.Input.GetAxis("Horizontal");
+            var y = UnityEngine.Input.GetAxis("Vertical");
 
             return new(x, 0, y);
         }
 
         public Vector3 Rotation() => 
-            new(-Input.GetAxis("Mouse Y"), Input.GetAxis("Mouse X"));
+            new(-UnityEngine.Input.GetAxis("Mouse Y"), UnityEngine.Input.GetAxis("Mouse X"));
 
         public bool Jump() => 
-            Input.GetButtonDown("Jump");
+            UnityEngine.Input.GetButtonDown("Jump");
     }
 }

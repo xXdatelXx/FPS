@@ -1,4 +1,4 @@
-namespace Source.Runtime.TickSystem
+namespace Source.Runtime.Models.Game.Loop.Tickables
 {
     public interface ILateTickable
     {

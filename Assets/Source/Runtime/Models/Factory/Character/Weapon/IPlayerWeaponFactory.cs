@@ -1,6 +1,6 @@
-﻿using FPS.Model.Weapon;
+﻿using Source.Runtime.Models.Player.Weapon.Interfaces;
 
-namespace Source.Runtime.CompositeRoot.Weapons
+namespace Source.Runtime.Models.Factory.Character.Weapon
 {
     public interface IPlayerWeaponFactory
     {

@@ -1,8 +1,9 @@
 ﻿using System;
-using Source.Runtime.Model.Timer;
+using Source.Runtime.Models.Weapons.Kind.Interfaces;
 using Source.Runtime.Tools.Extensions;
+using Source.Runtime.Tools.Timer;
 
-namespace FPS.Model.Weapons
+namespace Source.Runtime.Models.Weapons.Kind
 {
     public sealed class WeaponWithDelay : IWeapon
     {

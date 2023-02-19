@@ -1,4 +1,4 @@
-﻿namespace FPS.Model
+﻿namespace Source.Runtime.Input
 {
     public interface IPlayerWeaponInput
     {

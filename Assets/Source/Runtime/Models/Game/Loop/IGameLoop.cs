@@ -1,6 +1,6 @@
-using Source.Runtime.TickSystem;
+using Source.Runtime.Models.Game.Loop.Tickables;
 
-namespace FPS.Model
+namespace Source.Runtime.Models.Game.Loop
 {
     public interface IGameLoop
     {

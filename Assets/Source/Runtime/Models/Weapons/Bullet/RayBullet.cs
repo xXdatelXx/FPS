@@ -1,8 +1,9 @@
-﻿using Source.Runtime.Model.Health;
+﻿using Source.Runtime.Models.Health;
+using Source.Runtime.Models.Weapons.Bullet.Factory;
 using Source.Runtime.Tools.Extensions;
 using UnityEngine;
 
-namespace FPS.Model.Weapons.Bullet
+namespace Source.Runtime.Models.Weapons.Bullet
 {
     public sealed class RayBullet : IBullet
     {

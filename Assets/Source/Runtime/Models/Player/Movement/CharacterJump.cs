@@ -1,10 +1,11 @@
 ﻿using System;
 using Cysharp.Threading.Tasks;
-using Source.Runtime.Models.Loop;
+using Source.Runtime.Models.Game.Loop.Time;
+using Source.Runtime.Models.Player.Movement.Interfaces;
 using Source.Runtime.Tools.Extensions;
 using UnityEngine;
 
-namespace FPS.Model
+namespace Source.Runtime.Models.Player.Movement
 {
     public sealed class CharacterJump : ICharacterJump
     {

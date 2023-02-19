@@ -1,7 +1,7 @@
 using Source.Runtime.Tools.Extensions;
 using UnityEngine;
 
-namespace FPS.Model.Rotation
+namespace Source.Runtime.Models.Player.Rotation
 {
     public sealed class BodyRotation : IBodyRotation
     {

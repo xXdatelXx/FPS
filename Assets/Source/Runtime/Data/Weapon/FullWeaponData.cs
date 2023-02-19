@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Source.Runtime.Data.Weapon.Interfaces;
+using UnityEngine;
 
 namespace Source.Runtime.Data.Weapon
 {

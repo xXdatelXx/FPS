@@ -1,8 +1,8 @@
-﻿using FPS.Model.Rotation;
+﻿using Source.Runtime.Models.Player.Rotation;
 using Source.Runtime.Tools.Math;
 using UnityEngine;
 
-namespace Source.Runtime.CompositeRoot
+namespace Source.Runtime.Models.Factory.Character.Controller
 {
     public sealed class CharacterRotationFactory : MonoBehaviour, ICharacterRotationFactory
     {

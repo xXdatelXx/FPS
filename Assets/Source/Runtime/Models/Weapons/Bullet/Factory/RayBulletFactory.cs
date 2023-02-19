@@ -1,6 +1,6 @@
 ﻿using Source.Runtime.Tools.Extensions;
 
-namespace FPS.Model.Weapons.Bullet
+namespace Source.Runtime.Models.Weapons.Bullet.Factory
 {
     public sealed class RayBulletFactory : IBulletFactory
     {

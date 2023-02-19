@@ -1,7 +1,7 @@
 ﻿using Source.Runtime.Tools.Extensions;
 using UnityEngine;
 
-namespace Source.Runtime.Models.Weapon.Views
+namespace Source.Runtime.Models.Weapons.Views
 {
     [RequireComponent(typeof(Animator))]
     public sealed class WeaponAnimator : MonoBehaviour, IWeaponAnimator

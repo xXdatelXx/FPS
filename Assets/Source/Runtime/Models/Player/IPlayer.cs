@@ -1,6 +1,6 @@
-﻿using Source.Runtime.TickSystem;
+﻿using Source.Runtime.Models.Game.Loop.Tickables;
 
-namespace FPS.Model
+namespace Source.Runtime.Models.Player
 {
     public interface IPlayer : ITickable
     {

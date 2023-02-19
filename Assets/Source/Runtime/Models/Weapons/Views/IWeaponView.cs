@@ -1,4 +1,4 @@
-﻿namespace Source.Runtime.Models.Weapon.Views
+﻿namespace Source.Runtime.Models.Weapons.Views
 {
     public interface IWeaponView
     {

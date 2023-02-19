@@ -1,4 +1,4 @@
-﻿namespace FPS.Model.Weapons
+﻿namespace Source.Runtime.Models.Weapons.Kind.Interfaces
 {
     public interface IWeaponWithMagazine : IWeapon
     {

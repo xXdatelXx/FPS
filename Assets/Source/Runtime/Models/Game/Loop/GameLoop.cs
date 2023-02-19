@@ -1,12 +1,11 @@
 using System;
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
-using FPS.Model;
-using Source.Runtime.Models.Loop;
-using Source.Runtime.TickSystem;
+using Source.Runtime.Models.Game.Loop.Tickables;
+using Source.Runtime.Models.Game.Loop.Time;
 using Source.Runtime.Tools.Extensions;
 
-namespace Source.Runtime.Loop
+namespace Source.Runtime.Models.Game.Loop
 {
     public sealed class GameLoop : IGameLoop
     {

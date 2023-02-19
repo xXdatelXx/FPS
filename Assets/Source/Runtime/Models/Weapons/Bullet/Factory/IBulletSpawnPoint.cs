@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace FPS.Model.Weapons.Bullet
+namespace Source.Runtime.Models.Weapons.Bullet.Factory
 {
     public interface IBulletSpawnPoint
     {

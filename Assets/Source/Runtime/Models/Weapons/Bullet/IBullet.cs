@@ -1,4 +1,4 @@
-﻿namespace FPS.Model.Weapons.Bullet
+﻿namespace Source.Runtime.Models.Weapons.Bullet
 {
     public interface IBullet
     {

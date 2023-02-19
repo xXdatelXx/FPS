@@ -1,4 +1,6 @@
-namespace System
+using System;
+
+namespace Source.Runtime.Tools.Exceptions
 {
     public sealed class SubZeroException : Exception
     {

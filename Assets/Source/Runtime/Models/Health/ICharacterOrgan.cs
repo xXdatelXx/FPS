@@ -1,4 +1,4 @@
-﻿namespace Source.Runtime.Model.Health
+﻿namespace Source.Runtime.Models.Health
 {
     public interface ICharacterOrgan : IHealth
     {

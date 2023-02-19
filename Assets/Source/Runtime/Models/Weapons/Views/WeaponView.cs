@@ -1,6 +1,6 @@
 ﻿using Source.Runtime.Tools.Extensions;
 
-namespace Source.Runtime.Models.Weapon.Views
+namespace Source.Runtime.Models.Weapons.Views
 {
     public sealed class WeaponView : IWeaponView
     {

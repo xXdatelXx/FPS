@@ -1,6 +1,6 @@
-﻿using FPS.Model.Rotation;
+﻿using Source.Runtime.Models.Player.Rotation;
 
-namespace Source.Runtime.CompositeRoot
+namespace Source.Runtime.Models.Factory.Character.Controller
 {
     public interface ICharacterRotationFactory
     {

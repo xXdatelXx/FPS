@@ -2,7 +2,7 @@
 using Source.Runtime.Tools.Extensions;
 using Object = UnityEngine.Object;
 
-namespace Source.Runtime.Models.GameObjects
+namespace Source.Runtime.Views.GameObject
 {
     public sealed class GameObject : IGameObject
     {

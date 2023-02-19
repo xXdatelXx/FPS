@@ -1,4 +1,4 @@
-﻿namespace System.Runtime.CompilerServices
+﻿namespace Source.Runtime.Tools.System
 {
     public class IsExternalInit
     {

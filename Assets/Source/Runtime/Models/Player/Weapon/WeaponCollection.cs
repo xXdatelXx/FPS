@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Source.Runtime.Models.Player.Weapon.Interfaces;
 using Source.Runtime.Tools.Extensions;
 
-namespace FPS.Model.Weapon
+namespace Source.Runtime.Models.Player.Weapon
 {
     public sealed class WeaponCollection : IWeaponCollection
     {

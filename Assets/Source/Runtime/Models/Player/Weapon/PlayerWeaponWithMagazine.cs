@@ -1,7 +1,9 @@
-﻿using FPS.Model.Weapons;
+﻿using Source.Runtime.Input;
+using Source.Runtime.Models.Player.Weapon.Interfaces;
+using Source.Runtime.Models.Weapons.Kind.Interfaces;
 using Source.Runtime.Tools.Extensions;
 
-namespace FPS.Model.Weapon
+namespace Source.Runtime.Models.Player.Weapon
 {
     public sealed class PlayerWeaponWithMagazine : IPlayerWeapon
     {

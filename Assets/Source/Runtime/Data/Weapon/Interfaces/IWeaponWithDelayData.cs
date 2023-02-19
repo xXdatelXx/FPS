@@ -1,4 +1,4 @@
-﻿namespace Source.Runtime.Data.Weapon
+﻿namespace Source.Runtime.Data.Weapon.Interfaces
 {
     public interface IWeaponWithDelayData : IWeaponData
     {

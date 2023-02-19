@@ -1,9 +1,10 @@
 ﻿using System;
-using Source.Runtime.Model.Timer;
-using Source.Runtime.Models.Weapon.Views;
+using Source.Runtime.Models.Weapons.Kind.Interfaces;
+using Source.Runtime.Models.Weapons.Views;
 using Source.Runtime.Tools.Extensions;
+using Source.Runtime.Tools.Timer;
 
-namespace FPS.Model.Weapons
+namespace Source.Runtime.Models.Weapons.Kind
 {
     public sealed class HandWeapon : IWeapon
     {

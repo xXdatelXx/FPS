@@ -1,11 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using FPS.Model;
-using FPS.Model.Weapon;
 using Sirenix.OdinInspector;
+using Source.Runtime.Input;
+using Source.Runtime.Models.Player.Weapon;
+using Source.Runtime.Models.Player.Weapon.Interfaces;
 using UnityEngine;
 
-namespace Source.Runtime.CompositeRoot.Weapons
+namespace Source.Runtime.Models.Factory.Character.Weapon
 {
     public sealed class PlayerWeaponCollectionFactory : SerializedMonoBehaviour, IPlayerWeaponCollectionFactory
     {

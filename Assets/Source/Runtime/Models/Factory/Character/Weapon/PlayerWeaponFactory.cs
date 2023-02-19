@@ -1,14 +1,17 @@
-﻿using FPS.Model;
-using FPS.Model.Weapon;
-using FPS.Model.Weapons;
-using FPS.Model.Weapons.Bullet;
-using Source.Runtime.Data.Weapon;
-using Source.Runtime.Model.Timer;
-using Source.Runtime.Models.Weapon.Views;
+﻿using Source.Runtime.Data.Weapon;
+using Source.Runtime.Input;
+using Source.Runtime.Models.Player.Weapon;
+using Source.Runtime.Models.Player.Weapon.Interfaces;
+using Source.Runtime.Models.Weapons.Bullet.Factory;
+using Source.Runtime.Models.Weapons.Kind;
+using Source.Runtime.Models.Weapons.Kind.Interfaces;
+using Source.Runtime.Models.Weapons.Magazine;
+using Source.Runtime.Models.Weapons.Views;
+using Source.Runtime.Tools.Timer;
 using Source.Runtime.Views.Text;
 using UnityEngine;
 
-namespace Source.Runtime.CompositeRoot.Weapons
+namespace Source.Runtime.Models.Factory.Character.Weapon
 {
     public sealed class PlayerWeaponFactory : MonoBehaviour, IPlayerWeaponFactory
     {
@@ -19,20 +22,27 @@ namespace Source.Runtime.CompositeRoot.Weapons
 
         public IPlayerWeapon Create()
         {
+            var input = new PlayerWeaponInput();
+            var weapon = CreateWeapon();
+
+            var playerWeapon = new PlayerWeapon(weapon, input);
+            var playerWeaponWithMagazine = new PlayerWeaponWithMagazine(playerWeapon, weapon, input);
+
+            return playerWeaponWithMagazine;
+        }
+
+        private IWeaponWithMagazine CreateWeapon()
+        {
             var bulletsFactory = new RayBulletFactory(_bulletSpawnPoint, _weaponData.Damage);
             var magazine = new Magazine(_weaponData.Bullets);
             var view = new WeaponView(new BulletsView(_bulletsView), _animator);
-            var input = new PlayerWeaponInput();
 
-            var weapon = new Weapon(bulletsFactory, view);
+            var weapon = new Weapons.Kind.Weapon(bulletsFactory, view);
             var weaponWithDelay = new WeaponWithDelay(weapon, new Timer(_weaponData.Delay));
             var handWeapon = new HandWeapon(weaponWithDelay, new Timer(_weaponData.Enable), view);
             var weaponWithMagazine = new WeaponWithMagazine(handWeapon, magazine, new Timer(_weaponData.Reload), view);
 
-            var playerWeapon = new PlayerWeapon(weaponWithMagazine, input);
-            var playerWeaponWithMagazine = new PlayerWeaponWithMagazine(playerWeapon, weaponWithMagazine, input);
-
-            return playerWeaponWithMagazine;
+            return weaponWithMagazine;
         }
     }
 }

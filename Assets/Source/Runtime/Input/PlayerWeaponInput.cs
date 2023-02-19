@@ -1,13 +1,13 @@
 ﻿using UnityEngine;
 
-namespace FPS.Model
+namespace Source.Runtime.Input
 {
     //TODO переделать на input system 2.0
     public sealed class PlayerWeaponInput : IPlayerWeaponInput
     {
-        public bool Shooting => Input.GetKeyDown(KeyCode.Mouse0);
-        public bool Reloading => Input.GetKeyUp(KeyCode.R);
-        public bool SwitchNext => Input.GetKeyUp(KeyCode.N);
-        public bool SwitchPrevious => Input.GetKeyUp(KeyCode.P);
+        public bool Shooting => UnityEngine.Input.GetKeyDown(KeyCode.Mouse0);
+        public bool Reloading => UnityEngine.Input.GetKeyUp(KeyCode.R);
+        public bool SwitchNext => UnityEngine.Input.GetKeyUp(KeyCode.N);
+        public bool SwitchPrevious => UnityEngine.Input.GetKeyUp(KeyCode.P);
     }
 }

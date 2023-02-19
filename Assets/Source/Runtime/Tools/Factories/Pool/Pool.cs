@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using Source.Runtime.Tools.Extensions;
-using Source.Runtime.Tools.Pool;
 
 namespace Source.Runtime.Tools.Factories.Pool
 {

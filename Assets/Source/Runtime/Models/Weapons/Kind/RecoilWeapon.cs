@@ -1,6 +1,7 @@
 ﻿using System;
+using Source.Runtime.Models.Weapons.Kind.Interfaces;
 
-namespace FPS.Model.Weapons
+namespace Source.Runtime.Models.Weapons.Kind
 {
     public sealed class RecoilWeapon : IWeapon
     {

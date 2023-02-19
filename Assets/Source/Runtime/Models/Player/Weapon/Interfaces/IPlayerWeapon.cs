@@ -1,6 +1,6 @@
-﻿using Source.Runtime.TickSystem;
+﻿using Source.Runtime.Models.Game.Loop.Tickables;
 
-namespace FPS.Model.Weapon
+namespace Source.Runtime.Models.Player.Weapon.Interfaces
 {
     public interface IPlayerWeapon : ITickable
     {

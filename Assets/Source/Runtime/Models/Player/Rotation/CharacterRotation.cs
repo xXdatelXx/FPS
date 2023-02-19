@@ -2,7 +2,7 @@ using System;
 using Source.Runtime.Tools.Extensions;
 using UnityEngine;
 
-namespace FPS.Model.Rotation
+namespace Source.Runtime.Models.Player.Rotation
 {
     public class CharacterRotation : ICharacterRotation
     {

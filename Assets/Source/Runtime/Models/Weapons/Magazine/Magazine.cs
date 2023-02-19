@@ -2,7 +2,7 @@
 using Source.Runtime.Tools.Extensions;
 using Source.Runtime.Tools.Math;
 
-namespace FPS.Model.Weapons.Bullet
+namespace Source.Runtime.Models.Weapons.Magazine
 {
     public sealed class Magazine : IMagazine
     {

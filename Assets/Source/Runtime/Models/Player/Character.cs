@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace FPS.Model
+namespace Source.Runtime.Models.Player
 {
     [DisallowMultipleComponent]
     public sealed class Character : MonoBehaviour

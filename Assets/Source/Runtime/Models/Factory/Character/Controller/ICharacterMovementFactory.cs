@@ -1,7 +1,7 @@
-﻿using FPS.Model;
-using Source.Runtime.Models.Loop;
+﻿using Source.Runtime.Models.Game.Loop.Time;
+using Source.Runtime.Models.Player.Movement.Interfaces;
 
-namespace Source.Runtime.CompositeRoot
+namespace Source.Runtime.Models.Factory.Character.Controller
 {
     public interface ICharacterMovementFactory
     {
