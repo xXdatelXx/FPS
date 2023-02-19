@@ -2,7 +2,7 @@
 
 namespace FPS.Model
 {
-    // переделаю на новой input system
+    //TODO переделать на input system 2.0
     public sealed class PlayerWeaponInput : IPlayerWeaponInput
     {
         public bool Shooting => Input.GetKeyDown(KeyCode.Mouse0);

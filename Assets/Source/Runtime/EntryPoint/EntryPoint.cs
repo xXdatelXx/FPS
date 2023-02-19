@@ -1,5 +1,6 @@
 using Source.Runtime.CompositeRoot;
 using Source.Runtime.CompositeRoot.Weapons;
+using Source.Runtime.Data;
 using UnityEngine;
 
 namespace Source.Runtime.EntryPoint

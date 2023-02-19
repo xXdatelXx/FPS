@@ -1,4 +1,4 @@
-﻿namespace Source.Runtime.Models.Factory
+﻿namespace Source.Runtime.Tools.Factories
 {
     public interface IFactory<out T>
     {

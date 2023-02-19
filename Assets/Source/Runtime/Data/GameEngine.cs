@@ -1,7 +1,8 @@
-﻿using Source.Runtime.CompositeRoot.Weapons;
+﻿using Source.Runtime.CompositeRoot;
+using Source.Runtime.CompositeRoot.Weapons;
 using Source.Runtime.Tools.Extensions;
 
-namespace Source.Runtime.CompositeRoot
+namespace Source.Runtime.Data
 {
     public class GameEngine : IGameEngine
     {

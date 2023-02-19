@@ -1,5 +1,6 @@
 ﻿using FPS.Model;
 using FPS.Model.Weapon;
+using Source.Runtime.Data;
 using Source.Runtime.Loop;
 using Source.Runtime.Models.Loop;
 

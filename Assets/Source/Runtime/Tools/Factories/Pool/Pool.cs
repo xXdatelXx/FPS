@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
-using Source.Runtime.Models.Factory;
 using Source.Runtime.Tools.Extensions;
+using Source.Runtime.Tools.Pool;
 
-namespace Source.Runtime.Tools.Pool
+namespace Source.Runtime.Tools.Factories.Pool
 {
     public sealed class Pool<T> : IPool<T> where T : IPoolObject
     {

@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace FPS.Model
 {
-    // переделаю на новой input system
+    //TODO переделать на input system 2.0
     public sealed class PlayerMovementInput : IPlayerMovementInput
     {
         public bool Moving => Movement() != Vector3.zero;
@@ -13,7 +13,7 @@ namespace FPS.Model
             var x = Input.GetAxis("Horizontal");
             var y = Input.GetAxis("Vertical");
 
-            return new Vector3(x, 0, y);
+            return new(x, 0, y);
         }
 
         public Vector3 Rotation() => 
