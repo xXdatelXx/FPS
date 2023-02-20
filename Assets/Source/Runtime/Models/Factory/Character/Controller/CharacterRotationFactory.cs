@@ -1,5 +1,6 @@
 ﻿using Source.Runtime.Models.Player.Rotation;
 using Source.Runtime.Tools.Math;
+using Source.Runtime.Views.GameObject;
 using UnityEngine;
 
 namespace Source.Runtime.Models.Factory.Character.Controller
@@ -13,8 +14,8 @@ namespace Source.Runtime.Models.Factory.Character.Controller
 
         public ICharacterRotation Create()
         {
-            var bodyRotation = new BodyRotation(_body);
-            var headRotation = new HeadRotation(_head, _xEuler);
+            var bodyRotation = new BodyRotation(new GameObjectWithRotation(_body.transform));
+            var headRotation = new HeadRotation(new GameObjectWithRotation(_head.transform), _xEuler);
 
             return new CharacterRotation(bodyRotation, headRotation, _sensitivity);
         }
