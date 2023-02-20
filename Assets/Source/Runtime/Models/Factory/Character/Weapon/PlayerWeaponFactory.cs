@@ -7,6 +7,7 @@ using Source.Runtime.Models.Weapons.Kind;
 using Source.Runtime.Models.Weapons.Kind.Interfaces;
 using Source.Runtime.Models.Weapons.Magazine;
 using Source.Runtime.Models.Weapons.Views;
+using Source.Runtime.Tools.Components.UI;
 using Source.Runtime.Tools.Timer;
 using Source.Runtime.Views.Text;
 using UnityEngine;
@@ -18,7 +19,7 @@ namespace Source.Runtime.Models.Factory.Character.Weapon
         [SerializeField] private BulletSpawnPoint _bulletSpawnPoint;
         [SerializeField] private FullWeaponData _weaponData;
         [SerializeField] private WeaponAnimator _animator;
-        [SerializeField] private TextView _bulletsView;
+        [SerializeField] private UnityText _bulletsText;
 
         public IPlayerWeapon Create()
         {
@@ -35,7 +36,7 @@ namespace Source.Runtime.Models.Factory.Character.Weapon
         {
             var bulletsFactory = new RayBulletFactory(_bulletSpawnPoint, _weaponData.Damage);
             var magazine = new Magazine(_weaponData.Bullets);
-            var view = new WeaponView(new BulletsView(_bulletsView), _animator);
+            var view = new WeaponView(new BulletsView(new TextView(_bulletsText)), _animator);
 
             var weapon = new Weapons.Kind.Weapon(bulletsFactory, view);
             var weaponWithDelay = new WeaponWithDelay(weapon, new Timer(_weaponData.Delay));
