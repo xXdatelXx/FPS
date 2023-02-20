@@ -27,7 +27,7 @@ namespace Source.Runtime.Models.Player.Rotation
         {
             var euler = _head.Rotation;
             var clampedX = _math.ClampEuler(euler.x, _xRange.Min, _xRange.Max);
-            var motion = new Vector3(clampedX - _head.Rotation.x, euler.y);
+            var motion = new Vector3(clampedX - _head.Rotation.x, 0);
 
             _head.Rotate(motion);
         }
