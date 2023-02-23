@@ -6,18 +6,21 @@ namespace Source.Runtime.Tools.Ray
 {
     public sealed class UnityRay<TTarget> : IRay<TTarget>
     {
-        private readonly IRaySpawnPoint _origin;
+        private readonly UnityEngine.Ray _ray;
 
-        public UnityRay(IRaySpawnPoint origin) =>
-            _origin = origin.ThrowExceptionIfArgumentNull(nameof(origin));
+        public UnityRay(IRaySpawnPoint origin)
+        {
+            origin.ThrowExceptionIfArgumentNull(nameof(origin));
+            _ray = new UnityEngine.Ray(origin.Position, origin.Forward);
+        }
 
         public bool Cast(out IRayData<TTarget> data)
         {
-            var ray = new UnityEngine.Ray(_origin.Position, _origin.Forward);
-
-            if (Physics.Raycast(ray, out var hit))
-                if (hit.collider.Is(out data))
+            if (Physics.Raycast(_ray, out var hit))
+            {
+                if (hit.Is(out data))
                     return true;
+            }
 
             data = default;
             return false;
