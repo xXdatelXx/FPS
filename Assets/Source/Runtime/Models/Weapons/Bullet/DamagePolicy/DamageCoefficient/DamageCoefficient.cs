@@ -6,7 +6,7 @@ namespace Source.Runtime.Models.Weapons.Bullet
     {
         private readonly float _coefficient;
 
-        public DamageCoefficient(float coefficient) => 
+        public DamageCoefficient(float coefficient) =>
             _coefficient = coefficient.ThrowExceptionIfValueSubZero(nameof(coefficient));
 
         public float Get(float distance)

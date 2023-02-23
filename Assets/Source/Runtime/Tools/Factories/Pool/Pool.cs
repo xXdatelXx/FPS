@@ -25,7 +25,7 @@ namespace Source.Runtime.Tools.Factories.Pool
         public void Return(T obj)
         {
             obj.ThrowExceptionIfArgumentNull(nameof(obj));
-            
+
             obj.Deactivate();
             _objects.Push(obj);
         }

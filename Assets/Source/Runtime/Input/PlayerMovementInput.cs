@@ -16,10 +16,10 @@ namespace Source.Runtime.Input
             return new(x, 0, y);
         }
 
-        public Vector3 Rotation() => 
+        public Vector3 Rotation() =>
             new(-UnityEngine.Input.GetAxis("Mouse Y"), UnityEngine.Input.GetAxis("Mouse X"));
 
-        public bool Jump() => 
+        public bool Jump() =>
             UnityEngine.Input.GetButtonDown("Jump");
     }
 }

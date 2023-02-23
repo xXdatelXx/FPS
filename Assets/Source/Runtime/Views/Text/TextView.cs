@@ -7,7 +7,7 @@ namespace Source.Runtime.Views.Text
     {
         private readonly IText _text;
 
-        public TextView(IText text) => 
+        public TextView(IText text) =>
             _text = text.ThrowExceptionIfArgumentNull();
 
         public void Visualize(object obj) => _text.Set(obj.ToString());

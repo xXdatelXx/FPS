@@ -7,8 +7,8 @@ namespace Source.Runtime.Models.Weapons.Bullet.Factory
     public sealed class RayBulletFactory : IBulletFactory
     {
         private readonly float _damage;
-        private readonly IRaySpawnPoint _spawnPoint;
         private readonly IDamageCoefficient _damageCoefficient;
+        private readonly IRaySpawnPoint _spawnPoint;
 
         public RayBulletFactory(IRaySpawnPoint spawnPoint, float damage, IDamageCoefficient damageCoefficient)
         {
@@ -21,7 +21,7 @@ namespace Source.Runtime.Models.Weapons.Bullet.Factory
         {
             var ray = new UnityRay<IHealth>(_spawnPoint);
             var damagePolicy = new DamagePolicy(_damageCoefficient);
-            
+
             return new RayBullet(_damage, damagePolicy, ray);
         }
     }

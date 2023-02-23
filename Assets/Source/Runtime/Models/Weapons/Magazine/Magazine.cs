@@ -6,7 +6,7 @@ namespace Source.Runtime.Models.Weapons.Magazine
 {
     public sealed class Magazine : IMagazine
     {
-        public Magazine(int bulletCount) => 
+        public Magazine(int bulletCount) =>
             Bullets = new IntWithStandard(bulletCount.ThrowExceptionIfValueSubZero(nameof(bulletCount)));
 
         public IntWithStandard Bullets { get; private set; }

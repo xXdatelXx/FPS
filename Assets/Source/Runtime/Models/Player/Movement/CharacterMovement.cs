@@ -36,7 +36,7 @@ namespace Source.Runtime.Models.Player.Movement
         }
 
         public void Gravitate(float deltaTime) => _gravitation.Gravitate(deltaTime);
-        
+
         public void Jump() => _jump.Jump();
     }
 }

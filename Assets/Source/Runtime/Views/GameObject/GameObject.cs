@@ -8,7 +8,7 @@ namespace Source.Runtime.Views.GameObject
     {
         private readonly UnityEngine.GameObject _object;
 
-        public GameObject(UnityEngine.GameObject obj) => 
+        public GameObject(UnityEngine.GameObject obj) =>
             _object = obj.ThrowExceptionIfArgumentNull(nameof(obj));
 
         public bool Active { get; private set; }

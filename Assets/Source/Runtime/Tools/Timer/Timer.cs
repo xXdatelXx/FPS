@@ -10,7 +10,7 @@ namespace Source.Runtime.Tools.Timer
     {
         private bool _canceled;
 
-        public Timer(float time) => 
+        public Timer(float time) =>
             Time = time.ThrowExceptionIfValueSubZero();
 
         [field: SerializeField] public float Time { get; }
@@ -27,7 +27,7 @@ namespace Source.Runtime.Tools.Timer
             _canceled = false;
         }
 
-        public async UniTask End() => 
+        public async UniTask End() =>
             await UniTask.WaitUntil(() => Playing);
 
         public void Cancel()

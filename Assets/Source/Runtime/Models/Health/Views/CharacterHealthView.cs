@@ -15,10 +15,10 @@ namespace Source.Runtime.Models.Health.Views
             _character = character.ThrowExceptionIfArgumentNull(nameof(character));
         }
 
-        public void Damage(float health) => 
+        public void Damage(float health) =>
             _healthText.Visualize(health);
 
-        public void Die() => 
+        public void Die() =>
             _character.Destroy();
     }
 }

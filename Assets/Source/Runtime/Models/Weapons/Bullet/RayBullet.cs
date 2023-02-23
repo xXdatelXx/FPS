@@ -1,8 +1,6 @@
 ﻿using Source.Runtime.Models.Health;
-using Source.Runtime.Models.Weapons.Bullet.Factory;
 using Source.Runtime.Tools.Extensions;
 using Source.Runtime.Tools.Ray;
-using UnityEngine;
 
 namespace Source.Runtime.Models.Weapons.Bullet
 {

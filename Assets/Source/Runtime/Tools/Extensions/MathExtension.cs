@@ -9,7 +9,7 @@ namespace Source.Runtime.Tools.Extensions
         {
             if (min > max)
                 throw new InvalidOperationException("min > max");
-            
+
             return Mathf.Clamp(value > 180 ? value - 360 : value, min, max);
         }
     }

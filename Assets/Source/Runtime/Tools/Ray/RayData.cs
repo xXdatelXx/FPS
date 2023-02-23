@@ -11,7 +11,7 @@ namespace Source.Runtime.Tools.Ray
             Distance = distance.ThrowExceptionIfValueSubZero(nameof(distance));
             Target = target.ThrowExceptionIfArgumentNull(nameof(target));
         }
-        
+
         public Vector3 Point { get; }
         public float Distance { get; }
         public TTarget Target { get; }

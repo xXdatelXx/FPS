@@ -7,15 +7,15 @@ namespace Source.Runtime.Models.Movement
     {
         private readonly CharacterController _controller;
 
-        public CharacterMovementController(CharacterController controller) => 
+        public CharacterMovementController(CharacterController controller) =>
             _controller = controller.ThrowExceptionIfArgumentNull(nameof(controller));
 
         public bool Grounded => _controller.isGrounded;
 
-        public void Move(Vector3 motion) => 
+        public void Move(Vector3 motion) =>
             _controller.Move(motion);
-        
-        public void MoveByRotation(Vector3 motion) => 
+
+        public void MoveByRotation(Vector3 motion) =>
             Move(_controller.TransformDirection(motion));
     }
 }

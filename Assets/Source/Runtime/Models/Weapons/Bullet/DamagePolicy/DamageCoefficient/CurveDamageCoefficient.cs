@@ -3,11 +3,11 @@ using UnityEngine;
 
 namespace Source.Runtime.Models.Weapons.Bullet
 {
-    public sealed class CurveDamageCoefficient: IDamageCoefficient
+    public sealed class CurveDamageCoefficient : IDamageCoefficient
     {
         private readonly AnimationCurve _curve;
 
-        public CurveDamageCoefficient(AnimationCurve curve) => 
+        public CurveDamageCoefficient(AnimationCurve curve) =>
             _curve = curve.ThrowExceptionIfArgumentNull(nameof(curve));
 
         public float Get(float distance)

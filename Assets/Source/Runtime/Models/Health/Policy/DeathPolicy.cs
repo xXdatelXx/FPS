@@ -2,7 +2,7 @@
 {
     public sealed class DeathPolicy : IDeathPolicy
     {
-        public bool Died(float health) => 
+        public bool Died(float health) =>
             health <= 0;
     }
 }

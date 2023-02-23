@@ -14,16 +14,16 @@ namespace Source.Runtime.Models.Game.Loop
         private readonly List<ITickable> _tickables = new();
         private readonly IReadOnlyGameTime _time;
 
-        public GameLoop(IReadOnlyGameTime time) => 
+        public GameLoop(IReadOnlyGameTime time) =>
             _time = time.ThrowExceptionIfArgumentNull(nameof(time));
 
-        public void Add(ITickable tickable) => 
+        public void Add(ITickable tickable) =>
             _tickables.Add(tickable.ThrowExceptionIfArgumentNull(nameof(tickable)));
 
-        public void Add(ILateTickable tickable) => 
+        public void Add(ILateTickable tickable) =>
             _lateTickables.Add(tickable.ThrowExceptionIfArgumentNull(nameof(tickable)));
 
-        public void Add(IFixedTickable tickable) => 
+        public void Add(IFixedTickable tickable) =>
             _fixedTickables.Add(tickable.ThrowExceptionIfArgumentNull(nameof(tickable)));
 
         public void Start()

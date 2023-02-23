@@ -8,8 +8,8 @@ namespace Source.Runtime.Models.Player.Rotation
     public sealed class HeadRotation : IHeadRotation
     {
         private readonly IGameObjectWithRotation _head;
-        private readonly Range _xRange;
         private readonly Mathf _math = new();
+        private readonly Range _xRange;
 
         public HeadRotation(IGameObjectWithRotation head, Range xRange)
         {

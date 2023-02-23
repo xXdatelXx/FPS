@@ -19,7 +19,7 @@ namespace Source.Runtime.Models.Player.Movement
             _controller = controller.ThrowExceptionIfArgumentNull(nameof(controller));
             _gameTime = gameTime.ThrowExceptionIfArgumentNull(nameof(gameTime));
             _motion = motion.ThrowExceptionIfArgumentNull(nameof(motion));
-            
+
             foreach (var key in _motion.keys)
                 key.value.ThrowExceptionIfValueSubZero(nameof(motion));
         }

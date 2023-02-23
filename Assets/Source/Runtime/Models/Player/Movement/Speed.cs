@@ -6,7 +6,9 @@ namespace Source.Runtime.Models.Player.Movement
 {
     public struct Speed : ISpeed
     {
-        [field: SerializeField, Range(0, 20)] public float Value { get; private set; }
+        [field: SerializeField]
+        [field: Range(0, 20)]
+        public float Value { get; private set; }
 
         public Speed(float value) => Value = value.ThrowExceptionIfValueSubZero(nameof(Speed));
     }
