@@ -5,12 +5,12 @@ using Source.Runtime.Tools.Extensions;
 
 namespace Source.Runtime.Models.Player.Weapon
 {
-    public sealed class PlayerWeapon : IPlayerWeapon
+    public sealed class PlayerWithWeapon : IPlayerWithWeapon
     {
         private readonly IPlayerWeaponInput _input;
         private readonly IWeapon _weapon;
 
-        public PlayerWeapon(IWeaponWithMagazine weapon, IPlayerWeaponInput input)
+        public PlayerWithWeapon(IWeaponWithMagazine weapon, IPlayerWeaponInput input)
         {
             _weapon = weapon.ThrowExceptionIfArgumentNull(nameof(weapon));
             _input = input.ThrowExceptionIfArgumentNull(nameof(input));

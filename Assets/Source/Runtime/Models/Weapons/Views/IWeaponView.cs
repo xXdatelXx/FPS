@@ -2,10 +2,10 @@
 {
     public interface IWeaponView
     {
-        void OnShoot();
-        void OnReload();
-        void OnEnable();
-        void OnDisable();
+        void Shoot();
+        void Reload();
+        void Enable();
+        void Disable();
         void VisualizeBullets(int bullets);
     }
 }

@@ -13,14 +13,14 @@ namespace Source.Runtime.Models.Weapons.Views
             _animator = animator.ThrowExceptionIfArgumentNull(nameof(animator));
         }
 
-        public void OnShoot() => _animator.PlayShoot();
+        public void Shoot() => _animator.PlayShoot();
 
-        public void OnReload() => _animator.PlayReload();
+        public void Reload() => _animator.PlayReload();
 
         public void VisualizeBullets(int bullets) => _bullets.Visualize(bullets);
 
-        public void OnEnable() => _animator.PlayEnable();
+        public void Enable() => _animator.PlayEnable();
 
-        public void OnDisable() => _animator.PlayDisable();
+        public void Disable() => _animator.PlayDisable();
     }
 }

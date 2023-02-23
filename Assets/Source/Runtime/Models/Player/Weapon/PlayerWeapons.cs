@@ -8,7 +8,7 @@ namespace Source.Runtime.Models.Player.Weapon
     {
         private readonly IPlayerWeaponInput _input;
         private readonly IReadOnlyWeaponCollection _weapons;
-        private IPlayerWeapon _weapon;
+        private IPlayerWithWeapon _weapon;
 
         public PlayerWeapons(IReadOnlyWeaponCollection weapons, IPlayerWeaponInput input)
         {
@@ -28,7 +28,7 @@ namespace Source.Runtime.Models.Player.Weapon
                 Switch(_weapons.SwitchPrevious());
         }
 
-        private void Switch(IPlayerWeapon nextWeapon)
+        private void Switch(IPlayerWithWeapon nextWeapon)
         {
             _weapon.Disable();
             _weapon = nextWeapon;

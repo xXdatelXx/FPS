@@ -25,7 +25,7 @@ namespace Source.Runtime.Models.Weapons.Kind
                 throw new InvalidOperationException(nameof(Shoot));
 
             _factory.Create().Fire();
-            _view.OnShoot();
+            _view.Shoot();
         }
 
         public void Enable() => CanShoot = true;

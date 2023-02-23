@@ -36,7 +36,7 @@ namespace Source.Runtime.Models.Weapons.Kind
                 throw new InvalidOperationException(nameof(Enable));
 
             _enableTimer.Play();
-            _view.OnEnable();
+            _view.Enable();
 
             await _enableTimer.End();
 
@@ -48,7 +48,7 @@ namespace Source.Runtime.Models.Weapons.Kind
             if (!_enabled)
                 throw new InvalidOperationException(nameof(Disable));
 
-            _view.OnDisable();
+            _view.Disable();
             _enabled = false;
         }
     }

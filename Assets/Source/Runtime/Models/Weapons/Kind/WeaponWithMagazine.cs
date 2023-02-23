@@ -41,7 +41,7 @@ namespace Source.Runtime.Models.Weapons.Kind
             if (!CanReload)
                 throw new InvalidOperationException(nameof(Reload));
 
-            _view.OnReload();
+            _view.Reload();
             _reloadTimer.Play();
 
             await _reloadTimer.End();

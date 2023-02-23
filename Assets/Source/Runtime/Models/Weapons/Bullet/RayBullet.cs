@@ -1,6 +1,7 @@
 ﻿using Source.Runtime.Models.Health;
 using Source.Runtime.Models.Weapons.Bullet.Factory;
 using Source.Runtime.Tools.Extensions;
+using Source.Runtime.Tools.Ray;
 using UnityEngine;
 
 namespace Source.Runtime.Models.Weapons.Bullet
@@ -8,20 +9,26 @@ namespace Source.Runtime.Models.Weapons.Bullet
     public sealed class RayBullet : IBullet
     {
         private readonly float _damage;
-        private readonly IBulletSpawnPoint _origin;
+        private readonly IDamagePolicy _damagePolicy;
+        private readonly IRay<IHealth> _ray;
 
-        public RayBullet(float damage, IBulletSpawnPoint origin)
+        public RayBullet(float damage, IDamagePolicy damagePolicy, IRay<IHealth> ray)
         {
             _damage = damage.ThrowExceptionIfValueSubZero(nameof(damage));
-            _origin = origin.ThrowExceptionIfArgumentNull(nameof(origin));
+            _damagePolicy = damagePolicy.ThrowExceptionIfArgumentNull(nameof(damagePolicy));
+            _ray = ray.ThrowExceptionIfArgumentNull(nameof(ray));
         }
 
         public void Fire()
         {
-            var ray = new Ray(_origin.Position, _origin.Forward);
+            if (_ray.Cast(out var hit))
+            {
+                if (hit.Target.Died)
+                    return;
 
-            if (ray.Cast(out IHealth health))
-                health.TakeDamage(_damage);
+                var damage = _damagePolicy.Affect(_damage, hit.Distance);
+                hit.Target.TakeDamage(damage);
+            }
         }
     }
 }

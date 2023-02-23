@@ -2,6 +2,7 @@
 using Source.Runtime.Input;
 using Source.Runtime.Models.Player.Weapon;
 using Source.Runtime.Models.Player.Weapon.Interfaces;
+using Source.Runtime.Models.Weapons.Bullet;
 using Source.Runtime.Models.Weapons.Bullet.Factory;
 using Source.Runtime.Models.Weapons.Kind;
 using Source.Runtime.Models.Weapons.Kind.Interfaces;
@@ -16,17 +17,18 @@ namespace Source.Runtime.Models.Factory.Character.Weapon
 {
     public sealed class PlayerWeaponFactory : MonoBehaviour, IPlayerWeaponFactory
     {
-        [SerializeField] private BulletSpawnPoint _bulletSpawnPoint;
+        [SerializeField] private RaySpawnPoint _bulletSpawnPoint;
         [SerializeField] private FullWeaponData _weaponData;
         [SerializeField] private WeaponAnimator _animator;
         [SerializeField] private UnityText _bulletsText;
+        [SerializeField] private AnimationCurve _damageCurve;
 
-        public IPlayerWeapon Create()
+        public IPlayerWithWeapon Create()
         {
             var input = new PlayerWeaponInput();
             var weapon = CreateWeapon();
 
-            var playerWeapon = new PlayerWeapon(weapon, input);
+            var playerWeapon = new PlayerWithWeapon(weapon, input);
             var playerWeaponWithMagazine = new PlayerWeaponWithMagazine(playerWeapon, weapon, input);
 
             return playerWeaponWithMagazine;
@@ -34,7 +36,7 @@ namespace Source.Runtime.Models.Factory.Character.Weapon
 
         private IWeaponWithMagazine CreateWeapon()
         {
-            var bulletsFactory = new RayBulletFactory(_bulletSpawnPoint, _weaponData.Damage);
+            var bulletsFactory = new RayBulletFactory(_bulletSpawnPoint, _weaponData.Damage, new CurveDamageCoefficient(_damageCurve));
             var magazine = new Magazine(_weaponData.Bullets);
             var view = new WeaponView(new BulletsView(new TextView(_bulletsText)), _animator);
 

@@ -1101,6 +1101,12 @@ MonoBehaviour:
   _weaponData: {fileID: 11400000, guid: 2ca69c171e385b24da1a2a7c85d79b43, type: 2}
   _animator: {fileID: 407891313}
   _bulletsText: {fileID: 1679656138}
+  _damageCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &1237512635
 MonoBehaviour:
   m_ObjectHideFlags: 0

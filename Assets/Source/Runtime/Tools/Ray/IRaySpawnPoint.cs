@@ -2,7 +2,7 @@
 
 namespace Source.Runtime.Models.Weapons.Bullet.Factory
 {
-    public interface IBulletSpawnPoint
+    public interface IRaySpawnPoint
     {
         Vector3 Position { get; }
         Vector3 Forward { get; }
