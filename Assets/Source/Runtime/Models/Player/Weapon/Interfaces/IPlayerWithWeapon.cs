@@ -2,7 +2,7 @@
 
 namespace Source.Runtime.Models.Player.Weapon.Interfaces
 {
-    public interface IPlayerWeapon : ITickable
+    public interface IPlayerWithWeapon : ITickable
     {
         void Enable();
         void Disable();
