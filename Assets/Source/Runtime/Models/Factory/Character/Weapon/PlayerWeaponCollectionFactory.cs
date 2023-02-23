@@ -12,8 +12,8 @@ namespace Source.Runtime.Models.Factory.Character.Weapon
     {
         [SerializeField] private List<IPlayerWeaponFactory> _factories;
 
-        public IPlayerWeapons Create() =>
-            new PlayerWeapons(CreateWeaponCollection(), new PlayerWeaponInput());
+        public IPlayerWithWeapons Create() =>
+            new PlayerWithWeapons(CreateWeaponCollection(), new PlayerWeaponInput());
 
         private IWeaponCollection CreateWeaponCollection()
         {

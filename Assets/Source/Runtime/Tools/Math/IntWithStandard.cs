@@ -11,6 +11,9 @@
             Value = value;
         }
 
+        public bool StandardEqualsValue => Standard == Value;
+        public void Reset() => Value = Standard;
+
         public static IntWithStandard operator ++(IntWithStandard i)
         {
             i.Value++;
@@ -24,14 +27,8 @@
         }
 
         public static bool operator >(IntWithStandard a, int b) => a.Value > b;
-
         public static bool operator <(IntWithStandard a, int b) => a.Value < b;
-
-        public bool StandardEqualsValue => Standard == Value;
-
-        public void Reset()
-        {
-            Value = Standard;
-        }
+        
+        public override string ToString() => Value.ToString();
     }
 }

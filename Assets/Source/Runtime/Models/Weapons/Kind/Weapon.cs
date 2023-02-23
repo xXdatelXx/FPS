@@ -29,7 +29,6 @@ namespace Source.Runtime.Models.Weapons.Kind
         }
 
         public void Enable() => CanShoot = true;
-
         public void Disable() => CanShoot = false;
     }
 }

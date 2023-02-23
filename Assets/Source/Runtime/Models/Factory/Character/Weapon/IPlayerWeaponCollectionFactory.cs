@@ -3,7 +3,7 @@ using Source.Runtime.Tools.Factories;
 
 namespace Source.Runtime.Models.Factory.Character.Weapon
 {
-    public interface IPlayerWeaponCollectionFactory : IFactory<IPlayerWeapons>
+    public interface IPlayerWeaponCollectionFactory : IFactory<IPlayerWithWeapons>
     {
     }
 }

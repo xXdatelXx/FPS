@@ -23,17 +23,17 @@ namespace Source.Runtime.Models.Weapons.Kind
             _view = view.ThrowExceptionIfArgumentNull(nameof(view));
         }
 
-        public bool CanShoot => _weapon.CanShoot && _magazine.CanGet;
+        public bool CanShoot => _weapon.CanShoot && _magazine.CanGet && _enabled;
         public bool CanReload => _magazine.CanReset && !_reloadTimer.Playing;
 
         public void Shoot()
         {
             if (!CanShoot)
                 throw new InvalidOperationException(nameof(Shoot));
-
+            
             _magazine.Get();
             _weapon.Shoot();
-            _view.VisualizeBullets(_magazine.Bullets.Value);
+            _view.VisualizeBullets(_magazine.Bullets);
         }
 
         public async void Reload()
@@ -45,17 +45,17 @@ namespace Source.Runtime.Models.Weapons.Kind
             _reloadTimer.Play();
 
             await _reloadTimer.End();
-
+            
             if (!_enabled)
                 return;
-
+            
             _magazine.Reset();
-            _view.VisualizeBullets(_magazine.Bullets.Value);
+            _view.VisualizeBullets(_magazine.Bullets);
         }
 
         public void Enable()
         {
-            _view.VisualizeBullets(_magazine.Bullets.Value);
+            _view.VisualizeBullets(_magazine.Bullets);
             _weapon.Enable();
             _enabled = true;
         }

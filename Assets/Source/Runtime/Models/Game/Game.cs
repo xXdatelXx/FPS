@@ -10,7 +10,7 @@ namespace Source.Runtime.Models.Game
     {
         private readonly IGameLoop _gameLoop;
         private readonly IPlayer _player;
-        private readonly IPlayerWeapons _weapons;
+        private readonly IPlayerWithWeapons _weapons;
 
         public Game(IGameEngine engine)
         {

@@ -4,17 +4,18 @@ using Source.Runtime.Tools.Extensions;
 
 namespace Source.Runtime.Models.Player.Weapon
 {
-    public sealed class PlayerWeapons : IPlayerWeapons
+    public sealed class PlayerWithWeapons : IPlayerWithWeapons
     {
         private readonly IPlayerWeaponInput _input;
         private readonly IReadOnlyWeaponCollection _weapons;
         private IPlayerWithWeapon _weapon;
 
-        public PlayerWeapons(IReadOnlyWeaponCollection weapons, IPlayerWeaponInput input)
+        public PlayerWithWeapons(IReadOnlyWeaponCollection weapons, IPlayerWeaponInput input)
         {
             _weapons = weapons.ThrowExceptionIfArgumentNull(nameof(weapons));
             _input = input.ThrowExceptionIfArgumentNull(nameof(input));
             _weapon = _weapons.Weapon;
+            _weapon.Enable();
         }
 
         public void Tick(float deltaTime)

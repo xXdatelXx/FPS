@@ -39,7 +39,8 @@ namespace Source.Runtime.Models.Weapons.Kind
             _view.Enable();
 
             await _enableTimer.End();
-
+            
+            _weapon.Enable();
             _enabled = true;
         }
 
@@ -50,6 +51,7 @@ namespace Source.Runtime.Models.Weapons.Kind
 
             _view.Disable();
             _enabled = false;
+            _weapon.Disable();
         }
     }
 }

@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af36141c46b343f2a09477fbea14bb8e, type: 3}
   m_Name: New Full Weapon Data
   m_EditorClassIdentifier: 
-  <Damage>k__BackingField: 0
-  <Reload>k__BackingField: 0
-  <Bullets>k__BackingField: 0
-  <Delay>k__BackingField: 0
-  <Enable>k__BackingField: 0
+  <Damage>k__BackingField: 5
+  <Reload>k__BackingField: 1
+  <Bullets>k__BackingField: 5
+  <Delay>k__BackingField: 0.1
+  <Enable>k__BackingField: 0.1

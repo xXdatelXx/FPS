@@ -10,7 +10,7 @@ namespace Source.Runtime.Models.Player.Weapon
         private readonly IPlayerWeaponInput _input;
         private readonly IWeapon _weapon;
 
-        public PlayerWithWeapon(IWeaponWithMagazine weapon, IPlayerWeaponInput input)
+        public PlayerWithWeapon(IWeapon weapon, IPlayerWeaponInput input)
         {
             _weapon = weapon.ThrowExceptionIfArgumentNull(nameof(weapon));
             _input = input.ThrowExceptionIfArgumentNull(nameof(input));
@@ -18,7 +18,7 @@ namespace Source.Runtime.Models.Player.Weapon
 
         public void Tick(float deltaTime)
         {
-            if (_input.Shooting && _weapon.CanShoot)
+            if (_input.Shooting && _weapon.CanShoot) 
                 _weapon.Shoot();
         }
 
