@@ -6,27 +6,29 @@ namespace Source.Runtime.Models.Weapons.Magazine
 {
     public sealed class Magazine : IMagazine
     {
+        private IntWithStandard _bullets;
+        
         public Magazine(int bulletCount) =>
-            Bullets = new IntWithStandard(bulletCount.ThrowExceptionIfValueSubZero(nameof(bulletCount)));
+            _bullets = new IntWithStandard(bulletCount.ThrowExceptionIfValueSubZero(nameof(bulletCount)));
 
-        public IntWithStandard Bullets { get; private set; }
-        public bool CanGet => Bullets > 0;
-        public bool CanReset => !Bullets.StandardEqualsValue;
+        public int Bullets => _bullets.Value;
+        public bool CanGet => _bullets > 0;
+        public bool CanReset => !_bullets.StandardEqualsValue;
 
         public void Get()
         {
             if (!CanGet)
                 throw new InvalidOperationException(nameof(Get));
 
-            Bullets--;
+            _bullets--;
         }
 
         public void Reset()
         {
             if (!CanReset)
                 throw new InvalidOperationException(nameof(Reset));
-
-            Bullets.Reset();
+            
+            _bullets.Reset();
         }
     }
 }
