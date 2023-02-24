@@ -20,14 +20,14 @@ namespace Source.Runtime.Models.Player
 
         public void Tick(float deltaTime)
         {
+            if (_input.Jump() && _movement.CanJump)
+                _movement.Jump();
+            
             if (_input.Moving)
                 _movement.Move(_input.Movement(), deltaTime);
 
             if (_input.Rotating)
                 _rotation.Rotate(_input.Rotation());
-
-            if (_input.Jump() && _movement.CanJump)
-                _movement.Jump();
 
             if (_movement.CanGravitate)
                 _movement.Gravitate(deltaTime);
