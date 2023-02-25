@@ -1,7 +1,6 @@
-﻿using System;
-using Source.Runtime.Models.Weapons.Kind.Interfaces;
+﻿using Source.Runtime.Models.Weapons.Kind.Interfaces;
+using Source.Runtime.Tools.Math;
 using Source.Runtime.Tools.Timer;
-using UnityEngine;
 
 namespace Source.Runtime.Models.Weapons.Kind
 {
@@ -9,7 +8,7 @@ namespace Source.Runtime.Models.Weapons.Kind
     {
         private readonly IWeapon _weapon;
         private readonly ITimer _delay;
-        private AnimationCurve _curve;
+        private ICurve _curve;
         public bool CanShoot => _weapon.CanShoot;
 
         public void Shoot()

@@ -2,6 +2,7 @@
 using Source.Runtime.Models.Movement;
 using Source.Runtime.Models.Player.Movement.Interfaces;
 using Source.Runtime.Tools.Extensions;
+using Source.Runtime.Tools.Math;
 using UnityEngine;
 
 namespace Source.Runtime.Models.Player.Movement
@@ -9,18 +10,15 @@ namespace Source.Runtime.Models.Player.Movement
     public sealed class CharacterJump : ICharacterJump
     {
         private readonly IMovement _controller;
-        private readonly AnimationCurve _motion;
-        private readonly float _time;
+        private readonly ICurve _motion;
         private float _evaluatedTime;
 
-        public CharacterJump(IMovement controller, AnimationCurve motion)
+        public CharacterJump(IMovement controller, ICurve motion)
         {
             _controller = controller.ThrowExceptionIfArgumentNull(nameof(controller));
-            _motion = motion.ThrowExceptionIfArgumentNull(nameof(motion));
-            _time = _motion[_motion.length - 1].time;
-            
-            foreach (var key in _motion.keys)
-                key.value.ThrowExceptionIfValueSubZero(nameof(motion));
+            _motion = motion
+                .ThrowExceptionIfArgumentNull(nameof(motion))
+                .ThrowExceptionIfValuesSubZero(nameof(motion));
         }
 
         public bool Jumping { get; private set; }
@@ -40,9 +38,9 @@ namespace Source.Runtime.Models.Player.Movement
                 throw new InvalidOperationException(nameof(Tick));
             
             _evaluatedTime += deltaTime;
-            _controller.Move(new Vector3(0, _motion.Evaluate(_evaluatedTime / _time) * deltaTime));
+            _controller.Move(new Vector3(0, _motion[_evaluatedTime / _motion.Time] * deltaTime));
 
-            if (_evaluatedTime >= _time)
+            if (_evaluatedTime >= _motion.Time)
             {
                 _evaluatedTime = 0;
                 Jumping = false;

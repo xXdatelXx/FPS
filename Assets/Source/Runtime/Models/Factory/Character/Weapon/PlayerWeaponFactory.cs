@@ -9,6 +9,7 @@ using Source.Runtime.Models.Weapons.Kind.Interfaces;
 using Source.Runtime.Models.Weapons.Magazine;
 using Source.Runtime.Models.Weapons.Views;
 using Source.Runtime.Tools.Components.UI;
+using Source.Runtime.Tools.Math;
 using Source.Runtime.Tools.Timer;
 using Source.Runtime.Views.Text;
 using UnityEngine;
@@ -36,7 +37,8 @@ namespace Source.Runtime.Models.Factory.Character.Weapon
 
         private IWeaponWithMagazine CreateWeapon()
         {
-            var bulletsFactory = new RayBulletFactory(_bulletSpawnPoint, _weaponData.Damage, new CurveDamageCoefficient(_damageCurve));
+            var damageCoefficient = new CurveDamageCoefficient(new Curve(_damageCurve));
+            var bulletsFactory = new RayBulletFactory(_bulletSpawnPoint, _weaponData.Damage, damageCoefficient);
             var magazine = new Magazine(_weaponData.Bullets);
             var view = new WeaponView(new BulletsView(new TextView(_bulletsText)), _animator);
 

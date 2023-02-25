@@ -16,7 +16,8 @@ namespace Source.Runtime.Models.Weapons.Bullet
             if (distance == 0)
                 distance = 1;
 
-            return damage / _coefficient.Get(distance);
+            var coefficient = _coefficient.Get(distance).ThrowExceptionIfValueSubZero(nameof(_coefficient));
+            return damage / coefficient;
         }
     }
 }

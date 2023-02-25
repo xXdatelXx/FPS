@@ -3,6 +3,7 @@ using Source.Runtime.Models.Game.Loop.Time;
 using Source.Runtime.Models.Movement;
 using Source.Runtime.Models.Player.Movement;
 using Source.Runtime.Models.Player.Movement.Interfaces;
+using Source.Runtime.Tools.Math;
 using UnityEngine;
 
 namespace Source.Runtime.Models.Factory.Character.Controller
@@ -17,7 +18,7 @@ namespace Source.Runtime.Models.Factory.Character.Controller
         {
             var controller = new CharacterMovementController(_controller);
             var gravitation = new CharacterGravitation(controller);
-            var jump = new CharacterJump(controller, _jumpMotion, time);
+            var jump = new CharacterJump(controller, new Curve(_jumpMotion));
 
             return new CharacterMovement(controller, jump, gravitation, _speed);
         }
