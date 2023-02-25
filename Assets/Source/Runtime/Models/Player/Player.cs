@@ -20,6 +20,8 @@ namespace Source.Runtime.Models.Player
 
         public void Tick(float deltaTime)
         {
+            _movement.Tick(deltaTime);
+            
             if (_input.Jump() && _movement.CanJump)
                 _movement.Jump();
             
