@@ -1,29 +1,33 @@
 ﻿using System;
 using Source.Runtime.Models.Weapons.Kind.Interfaces;
+using Source.Runtime.Tools.Timer;
+using UnityEngine;
 
 namespace Source.Runtime.Models.Weapons.Kind
 {
     public sealed class RecoilWeapon : IWeapon
     {
         private readonly IWeapon _weapon;
-
-        // private readonly IRecoil _recoil;
+        private readonly ITimer _delay;
+        private AnimationCurve _curve;
         public bool CanShoot => _weapon.CanShoot;
 
         public void Shoot()
         {
             _weapon.Shoot();
-            // _recoil.
+            Delay();
         }
 
-        public void Enable()
-        {
-            throw new NotImplementedException();
-        }
+        public void Enable() => _weapon.Enable();
 
         public void Disable()
         {
-            throw new NotImplementedException();
+            _weapon.Disable();
+
+            if (!_delay.Playing)
+                _delay.Cancel();
         }
+
+        private void Delay() => _delay.Play();
     }
 }

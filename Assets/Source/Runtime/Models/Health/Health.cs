@@ -12,12 +12,10 @@ namespace Source.Runtime.Models.Health
         private float _point;
 
         public Health(float value, IDeathPolicy deathPolicy) : this(value, deathPolicy, new DummyHealthView())
-        {
-        }
+        { }
 
         public Health(float value, IHealthView view) : this(value, new DeathPolicy(), view)
-        {
-        }
+        { }
 
         public Health(float value, IDeathPolicy deathPolicy, IHealthView view)
         {
