@@ -15,7 +15,7 @@ namespace Source.Runtime.Tools.Extensions
 
         public static ICurve ThrowExceptionIfValuesSubZero(this ICurve curve, string name = nameof(Curve))
         {
-            for (float i = 0; i < curve.Time; i += Time.fixedTime)
+            for (float i = 0; i <= curve.Time; i += Time.fixedDeltaTime) 
                 curve[i].ThrowExceptionIfValueSubZero(name);
 
             return curve;
