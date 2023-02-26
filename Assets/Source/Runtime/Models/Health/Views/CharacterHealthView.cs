@@ -2,7 +2,7 @@
 using Source.Runtime.Views.GameObject;
 using Source.Runtime.Views.Text;
 
-namespace Source.Runtime.Models.Health.Views
+namespace Source.Runtime.Models.HealthSystem.Views
 {
     public sealed class CharacterHealthView : IHealthView
     {
@@ -13,9 +13,10 @@ namespace Source.Runtime.Models.Health.Views
         {
             _healthText = healthText.ThrowExceptionIfArgumentNull(nameof(healthText));
             _character = character.ThrowExceptionIfArgumentNull(nameof(character));
+            
         }
 
-        public void Damage(float health) =>
+        public void Visualize(float health) =>
             _healthText.Visualize(health);
 
         public void Die() =>

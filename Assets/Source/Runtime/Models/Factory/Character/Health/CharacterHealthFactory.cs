@@ -1,11 +1,11 @@
-﻿using Source.Runtime.Models.Health;
-using Source.Runtime.Models.Health.Views;
+﻿using Source.Runtime.Models.HealthSystem;
+using Source.Runtime.Models.HealthSystem.Views;
 using Source.Runtime.Tools.Components.UI;
 using Source.Runtime.Views.Text;
 using UnityEngine;
 using GameObject = Source.Runtime.Views.GameObject.GameObject;
 
-namespace Source.Runtime.Models.Factory.Character.Health
+namespace Source.Runtime.Models.Factory.Character.Healths
 {
     public sealed class CharacterHealthFactory : MonoBehaviour, ICharacterHealthFactory
     {
@@ -19,7 +19,7 @@ namespace Source.Runtime.Models.Factory.Character.Health
         {
             var character = new GameObject(_character.gameObject);
             var healthView = new CharacterHealthView(new TextView(_healthText), character);
-            var health = new Models.Health.Health(_healthPoint, healthView);
+            var health = new Health(_healthPoint, healthView);
 
             _head.Construct(health, 2);
             _body.Construct(health, 1);

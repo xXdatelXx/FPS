@@ -1,6 +1,6 @@
 using Source.Runtime.Input;
 using Source.Runtime.Models.Factory.Character.Controller;
-using Source.Runtime.Models.Factory.Character.Health;
+using Source.Runtime.Models.Factory.Character.Healths;
 using Source.Runtime.Models.Game.Loop.Time;
 using Source.Runtime.Models.Player;
 using UnityEngine;

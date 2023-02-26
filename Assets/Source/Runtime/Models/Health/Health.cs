@@ -1,9 +1,9 @@
 ﻿using System;
-using Source.Runtime.Models.Health.Policy;
-using Source.Runtime.Models.Health.Views;
+using Source.Runtime.Models.HealthSystem.Policy;
+using Source.Runtime.Models.HealthSystem.Views;
 using Source.Runtime.Tools.Extensions;
 
-namespace Source.Runtime.Models.Health
+namespace Source.Runtime.Models.HealthSystem
 {
     public sealed class Health : IHealth
     {
@@ -21,6 +21,8 @@ namespace Source.Runtime.Models.Health
         {
             _point = value.ThrowExceptionIfValueSubOrEqualZero(nameof(Health));
             _deathPolicy = deathPolicy.ThrowExceptionIfArgumentNull(nameof(deathPolicy));
+            _view = view.ThrowExceptionIfArgumentNull(nameof(view));
+            _view.Visualize(value);
         }
 
         public bool Died => _deathPolicy.Died(_point);
@@ -31,7 +33,7 @@ namespace Source.Runtime.Models.Health
                 throw new InvalidOperationException(nameof(TakeDamage));
 
             _point = Math.Min(_point - damage, 0);
-            _view.Damage(_point);
+            _view.Visualize(_point);
 
             if (Died)
                 _view.Die();

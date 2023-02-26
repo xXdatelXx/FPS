@@ -1,8 +1,8 @@
-﻿namespace Source.Runtime.Models.Health.Views
+﻿namespace Source.Runtime.Models.HealthSystem.Views
 {
     public sealed class DummyHealthView : IHealthView
     {
-        public void Damage(float health)
+        public void Visualize(float health)
         {
         }
 

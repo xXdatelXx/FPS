@@ -2,7 +2,7 @@
 using Source.Runtime.Tools.Extensions;
 using UnityEngine;
 
-namespace Source.Runtime.Models.Health
+namespace Source.Runtime.Models.HealthSystem
 {
     [RequireComponent(typeof(Collider))]
     [DisallowMultipleComponent]

@@ -1,8 +1,8 @@
-﻿namespace Source.Runtime.Models.Health.Views
+﻿namespace Source.Runtime.Models.HealthSystem.Views
 {
     public interface IHealthView
     {
-        void Damage(float health);
+        void Visualize(float health);
         void Die();
     }
 }

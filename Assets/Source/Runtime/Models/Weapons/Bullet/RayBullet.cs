@@ -1,4 +1,4 @@
-﻿using Source.Runtime.Models.Health;
+﻿using Source.Runtime.Models.HealthSystem;
 using Source.Runtime.Tools.Extensions;
 using Source.Runtime.Tools.Ray;
 

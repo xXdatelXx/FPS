@@ -1,4 +1,4 @@
-﻿namespace Source.Runtime.Models.Factory.Character.Health
+﻿namespace Source.Runtime.Models.Factory.Character.Healths
 {
     public interface ICharacterHealthFactory
     {
