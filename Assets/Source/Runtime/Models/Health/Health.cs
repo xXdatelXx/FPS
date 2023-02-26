@@ -32,7 +32,7 @@ namespace Source.Runtime.Models.HealthSystem
             if (Died)
                 throw new InvalidOperationException(nameof(TakeDamage));
 
-            _point = Math.Min(_point - damage, 0);
+            _point = Math.Max(_point - damage, 0);
             _view.Visualize(_point);
 
             if (Died)
