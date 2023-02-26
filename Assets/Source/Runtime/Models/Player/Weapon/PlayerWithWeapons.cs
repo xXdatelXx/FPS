@@ -22,10 +22,10 @@ namespace Source.Runtime.Models.Player.Weapon
         {
             _weapon.Tick(deltaTime);
 
-            if (_input.SwitchNext && _weapons.CanSwitchNext)
+            if (_input.SwitchNext && _weapons.CanSwitch)
                 Switch(_weapons.SwitchNext());
 
-            if (_input.SwitchPrevious && _weapons.CanSwitchPrevious)
+            if (_input.SwitchPrevious && _weapons.CanSwitch)
                 Switch(_weapons.SwitchPrevious());
         }
 

@@ -4,8 +4,7 @@
     {
         IPlayerWithWeapon Weapon { get; }
 
-        bool CanSwitchNext { get; }
-        bool CanSwitchPrevious { get; }
+        bool CanSwitch { get; }
         
         IPlayerWithWeapon SwitchNext();
         IPlayerWithWeapon SwitchPrevious();

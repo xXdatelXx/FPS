@@ -3,7 +3,7 @@ using Source.Runtime.Tools.Math;
 using Source.Runtime.Tools.Timer;
 
 namespace Source.Runtime.Models.Weapons.Kind
-{
+{   
     public sealed class RecoilWeapon : IWeapon
     {
         private readonly IWeapon _weapon;
@@ -14,7 +14,7 @@ namespace Source.Runtime.Models.Weapons.Kind
         public void Shoot()
         {
             _weapon.Shoot();
-            Delay();
+            Recoil();
         }
 
         public void Enable() => _weapon.Enable();
@@ -23,10 +23,22 @@ namespace Source.Runtime.Models.Weapons.Kind
         {
             _weapon.Disable();
 
-            if (!_delay.Playing)
+            if (_delay.Playing)
                 _delay.Cancel();
         }
 
-        private void Delay() => _delay.Play();
+        private async void Recoil()
+        {
+            
+            
+            _delay.Play();
+            await _delay.End();
+            StopRecoil();
+        }
+        
+        private void StopRecoil()
+        {
+            
+        }
     }
 }

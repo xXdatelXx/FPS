@@ -30,7 +30,7 @@ namespace Source.Runtime.Models.Weapons.Kind
         {
             if (!CanShoot)
                 throw new InvalidOperationException(nameof(Shoot));
-            
+
             _magazine.Get();
             _weapon.Shoot();
             _view.VisualizeBullets(_magazine.Bullets);
@@ -45,10 +45,10 @@ namespace Source.Runtime.Models.Weapons.Kind
             _reloadTimer.Play();
 
             await _reloadTimer.End();
-            
+
             if (!_enabled)
                 return;
-            
+
             _magazine.Reset();
             _view.VisualizeBullets(_magazine.Bullets);
         }
@@ -63,8 +63,10 @@ namespace Source.Runtime.Models.Weapons.Kind
         public void Disable()
         {
             _weapon.Disable();
-            _reloadTimer.Cancel();
             _enabled = false;
+            
+            if (_reloadTimer.Playing)
+                _reloadTimer.Cancel();
         }
     }
 }

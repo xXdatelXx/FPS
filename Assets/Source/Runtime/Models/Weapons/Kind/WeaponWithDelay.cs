@@ -33,7 +33,7 @@ namespace Source.Runtime.Models.Weapons.Kind
         {
             _weapon.Disable();
 
-            if (!_delay.Playing)
+            if (_delay.Playing)
                 _delay.Cancel();
         }
 
