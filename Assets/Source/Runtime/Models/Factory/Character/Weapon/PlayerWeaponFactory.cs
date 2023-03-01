@@ -38,9 +38,9 @@ namespace Source.Runtime.Models.Factory.Character.Weapon
         private IWeaponWithMagazine CreateWeapon()
         {
             var damageCoefficient = new CurveDamageCoefficient(new Curve(_damageCurve));
-            var bulletsFactory = new RayBulletFactory(_bulletSpawnPoint, _weaponData.Damage, damageCoefficient);
+            var bulletsFactory = new RayBulletFactory(_bulletSpawnPoint, _weaponData.Damage, damageCoefficient, new BulletView());
             var magazine = new Magazine(_weaponData.Bullets);
-            var view = new WeaponView(new BulletsView(new TextView(_bulletsText)), _animator);
+            var view = new WeaponView(new BulletsesView(new TextView(_bulletsText)), _animator);
 
             var weapon = new Weapons.Kind.Weapon(bulletsFactory, view);
             var weaponWithDelay = new WeaponWithDelay(weapon, new Timer(_weaponData.Delay));

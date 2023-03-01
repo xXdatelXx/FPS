@@ -2,10 +2,10 @@
 
 namespace Source.Runtime.Tools.Ray
 {
-    public interface IRayData<out TTarget>
+    public interface IRayHit
     {
         Vector3 Point { get; }
         float Distance { get; }
-        TTarget Target { get; }
+        bool Is<T>(out T t);
     }
 }

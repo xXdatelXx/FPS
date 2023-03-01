@@ -1,4 +1,6 @@
-﻿using Source.Runtime.Models.HealthSystem;
+﻿using JetBrains.Annotations;
+using Source.Runtime.Models.HealthSystem;
+using Source.Runtime.Models.Weapons.Views;
 using Source.Runtime.Tools.Extensions;
 using Source.Runtime.Tools.Ray;
 
@@ -8,25 +10,32 @@ namespace Source.Runtime.Models.Weapons.Bullet
     {
         private readonly float _damage;
         private readonly IDamagePolicy _damagePolicy;
-        private readonly IRay<IHealth> _ray;
+        private readonly IRay _ray;
+        [CanBeNull] private readonly IBulletView _view;
 
-        public RayBullet(float damage, IDamagePolicy damagePolicy, IRay<IHealth> ray)
+        public RayBullet(float damage, IDamagePolicy damagePolicy, IRay ray, IBulletView view = null)
         {
             _damage = damage.ThrowExceptionIfValueSubZero(nameof(damage));
             _damagePolicy = damagePolicy.ThrowExceptionIfArgumentNull(nameof(damagePolicy));
             _ray = ray.ThrowExceptionIfArgumentNull(nameof(ray));
+            _view = view;
         }
 
         public void Fire()
         {
             if (_ray.Cast(out var hit))
             {
-                if (hit.Target.Died)
-                    return;
+                if (CanDamage(out var health, hit))
+                {
+                    var damage = _damagePolicy.Affect(_damage, hit.Distance);
+                    health.TakeDamage(damage);
+                }
 
-                var damage = _damagePolicy.Affect(_damage, hit.Distance);
-                hit.Target.TakeDamage(damage);
+                _view?.Visualize(hit.Point);
             }
         }
+
+        private bool CanDamage(out IHealth health, IRayHit hit) => 
+            hit.Is(out health) && !health.Died;
     }
 }

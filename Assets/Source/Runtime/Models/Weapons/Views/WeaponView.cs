@@ -5,9 +5,9 @@ namespace Source.Runtime.Models.Weapons.Views
     public sealed class WeaponView : IWeaponView
     {
         private readonly IWeaponAnimator _animator;
-        private readonly IBulletView _bullets;
+        private readonly IBulletsView _bullets;
 
-        public WeaponView(IBulletView bullets, IWeaponAnimator animator)
+        public WeaponView(IBulletsView bullets, IWeaponAnimator animator)
         {
             _bullets = bullets.ThrowExceptionIfArgumentNull(nameof(bullets));
             _animator = animator.ThrowExceptionIfArgumentNull(nameof(animator));

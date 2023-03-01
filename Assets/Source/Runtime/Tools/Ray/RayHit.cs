@@ -3,17 +3,18 @@ using UnityEngine;
 
 namespace Source.Runtime.Tools.Ray
 {
-    public struct RayData<TTarget> : IRayData<TTarget>
+    public readonly struct RayHit : IRayHit
     {
-        public RayData(Vector3 point, float distance, TTarget target)
+        public RayHit(Vector3 point, float distance, Collider target)
         {
             Point = point;
             Distance = distance.ThrowExceptionIfValueSubZero(nameof(distance));
-            Target = target.ThrowExceptionIfArgumentNull(nameof(target));
+            _target = target;
         }
 
         public Vector3 Point { get; }
         public float Distance { get; }
-        public TTarget Target { get; }
+        private Collider _target { get; }
+        public bool Is<T>(out T t) => _target.TryGetComponent(out t);
     }
 }

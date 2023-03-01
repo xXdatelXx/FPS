@@ -1,7 +1,9 @@
-﻿namespace Source.Runtime.Models.Weapons.Views
+﻿using UnityEngine;
+
+namespace Source.Runtime.Models.Weapons.Views
 {
     public interface IBulletView
     {
-        void Visualize(int bullets);
+        void Visualize(Vector3 hitPoint);
     }
 }

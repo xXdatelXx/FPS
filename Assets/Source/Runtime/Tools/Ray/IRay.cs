@@ -1,7 +1,9 @@
-﻿namespace Source.Runtime.Tools.Ray
+﻿using UnityEngine;
+
+namespace Source.Runtime.Tools.Ray
 {
-    public interface IRay<TTarget>
+    public interface IRay
     {
-        bool Cast(out IRayData<TTarget> data);
+        bool Cast(out IRayHit hit);
     }
 }

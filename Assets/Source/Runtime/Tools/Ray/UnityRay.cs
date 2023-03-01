@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Source.Runtime.Tools.Ray
 {
-    public sealed class UnityRay<TTarget> : IRay<TTarget>
+    public sealed class UnityRay : IRay
     {
         private readonly UnityEngine.Ray _ray;
 
@@ -14,15 +14,15 @@ namespace Source.Runtime.Tools.Ray
             _ray = new UnityEngine.Ray(origin.Position, origin.Forward);
         }
 
-        public bool Cast(out IRayData<TTarget> data)
+        public bool Cast(out IRayHit hit)
         {
-            if (Physics.Raycast(_ray, out var hit))
+            if (Physics.Raycast(_ray, out var raycastHit))
             {
-                if (hit.Is(out data))
-                    return true;
+                hit = new RayHit(raycastHit.point, raycastHit.distance, raycastHit.collider);
+                return true;
             }
 
-            data = default;
+            hit = default;
             return false;
         }
     }
