@@ -1,8 +1,8 @@
 ﻿using System;
-using Source.Runtime.Tools.Extensions;
+using FPS.Tools;
 using UnityEngine;
 
-namespace Source.Runtime.Models.HealthSystem
+namespace FPS.Model
 {
     [RequireComponent(typeof(Collider))]
     [DisallowMultipleComponent]

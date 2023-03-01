@@ -1,8 +1,8 @@
-﻿using Source.Runtime.Tools.Extensions;
-using Source.Runtime.Views.GameObject;
-using Source.Runtime.Views.Text;
+﻿using FPS.Tools;
+using FPS.Views;
+using FPS.Views.Text;
 
-namespace Source.Runtime.Models.HealthSystem.Views
+namespace FPS.Model
 {
     public sealed class CharacterHealthView : IHealthView
     {
@@ -13,7 +13,6 @@ namespace Source.Runtime.Models.HealthSystem.Views
         {
             _healthText = healthText.ThrowExceptionIfArgumentNull(nameof(healthText));
             _character = character.ThrowExceptionIfArgumentNull(nameof(character));
-            
         }
 
         public void Visualize(float health) =>

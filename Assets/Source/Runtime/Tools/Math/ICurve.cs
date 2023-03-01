@@ -1,4 +1,4 @@
-﻿namespace Source.Runtime.Tools.Math
+﻿namespace FPS.Tools
 {
     public interface ICurve
     {

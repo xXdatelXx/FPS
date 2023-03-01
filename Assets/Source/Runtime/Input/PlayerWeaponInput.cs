@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Source.Runtime.Input
+namespace FPS.Input
 {
     //TODO переделать на input system 2.0
     public sealed class PlayerWeaponInput : IPlayerWeaponInput

@@ -1,9 +1,7 @@
-﻿using Source.Runtime.Input;
-using Source.Runtime.Models.Player.Weapon.Interfaces;
-using Source.Runtime.Models.Weapons.Kind.Interfaces;
-using Source.Runtime.Tools.Extensions;
+﻿using FPS.Input;
+using FPS.Tools;
 
-namespace Source.Runtime.Models.Player.Weapon
+namespace FPS.Model
 {
     public sealed class PlayerWithWeapon : IPlayerWithWeapon
     {
@@ -18,7 +16,7 @@ namespace Source.Runtime.Models.Player.Weapon
 
         public void Tick(float deltaTime)
         {
-            if (_input.Shooting && _weapon.CanShoot) 
+            if (_input.Shooting && _weapon.CanShoot)
                 _weapon.Shoot();
         }
 

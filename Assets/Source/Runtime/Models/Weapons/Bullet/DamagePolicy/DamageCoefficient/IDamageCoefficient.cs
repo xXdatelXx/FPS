@@ -1,4 +1,4 @@
-﻿namespace Source.Runtime.Models.Weapons.Bullet
+﻿namespace FPS.Model
 {
     public interface IDamageCoefficient
     {

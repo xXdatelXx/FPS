@@ -1,10 +1,9 @@
-﻿using Source.Runtime.Models.Factory.Character;
-using Source.Runtime.Models.Factory.Character.Weapon;
-using Source.Runtime.Tools.Extensions;
+﻿using FPS.Factories;
+using FPS.Tools;
 
-namespace Source.Runtime.Data
+namespace FPS.Data
 {
-    public class GameEngine : IGameEngine
+    public sealed class GameEngine : IGameEngine
     {
         public GameEngine(IPlayerFactory playerFactory, IPlayerWeaponCollectionFactory playerWeaponFactory)
         {

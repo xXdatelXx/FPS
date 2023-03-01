@@ -1,7 +1,7 @@
-﻿using Source.Runtime.Tools.Extensions;
+﻿using FPS.Tools;
 using UnityEngine;
 
-namespace Source.Runtime.Models.Movement
+namespace FPS.Model
 {
     public sealed class CharacterMovementController : IMovement
     {

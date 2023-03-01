@@ -1,10 +1,10 @@
 using System;
-using Source.Runtime.Tools.Extensions;
+using FPS.Tools;
 using UnityEngine;
 
-namespace Source.Runtime.Models.Player.Rotation
+namespace FPS.Model.Rotation
 {
-    public class CharacterRotation : ICharacterRotation
+    public sealed class CharacterRotation : ICharacterRotation
     {
         private readonly IBodyRotation _body;
         private readonly IHeadRotation _head;

@@ -1,4 +1,4 @@
-﻿namespace Source.Runtime.Models.Player.Weapon.Interfaces
+﻿namespace FPS.Model
 {
     public interface IWeaponCollection : IReadOnlyWeaponCollection
     {

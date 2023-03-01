@@ -1,4 +1,4 @@
-﻿namespace Source.Runtime.Models.Factory.Character.Healths
+﻿namespace FPS.Factories
 {
     public interface ICharacterHealthFactory
     {

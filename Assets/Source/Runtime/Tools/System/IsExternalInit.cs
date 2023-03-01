@@ -1,4 +1,4 @@
-﻿namespace Source.Runtime.Tools.System
+﻿namespace FPS.Tools
 {
     public class IsExternalInit
     {

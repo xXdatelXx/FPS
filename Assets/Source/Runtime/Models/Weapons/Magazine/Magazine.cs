@@ -1,13 +1,12 @@
 ﻿using System;
-using Source.Runtime.Tools.Extensions;
-using Source.Runtime.Tools.Math;
+using FPS.Tools;
 
-namespace Source.Runtime.Models.Weapons.Magazine
+namespace FPS.Model
 {
     public sealed class Magazine : IMagazine
     {
         private IntWithStandard _bullets;
-        
+
         public Magazine(int bulletCount) =>
             _bullets = new IntWithStandard(bulletCount.ThrowExceptionIfValueSubZero(nameof(bulletCount)));
 
@@ -27,7 +26,7 @@ namespace Source.Runtime.Models.Weapons.Magazine
         {
             if (!CanReset)
                 throw new InvalidOperationException(nameof(Reset));
-            
+
             _bullets.Reset();
         }
     }

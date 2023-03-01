@@ -1,7 +1,6 @@
-﻿using Source.Runtime.Models.Factory.Character;
-using Source.Runtime.Models.Factory.Character.Weapon;
+﻿using FPS.Factories;
 
-namespace Source.Runtime.Data
+namespace FPS.Data
 {
     public interface IGameEngine
     {

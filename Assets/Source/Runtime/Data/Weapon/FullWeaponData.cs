@@ -1,7 +1,6 @@
-﻿using Source.Runtime.Data.Weapon.Interfaces;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Source.Runtime.Data.Weapon
+namespace FPS.Data
 {
     [CreateAssetMenu(menuName = nameof(FullWeaponData))]
     public sealed class FullWeaponData : ScriptableObject, IFullWeaponData

@@ -1,7 +1,7 @@
-﻿using Source.Runtime.Tools.Extensions;
-using Source.Runtime.Views.Text;
+﻿using FPS.Tools;
+using FPS.Views.Text;
 
-namespace Source.Runtime.Models.Weapons.Views
+namespace FPS.Model
 {
     public sealed class BulletsesView : IBulletsView
     {

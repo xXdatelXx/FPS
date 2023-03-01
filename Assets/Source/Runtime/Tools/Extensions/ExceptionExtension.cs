@@ -1,7 +1,6 @@
 using System;
-using Source.Runtime.Tools.Exceptions;
 
-namespace Source.Runtime.Tools.Extensions
+namespace FPS.Tools
 {
     public static class ExceptionExtension
     {

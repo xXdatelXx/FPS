@@ -1,4 +1,4 @@
-﻿namespace Source.Runtime.Views.GameObject
+﻿namespace FPS.Views
 {
     public interface IGameObject
     {

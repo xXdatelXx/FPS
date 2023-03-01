@@ -1,9 +1,7 @@
 ﻿using System;
-using Source.Runtime.Models.HealthSystem.Policy;
-using Source.Runtime.Models.HealthSystem.Views;
-using Source.Runtime.Tools.Extensions;
+using FPS.Tools;
 
-namespace Source.Runtime.Models.HealthSystem
+namespace FPS.Model
 {
     public sealed class Health : IHealth
     {
@@ -12,10 +10,12 @@ namespace Source.Runtime.Models.HealthSystem
         private float _point;
 
         public Health(float value, IDeathPolicy deathPolicy) : this(value, deathPolicy, new DummyHealthView())
-        { }
+        {
+        }
 
         public Health(float value, IHealthView view) : this(value, new DeathPolicy(), view)
-        { }
+        {
+        }
 
         public Health(float value, IDeathPolicy deathPolicy, IHealthView view)
         {

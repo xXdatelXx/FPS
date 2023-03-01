@@ -1,4 +1,4 @@
-﻿namespace Source.Runtime.Data.Weapon.Interfaces
+﻿namespace FPS.Data
 {
     public interface IHandWeaponData : IWeaponData
     {

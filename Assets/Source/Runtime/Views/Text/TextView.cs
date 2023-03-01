@@ -1,7 +1,6 @@
-﻿using Source.Runtime.Tools.Components.UI;
-using Source.Runtime.Tools.Extensions;
+﻿using FPS.Tools;
 
-namespace Source.Runtime.Views.Text
+namespace FPS.Views.Text
 {
     public sealed class TextView : ITextView
     {

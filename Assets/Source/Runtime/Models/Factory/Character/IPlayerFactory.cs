@@ -1,7 +1,7 @@
-using Source.Runtime.Models.Game.Loop.Time;
-using Source.Runtime.Models.Player;
+using FPS.Game;
+using FPS.Model;
 
-namespace Source.Runtime.Models.Factory.Character
+namespace FPS.Factories
 {
     public interface IPlayerFactory
     {

@@ -1,11 +1,8 @@
 ﻿using System;
-using Source.Runtime.Models.Movement;
-using Source.Runtime.Models.Player.Movement.Interfaces;
-using Source.Runtime.Tools.Extensions;
-using Source.Runtime.Tools.Math;
+using FPS.Tools;
 using UnityEngine;
 
-namespace Source.Runtime.Models.Player.Movement
+namespace FPS.Model
 {
     public sealed class CharacterJump : ICharacterJump
     {
@@ -36,7 +33,7 @@ namespace Source.Runtime.Models.Player.Movement
         {
             if (!Jumping)
                 throw new InvalidOperationException(nameof(Tick));
-            
+
             _evaluatedTime += deltaTime;
             _controller.Move(new Vector3(0, _motion[_evaluatedTime / _motion.Time] * deltaTime));
 

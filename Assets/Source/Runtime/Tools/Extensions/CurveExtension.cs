@@ -1,7 +1,6 @@
-﻿using Source.Runtime.Tools.Math;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Source.Runtime.Tools.Extensions
+namespace FPS.Tools
 {
     public static class CurveExtension
     {
@@ -15,7 +14,7 @@ namespace Source.Runtime.Tools.Extensions
 
         public static ICurve ThrowExceptionIfValuesSubZero(this ICurve curve, string name = nameof(Curve))
         {
-            for (float i = 0; i <= curve.Time; i += Time.fixedDeltaTime) 
+            for (float i = 0; i <= curve.Time; i += Time.fixedDeltaTime)
                 curve[i].ThrowExceptionIfValueSubZero(name);
 
             return curve;

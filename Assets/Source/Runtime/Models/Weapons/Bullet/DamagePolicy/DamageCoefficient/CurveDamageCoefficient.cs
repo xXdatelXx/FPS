@@ -1,8 +1,6 @@
-﻿using Source.Runtime.Tools.Extensions;
-using Source.Runtime.Tools.Math;
-using UnityEngine;
+﻿using FPS.Tools;
 
-namespace Source.Runtime.Models.Weapons.Bullet
+namespace FPS.Model
 {
     public sealed class CurveDamageCoefficient : IDamageCoefficient
     {

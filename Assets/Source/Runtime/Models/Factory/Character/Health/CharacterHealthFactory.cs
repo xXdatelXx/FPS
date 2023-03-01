@@ -1,18 +1,17 @@
-﻿using Source.Runtime.Models.HealthSystem;
-using Source.Runtime.Models.HealthSystem.Views;
-using Source.Runtime.Tools.Components.UI;
-using Source.Runtime.Views.Text;
+﻿using FPS.Model;
+using FPS.Tools;
+using FPS.Views.Text;
 using UnityEngine;
-using GameObject = Source.Runtime.Views.GameObject.GameObject;
+using GameObject = FPS.Views.GameObject;
 
-namespace Source.Runtime.Models.Factory.Character.Healths
+namespace FPS.Factories
 {
     public sealed class CharacterHealthFactory : MonoBehaviour, ICharacterHealthFactory
     {
         [SerializeField] private CharacterOrgan _head;
         [SerializeField] private CharacterOrgan _body;
         [SerializeField] private float _healthPoint;
-        [SerializeField] private Player.Character _character;
+        [SerializeField] private Character _character;
         [SerializeField] private UnityText _healthText;
 
         public void Create()

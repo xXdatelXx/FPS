@@ -1,6 +1,6 @@
-﻿using Source.Runtime.Tools.Extensions;
+﻿using FPS.Tools;
 
-namespace Source.Runtime.Models.Weapons.Bullet
+namespace FPS.Model
 {
     public sealed class DamageCoefficient : IDamageCoefficient
     {

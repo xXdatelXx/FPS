@@ -1,20 +1,11 @@
-﻿using Source.Runtime.Data.Weapon;
-using Source.Runtime.Input;
-using Source.Runtime.Models.Player.Weapon;
-using Source.Runtime.Models.Player.Weapon.Interfaces;
-using Source.Runtime.Models.Weapons.Bullet;
-using Source.Runtime.Models.Weapons.Bullet.Factory;
-using Source.Runtime.Models.Weapons.Kind;
-using Source.Runtime.Models.Weapons.Kind.Interfaces;
-using Source.Runtime.Models.Weapons.Magazine;
-using Source.Runtime.Models.Weapons.Views;
-using Source.Runtime.Tools.Components.UI;
-using Source.Runtime.Tools.Math;
-using Source.Runtime.Tools.Timer;
-using Source.Runtime.Views.Text;
+﻿using FPS.Data;
+using FPS.Input;
+using FPS.Model;
+using FPS.Tools;
+using FPS.Views.Text;
 using UnityEngine;
 
-namespace Source.Runtime.Models.Factory.Character.Weapon
+namespace FPS.Factories
 {
     public sealed class PlayerWeaponFactory : MonoBehaviour, IPlayerWeaponFactory
     {
@@ -42,7 +33,7 @@ namespace Source.Runtime.Models.Factory.Character.Weapon
             var magazine = new Magazine(_weaponData.Bullets);
             var view = new WeaponView(new BulletsesView(new TextView(_bulletsText)), _animator);
 
-            var weapon = new Weapons.Kind.Weapon(bulletsFactory, view);
+            var weapon = new Weapon(bulletsFactory, view);
             var weaponWithDelay = new WeaponWithDelay(weapon, new Timer(_weaponData.Delay));
             var handWeapon = new HandWeapon(weaponWithDelay, new Timer(_weaponData.Enable), view);
             var weaponWithMagazine = new WeaponWithMagazine(handWeapon, magazine, new Timer(_weaponData.Reload), view);

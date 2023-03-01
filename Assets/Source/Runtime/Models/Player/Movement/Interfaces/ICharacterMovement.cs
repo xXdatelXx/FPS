@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Source.Runtime.Models.Player.Movement.Interfaces
+namespace FPS.Model
 {
     public interface ICharacterMovement : ICharacterJump, IGravitation
     {

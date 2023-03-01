@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Source.Runtime.Models.Weapons.Bullet.Factory
+namespace FPS.Tools
 {
     public interface IRaySpawnPoint
     {

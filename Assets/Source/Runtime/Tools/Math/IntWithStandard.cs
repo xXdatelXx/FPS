@@ -1,4 +1,4 @@
-﻿namespace Source.Runtime.Tools.Math
+﻿namespace FPS.Tools
 {
     public struct IntWithStandard
     {
@@ -28,7 +28,7 @@
 
         public static bool operator >(IntWithStandard a, int b) => a.Value > b;
         public static bool operator <(IntWithStandard a, int b) => a.Value < b;
-        
+
         public override string ToString() => Value.ToString();
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace Source.Runtime.Models.Game.Loop.Time
+﻿namespace FPS.Game
 {
     public interface IReadOnlyGameTime
     {

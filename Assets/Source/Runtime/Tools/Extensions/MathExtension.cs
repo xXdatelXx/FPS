@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Source.Runtime.Tools.Extensions
+namespace FPS.Tools
 {
     public static class MathExtension
     {

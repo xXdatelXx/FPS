@@ -1,6 +1,6 @@
 ﻿using Cysharp.Threading.Tasks;
 
-namespace Source.Runtime.Tools.Timer
+namespace FPS.Tools
 {
     public interface ITimer
     {

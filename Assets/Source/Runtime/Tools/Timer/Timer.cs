@@ -1,9 +1,8 @@
 ﻿using System;
 using Cysharp.Threading.Tasks;
-using Source.Runtime.Tools.Extensions;
 using UnityEngine;
 
-namespace Source.Runtime.Tools.Timer
+namespace FPS.Tools
 {
     [Serializable]
     public sealed class Timer : ITimer

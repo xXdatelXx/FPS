@@ -1,4 +1,4 @@
-﻿namespace Source.Runtime.Views.Text
+﻿namespace FPS.Views.Text
 {
     public interface ITextView
     {

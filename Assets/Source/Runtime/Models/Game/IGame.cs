@@ -1,4 +1,4 @@
-﻿namespace Source.Runtime.Models.Game
+﻿namespace FPS.Game
 {
     public interface IGame
     {

@@ -1,7 +1,6 @@
-﻿using Source.Runtime.Tools.Extensions;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Source.Runtime.Tools.Math
+namespace FPS.Tools
 {
     public readonly struct Curve : ICurve
     {

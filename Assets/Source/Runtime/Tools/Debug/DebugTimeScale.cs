@@ -1,7 +1,7 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace Source.Runtime.Tools.Debug
+namespace FPS.Tools.Debug
 {
     public static class DebugTimeScale
     {

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Source.Runtime.Models.Movement
+namespace FPS.Model
 {
     public interface IMovement
     {

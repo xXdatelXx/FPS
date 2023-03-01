@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Source.Runtime.Tools.Math
+namespace FPS.Tools
 {
     [Serializable]
     public struct Range

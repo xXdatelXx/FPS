@@ -1,4 +1,4 @@
-﻿namespace Source.Runtime.Models.HealthSystem
+﻿namespace FPS.Model
 {
     public interface IHealth
     {

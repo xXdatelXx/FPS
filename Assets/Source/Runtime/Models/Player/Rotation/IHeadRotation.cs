@@ -1,4 +1,4 @@
-﻿namespace Source.Runtime.Models.Player.Rotation
+﻿namespace FPS.Model.Rotation
 {
     public interface IHeadRotation
     {

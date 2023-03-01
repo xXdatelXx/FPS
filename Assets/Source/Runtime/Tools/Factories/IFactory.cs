@@ -1,4 +1,4 @@
-﻿namespace Source.Runtime.Tools.Factories
+﻿namespace FPS.Tools
 {
     public interface IFactory<out T>
     {

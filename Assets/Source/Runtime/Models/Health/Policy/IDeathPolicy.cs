@@ -1,4 +1,4 @@
-﻿namespace Source.Runtime.Models.HealthSystem.Policy
+﻿namespace FPS.Model
 {
     public interface IDeathPolicy
     {

@@ -1,13 +1,13 @@
 using UnityEngine;
 
-namespace Source.Runtime.Tools.Extensions
+namespace FPS.Tools
 {
     public static class CollisionExtension
     {
         public static bool Is<T>(this Collider collider) =>
             collider.GetComponent<T>() != null;
 
-        public static bool Is<T>(this Collider collider, out T obj) => 
+        public static bool Is<T>(this Collider collider, out T obj) =>
             collider.transform.TryGetComponent(out obj);
 
         public static bool Is<T>(this Collision collision) =>

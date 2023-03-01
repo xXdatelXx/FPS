@@ -1,10 +1,7 @@
-﻿using Source.Runtime.Data;
-using Source.Runtime.Models.Game.Loop;
-using Source.Runtime.Models.Game.Loop.Time;
-using Source.Runtime.Models.Player;
-using Source.Runtime.Models.Player.Weapon.Interfaces;
+﻿using FPS.Data;
+using FPS.Model;
 
-namespace Source.Runtime.Models.Game
+namespace FPS.Game
 {
     public sealed class Game : IGame
     {

@@ -1,4 +1,4 @@
-﻿namespace Source.Runtime.Models.Weapons.Magazine
+﻿namespace FPS.Model
 {
     public interface IReadOnlyMagazine
     {

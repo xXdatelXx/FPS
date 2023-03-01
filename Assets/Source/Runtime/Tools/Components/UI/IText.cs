@@ -1,4 +1,4 @@
-﻿namespace Source.Runtime.Tools.Components.UI
+﻿namespace FPS.Tools
 {
     public interface IText
     {

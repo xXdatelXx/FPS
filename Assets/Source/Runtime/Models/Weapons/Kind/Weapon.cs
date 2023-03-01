@@ -1,10 +1,7 @@
 ﻿using System;
-using Source.Runtime.Models.Weapons.Bullet.Factory;
-using Source.Runtime.Models.Weapons.Kind.Interfaces;
-using Source.Runtime.Models.Weapons.Views;
-using Source.Runtime.Tools.Extensions;
+using FPS.Tools;
 
-namespace Source.Runtime.Models.Weapons.Kind
+namespace FPS.Model
 {
     public sealed class Weapon : IWeapon
     {

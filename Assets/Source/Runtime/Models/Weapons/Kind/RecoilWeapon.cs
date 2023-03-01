@@ -1,13 +1,11 @@
-﻿using Source.Runtime.Models.Weapons.Kind.Interfaces;
-using Source.Runtime.Tools.Math;
-using Source.Runtime.Tools.Timer;
+﻿using FPS.Tools;
 
-namespace Source.Runtime.Models.Weapons.Kind
-{   
+namespace FPS.Model
+{
     public sealed class RecoilWeapon : IWeapon
     {
-        private readonly IWeapon _weapon;
         private readonly ITimer _delay;
+        private readonly IWeapon _weapon;
         private ICurve _curve;
         public bool CanShoot => _weapon.CanShoot;
 
@@ -29,16 +27,13 @@ namespace Source.Runtime.Models.Weapons.Kind
 
         private async void Recoil()
         {
-            
-            
             _delay.Play();
             await _delay.End();
             StopRecoil();
         }
-        
+
         private void StopRecoil()
         {
-            
         }
     }
 }

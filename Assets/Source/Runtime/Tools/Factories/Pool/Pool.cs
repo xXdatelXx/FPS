@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
-using Source.Runtime.Tools.Extensions;
 
-namespace Source.Runtime.Tools.Factories.Pool
+namespace FPS.Tools
 {
     public sealed class Pool<T> : IPool<T> where T : IPoolObject
     {

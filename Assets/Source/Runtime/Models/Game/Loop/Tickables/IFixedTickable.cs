@@ -1,4 +1,4 @@
-namespace Source.Runtime.Models.Game.Loop.Tickables
+namespace FPS.Game.Loop
 {
     public interface IFixedTickable
     {

@@ -1,10 +1,8 @@
 using System;
-using Source.Runtime.Models.Movement;
-using Source.Runtime.Models.Player.Movement.Interfaces;
-using Source.Runtime.Tools.Extensions;
+using FPS.Tools;
 using UnityEngine;
 
-namespace Source.Runtime.Models.Player.Movement
+namespace FPS.Model
 {
     public sealed class CharacterMovement : ICharacterMovement
     {

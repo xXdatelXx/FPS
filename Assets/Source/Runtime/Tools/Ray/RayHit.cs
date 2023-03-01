@@ -1,7 +1,6 @@
-﻿using Source.Runtime.Tools.Extensions;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Source.Runtime.Tools.Ray
+namespace FPS.Tools
 {
     public readonly struct RayHit : IRayHit
     {

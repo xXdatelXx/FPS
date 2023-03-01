@@ -1,9 +1,8 @@
-using Source.Runtime.Input;
-using Source.Runtime.Models.Player.Movement.Interfaces;
-using Source.Runtime.Models.Player.Rotation;
-using Source.Runtime.Tools.Extensions;
+using FPS.Input;
+using FPS.Model.Rotation;
+using FPS.Tools;
 
-namespace Source.Runtime.Models.Player
+namespace FPS.Model
 {
     public sealed class Player : IPlayer
     {
@@ -21,10 +20,10 @@ namespace Source.Runtime.Models.Player
         public void Tick(float deltaTime)
         {
             _movement.Tick(deltaTime);
-            
+
             if (_input.Jump() && _movement.CanJump)
                 _movement.Jump();
-            
+
             if (_input.Moving)
                 _movement.Move(_input.Movement(), deltaTime);
 

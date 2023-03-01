@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-
-namespace Source.Runtime.Tools.Ray
+﻿namespace FPS.Tools
 {
     public interface IRay
     {

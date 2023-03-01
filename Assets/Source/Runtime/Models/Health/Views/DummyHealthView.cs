@@ -1,4 +1,4 @@
-﻿namespace Source.Runtime.Models.HealthSystem.Views
+﻿namespace FPS.Model
 {
     public sealed class DummyHealthView : IHealthView
     {

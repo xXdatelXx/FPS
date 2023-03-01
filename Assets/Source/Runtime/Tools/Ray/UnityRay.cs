@@ -1,17 +1,15 @@
-﻿using Source.Runtime.Models.Weapons.Bullet.Factory;
-using Source.Runtime.Tools.Extensions;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Source.Runtime.Tools.Ray
+namespace FPS.Tools
 {
     public sealed class UnityRay : IRay
     {
-        private readonly UnityEngine.Ray _ray;
+        private readonly Ray _ray;
 
         public UnityRay(IRaySpawnPoint origin)
         {
             origin.ThrowExceptionIfArgumentNull(nameof(origin));
-            _ray = new UnityEngine.Ray(origin.Position, origin.Forward);
+            _ray = new Ray(origin.Position, origin.Forward);
         }
 
         public bool Cast(out IRayHit hit)

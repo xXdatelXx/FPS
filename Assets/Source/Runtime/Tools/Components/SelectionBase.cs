@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Source.Runtime.Tools.Components
+namespace FPS.Tools
 {
     [SelectionBase]
     [DisallowMultipleComponent]

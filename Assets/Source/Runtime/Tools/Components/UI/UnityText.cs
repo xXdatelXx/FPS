@@ -1,6 +1,6 @@
 ﻿using UnityEngine.UI;
 
-namespace Source.Runtime.Tools.Components.UI
+namespace FPS.Tools
 {
     public sealed class UnityText : Text, IText
     {

@@ -1,4 +1,4 @@
-﻿namespace Source.Runtime.Tools.Factories.Pool
+﻿namespace FPS.Tools
 {
     public interface IPool<T> where T : IPoolObject
     {

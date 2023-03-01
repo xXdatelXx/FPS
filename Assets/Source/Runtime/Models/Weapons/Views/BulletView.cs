@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
 
-namespace Source.Runtime.Models.Weapons.Views
+namespace FPS.Model
 {
     public sealed class BulletView : IBulletView
     {
         public void Visualize(Vector3 hitPoint)
-        { }
+        {
+        }
     }
 }

@@ -1,8 +1,7 @@
-﻿using Source.Runtime.Input;
-using Source.Runtime.Models.Player.Weapon.Interfaces;
-using Source.Runtime.Tools.Extensions;
+﻿using FPS.Input;
+using FPS.Tools;
 
-namespace Source.Runtime.Models.Player.Weapon
+namespace FPS.Model
 {
     public sealed class PlayerWithWeapons : IPlayerWithWeapons
     {

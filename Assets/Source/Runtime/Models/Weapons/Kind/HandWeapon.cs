@@ -1,10 +1,7 @@
 ﻿using System;
-using Source.Runtime.Models.Weapons.Kind.Interfaces;
-using Source.Runtime.Models.Weapons.Views;
-using Source.Runtime.Tools.Extensions;
-using Source.Runtime.Tools.Timer;
+using FPS.Tools;
 
-namespace Source.Runtime.Models.Weapons.Kind
+namespace FPS.Model
 {
     public sealed class HandWeapon : IWeapon
     {
@@ -39,7 +36,7 @@ namespace Source.Runtime.Models.Weapons.Kind
             _view.Enable();
 
             await _enableTimer.End();
-            
+
             _weapon.Enable();
             _enabled = true;
         }

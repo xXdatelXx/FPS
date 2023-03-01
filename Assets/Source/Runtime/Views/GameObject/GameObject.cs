@@ -1,8 +1,8 @@
 ﻿using System;
-using Source.Runtime.Tools.Extensions;
+using FPS.Tools;
 using Object = UnityEngine.Object;
 
-namespace Source.Runtime.Views.GameObject
+namespace FPS.Views
 {
     public sealed class GameObject : IGameObject
     {

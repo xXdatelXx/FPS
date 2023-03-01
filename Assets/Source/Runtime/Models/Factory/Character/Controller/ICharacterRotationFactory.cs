@@ -1,7 +1,7 @@
-﻿using Source.Runtime.Models.Player.Rotation;
-using Source.Runtime.Tools.Factories;
+﻿using FPS.Model.Rotation;
+using FPS.Tools;
 
-namespace Source.Runtime.Models.Factory.Character.Controller
+namespace FPS.Factories
 {
     public interface ICharacterRotationFactory : IFactory<ICharacterRotation>
     {

@@ -1,7 +1,7 @@
-﻿using Source.Runtime.Tools.Extensions;
+﻿using FPS.Tools;
 using UnityEngine;
 
-namespace Source.Runtime.Models.Weapons.Views
+namespace FPS.Model
 {
     [RequireComponent(typeof(Animator))]
     public sealed class WeaponAnimator : MonoBehaviour, IWeaponAnimator

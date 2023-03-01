@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using Source.Runtime.Models.Player.Weapon.Interfaces;
-using Source.Runtime.Tools.Extensions;
+using FPS.Tools;
 
-namespace Source.Runtime.Models.Player.Weapon
+namespace FPS.Model
 {
     public sealed class WeaponCollection : IWeaponCollection
     {
@@ -13,7 +12,8 @@ namespace Source.Runtime.Models.Player.Weapon
         private int _id;
 
         public WeaponCollection(params IPlayerWithWeapon[] weapons) : this(weapons.ToList())
-        { }
+        {
+        }
 
         public WeaponCollection(List<IPlayerWithWeapon> weapons)
         {

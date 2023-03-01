@@ -1,8 +1,6 @@
-﻿using Source.Runtime.Models.Weapons.Views;
-using Source.Runtime.Tools.Extensions;
-using Source.Runtime.Tools.Ray;
+﻿using FPS.Tools;
 
-namespace Source.Runtime.Models.Weapons.Bullet.Factory
+namespace FPS.Model
 {
     public sealed class RayBulletFactory : IBulletFactory
     {

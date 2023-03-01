@@ -1,10 +1,8 @@
-using Source.Runtime.Data;
-using Source.Runtime.Models.Factory.Character;
-using Source.Runtime.Models.Factory.Character.Weapon;
-using Source.Runtime.Models.Game;
+using FPS.Data;
+using FPS.Factories;
 using UnityEngine;
 
-namespace Source.Runtime.EntryPoint
+namespace FPS.EntryPoint
 {
     [DisallowMultipleComponent]
     public sealed class EntryPoint : MonoBehaviour
@@ -15,7 +13,7 @@ namespace Source.Runtime.EntryPoint
         private void Start()
         {
             var gameEngine = new GameEngine(_playerFactory, _playerWeaponFactory);
-            new Game(gameEngine).Play();
+            new Game.Game(gameEngine).Play();
         }
     }
 }

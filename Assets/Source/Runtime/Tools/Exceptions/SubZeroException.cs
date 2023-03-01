@@ -1,6 +1,6 @@
 using System;
 
-namespace Source.Runtime.Tools.Exceptions
+namespace FPS.Tools
 {
     public sealed class SubZeroException : Exception
     {

@@ -1,10 +1,7 @@
-﻿using JetBrains.Annotations;
-using Source.Runtime.Models.HealthSystem;
-using Source.Runtime.Models.Weapons.Views;
-using Source.Runtime.Tools.Extensions;
-using Source.Runtime.Tools.Ray;
+﻿using FPS.Tools;
+using JetBrains.Annotations;
 
-namespace Source.Runtime.Models.Weapons.Bullet
+namespace FPS.Model
 {
     public sealed class RayBullet : IBullet
     {
@@ -35,7 +32,7 @@ namespace Source.Runtime.Models.Weapons.Bullet
             }
         }
 
-        private bool CanDamage(out IHealth health, IRayHit hit) => 
+        private bool CanDamage(out IHealth health, IRayHit hit) =>
             hit.Is(out health) && !health.Died;
     }
 }
