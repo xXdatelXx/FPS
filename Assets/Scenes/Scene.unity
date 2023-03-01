@@ -552,10 +552,10 @@ MonoBehaviour:
     SerializationNodes:
     - Name: _speed
       Entry: 7
-      Data: 0|Source.Runtime.Models.Player.Movement.Speed, Assembly
+      Data: 0|FPS.Model.Speed, Assembly
     - Name: <Value>k__BackingField
       Entry: 4
-      Data: 2.68
+      Data: 3.13
     - Name: 
       Entry: 8
       Data: 
@@ -1418,7 +1418,7 @@ MonoBehaviour:
     SerializationNodes:
     - Name: _factories
       Entry: 7
-      Data: 0|System.Collections.Generic.List`1[[Source.Runtime.Models.Factory.Character.Weapon.IPlayerWeaponFactory,
+      Data: 0|System.Collections.Generic.List`1[[FPS.Factories.IPlayerWeaponFactory,
         Assembly]], mscorlib
     - Name: 
       Entry: 12
