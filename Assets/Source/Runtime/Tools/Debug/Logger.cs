@@ -1,19 +1,14 @@
-// ReSharper disable once CheckNamespace
-
-namespace FPS.Tools.Debug
+public static class Logger
 {
-    public static class Logger
+    private static string _space => " , ";
+    private static string _defaultValue => "log";
+
+    public static void Log(params object[] obj)
     {
-        private static string _space => " , ";
-        private static string _defaultValue => "log";
+        var value = string.Join(_space, obj);
+        if (value.Length == 0)
+            value = _defaultValue;
 
-        public static void Log(params object[] obj)
-        {
-            var value = string.Join(_space, obj);
-            if (value.Length == 0)
-                value = _defaultValue;
-
-            UnityEngine.Debug.Log(value);
-        }
+        UnityEngine.Debug.Log(value);
     }
 }
