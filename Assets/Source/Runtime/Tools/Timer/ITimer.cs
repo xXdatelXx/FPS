@@ -1,12 +1,8 @@
-﻿using Cysharp.Threading.Tasks;
-
-namespace FPS.Tools
+﻿namespace FPS.Tools
 {
-    public interface ITimer
+    public interface ITimer : IReadOnlyTimer
     {
-        bool Playing { get; }
         void Play();
-        UniTask End();
         void Cancel();
     }
 }
