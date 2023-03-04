@@ -10,5 +10,6 @@ namespace FPS.Data
         [field: SerializeField] public int Bullets { get; private set; }
         [field: SerializeField] public float Delay { get; private set; }
         [field: SerializeField] public float Enable { get; private set; }
+        [field: SerializeField] public AnimationCurve RecoilCurve { get; private set; }
     }
 }

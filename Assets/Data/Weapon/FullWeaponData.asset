@@ -17,3 +17,36 @@ MonoBehaviour:
   <Bullets>k__BackingField: 30
   <Delay>k__BackingField: 0.2
   <Enable>k__BackingField: 0.1
+  <RecoilCurve>k__BackingField:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0.06133893
+      outSlope: 0.06133893
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1.3275995
+      value: 1.0814335
+      inSlope: 0.29895186
+      outSlope: 0.29895186
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 2.12039
+      value: 1.506817
+      inSlope: 0.5365648
+      outSlope: 0.5365648
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4

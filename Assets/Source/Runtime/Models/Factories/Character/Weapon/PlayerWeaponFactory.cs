@@ -2,6 +2,7 @@
 using FPS.Input;
 using FPS.Model;
 using FPS.Tools;
+using FPS.Views;
 using FPS.Views.Text;
 using UnityEngine;
 
@@ -14,6 +15,7 @@ namespace FPS.Factories
         [SerializeField] private WeaponAnimator _animator;
         [SerializeField] private UnityText _bulletsText;
         [SerializeField] private AnimationCurve _damageCurve;
+        [SerializeField] private Transform _head;
 
         public IPlayerWithWeapon Create()
         {
@@ -32,11 +34,14 @@ namespace FPS.Factories
             var bulletsFactory = new RayBulletFactory(_bulletSpawnPoint, _weaponData.Damage, damageCoefficient, new BulletView());
             var magazine = new Magazine(_weaponData.Bullets);
             var view = new WeaponView(new BulletsesView(new TextView(_bulletsText)), _animator);
+            var delay = new WeaponDelay(new Timer(_weaponData.Delay));
+            var head = new GameObjectWithRotation(_head);
 
             var weapon = new Weapon(bulletsFactory, view);
-            var weaponWithDelay = new WeaponWithDelay(weapon, new Timer(_weaponData.Delay));
+            var weaponWithDelay = new WeaponWithDelay(weapon, delay);
             var handWeapon = new HandWeapon(weaponWithDelay, new Timer(_weaponData.Enable), view);
-            var weaponWithMagazine = new WeaponWithMagazine(handWeapon, magazine, new Timer(_weaponData.Reload), view);
+            var weaponWithRecoil = new WeaponWithRecoil(handWeapon, new Curve(_weaponData.RecoilCurve), delay, head, magazine);
+            var weaponWithMagazine = new WeaponWithMagazine(weaponWithRecoil, magazine, new Timer(_weaponData.Reload), view);
 
             return weaponWithMagazine;
         }
