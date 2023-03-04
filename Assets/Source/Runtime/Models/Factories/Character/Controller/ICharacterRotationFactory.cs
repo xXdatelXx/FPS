@@ -1,4 +1,4 @@
-﻿using FPS.Model.Rotation;
+﻿using FPS.Model;
 using FPS.Tools;
 
 namespace FPS.Factories

@@ -2,7 +2,7 @@ using FPS.Tools;
 using FPS.Views;
 using UnityEngine;
 
-namespace FPS.Model.Rotation
+namespace FPS.Model
 {
     public sealed class HeadRotation : IHeadRotation
     {

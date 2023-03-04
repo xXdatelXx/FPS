@@ -1572,6 +1572,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   _head: {fileID: 963194228}
+  _body: {fileID: 1469679157}
 --- !u!114 &1237512635
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1655,6 +1656,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   _head: {fileID: 963194228}
+  _body: {fileID: 1469679157}
 --- !u!1 &1469679154
 GameObject:
   m_ObjectHideFlags: 0

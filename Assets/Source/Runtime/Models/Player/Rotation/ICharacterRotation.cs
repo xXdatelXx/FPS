@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace FPS.Model.Rotation
+namespace FPS.Model
 {
     public interface ICharacterRotation
     {

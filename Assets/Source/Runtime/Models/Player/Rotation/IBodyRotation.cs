@@ -1,4 +1,4 @@
-﻿namespace FPS.Model.Rotation
+﻿namespace FPS.Model
 {
     public interface IBodyRotation
     {
