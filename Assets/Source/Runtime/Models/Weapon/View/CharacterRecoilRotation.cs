@@ -19,7 +19,7 @@ namespace FPS.Model
 
         public void Rotate(Vector3 euler)
         {
-            _head.Rotate(new Vector3(euler.x, 0));
+            _head.Rotate(new Vector3(-euler.x, 0));
             _body.Rotate(new Vector3(0, euler.y));
         }
     }
