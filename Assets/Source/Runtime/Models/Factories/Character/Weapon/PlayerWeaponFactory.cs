@@ -39,11 +39,12 @@ namespace FPS.Factories
             var head = new GameObjectWithRotation(_head);
             var body = new GameObjectWithRotation(_body);
             var characterRecoilRotation = new CharacterRecoilRotation(head, body);
+            var recoil = new CurveRecoil(new Curve(_weaponData.RecoilCurve), delay, magazine);
 
             var weapon = new Weapon(bulletsFactory, view);
             var weaponWithDelay = new WeaponWithDelay(weapon, delay);
             var handWeapon = new HandWeapon(weaponWithDelay, new Timer(_weaponData.Enable), view);
-            var weaponWithRecoil = new WeaponWithRecoil(handWeapon, new Curve(_weaponData.RecoilCurve), new WeaponTrigger(delay), characterRecoilRotation, magazine);
+            var weaponWithRecoil = new WeaponWithRecoil(handWeapon, characterRecoilRotation, recoil);
             var weaponWithMagazine = new WeaponWithMagazine(weaponWithRecoil, magazine, new Timer(_weaponData.Reload), view);
 
             return weaponWithMagazine;
