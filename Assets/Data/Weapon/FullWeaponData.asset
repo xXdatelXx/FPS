@@ -15,7 +15,7 @@ MonoBehaviour:
   <Damage>k__BackingField: 5
   <Reload>k__BackingField: 0.4
   <Bullets>k__BackingField: 30
-  <Delay>k__BackingField: 0.2
+  <Delay>k__BackingField: 0.1
   <Enable>k__BackingField: 0.1
   <RecoilCurve>k__BackingField:
     serializedVersion: 2
@@ -23,26 +23,26 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 1
-      inSlope: 0.06133893
-      outSlope: 0.06133893
+      inSlope: -0.044467047
+      outSlope: -0.044467047
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 1.3275995
-      value: 1.0814335
-      inSlope: 0.29895186
-      outSlope: 0.29895186
+      time: 1.9594355
+      value: 0.9128697
+      inSlope: 0.0991633
+      outSlope: 0.0991633
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 2.12039
-      value: 1.506817
-      inSlope: 0.5365648
-      outSlope: 0.5365648
+      time: 2.29741
+      value: 0.99492776
+      inSlope: 0.24279365
+      outSlope: 0.24279365
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
