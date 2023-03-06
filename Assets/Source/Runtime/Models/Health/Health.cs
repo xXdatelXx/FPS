@@ -33,7 +33,7 @@ namespace FPS.Model
         {
             if (Died)
                 throw new InvalidOperationException(nameof(TakeDamage));
-            
+
             if (damage < 0)
                 throw new ArgumentOutOfRangeException(nameof(damage));
 

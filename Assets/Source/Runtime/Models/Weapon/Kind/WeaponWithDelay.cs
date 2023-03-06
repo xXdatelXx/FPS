@@ -8,7 +8,7 @@ namespace FPS.Model
         private readonly IWeaponDelay _delay;
         private readonly IWeapon _weapon;
 
-        public WeaponWithDelay(IWeapon weapon, ITimer timer) : this(weapon, new WeaponDelay(timer)) 
+        public WeaponWithDelay(IWeapon weapon, ITimer timer) : this(weapon, new WeaponDelay(timer))
         { }
 
         public WeaponWithDelay(IWeapon weapon, IWeaponDelay delay)
