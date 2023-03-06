@@ -21,7 +21,7 @@ namespace FPS.Tests
             _loop.Add(_marker);
             _loop.Start();
         }
-        
+
         [Test]
         public async void TickingCorrectly()
         {
@@ -33,7 +33,7 @@ namespace FPS.Tests
         public async void CorrectlyDeltaTime()
         {
             await UniTask.Yield();
-            Assert.True(_marker.DeltaTime > 0);   
+            Assert.True(_marker.DeltaTime > 0);
         }
     }
 }

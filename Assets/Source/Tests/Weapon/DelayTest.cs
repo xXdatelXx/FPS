@@ -2,7 +2,6 @@
 using FPS.Model;
 using FPS.Tools;
 using NUnit.Framework;
-using UnityEngine;
 
 namespace FPS.Tests
 {
@@ -16,7 +15,7 @@ namespace FPS.Tests
             try
             {
                 var delay = new WeaponDelay(new Timer(1));
-                
+
                 delay.Play();
                 delay.Play();
             }
@@ -24,7 +23,7 @@ namespace FPS.Tests
             {
                 wasException = true;
             }
-            
+
             Assert.True(wasException);
         }
     }

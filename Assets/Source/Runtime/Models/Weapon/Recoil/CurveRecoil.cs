@@ -23,15 +23,15 @@ namespace FPS.Model
         public Vector2 Next()
         {
             UpdateProgress();
-            
+
             return new(_curve[_curveProgress], _curveProgress);
         }
 
         private async void UpdateProgress()
-        { 
+        {
             _curveProgress += _curveStep;
-            
-            if (await CanReset()) 
+
+            if (await CanReset())
                 _curveProgress = 0;
         }
 

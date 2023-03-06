@@ -1,6 +1,5 @@
-﻿using UnityEngine;
-using Random = UnityEngine.Random;
-using Range = FPS.Tools.Range;
+﻿using FPS.Tools;
+using UnityEngine;
 
 namespace FPS.Model
 {
@@ -9,10 +8,10 @@ namespace FPS.Model
         private readonly Range _x;
         private readonly Range _y;
 
-        public RandomRecoil(Range x, Range y) => 
+        public RandomRecoil(Range x, Range y) =>
             (_x, _y) = (x, y);
 
-        public Vector2 Next() => 
-            new (Random.Range(_x.Min, _x.Max), Random.Range(_y.Min, _y.Max));
+        public Vector2 Next() =>
+            new(Random.Range(_x.Min, _x.Max), Random.Range(_y.Min, _y.Max));
     }
 }

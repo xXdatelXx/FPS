@@ -9,7 +9,7 @@ namespace FPS.Tests
         public void DeathPolicyWorkCorrectly()
         {
             var policy = new DeathPolicy();
-            
+
             Assert.True(policy.Died(-1));
         }
     }

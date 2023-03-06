@@ -8,18 +8,18 @@ namespace FPS.Model
     {
         private readonly ITimer _timer;
 
-        public WeaponDelay(ITimer timer) => 
+        public WeaponDelay(ITimer timer) =>
             _timer = timer.ThrowExceptionIfArgumentNull(nameof(timer));
 
         public bool Playing => _timer.Playing;
-        
+
         public async UniTask End() => await _timer.End();
 
         public void Play()
         {
             if (Playing)
                 throw new InvalidOperationException(nameof(Play));
-            
+
             _timer.Play();
         }
 

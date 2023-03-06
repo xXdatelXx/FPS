@@ -1,5 +1,4 @@
 using FPS.Input;
-using FPS.Model;
 using FPS.Tools;
 
 namespace FPS.Model

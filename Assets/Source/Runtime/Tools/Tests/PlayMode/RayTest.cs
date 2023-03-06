@@ -16,8 +16,8 @@ namespace FPS.Tools.Test
 
             ray.Cast(out var hit);
             hit.Is(out Collider hitObject);
-            
-            Assert.AreEqual(hitObject.name , border.name);
+
+            Assert.AreEqual(hitObject.name, border.name);
         }
     }
 }

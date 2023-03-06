@@ -15,7 +15,7 @@ namespace FPS.Tests
 
             Assert.False(magazine.CanGet);
         }
-        
+
         [Test]
         public void ThrowExceptionIfTakeFromEmptyMagazine()
         {
@@ -38,10 +38,10 @@ namespace FPS.Tests
         public void ResetWorkCorrectly()
         {
             var magazine = new Magazine(1);
-            
+
             magazine.Get();
             magazine.Reset();
-            
+
             Assert.AreEqual(magazine.Bullets, 1);
         }
     }

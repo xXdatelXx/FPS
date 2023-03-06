@@ -1,3 +1,5 @@
+using UnityEngine;
+
 public static class Logger
 {
     private static string _space => " , ";
@@ -9,6 +11,6 @@ public static class Logger
         if (value.Length == 0)
             value = _defaultValue;
 
-        UnityEngine.Debug.Log(value);
+        Debug.Log(value);
     }
 }
