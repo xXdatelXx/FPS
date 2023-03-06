@@ -1,17 +1,18 @@
 ﻿using System;
 using FPS.Tools;
+using JetBrains.Annotations;
 
 namespace FPS.Model
 {
     public sealed class Weapon : IWeapon
     {
         private readonly IBulletFactory _factory;
-        private readonly IWeaponView _view;
+        [CanBeNull] private readonly IWeaponView _view;
 
-        public Weapon(IBulletFactory factory, IWeaponView view)
+        public Weapon(IBulletFactory factory, IWeaponView view = null)
         {
             _factory = factory.ThrowExceptionIfArgumentNull(nameof(factory));
-            _view = view.ThrowExceptionIfArgumentNull(nameof(view));
+            _view = view;
         }
 
         public bool CanShoot { get; private set; }
@@ -22,7 +23,7 @@ namespace FPS.Model
                 throw new InvalidOperationException(nameof(Shoot));
 
             _factory.Create().Fire();
-            _view.Shoot();
+            _view?.Shoot();
         }
 
         public void Enable() => CanShoot = true;

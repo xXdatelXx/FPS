@@ -1,6 +1,6 @@
 ﻿using FPS.Game.Loop;
 
-namespace Source.Tests.Game
+namespace FPS.Tests
 {
     public sealed class TickMarker : IFixedTickable
     {

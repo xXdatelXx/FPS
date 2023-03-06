@@ -2,7 +2,7 @@
 using FPS.Game;
 using NUnit.Framework;
 
-namespace Source.Tests.Game
+namespace FPS.Tests
 {
     public sealed class GameLoopTest
     {
