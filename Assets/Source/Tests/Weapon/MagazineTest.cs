@@ -1,5 +1,6 @@
 ﻿using System;
 using FPS.Model;
+using FPS.Tools;
 using NUnit.Framework;
 
 namespace FPS.Tests
@@ -43,6 +44,17 @@ namespace FPS.Tests
             magazine.Reset();
 
             Assert.AreEqual(magazine.Bullets, 1);
+        }
+
+        [Test]
+        public void WeaponCanNotShootWhileMagazineIsEmpty()
+        {
+            var weapon = new WeaponWithMagazine(new DummyWeapon(), new Magazine(1), new Timer(0));
+            
+            weapon.Enable();
+            weapon.Shoot();
+            
+            Assert.False(weapon.CanShoot);
         }
     }
 }
