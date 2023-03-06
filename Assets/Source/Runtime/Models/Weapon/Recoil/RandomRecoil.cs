@@ -1,23 +1,18 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using Random = UnityEngine.Random;
+using Range = FPS.Tools.Range;
 
 namespace FPS.Model
 {
     public sealed class RandomRecoil : IRecoil
     {
-        private readonly Vector2 _max;
-        private readonly Vector2 _min;
+        private readonly Range _x;
+        private readonly Range _y;
 
-        public RandomRecoil(Vector2 max, Vector2 min)
-        {
-            if (min.x > max.x || min.y > max.y)
-                throw new ArgumentException("min < max");
-            
-            (_min, _max) = (min, max);
-        }
+        public RandomRecoil(Range x, Range y) => 
+            (_x, _y) = (x, y);
 
         public Vector2 Next() => 
-            new (Random.Range(_min.x, _max.x), Random.Range(_min.y, _max.y));
+            new (Random.Range(_x.Min, _x.Max), Random.Range(_y.Min, _y.Max));
     }
 }
