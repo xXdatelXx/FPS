@@ -1,8 +1,7 @@
-﻿using FPS.Tools;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using UnityEngine;
 
-namespace Source.Runtime.Tools.Tests.PlayMode
+namespace FPS.Tools.Test
 {
     public sealed class RayTest
     {

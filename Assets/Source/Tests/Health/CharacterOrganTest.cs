@@ -14,7 +14,7 @@ namespace FPS.Tests
             
             organ.TakeDamage(1);
             
-            Assert.AreEqual(health.Died, true);
+            Assert.True(health.Died);
         }
     }
 }

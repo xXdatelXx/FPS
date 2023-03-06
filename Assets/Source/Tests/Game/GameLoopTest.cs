@@ -26,14 +26,14 @@ namespace FPS.Tests
         public async void TickingCorrectly()
         {
             await UniTask.Yield();
-            Assert.AreEqual(_marker.WasTick, true);
+            Assert.True(_marker.WasTick);
         }
 
         [Test]
         public async void CorrectlyDeltaTime()
         {
             await UniTask.Yield();
-            Assert.AreEqual(_marker.DeltaTime > 0, true);   
+            Assert.True(_marker.DeltaTime > 0);   
         }
     }
 }

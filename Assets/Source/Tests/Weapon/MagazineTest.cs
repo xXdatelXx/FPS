@@ -13,7 +13,7 @@ namespace FPS.Tests
 
             magazine.Get();
 
-            Assert.AreEqual(magazine.CanGet, false);
+            Assert.False(magazine.CanGet);
         }
         
         [Test]
@@ -31,7 +31,7 @@ namespace FPS.Tests
             }
 
 
-            Assert.AreEqual(wasException, true);
+            Assert.True(wasException);
         }
 
         [Test]

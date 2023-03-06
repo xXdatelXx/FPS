@@ -6,7 +6,7 @@ using UnityEngine;
 namespace FPS.Tests.PlayMode
 {
     [TestFixture]
-    public sealed class Weapon
+    public sealed class WeaponTest
     {
         private IHealth _targetHealth;
         private IWeapon _weapon;
@@ -14,23 +14,25 @@ namespace FPS.Tests.PlayMode
         [SetUp]
         public void SetUp()
         {
-            _targetHealth = new Health(1);
-
+            var bulletsSpawnPoint = Object.Instantiate(new GameObject()).AddComponent<RaySpawnPoint>();
+            
             var target = Object.Instantiate(new GameObject());
+            _targetHealth = new Health(1);
+            target.transform.position = bulletsSpawnPoint.Forward;
             target.AddComponent<BoxCollider>().size = Vector3.one;
             target.AddComponent<CharacterOrgan>().Construct(_targetHealth, 1);
 
-            var bulletSpawnPoint = Object.Instantiate(new GameObject()).AddComponent<RaySpawnPoint>();
-            var bulletFactory = new RayBulletFactory(bulletSpawnPoint, 1, new DamageCoefficient(1));
-
-            _weapon = new Model.Weapon(bulletFactory);
+            var bulletFactory = new RayBulletFactory(bulletsSpawnPoint, 1, new DamageCoefficient(1));
+            _weapon = new Weapon(bulletFactory);
         }
 
         [Test]
         public void WeaponShootCorrectly()
         {
+            _weapon.Enable();
             _weapon.Shoot();
-            Assert.AreEqual(_targetHealth.Died, true);
+
+            Assert.True(_targetHealth.Died);
         }
     }
 }

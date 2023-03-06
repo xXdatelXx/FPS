@@ -25,7 +25,7 @@ namespace FPS.Tests
                 wasException = true;
             }
             
-            Assert.AreEqual(wasException, true);
+            Assert.True(wasException);
         }
     }
 }

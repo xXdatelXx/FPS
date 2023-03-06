@@ -13,7 +13,7 @@ namespace FPS.Tests
 
             health.TakeDamage(1);
 
-            Assert.AreEqual(health.Died, true);
+            Assert.True(health.Died);
         }
 
         [Test]
@@ -31,7 +31,7 @@ namespace FPS.Tests
                 wasException = true;
             }
 
-            Assert.AreEqual(wasException, true);
+            Assert.True(wasException);
         }
 
         [Test]
@@ -50,7 +50,7 @@ namespace FPS.Tests
                 wasException = true;
             }
 
-            Assert.AreEqual(wasException, true);
+            Assert.True(wasException);
         }
 
         [Test]
@@ -67,7 +67,7 @@ namespace FPS.Tests
                 wasException = true;
             }
 
-            Assert.AreEqual(wasException, true);
+            Assert.True(wasException);
         }
     }
 }

@@ -10,7 +10,7 @@ namespace FPS.Tests
         {
             var policy = new DeathPolicy();
             
-            Assert.AreEqual(policy.Died(-1), true);
+            Assert.True(policy.Died(-1));
         }
     }
 }
