@@ -3,11 +3,11 @@ using FPS.Views.Text;
 
 namespace FPS.Model
 {
-    public sealed class BulletsesView : IBulletsView
+    public sealed class BulletsView : IBulletsView
     {
         private readonly ITextView _text;
 
-        public BulletsesView(ITextView text) =>
+        public BulletsView(ITextView text) =>
             _text = text.ThrowExceptionIfArgumentNull(nameof(text));
 
         public void Visualize(int bullets) =>
