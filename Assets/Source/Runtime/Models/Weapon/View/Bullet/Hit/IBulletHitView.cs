@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace FPS.Model
 {
-    public interface IBulletHit : IPoolObject
+    public interface IBulletHitView : IPoolObject
     {
         void Update(Vector3 hit);
     }

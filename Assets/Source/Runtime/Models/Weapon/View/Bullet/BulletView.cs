@@ -6,10 +6,10 @@ namespace FPS.Model
     public sealed class BulletView : IBulletView
     {
         private readonly IBulletParticle _particle;
-        private readonly IBulletHit _hit;
+        private readonly IBulletHitView _hit;
         private readonly IBulletRay _ray;
 
-        public BulletView(IBulletParticle particle, IBulletHit hit, IBulletRay ray)
+        public BulletView(IBulletParticle particle, IBulletHitView hit, IBulletRay ray)
         {
             _particle = particle.ThrowExceptionIfArgumentNull(nameof(particle));
             _hit = hit.ThrowExceptionIfArgumentNull(nameof(hit));

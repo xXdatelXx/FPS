@@ -4,13 +4,13 @@ using UnityEngine;
 
 namespace FPS.Model
 {
-    public sealed class BulletHit : IBulletHit
+    public sealed class BulletHitView : IBulletHitView
     {
         private readonly IBulletParticle _particle;
         private readonly IBulletHitSprites _sprites;
         private readonly IMovementGameObject _gameObject;
 
-        public BulletHit(IBulletParticle particle, IBulletHitSprites sprites, IMovementGameObject gameObject)
+        public BulletHitView(IBulletParticle particle, IBulletHitSprites sprites, IMovementGameObject gameObject)
         {
             _particle = particle.ThrowExceptionIfArgumentNull(nameof(particle));
             _sprites = sprites.ThrowExceptionIfArgumentNull(nameof(sprites));
