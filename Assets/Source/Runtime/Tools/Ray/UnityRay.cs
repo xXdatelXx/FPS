@@ -16,7 +16,7 @@ namespace FPS.Tools
         {
             if (Physics.Raycast(_ray, out var raycastHit))
             {
-                hit = new RayHit(raycastHit.point, raycastHit.distance, raycastHit.collider);
+                hit = new RayHit(raycastHit.point, raycastHit.normal, raycastHit.distance, raycastHit.collider);
                 return true;
             }
 

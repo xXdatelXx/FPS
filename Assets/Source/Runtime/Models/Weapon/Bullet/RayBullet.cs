@@ -26,10 +26,14 @@ namespace FPS.Model
                 {
                     var damage = _damagePolicy.Affect(_damage, hit.Distance);
                     health.TakeDamage(damage);
+                    
+                    if(health.Died)
+                        _view?.Kill();
                 }
 
-                _view?.Visualize(hit.Point);
+                _view?.Hit(hit.Point, hit.Normal);
             }
+            else _view?.Miss();
         }
 
         private bool CanDamage(out IHealth health, IRayHit hit) =>
