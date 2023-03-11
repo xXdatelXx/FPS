@@ -1,5 +1,4 @@
 ﻿using FPS.Tools;
-using FPS.Views.Text;
 
 namespace FPS.Model
 {
