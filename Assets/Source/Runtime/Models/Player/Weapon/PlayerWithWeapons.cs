@@ -6,10 +6,10 @@ namespace FPS.Model
     public sealed class PlayerWithWeapons : IPlayerWithWeapons
     {
         private readonly IPlayerWeaponInput _input;
-        private readonly IReadOnlyWeaponCollection _weapons;
+        private readonly IWeaponCollection _weapons;
         private IPlayerWithWeapon _weapon;
 
-        public PlayerWithWeapons(IReadOnlyWeaponCollection weapons, IPlayerWeaponInput input)
+        public PlayerWithWeapons(IWeaponCollection weapons, IPlayerWeaponInput input)
         {
             _weapons = weapons.ThrowExceptionIfArgumentNull(nameof(weapons));
             _input = input.ThrowExceptionIfArgumentNull(nameof(input));

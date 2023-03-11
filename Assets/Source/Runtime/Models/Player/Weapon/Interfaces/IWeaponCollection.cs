@@ -1,8 +1,12 @@
 ﻿namespace FPS.Model
 {
-    public interface IWeaponCollection : IReadOnlyWeaponCollection
+    public interface IWeaponCollection
     {
-        void Add(IPlayerWithWeapon weapon);
-        void Remove(IPlayerWithWeapon weapon);
+        IPlayerWithWeapon Weapon { get; }
+
+        bool CanSwitch { get; }
+
+        IPlayerWithWeapon SwitchNext();
+        IPlayerWithWeapon SwitchPrevious();
     }
 }
