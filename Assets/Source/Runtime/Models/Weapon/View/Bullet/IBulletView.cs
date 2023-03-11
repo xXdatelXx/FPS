@@ -4,6 +4,8 @@ namespace FPS.Model
 {
     public interface IBulletView
     {
-        void Visualize(Vector3 target);
+        void Miss();
+        void Hit(Vector3 target, Vector3 normal);
+        void Kill();
     }
 }

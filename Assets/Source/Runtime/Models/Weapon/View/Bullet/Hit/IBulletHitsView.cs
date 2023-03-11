@@ -2,9 +2,8 @@
 
 namespace FPS.Model
 {
-    public interface IBulletHitView
+    public interface IBulletHitsView
     {
         void Visualize(Vector3 target, Vector3 normal);
-        void Hide();
     }
 }
