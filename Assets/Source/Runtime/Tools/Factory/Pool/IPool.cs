@@ -1,6 +1,6 @@
 ﻿namespace FPS.Tools
 {
-    public interface IPool<T> where T : IPoolObject
+    public interface IPool<T>
     {
         T Get();
         void Return(T obj);
