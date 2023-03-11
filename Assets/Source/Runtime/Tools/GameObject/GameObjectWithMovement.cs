@@ -1,7 +1,7 @@
 ﻿using FPS.Tools;
 using UnityEngine;
 
-namespace FPS.Views
+namespace FPS.Tools
 {
     public sealed class GameObjectWithMovement : IGameObjectWithMovement
     {
@@ -10,6 +10,8 @@ namespace FPS.Views
         public GameObjectWithMovement(Transform transform) => 
             _transform = transform.ThrowExceptionIfArgumentNull(nameof(transform));
 
+        public Vector3 Position => _transform.position;
+        
         public void MoveTo(Vector3 point) => _transform.position = point;
     }
 }

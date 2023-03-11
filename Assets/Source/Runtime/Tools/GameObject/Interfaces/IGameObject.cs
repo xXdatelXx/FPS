@@ -1,4 +1,4 @@
-﻿namespace FPS.Views
+﻿namespace FPS.Tools
 {
     public interface IGameObject
     {

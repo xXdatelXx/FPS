@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace FPS.Views
+namespace FPS.Tools
 {
     public interface IGameObjectWithRotation
     {
