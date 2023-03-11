@@ -1,6 +1,4 @@
-﻿using FPS.Tools;
-
-namespace FPS.Views.Text
+﻿namespace FPS.Tools
 {
     public sealed class TextView : ITextView
     {

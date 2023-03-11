@@ -1,5 +1,4 @@
 ﻿using FPS.Tools;
-using FPS.Views;
 using UnityEngine;
 
 namespace FPS.Model

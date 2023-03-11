@@ -1,8 +1,7 @@
 ﻿using FPS.Model;
 using FPS.Tools;
-using FPS.Views.Text;
 using UnityEngine;
-using GameObject = FPS.Views.GameObject;
+using GameObject = FPS.Tools.GameObject;
 
 namespace FPS.Factories
 {
