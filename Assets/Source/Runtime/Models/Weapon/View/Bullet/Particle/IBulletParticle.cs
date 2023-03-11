@@ -1,7 +1,7 @@
-﻿namespace FPS.Model
+﻿using FPS.Tools;
+
+namespace FPS.Model
 {
-    public interface IBulletParticle
-    {
-        void Play();
-    }
+    public interface IBulletParticle : IParticle
+    { }
 }

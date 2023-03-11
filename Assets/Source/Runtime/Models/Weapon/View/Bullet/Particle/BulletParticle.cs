@@ -12,5 +12,8 @@ namespace FPS.Model
 
         public void Play() => 
             _particleSystem.Play(true);
+
+        public void Stop() => 
+            _particleSystem.Stop();
     }
 }
