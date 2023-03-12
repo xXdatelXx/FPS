@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace FPS.Factories
 {
-    public sealed class WeaponWithMagazineFactory : IFactory<IWeaponWithMagazine>
+    public sealed class WeaponWithMagazineFactory : MonoBehaviour, IFactory<IWeaponWithMagazine>
     {
         [SerializeField] private RaySpawnPoint _bulletSpawnPoint;
         [SerializeField] private FullWeaponData _weaponData;

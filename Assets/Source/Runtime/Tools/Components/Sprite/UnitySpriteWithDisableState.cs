@@ -8,7 +8,7 @@ namespace FPS.Model
         private readonly ISpite _enable;
         private readonly ISpite _disable;
 
-        public UnitySpriteWithDisableState(SpriteRenderer spriteRenderer, Sprite enable, Sprite disable)
+        public UnitySpriteWithDisableState(IUnitySpriteRenderer spriteRenderer, Sprite enable, Sprite disable)
         {
             _enable = new UnitySpite(spriteRenderer, enable);
             _disable = new UnitySpite(spriteRenderer, disable);

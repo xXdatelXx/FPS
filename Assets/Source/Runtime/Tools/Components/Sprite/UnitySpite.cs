@@ -4,19 +4,19 @@ namespace FPS.Tools
 {
     public sealed class UnitySpite : ISpite
     {
-        private readonly SpriteRenderer _spriteRenderer;
+        private readonly IUnitySpriteRenderer _renderer;
         private readonly Sprite _sprite;
-
-        public UnitySpite(SpriteRenderer spriteRenderer, Sprite sprite)
+        
+        public UnitySpite(IUnitySpriteRenderer renderer, Sprite sprite)
         {
-            _spriteRenderer = spriteRenderer.ThrowExceptionIfArgumentNull(nameof(spriteRenderer));
+            _renderer = renderer.ThrowExceptionIfArgumentNull(nameof(renderer));
             _sprite = sprite.ThrowExceptionIfArgumentNull(nameof(sprite));
         }
 
         public void Render() => 
-            _spriteRenderer.sprite = _sprite;
+            _renderer.Render(_sprite);
 
-        public void Hide() => 
-            _spriteRenderer.sprite = default;
+        public void Hide() =>
+            _renderer.Render(default);
     }
 }

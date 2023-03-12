@@ -17,7 +17,8 @@ namespace FPS.Model
 
         public void Cast()
         {
-            
+            if(_random.Next())
+                _ray.Cast();
         }
 
         public void Cast(Vector3 target)
@@ -26,9 +27,6 @@ namespace FPS.Model
                 _ray.Cast(target);
         }
 
-        public UniTask End()
-        {
-            throw new System.NotImplementedException();
-        }
+        public async UniTask End() => await _ray.End();
     }
 }
