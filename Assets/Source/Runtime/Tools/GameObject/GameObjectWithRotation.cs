@@ -1,5 +1,4 @@
-﻿using FPS.Tools;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace FPS.Tools
 {

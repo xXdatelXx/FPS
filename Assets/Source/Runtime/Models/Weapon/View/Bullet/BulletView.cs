@@ -28,7 +28,7 @@ namespace FPS.Model
         {
             _particle.Play();
             _hits.Visualize(target, normal);
-            _rays.Cast(target);
+            //_rays.Cast(target);
             _crosshair.Hit();
         }
 
