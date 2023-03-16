@@ -4,12 +4,16 @@ using UnityEngine;
 
 namespace FPS.Model
 {
-    public sealed class BulletRays : IBulletRays
+    public sealed class BulletRays : IBulletRay
     {
         private readonly IPool<IBulletRay> _rays;
+        private readonly ITimerFactory _timerFactory;
 
-        public BulletRays(IPool<IBulletRay> rays) =>
-            _rays = rays.ThrowExceptionIfArgumentNull(nameof(rays));
+        public BulletRays(IPool<IBulletRay> pool, ITimerFactory rayTimerFactory)
+        {
+            _rays = pool.ThrowExceptionIfArgumentNull(nameof(pool));
+            _timerFactory = rayTimerFactory.ThrowExceptionIfArgumentNull(nameof(rayTimerFactory));
+        }
 
         public void Cast()
         {
@@ -26,7 +30,11 @@ namespace FPS.Model
         private async void Cast(IBulletRay ray, Action action)
         {
             action.Invoke();
-            await ray.End();
+            
+            var timer = _timerFactory.Create();
+            timer.Play();
+            await timer.End();
+
             _rays.Return(ray);
         }
     }

@@ -1,8 +1,7 @@
-﻿using FPS.Model;
-using FPS.Tools;
+﻿using FPS.Tools;
 using UnityEngine;
 
-namespace Source.Runtime.Models.Factories.Weapon
+namespace FPS.Model
 {
     public sealed class BulletHitFactory : MonoBehaviour, IFactory<IBulletHitView>
     {
@@ -15,7 +14,7 @@ namespace Source.Runtime.Models.Factories.Weapon
 
         public IBulletHitView Create()
         {
-            var prefab = Instantiate(_particle);
+            var prefab = Instantiate(_particle, parent: transform);
             var prefabSpriteRenderer = prefab.gameObject.AddComponent<SpriteRenderer>();
             var particle = new BulletParticle(prefab);
             var sprite = new UnitySpite(new UnitySpriteRenderer(prefabSpriteRenderer), _sprites[_random.Next()]);

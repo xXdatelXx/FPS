@@ -23,14 +23,14 @@ namespace FPS.Model
             _movement.MoveTo(target);
             _rotation.RotateTo(normal);
             
-            //_particle.Play();
-            _sprite.Render();
+            _particle.Play();
+            //_sprite.Render();
         }
 
         public void Hide()
         {
-            //_particle.Stop();
-            _sprite.Hide();
+            _particle.Stop();
+            //_sprite.Hide();
         }
     }
 }

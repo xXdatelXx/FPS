@@ -1,5 +1,4 @@
 ﻿using FPS.Tools;
-using Source.Runtime.Models.Factories.Weapon;
 using UnityEngine;
 
 namespace FPS.Model
@@ -10,14 +9,15 @@ namespace FPS.Model
         [SerializeField] private CrosshairFactory _crosshairFactory;
         [SerializeField] private BulletHitFactory _bulletHitFactory;
         [SerializeField] private BulletRayFactory _bulletRayFactory;
-
+        [SerializeField] private float _rayWorkTime;
+        
         public IBulletView Create() => 
             new BulletView(new BulletParticle(_startBulletParticle), CreateHitsView(), CreateRays(), _crosshairFactory.Create());
 
-        private IBulletRays CreateRays() => 
-            new BulletRays(new Pool<IBulletRay>(_bulletRayFactory));
+        private IBulletRay CreateRays() => 
+            new BulletRays(new Pool<IBulletRay>(_bulletRayFactory), new TimerFactory(_rayWorkTime));
 
-        private IBulletHitsView CreateHitsView() => 
+        private IBulletHitView CreateHitsView() => 
             new BulletHitsView(100, new Pool<IBulletHitView>(_bulletHitFactory));
     }
 }

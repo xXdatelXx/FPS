@@ -1,5 +1,4 @@
-﻿using Cysharp.Threading.Tasks;
-using FPS.Tools;
+﻿using FPS.Tools;
 using UnityEngine;
 
 namespace FPS.Model
@@ -26,7 +25,5 @@ namespace FPS.Model
             if(_random.Next())
                 _ray.Cast(target);
         }
-
-        public async UniTask End() => await _ray.End();
     }
 }

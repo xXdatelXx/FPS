@@ -6,11 +6,11 @@ namespace FPS.Model
     public sealed class BulletView : IBulletView
     {
         private readonly IBulletParticle _particle;
-        private readonly IBulletHitsView _hits;
-        private readonly IBulletRays _rays;
+        private readonly IBulletHitView _hits;
+        private readonly IBulletRay _rays;
         private readonly ICrosshair _crosshair;
 
-        public BulletView(IBulletParticle particle, IBulletHitsView hits, IBulletRays rays, ICrosshair crosshair)
+        public BulletView(IBulletParticle particle, IBulletHitView hits, IBulletRay rays, ICrosshair crosshair)
         {
             _particle = particle.ThrowExceptionIfArgumentNull(nameof(particle));
             _hits = hits.ThrowExceptionIfArgumentNull(nameof(hits));
@@ -28,7 +28,7 @@ namespace FPS.Model
         {
             _particle.Play();
             _hits.Visualize(target, normal);
-            //_rays.Cast(target);
+            _rays.Cast(target);
             _crosshair.Hit();
         }
 

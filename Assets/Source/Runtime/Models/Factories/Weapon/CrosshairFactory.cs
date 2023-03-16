@@ -1,17 +1,17 @@
-﻿using FPS.Model;
-using FPS.Tools;
+﻿using FPS.Tools;
 using UnityEngine;
 
-namespace Source.Runtime.Models.Factories.Weapon
+namespace FPS.Model
 {
     public sealed class CrosshairFactory : MonoBehaviour, IFactory<ICrosshair>
     {
-        [SerializeField] private Animation _hit;
-        [SerializeField] private Animation _kill;
-        
+        [SerializeField] private Animator _animator;
+        [SerializeField] private string _hitAnimation;
+        [SerializeField] private string _killAnimation;
+
         public ICrosshair Create()
         {
-            var animator = new CrosshairAnimator(_hit, _kill);
+            var animator = new CrosshairAnimator(_animator, _hitAnimation, _killAnimation);
             return new Crosshair(animator);
         }
     }

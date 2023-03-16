@@ -1,5 +1,4 @@
-﻿using Cysharp.Threading.Tasks;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace FPS.Model
 {
@@ -7,6 +6,5 @@ namespace FPS.Model
     {
         void Cast();
         void Cast(Vector3 target);
-        UniTask End();
     }
 }

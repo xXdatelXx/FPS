@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace FPS.Model
 {
-    public sealed class BulletHitsView : IBulletHitsView
+    public sealed class BulletHitsView : IBulletHitView
     {
         private readonly int _maxHits;
         private readonly Queue<IBulletHitView> _hits;
@@ -24,14 +24,20 @@ namespace FPS.Model
             _hits.Enqueue(hit);
 
             if (_maxHits < _hits.Count) 
-                Hide();
+                HideFirst();
         }
 
-        private void Hide()
+        private void HideFirst()
         {
             var disableHit = _hits.Dequeue();
             disableHit.Hide();
             _hitsPool.Return(disableHit);
+        }
+
+        public void Hide()
+        {
+            foreach (var i in _hits) 
+                _hitsPool.Return(i);
         }
     }
 }
