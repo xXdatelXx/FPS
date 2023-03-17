@@ -22,7 +22,7 @@ namespace FPS.Model
             var standardMotion = prefab.TransformDirection(_standardMotion);
             var gameObject = new Tools.GameObject(prefab.gameObject);
 
-            var ray = new BulletRay(movement, standardMotion, new Position(prefab), gameObject);
+            var ray = new BulletRay(movement, standardMotion, new Position(_spawnPoint.transform), gameObject);
 
             return new RandomBulletRay(ray, new BoolRandom(new PercentChance(_percentToCreate)));
         }

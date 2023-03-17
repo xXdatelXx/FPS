@@ -26,8 +26,10 @@ namespace FPS.Model
                 {
                     var damage = _damagePolicy.Affect(_damage, hit.Distance);
                     health.TakeDamage(damage);
+
+                    _view?.Damage();
                     
-                    if(health.Died)
+                    if (health.Died)
                         _view?.Kill();
                 }
 

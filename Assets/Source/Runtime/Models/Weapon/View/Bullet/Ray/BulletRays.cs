@@ -38,9 +38,12 @@ namespace FPS.Model
             var timer = _timerFactory.Create();
             timer.Play();
             await timer.End();
-            
+
             if (!_pool.Contains(ray))
+            {
+                ray.Hide();
                 _pool.Return(ray);
+            }
         }
 
         public void Hide()

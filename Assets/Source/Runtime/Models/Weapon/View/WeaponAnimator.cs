@@ -22,12 +22,12 @@ namespace FPS.Model
             _animator = GetComponent<Animator>();
         }
 
-        public void PlayShoot() => _animator.Play(_shoot);
+        public void PlayShoot() => _animator.SetTrigger(_shoot);
 
-        public void PlayReload() => _animator.Play(_reload);
+        public void PlayReload() => _animator.SetTrigger(_reload);
 
-        public void PlayEnable() => _animator.Play(_enable);
+        public void PlayEnable() => _animator.SetTrigger(_enable);
 
-        public void PlayDisable() => _animator.Play(_disable);
+        public void PlayDisable() => _animator.SetTrigger(_disable);
     }
 }

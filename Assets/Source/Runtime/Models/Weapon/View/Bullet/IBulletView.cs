@@ -7,5 +7,6 @@ namespace FPS.Model
         void Miss();
         void Hit(Vector3 target, Vector3 normal);
         void Kill();
+        void Damage();
     }
 }

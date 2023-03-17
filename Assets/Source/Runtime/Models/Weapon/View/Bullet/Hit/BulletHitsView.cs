@@ -23,7 +23,7 @@ namespace FPS.Model
             hit.Visualize(target, normal);
             _hits.Enqueue(hit);
 
-            if (_maxHits < _hits.Count) 
+            if (_maxHits < _hits.Count)
                 HideFirst();
         }
 
@@ -36,7 +36,7 @@ namespace FPS.Model
 
         public void Hide()
         {
-            foreach (var i in _hits) 
+            foreach (var i in _hits)
                 _hitsPool.Return(i);
         }
     }

@@ -15,7 +15,11 @@ namespace FPS.Tools
             _speed = speed.ThrowExceptionIfValueSubZero(nameof(speed));
         }
 
-        public Vector3 Position => _transform.position;
+        public Vector3 Position
+        {
+            get => _transform.position;
+            set => _transform.position = value;
+        }
         
         public void MoveTo(Vector3 point)
         {
