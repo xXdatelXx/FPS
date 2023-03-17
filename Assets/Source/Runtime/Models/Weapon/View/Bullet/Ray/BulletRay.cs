@@ -5,22 +5,36 @@ namespace FPS.Model
 {
     public sealed class BulletRay : IBulletRay
     {
-        private readonly IGameObjectWithMovement _gameObject;
+        private readonly IGameObjectWithMovement _movement;
         private readonly Vector3 _standardMotion;
+        private readonly IPosition _standardPosition;
+        private readonly IGameObject _gameObject;
 
-        public BulletRay(IGameObjectWithMovement gameObject, Vector3 standardMotion)
+        public BulletRay(IGameObjectWithMovement movement, Vector3 standardMotion, IPosition standardPosition, IGameObject gameObject)
         {
+            _movement = movement.ThrowExceptionIfArgumentNull(nameof(movement));
+            _standardPosition = standardPosition.ThrowExceptionIfArgumentNull(nameof(standardPosition));
             _gameObject = gameObject.ThrowExceptionIfArgumentNull(nameof(gameObject));
-            _standardMotion = standardMotion.ThrowExceptionIfArgumentNull(nameof(standardMotion));
+            _standardMotion = standardMotion;
         }
 
         public void Cast() =>
-            Cast(_gameObject.Position + _standardMotion);
+            Cast(_movement.Position + _standardMotion);
 
         public void Cast(Vector3 target)
         {
-            Logger.Log();
-            _gameObject.MoveTo(target);
+            if (!_gameObject.Active)
+                _gameObject.Enable();
+            
+            _movement.MoveTo(target);
+        }
+
+        public void Hide()
+        {
+            if (_gameObject.Active)
+                _gameObject.Disable();
+            
+            _movement.MoveTo(_standardPosition.World);
         }
     }
 }

@@ -25,5 +25,7 @@ namespace FPS.Model
             if(_random.Next())
                 _ray.Cast(target);
         }
+
+        public void Hide() => _ray.Hide();
     }
 }

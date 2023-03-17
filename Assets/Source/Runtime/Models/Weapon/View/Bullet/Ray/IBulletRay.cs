@@ -6,5 +6,6 @@ namespace FPS.Model
     {
         void Cast();
         void Cast(Vector3 target);
+        void Hide();
     }
 }
