@@ -20,7 +20,7 @@ namespace FPS.Model
             _view = view;
         }
 
-        public bool CanShoot => _weapon.CanShoot && _magazine.CanGet && _enabled;
+        public bool CanShoot => _weapon.CanShoot && !_reloadTimer.Playing && _magazine.CanGet && _enabled;
         public bool CanReload => _magazine.CanReset && !_reloadTimer.Playing;
 
         public void Shoot()
