@@ -1,9 +1,9 @@
-﻿using System;
+﻿using FPS.Model;
 using FPS.Tools;
 using UnityEngine;
 using Range = FPS.Tools.Range;
 
-namespace FPS.Model
+namespace FPS.Factories
 {
     public sealed class BulletHitFactory : MonoBehaviour, IFactory<IBulletHitView>
     {

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: FullWeaponData
   m_EditorClassIdentifier: 
   <Damage>k__BackingField: 5
-  <Reload>k__BackingField: 0.4
+  <Reload>k__BackingField: 1
   <Bullets>k__BackingField: 30
   <Delay>k__BackingField: 0.1
   <Enable>k__BackingField: 0.1

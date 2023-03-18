@@ -1,7 +1,8 @@
-﻿using FPS.Tools;
+﻿using FPS.Model;
+using FPS.Tools;
 using UnityEngine;
 
-namespace FPS.Model
+namespace FPS.Factories
 {
     public sealed class BulletRayFactory : MonoBehaviour, IFactory<IBulletRay>
     {
