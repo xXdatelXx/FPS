@@ -34,6 +34,7 @@ namespace FPS.Tools
             if (!Playing)
                 throw new InvalidOperationException(nameof(Cancel));
 
+            Playing = false;
             _canceled = true;
         }
     }
