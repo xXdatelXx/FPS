@@ -9,7 +9,6 @@ namespace FPS.Factories
     {
         [SerializeField] private RaySpawnPoint _bulletSpawnPoint;
         [SerializeField] private FullWeaponData _weaponData;
-        [SerializeField] private AnimationCurve _damageCurve;
         [SerializeField] private Transform _head;
         [SerializeField] private Transform _body;
         [SerializeField] private BulletViewFactory _bulletView;
@@ -17,7 +16,7 @@ namespace FPS.Factories
 
         public IWeaponWithMagazine Create()
         {
-            var damageCoefficient = new CurveDamageCoefficient(new Curve(_damageCurve));
+            var damageCoefficient = new CurveDamageCoefficient(new Curve(_weaponData.DamageCurve));
             var bulletsFactory = new RayBulletFactory(_bulletSpawnPoint, _weaponData.Damage, damageCoefficient, _bulletView.Create());
             var magazine = new Magazine(_weaponData.Bullets);
             var delay = new WeaponDelay(new Timer(_weaponData.Delay));
