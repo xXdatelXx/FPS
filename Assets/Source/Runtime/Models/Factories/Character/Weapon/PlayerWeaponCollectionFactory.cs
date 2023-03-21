@@ -15,7 +15,6 @@ namespace FPS.Factories
         [SerializeField] private IPlayerWeaponFactory[] _factories;
         [SerializeField, Header("1 - enable, 2 - disable")] 
         private List<(Sprite enable, Sprite disable, Image renderer)> _viewSprites;
-
         private Image _image;
 
         private void Awake()

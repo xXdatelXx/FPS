@@ -5,11 +5,11 @@ namespace FPS.Model
 {
     public sealed class Player : IPlayer
     {
-        private readonly IPlayerMovementInput _input;
+        private readonly IPlayerTransformInput _input;
         private readonly ICharacterMovement _movement;
         private readonly ICharacterRotation _rotation;
 
-        public Player(ICharacterMovement movement, ICharacterRotation rotation, IPlayerMovementInput input)
+        public Player(ICharacterMovement movement, ICharacterRotation rotation, IPlayerTransformInput input)
         {
             _movement = movement.ThrowExceptionIfArgumentNull(nameof(movement));
             _rotation = rotation.ThrowExceptionIfArgumentNull(nameof(rotation));

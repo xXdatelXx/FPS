@@ -2,12 +2,12 @@ using UnityEngine;
 
 namespace FPS.Input
 {
-    public interface IPlayerMovementInput
+    public interface IPlayerTransformInput
     {
         bool Moving { get; }
         bool Rotating { get; }
         Vector3 Movement();
-        Vector3 Rotation();
+        Vector2 Rotation();
         bool Jump();
     }
 }

@@ -9,7 +9,9 @@ namespace FPS.Model
         [SerializeField] private float _speed;
         [SerializeField] private float _amount;
         [SerializeField] private float _maxAmount;
-        private readonly PlayerMovementInput _input = new();
+        private IPlayerTransformInput _input;
+
+        private void Awake() => _input = new PlayerTransformInput();
 
         private void Update() =>
             transform.localPosition =
