@@ -12,9 +12,10 @@ namespace FPS.Factories
 {
     public sealed class PlayerWeaponCollectionFactory : SerializedMonoBehaviour, IPlayerWeaponCollectionFactory
     {
-        [SerializeField] private IPlayerWeaponFactory[] _factories;
         [SerializeField, Header("1 - enable, 2 - disable")] 
         private List<(Sprite enable, Sprite disable, Image renderer)> _viewSprites;
+        [SerializeField] private InputSystem inputSystem;
+        [SerializeField] private IPlayerWeaponFactory[] _factories;
 
         private Image _image;
 
@@ -25,7 +26,7 @@ namespace FPS.Factories
         }
 
         public IPlayerWithWeapons Create() =>
-            new PlayerWithWeapons(CreateWeaponCollection(), new PlayerWeaponInput());
+            new PlayerWithWeapons(CreateWeaponCollection(), inputSystem.PlayerWeaponInput);
 
         private IWeaponCollection CreateWeaponCollection()
         {

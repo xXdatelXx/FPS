@@ -12,7 +12,7 @@ namespace FPS.Factories
         [SerializeField] private float _healthPoint;
         [SerializeField] private Character _character;
         [SerializeField] private UnityText _healthText;
-
+        
         public void Create()
         {
             var character = new GameObject(_character.gameObject);

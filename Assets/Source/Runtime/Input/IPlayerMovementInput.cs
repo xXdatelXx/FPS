@@ -4,10 +4,10 @@ namespace FPS.Input
 {
     public interface IPlayerMovementInput
     {
-        bool Moving { get; }
-        bool Rotating { get; }
-        Vector3 Movement();
-        Vector3 Rotation();
-        bool Jump();
+        bool IsMoving { get; }
+        bool IsRotating { get; }
+        bool IsJumping { get; }
+        Vector3 GetMovementInput();
+        Vector3 GetRotationInput();
     }
 }

@@ -2,12 +2,18 @@
 
 namespace FPS.Input
 {
-    //TODO переделать на input system 2.0
     public sealed class PlayerWeaponInput : IPlayerWeaponInput
     {
-        public bool Shooting => UnityEngine.Input.GetKey(KeyCode.Mouse0);
-        public bool Reloading => UnityEngine.Input.GetKeyUp(KeyCode.R);
-        public bool SwitchNext => UnityEngine.Input.GetKeyUp(KeyCode.N);
-        public bool SwitchPrevious => UnityEngine.Input.GetKeyUp(KeyCode.P);
+        private readonly DefaultControlSettings _inputSettings;
+
+        public PlayerWeaponInput(DefaultControlSettings inputSettings)
+        {
+            _inputSettings = inputSettings;
+        }
+
+        public bool IsShooting => _inputSettings.Player.Shoot.IsPressed();
+        public bool IsReloading => _inputSettings.Player.Reload.IsPressed();
+        public bool IsSwitchNext => _inputSettings.Player.SwitchNext.IsPressed();
+        public bool IsSwitchPrevious => _inputSettings.Player.SwitchPrevious.IsPressed();
     }
 }

@@ -2,24 +2,31 @@ using UnityEngine;
 
 namespace FPS.Input
 {
-    //TODO переделать на input system 2.0
     public sealed class PlayerMovementInput : IPlayerMovementInput
     {
-        public bool Moving => Movement() != Vector3.zero;
-        public bool Rotating => Rotation() != Vector3.zero;
+        public bool IsMoving => GetMovementInput() != Vector3.zero;
+        public bool IsRotating => GetRotationInput() != Vector3.zero;
+        public bool IsJumping => _inputSettings.Player.Jump.IsPressed();
 
-        public Vector3 Movement()
+        private readonly DefaultControlSettings _inputSettings;
+
+        public PlayerMovementInput(DefaultControlSettings inputSettings)
         {
-            var x = UnityEngine.Input.GetAxis("Horizontal");
-            var y = UnityEngine.Input.GetAxis("Vertical");
-
-            return new(x, 0, y);
+            _inputSettings = inputSettings;
         }
 
-        public Vector3 Rotation() =>
-            new(-UnityEngine.Input.GetAxis("Mouse Y"), UnityEngine.Input.GetAxis("Mouse X"));
+        public Vector3 GetMovementInput()
+        {
+            Vector2 moveValue = _inputSettings.Player.Move.ReadValue<Vector2>();
 
-        public bool Jump() =>
-            UnityEngine.Input.GetButtonDown("Jump");
+            return new(moveValue.x, 0, moveValue.y);
+        }
+
+        public Vector3 GetRotationInput()
+        {
+            Vector2 mouseDeltaValue = _inputSettings.Player.Rotate.ReadValue<Vector2>();
+
+            return new(-mouseDeltaValue.y, mouseDeltaValue.x);
+        }
     }
 }

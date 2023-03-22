@@ -20,14 +20,14 @@ namespace FPS.Model
         {
             _movement.Tick(deltaTime);
 
-            if (_input.Jump() && _movement.CanJump)
+            if (_input.IsJumping && _movement.CanJump)
                 _movement.Jump();
 
-            if (_input.Moving)
-                _movement.Move(_input.Movement(), deltaTime);
+            if (_input.IsMoving)
+                _movement.Move(_input.GetMovementInput(), deltaTime);
 
-            if (_input.Rotating)
-                _rotation.Rotate(_input.Rotation());
+            if (_input.IsRotating)
+                _rotation.Rotate(_input.GetRotationInput());
 
             if (_movement.CanGravitate)
                 _movement.Gravitate(deltaTime);

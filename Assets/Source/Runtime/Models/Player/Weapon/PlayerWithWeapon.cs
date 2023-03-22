@@ -16,7 +16,7 @@ namespace FPS.Model
 
         public void Tick(float deltaTime)
         {
-            if (_input.Shooting && _weapon.CanShoot)
+            if (_input.IsShooting && _weapon.CanShoot)
                 _weapon.Shoot();
         }
 

@@ -21,10 +21,10 @@ namespace FPS.Model
         {
             _weapon.Tick(deltaTime);
 
-            if (_input.SwitchNext && _weapons.CanSwitch)
+            if (_input.IsSwitchNext && _weapons.CanSwitch)
                 Switch(_weapons.SwitchNext());
 
-            if (_input.SwitchPrevious && _weapons.CanSwitch)
+            if (_input.IsSwitchPrevious && _weapons.CanSwitch)
                 Switch(_weapons.SwitchPrevious());
         }
 

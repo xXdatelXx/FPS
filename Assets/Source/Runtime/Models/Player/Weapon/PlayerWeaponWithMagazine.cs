@@ -18,7 +18,7 @@ namespace FPS.Model
 
         public void Tick(float deltaTime)
         {
-            if (_input.Reloading && _weapon.CanReload)
+            if (_input.IsReloading && _weapon.CanReload)
                 _weapon.Reload();
 
             _playerWithWeapon.Tick(deltaTime);
