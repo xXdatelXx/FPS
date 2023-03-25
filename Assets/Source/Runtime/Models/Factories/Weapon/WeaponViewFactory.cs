@@ -6,7 +6,7 @@ namespace FPS.Factories
 {
     public sealed class WeaponViewFactory : MonoBehaviour, IFactory<IWeaponView>
     {
-        [SerializeField] private UnityText _bulletsText;
+        [SerializeField] private ProText _bulletsText;
         [SerializeField] private WeaponAnimator _animator;
 
         public IWeaponView Create() => 

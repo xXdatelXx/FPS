@@ -11,7 +11,7 @@ namespace FPS.Factories
         [SerializeField] private CharacterOrgan _body;
         [SerializeField] private float _healthPoint;
         [SerializeField] private Character _character;
-        [SerializeField] private UnityText _healthText;
+        [SerializeField] private ProText _healthText;
 
         public void Create()
         {
