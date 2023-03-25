@@ -24,10 +24,10 @@ namespace FPS.Model
             _rays.Cast();
         }
 
-        public void Hit(Vector3 target, Vector3 normal)
+        public void Hit(Vector3 target)
         {
             _particle.Play();
-            _hits.Visualize(target, normal);
+            _hits.Visualize(target);
             _rays.Cast(target);
         }
 

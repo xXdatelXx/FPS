@@ -33,7 +33,7 @@ namespace FPS.Model
                         _view?.Kill();
                 }
 
-                _view?.Hit(hit.Point, hit.Normal);
+                _view?.Hit(hit.Point);
             }
             else _view?.Miss();
         }

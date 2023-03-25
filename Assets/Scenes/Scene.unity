@@ -1743,10 +1743,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 130cb3057f064479abe76543e7c07b84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _particle: {fileID: 2246410863906341808, guid: ed827a52f43e948439d3d6b12b533237, type: 3}
-  _sprites:
-  - {fileID: 21300000, guid: 70632ddfe8e71b04b8f90ef7e29a9e98, type: 3}
-  - {fileID: 21300000, guid: dae33700bd23f76409a80bf78fdb8a42, type: 3}
+  _particle: {fileID: 2246410863906341808, guid: 8279bdc69d6f1074e98ab4b32016d4c8, type: 3}
   _parent: {fileID: 970360912}
 --- !u!4 &970360912
 Transform:
@@ -2874,10 +2871,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 130cb3057f064479abe76543e7c07b84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _particle: {fileID: 2246410863906341808, guid: ed827a52f43e948439d3d6b12b533237, type: 3}
-  _sprites:
-  - {fileID: 21300000, guid: 70632ddfe8e71b04b8f90ef7e29a9e98, type: 3}
-  - {fileID: 21300000, guid: dae33700bd23f76409a80bf78fdb8a42, type: 3}
+  _particle: {fileID: 2246410863906341808, guid: 8279bdc69d6f1074e98ab4b32016d4c8, type: 3}
   _parent: {fileID: 1981626652}
 --- !u!114 &1981626654
 MonoBehaviour:

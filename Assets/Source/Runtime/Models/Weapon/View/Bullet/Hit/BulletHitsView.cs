@@ -17,10 +17,10 @@ namespace FPS.Model
             _hits = new();
         }
 
-        public void Visualize(Vector3 target, Vector3 normal)
+        public void Visualize(Vector3 target)
         {
             var hit = _hitsPool.Get();
-            hit.Visualize(target, normal);
+            hit.Visualize(target);
             _hits.Enqueue(hit);
 
             if (_maxHits < _hits.Count)
