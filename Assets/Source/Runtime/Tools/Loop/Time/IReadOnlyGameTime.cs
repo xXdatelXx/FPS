@@ -1,4 +1,4 @@
-﻿namespace FPS.Game
+﻿namespace FPS.Tools.GameLoop
 {
     public interface IReadOnlyGameTime
     {

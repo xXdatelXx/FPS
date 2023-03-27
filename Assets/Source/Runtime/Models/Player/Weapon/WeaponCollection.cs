@@ -27,11 +27,11 @@ namespace FPS.Model
 
         public IPlayerWithWeapon Weapon => _weapons[_id];
         public bool CanSwitch => _weapons.Count > 1;
-        
-        public IPlayerWithWeapon SwitchNext() => 
+
+        public IPlayerWithWeapon SwitchNext() =>
             Switch(_id + 1 < _weapons.Count ? _id + 1 : 0);
 
-        public IPlayerWithWeapon SwitchPrevious() => 
+        public IPlayerWithWeapon SwitchPrevious() =>
             Switch(_id - 1 >= 0 ? _id - 1 : _weapons.Count - 1);
 
         private IPlayerWithWeapon Switch(int id)

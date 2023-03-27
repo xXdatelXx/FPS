@@ -1,5 +1,6 @@
 ﻿using FPS.Data;
 using FPS.Model;
+using FPS.Tools.GameLoop;
 
 namespace FPS.Game
 {

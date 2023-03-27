@@ -1,4 +1,4 @@
-namespace FPS.Game.Loop
+namespace FPS.Tools.GameLoop
 {
     public interface ITickable
     {

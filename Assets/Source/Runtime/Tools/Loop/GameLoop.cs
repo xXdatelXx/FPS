@@ -1,10 +1,8 @@
 using System;
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
-using FPS.Game.Loop;
-using FPS.Tools;
 
-namespace FPS.Game
+namespace FPS.Tools.GameLoop
 {
     public sealed class GameLoop : IGameLoop
     {

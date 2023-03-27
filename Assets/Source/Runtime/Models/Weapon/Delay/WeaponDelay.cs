@@ -12,6 +12,7 @@ namespace FPS.Model
             _timer = timer.ThrowExceptionIfArgumentNull(nameof(timer));
 
         public bool Playing => _timer.Playing;
+        public bool Canceled => _timer.Canceled;
 
         public async UniTask End() => await _timer.End();
 

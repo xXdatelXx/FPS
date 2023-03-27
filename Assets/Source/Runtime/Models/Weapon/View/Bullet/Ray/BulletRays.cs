@@ -9,9 +9,9 @@ namespace FPS.Model
     {
         private readonly IPool<IBulletRay> _pool;
         private readonly IList<IBulletRay> _rays;
-        private readonly ITimerFactory _timerFactory;
+        private readonly IFactory<ITimer> _timerFactory;
 
-        public BulletRays(IPool<IBulletRay> pool, ITimerFactory rayTimerFactory)
+        public BulletRays(IPool<IBulletRay> pool, IFactory<ITimer> rayTimerFactory)
         {
             _pool = pool.ThrowExceptionIfArgumentNull(nameof(pool));
             _rays = new List<IBulletRay>();

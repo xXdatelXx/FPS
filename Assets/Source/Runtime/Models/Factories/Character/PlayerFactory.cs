@@ -1,6 +1,6 @@
-using FPS.Game;
 using FPS.Input;
 using FPS.Model;
+using FPS.Tools.GameLoop;
 using UnityEngine;
 
 namespace FPS.Factories

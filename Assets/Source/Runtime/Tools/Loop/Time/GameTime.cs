@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace FPS.Game
+namespace FPS.Tools.GameLoop
 {
     public sealed class GameTime : IGameTime
     {

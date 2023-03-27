@@ -16,7 +16,7 @@ namespace FPS.Factories
             new BulletView(new BulletParticle(_startBulletParticle), CreateHitsView(), CreateRays(), _crosshairFactory.Create());
 
         private IBulletRay CreateRays() => 
-            new BulletRays(new Pool<IBulletRay>(_bulletRayFactory), new TimerFactory(_rayWorkTime));
+            new BulletRays(new Pool<IBulletRay>(_bulletRayFactory), new AsyncTimerFactory(_rayWorkTime));
 
         private IBulletHitView CreateHitsView() => 
             new BulletHitsView(100, new Pool<IBulletHitView>(_bulletHitFactory));

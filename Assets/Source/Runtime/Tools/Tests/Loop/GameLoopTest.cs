@@ -1,8 +1,8 @@
 ﻿using Cysharp.Threading.Tasks;
-using FPS.Game;
+using FPS.Tools.GameLoop;
 using NUnit.Framework;
 
-namespace FPS.Tests
+namespace FPS.Tools.Tests
 {
     public sealed class GameLoopTest
     {
@@ -11,7 +11,7 @@ namespace FPS.Tests
 
         public GameLoopTest()
         {
-            _loop = new GameLoop(new GameTime());
+            _loop = new GameLoop.GameLoop(new GameTime());
             _marker = new TickMarker();
         }
 

@@ -1,5 +1,5 @@
-﻿using FPS.Game;
-using FPS.Model;
+﻿using FPS.Model;
+using FPS.Tools.GameLoop;
 
 namespace FPS.Factories
 {

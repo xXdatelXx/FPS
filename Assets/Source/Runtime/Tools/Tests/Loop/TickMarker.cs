@@ -1,8 +1,8 @@
-﻿using FPS.Game.Loop;
+﻿using FPS.Tools.GameLoop;
 
-namespace FPS.Tests
+namespace FPS.Tools.Tests
 {
-    public sealed class TickMarker : IFixedTickable
+    internal sealed class TickMarker : IFixedTickable
     {
         public bool WasTick { get; private set; }
         public float DeltaTime { get; private set; }

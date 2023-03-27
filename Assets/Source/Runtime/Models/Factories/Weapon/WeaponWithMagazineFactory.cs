@@ -19,7 +19,7 @@ namespace FPS.Factories
             var damageCoefficient = new CurveDamageCoefficient(new Curve(_weaponData.DamageCurve));
             var bulletsFactory = new RayBulletFactory(_bulletSpawnPoint, _weaponData.Damage, damageCoefficient, _bulletView.Create());
             var magazine = new Magazine(_weaponData.Bullets);
-            var delay = new WeaponDelay(new Timer(_weaponData.Delay));
+            var delay = new WeaponDelay(new AsyncTimer(_weaponData.Delay));
             var recoil = new CurveRecoil(new Curve(_weaponData.RecoilCurve), delay, magazine);
             var weaponView = _weaponViewFactory.Create();
             var head = new GameObjectWithRotation(_head);
@@ -28,10 +28,10 @@ namespace FPS.Factories
 
             var weapon = new Weapon(bulletsFactory, weaponView);
             var weaponWithDelay = new WeaponWithDelay(weapon, delay);
-            var handWeapon = new HandWeapon(weaponWithDelay, new Timer(_weaponData.Enable), weaponView);
+            var handWeapon = new HandWeapon(weaponWithDelay, new AsyncTimer(_weaponData.Enable), weaponView);
             var weaponWithRecoil = new WeaponWithRecoil(handWeapon, characterRecoilRotation, recoil);
 
-            var weaponWithMagazine = new WeaponWithMagazine(weaponWithRecoil, magazine, new Timer(_weaponData.Reload), weaponView);
+            var weaponWithMagazine = new WeaponWithMagazine(weaponWithRecoil, magazine, new AsyncTimer(_weaponData.Reload), weaponView);
 
             return weaponWithMagazine;
         }
