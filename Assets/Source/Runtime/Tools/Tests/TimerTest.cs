@@ -6,10 +6,10 @@ namespace FPS.Tools.Tests
     public sealed class TimerTest
     {
         [Test]
-        public async void WorkCorrectly()
+        public async void AsyncTimerWorkCorrectly()
         {
-            var time = 3;
-            var timer = new Timer(time);
+            const int time = 3;
+            var timer = new AsyncTimer(time);
             var oldTime = DateTime.Now;
 
             timer.Play();
@@ -17,6 +17,18 @@ namespace FPS.Tools.Tests
             var workTime = DateTime.Now - oldTime;
 
             Assert.AreEqual(workTime.Seconds, time);
+        }
+        
+        [Test]
+        public void TickTimerWorkCorrectly()
+        {
+            const int time = 1;
+            var timer = new Timer(time);
+
+            timer.Play();
+            timer.Tick(time);
+
+            Assert.That(!timer.Playing);
         }
     }
 }

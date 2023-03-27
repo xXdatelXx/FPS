@@ -1,43 +1,32 @@
 ﻿using System;
 using Cysharp.Threading.Tasks;
-using FPS.Tools.GameLoop;
 using UnityEngine;
 
 namespace FPS.Tools
 {
     [Serializable]
-    public sealed class Timer : ITimer, ITickable
+    public sealed class AsyncTimer : ITimer
     {
         private TimerState _state;
-        private float _accumulatedTime;
-
-        public Timer(float time) =>
+        
+        public AsyncTimer(float time) =>
             Time = time.ThrowExceptionIfValueSubZero();
 
         [field: SerializeField] public float Time { get; }
         public bool Playing => _state == TimerState.Playing;
         public bool Canceled => _state == TimerState.Canceled;
-
-        public void Play()
+        
+        public async void Play()
         {
-            if (Playing)
-                throw new InvalidOperationException(nameof(Play));
-
+            if (_state == TimerState.Playing)
+                throw new InvalidOperationException(nameof(Playing));
+            
             _state = TimerState.Playing;
-        }
+            
+            await UniTask.Delay(TimeSpan.FromSeconds(Time));
 
-        public void Tick(float deltaTime)
-        {
-            if (!Playing)
-                return;
-
-            _accumulatedTime = Mathf.Min(_accumulatedTime + deltaTime, Time);
-
-            if (_accumulatedTime.Equals(Time))
-            {
+            if (!Canceled)
                 _state = TimerState.End;
-                _accumulatedTime = 0;
-            }
         }
 
         public async UniTask End() =>
