@@ -13,7 +13,7 @@ namespace FPS.Model
             _enable = new UnitySpite(spriteRenderer, enable);
             _disable = new UnitySpite(spriteRenderer, disable);
         }
-        
+
         public void Render() => _enable.Render();
         public void Hide() => _disable.Render();
     }

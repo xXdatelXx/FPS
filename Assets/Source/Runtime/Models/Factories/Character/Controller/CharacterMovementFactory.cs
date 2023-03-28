@@ -1,6 +1,6 @@
-﻿using FPS.Tools.GameLoop;
-using FPS.Model;
+﻿using FPS.Model;
 using FPS.Tools;
+using FPS.Tools.GameLoop;
 using Sirenix.OdinInspector;
 using UnityEngine;
 

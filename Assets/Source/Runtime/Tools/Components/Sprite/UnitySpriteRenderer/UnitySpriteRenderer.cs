@@ -8,10 +8,10 @@ namespace FPS.Tools
     {
         private readonly Func<Sprite, object> _render;
 
-        public UnitySpriteRenderer(Image renderer) => 
+        public UnitySpriteRenderer(Image renderer) =>
             _render = sprite => renderer.sprite = sprite;
 
-        public UnitySpriteRenderer(SpriteRenderer renderer) => 
+        public UnitySpriteRenderer(SpriteRenderer renderer) =>
             _render = sprite => renderer.sprite = sprite;
 
         public void Render(Sprite sprite) => _render.Invoke(sprite);

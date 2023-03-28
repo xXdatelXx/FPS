@@ -16,14 +16,14 @@ namespace FPS.Tools
 
         public bool Contains(T obj) => _objects.Contains(obj);
 
-        public T Get() => 
+        public T Get() =>
             _objects.Count == 0 ? _factory.Create() : _objects.Pop();
 
         public void Return(T obj)
         {
             if (Contains(obj))
                 throw new InvalidOperationException(nameof(Contains));
-            
+
             _objects.Push(obj.ThrowExceptionIfArgumentNull(nameof(obj)));
         }
     }

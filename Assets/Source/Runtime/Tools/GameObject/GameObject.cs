@@ -1,5 +1,4 @@
 ﻿using System;
-using FPS.Tools;
 using Object = UnityEngine.Object;
 
 namespace FPS.Tools

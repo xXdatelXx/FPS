@@ -28,7 +28,7 @@ namespace FPS.Model
                     health.TakeDamage(damage);
 
                     _view?.Damage();
-                    
+
                     if (health.Died)
                         _view?.Kill();
                 }

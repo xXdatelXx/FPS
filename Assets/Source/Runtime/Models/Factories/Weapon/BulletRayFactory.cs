@@ -1,6 +1,7 @@
 ﻿using FPS.Model;
 using FPS.Tools;
 using UnityEngine;
+using GameObject = FPS.Tools.GameObject;
 
 namespace FPS.Factories
 {
@@ -21,9 +22,9 @@ namespace FPS.Factories
 
             var movement = new GameObjectWithDoTweenMovement(prefab, _raySpeed);
             var standardMotion = prefab.TransformDirection(_standardMotion);
-            var gameObject = new Tools.GameObject(prefab.gameObject);
+            var gameObject = new GameObject(prefab.gameObject);
 
-            var ray = new BulletRay(movement, standardMotion, new Position(_spawnPoint.transform), gameObject);
+            var ray = new BulletRay(movement, gameObject, new Position(_spawnPoint.transform), standardMotion);
 
             return new RandomBulletRay(ray, new BoolRandom(new PercentChance(_percentToCreate)));
         }

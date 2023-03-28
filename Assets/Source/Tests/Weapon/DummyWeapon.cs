@@ -5,7 +5,7 @@ namespace FPS.Tests
     public sealed class DummyWeapon : IWeapon
     {
         public bool CanShoot => true;
-        
+
         public void Shoot()
         { }
 

@@ -14,11 +14,11 @@ namespace FPS.Input
 
         public bool Moving => _inputAction.Movement.Move.IsPressed();
         public bool Rotating => _inputAction.Rotation.Rotate.IsPressed();
-    
+
         public Vector3 Movement()
         {
             var value = _inputAction.Movement.Move.ReadValue<Vector2>();
-            return new(value.x, 0,value.y);
+            return new(value.x, 0, value.y);
         }
 
         public Vector2 Rotation()

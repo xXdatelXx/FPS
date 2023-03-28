@@ -9,7 +9,7 @@ namespace FPS.Factories
         [SerializeField] private ProText _bulletsText;
         [SerializeField] private WeaponAnimator _animator;
 
-        public IWeaponView Create() => 
+        public IWeaponView Create() =>
             new WeaponView(new BulletsView(new TextView(_bulletsText)), _animator);
     }
 }

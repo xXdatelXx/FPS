@@ -1,6 +1,5 @@
 ﻿using System;
 using FPS.Tools;
-using UnityEngine.UIElements;
 
 namespace FPS.Model
 {
@@ -52,7 +51,7 @@ namespace FPS.Model
 
             if (_enableTimer.Playing)
                 _enableTimer.Cancel();
-            
+
             _view.Disable();
             _enabled = false;
             _weapon.Disable();

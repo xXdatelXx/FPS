@@ -14,8 +14,7 @@ namespace FPS.Model
         private int _id;
 
         public WeaponCollection(IWeaponCollectionView view = null, params IPlayerWithWeapon[] weapons) : this(weapons.ToList(), view)
-        {
-        }
+        { }
 
         public WeaponCollection(List<IPlayerWithWeapon> weapons, IWeaponCollectionView view = null)
         {

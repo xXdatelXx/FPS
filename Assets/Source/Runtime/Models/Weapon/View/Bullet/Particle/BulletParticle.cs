@@ -7,13 +7,13 @@ namespace FPS.Model
     {
         private readonly ParticleSystem _particleSystem;
 
-        public BulletParticle(ParticleSystem particleSystem) => 
+        public BulletParticle(ParticleSystem particleSystem) =>
             _particleSystem = particleSystem.ThrowExceptionIfArgumentNull(nameof(particleSystem));
 
-        public void Play() => 
+        public void Play() =>
             _particleSystem.Play(true);
 
-        public void Stop() => 
+        public void Stop() =>
             _particleSystem.Stop();
     }
 }

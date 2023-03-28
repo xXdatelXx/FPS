@@ -31,10 +31,10 @@ namespace FPS.Tests
         public void WeaponCanNotShootWhileDelayPlaying()
         {
             var weapon = new WeaponWithDelay(new DummyWeapon(), new WeaponDelay(new Timer(1)));
-            
+
             weapon.Enable();
             weapon.Shoot();
-            
+
             Assert.False(weapon.CanShoot);
         }
     }

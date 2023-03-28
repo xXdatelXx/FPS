@@ -18,10 +18,10 @@ namespace FPS.Model
             _kill = kill.ThrowExceptionIfArgumentNull(nameof(kill));
         }
 
-        public void PlayHit() => 
+        public void PlayHit() =>
             _hit.Play();
 
-        public void PlayKill() => 
+        public void PlayKill() =>
             _kill.Play();
     }
 }

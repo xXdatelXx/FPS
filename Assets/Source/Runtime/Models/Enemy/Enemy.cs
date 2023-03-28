@@ -9,9 +9,9 @@ namespace FPS.Model
     {
         [SerializeField] private UnityEvent _onDie;
         private IHealth _health;
-        public bool Died => _health.Died;
 
         private void Awake() => _health = new Health(100);
+        public bool Died => _health.Died;
 
         public void TakeDamage(float damage)
         {

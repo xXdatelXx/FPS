@@ -11,14 +11,14 @@ namespace FPS.Factories
         [SerializeField] private BulletHitFactory _bulletHitFactory;
         [SerializeField] private BulletRayFactory _bulletRayFactory;
         [SerializeField] private float _rayWorkTime;
-        
-        public IBulletView Create() => 
+
+        public IBulletView Create() =>
             new BulletView(new BulletParticle(_startBulletParticle), CreateHitsView(), CreateRays(), _crosshairFactory.Create());
 
-        private IBulletRay CreateRays() => 
+        private IBulletRay CreateRays() =>
             new BulletRays(new Pool<IBulletRay>(_bulletRayFactory), new AsyncTimerFactory(_rayWorkTime));
 
-        private IBulletHitView CreateHitsView() => 
-            new BulletHitsView(100, new Pool<IBulletHitView>(_bulletHitFactory));
+        private IBulletHitView CreateHitsView() =>
+            new BulletHitsView(new Pool<IBulletHitView>(_bulletHitFactory), 100);
     }
 }

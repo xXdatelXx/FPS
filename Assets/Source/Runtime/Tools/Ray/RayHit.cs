@@ -13,8 +13,9 @@ namespace FPS.Tools
 
         public Vector3 Point { get; }
         public float Distance { get; }
-        
+
         private readonly Collider _target;
+
         public bool Is<T>(out T t) =>
             _target.TryGetComponent(out t);
     }

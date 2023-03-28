@@ -1,13 +1,12 @@
 ﻿using DG.Tweening;
-using FPS.Tools;
 using UnityEngine;
 
 namespace FPS.Tools
 {
     public sealed class GameObjectWithDoTweenMovement : IGameObjectWithMovement
     {
-        private readonly Transform _transform;
         private readonly float _speed;
+        private readonly Transform _transform;
 
         public GameObjectWithDoTweenMovement(Transform transform, float speed)
         {
@@ -20,7 +19,7 @@ namespace FPS.Tools
             get => _transform.position;
             set => _transform.position = value;
         }
-        
+
         public void MoveTo(Vector3 point)
         {
             var duration = Vector3.Distance(Position, point) / _speed;

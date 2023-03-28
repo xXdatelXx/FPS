@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using FPS.Tools;
+﻿using FPS.Tools;
 
 namespace FPS.Model
 {

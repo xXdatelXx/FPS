@@ -11,7 +11,7 @@ namespace FPS.Tests.PlayMode
     {
         private IHealth _targetHealth;
         private IWeapon _weapon;
-        
+
         [SetUp]
         public void SetUp()
         {
@@ -26,7 +26,7 @@ namespace FPS.Tests.PlayMode
             var bulletFactory = new RayBulletFactory(bulletsSpawnPoint, 1, new DamageCoefficient(1));
             _weapon = new Weapon(bulletFactory);
         }
-        
+
         [Test]
         public void WeaponShootCorrectly()
         {

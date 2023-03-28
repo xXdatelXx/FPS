@@ -50,10 +50,10 @@ namespace FPS.Tests
         public void WeaponCanNotShootWhileMagazineIsEmpty()
         {
             var weapon = new WeaponWithMagazine(new DummyWeapon(), new Magazine(1), new Timer(0));
-            
+
             weapon.Enable();
             weapon.Shoot();
-            
+
             Assert.False(weapon.CanShoot);
         }
     }

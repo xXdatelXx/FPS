@@ -18,7 +18,7 @@ namespace FPS.Tools.Tests
 
             Assert.AreEqual(workTime.Seconds, time);
         }
-        
+
         [Test]
         public void TickTimerWorkCorrectly()
         {

@@ -5,10 +5,10 @@ namespace FPS.Model
 {
     public sealed class BulletHitView : IBulletHitView
     {
-        private readonly IBulletParticle _particle;
         private readonly IGameObjectWithMovement _movement;
+        private readonly IBulletParticle _particle;
 
-        public BulletHitView(IBulletParticle particle, IGameObjectWithMovement movement)
+        public BulletHitView(IGameObjectWithMovement movement, IBulletParticle particle)
         {
             _particle = particle.ThrowExceptionIfArgumentNull(nameof(particle));
             _movement = movement.ThrowExceptionIfArgumentNull(nameof(movement));

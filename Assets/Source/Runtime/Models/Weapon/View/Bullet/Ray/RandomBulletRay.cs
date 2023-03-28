@@ -5,8 +5,8 @@ namespace FPS.Model
 {
     public sealed class RandomBulletRay : IBulletRay
     {
-        private readonly IBulletRay _ray;
         private readonly IRandom<bool> _random;
+        private readonly IBulletRay _ray;
 
         public RandomBulletRay(IBulletRay ray, IRandom<bool> random)
         {
@@ -16,13 +16,13 @@ namespace FPS.Model
 
         public void Cast()
         {
-            if(_random.Next())
+            if (_random.Next())
                 _ray.Cast();
         }
 
         public void Cast(Vector3 target)
         {
-            if(_random.Next())
+            if (_random.Next())
                 _ray.Cast(target);
         }
 

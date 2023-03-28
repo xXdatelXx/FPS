@@ -30,6 +30,16 @@ namespace FPS.Model
             Cast(ray, () => ray.Cast(target));
         }
 
+        public void Hide()
+        {
+            foreach (var ray in _rays)
+            {
+                _pool.Return(ray);
+                _rays.Remove(ray);
+                ray.Hide();
+            }
+        }
+
         private async void Cast(IBulletRay ray, Action action)
         {
             _rays.Add(ray);
@@ -43,16 +53,6 @@ namespace FPS.Model
             {
                 ray.Hide();
                 _pool.Return(ray);
-            }
-        }
-
-        public void Hide()
-        {
-            foreach (var ray in _rays)
-            {
-                _pool.Return(ray);
-                _rays.Remove(ray);
-                ray.Hide();
             }
         }
     }

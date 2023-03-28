@@ -1,7 +1,6 @@
 ﻿using FPS.Model;
 using FPS.Tools;
 using UnityEngine;
-using Range = FPS.Tools.Range;
 
 namespace FPS.Factories
 {
@@ -18,7 +17,7 @@ namespace FPS.Factories
             var particle = new BulletParticle(prefab);
             var movement = new GameObjectWithMovement(prefab.transform);
 
-            return new BulletHitView(particle, movement);
+            return new BulletHitView(movement, particle);
         }
     }
 }
