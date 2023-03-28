@@ -27,6 +27,6 @@ namespace FPS.Input
             return new(-value.y, value.x);
         }
 
-        public bool Jump() => _inputAction.Movement.Jump.IsPressed();
+        public bool Jump() => _inputAction.Movement.Jump.triggered;
     }
 }
