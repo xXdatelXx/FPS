@@ -459,7 +459,7 @@ GameObject:
   - component: {fileID: 61553091}
   - component: {fileID: 61553093}
   - component: {fileID: 61553092}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -970,7 +970,9 @@ GameObject:
   m_Component:
   - component: {fileID: 352068522}
   - component: {fileID: 352068523}
-  m_Layer: 0
+  - component: {fileID: 352068525}
+  - component: {fileID: 352068524}
+  m_Layer: 4
   m_Name: Weapons
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1009,6 +1011,74 @@ MonoBehaviour:
   _speed: 5
   _amount: 0.1
   _maxAmount: 0.2
+--- !u!114 &352068524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 352068521}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sharedProfile: {fileID: 11400000, guid: 0ddba136a2c39da4da881c2f16616eb5, type: 2}
+  isGlobal: 1
+  blendDistance: 0
+  weight: 1
+  priority: 0
+--- !u!20 &352068525
+Camera:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 352068521}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_projectionMatrixMode: 1
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
+  m_Iso: 200
+  m_ShutterSpeed: 0.005
+  m_Aperture: 16
+  m_FocusDistance: 10
+  m_FocalLength: 50
+  m_BladeCount: 5
+  m_Curvature: {x: 2, y: 11}
+  m_BarrelClipping: 0.25
+  m_Anamorphism: 0
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 1000
+  field of view: 60
+  orthographic: 0
+  orthographic size: 5
+  m_Depth: 1
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 16
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 1
+  m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
 --- !u!1 &368014667
 GameObject:
   m_ObjectHideFlags: 0
@@ -1020,7 +1090,7 @@ GameObject:
   - component: {fileID: 368014668}
   - component: {fileID: 368014670}
   - component: {fileID: 368014671}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Weapon (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1167,7 +1237,7 @@ GameObject:
   - component: {fileID: 407891309}
   - component: {fileID: 407891314}
   - component: {fileID: 407891315}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1420,7 +1490,7 @@ GameObject:
   - component: {fileID: 689632219}
   - component: {fileID: 689632221}
   - component: {fileID: 689632220}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2485,7 +2555,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 39
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -3380,9 +3450,29 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 407891309}
     m_Modifications:
+    - target: {fileID: 2155050846781437322, guid: ed827a52f43e948439d3d6b12b533237, type: 3}
+      propertyPath: m_Layer
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2155360865571485962, guid: ed827a52f43e948439d3d6b12b533237, type: 3}
+      propertyPath: m_Layer
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 2155783462682924452, guid: ed827a52f43e948439d3d6b12b533237, type: 3}
       propertyPath: m_Name
       value: ShootParticle
+      objectReference: {fileID: 0}
+    - target: {fileID: 2155783462682924452, guid: ed827a52f43e948439d3d6b12b533237, type: 3}
+      propertyPath: m_Layer
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2155957074489762888, guid: ed827a52f43e948439d3d6b12b533237, type: 3}
+      propertyPath: m_Layer
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2157146721364191682, guid: ed827a52f43e948439d3d6b12b533237, type: 3}
+      propertyPath: m_Layer
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2160700331683393652, guid: ed827a52f43e948439d3d6b12b533237, type: 3}
       propertyPath: m_RootOrder
@@ -3851,9 +3941,29 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 368014668}
     m_Modifications:
+    - target: {fileID: 2155050846781437322, guid: ed827a52f43e948439d3d6b12b533237, type: 3}
+      propertyPath: m_Layer
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2155360865571485962, guid: ed827a52f43e948439d3d6b12b533237, type: 3}
+      propertyPath: m_Layer
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 2155783462682924452, guid: ed827a52f43e948439d3d6b12b533237, type: 3}
       propertyPath: m_Name
       value: ShootParticle
+      objectReference: {fileID: 0}
+    - target: {fileID: 2155783462682924452, guid: ed827a52f43e948439d3d6b12b533237, type: 3}
+      propertyPath: m_Layer
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2155957074489762888, guid: ed827a52f43e948439d3d6b12b533237, type: 3}
+      propertyPath: m_Layer
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2157146721364191682, guid: ed827a52f43e948439d3d6b12b533237, type: 3}
+      propertyPath: m_Layer
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2160700331683393652, guid: ed827a52f43e948439d3d6b12b533237, type: 3}
       propertyPath: m_RootOrder
