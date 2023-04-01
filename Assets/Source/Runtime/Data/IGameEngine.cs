@@ -1,10 +1,7 @@
-﻿using FPS.Factories;
-
-namespace FPS.Data
+﻿namespace FPS.Data
 {
     public interface IGameEngine
     {
-        IPlayerFactory PlayerFactory { get; }
-        IPlayerWeaponCollectionFactory PlayerWeaponFactory { get; }
+        IFactories Factories { get;  }
     }
 }

@@ -13,8 +13,8 @@ namespace FPS.Game
         public Game(IGameEngine engine)
         {
             var time = new GameTime();
-            _player = engine.PlayerFactory.Create(time);
-            _weapons = engine.PlayerWeaponFactory.Create();
+            _player = engine.Factories.PlayerFactory.Create(time);
+            _weapons = engine.Factories.PlayerWeaponFactory.Create();
             _gameLoop = new GameLoop(time);
         }
 

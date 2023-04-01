@@ -1,17 +1,14 @@
-﻿using FPS.Factories;
-using FPS.Tools;
+﻿using FPS.Tools;
 
 namespace FPS.Data
 {
     public sealed class GameEngine : IGameEngine
     {
-        public GameEngine(IPlayerFactory playerFactory, IPlayerWeaponCollectionFactory playerWeaponFactory)
+        public GameEngine(IFactories factories)
         {
-            PlayerFactory = playerFactory.ThrowExceptionIfArgumentNull(nameof(PlayerFactory));
-            PlayerWeaponFactory = playerWeaponFactory.ThrowExceptionIfArgumentNull(nameof(playerWeaponFactory));
+            Factories = factories.ThrowExceptionIfArgumentNull(nameof(factories));
         }
 
-        public IPlayerFactory PlayerFactory { get; }
-        public IPlayerWeaponCollectionFactory PlayerWeaponFactory { get; }
+        public IFactories Factories { get; }
     }
 }

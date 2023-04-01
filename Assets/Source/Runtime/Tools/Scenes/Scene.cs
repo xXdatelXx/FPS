@@ -1,11 +1,12 @@
 ﻿using System;
+using System.Linq;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 namespace FPS.Tools
 {
-    [CreateAssetMenu(menuName = "Scenes/Scene")]
+    [CreateAssetMenu(menuName = nameof(Scene), fileName = nameof(Scene))]
     public sealed class Scene : ScriptableObject, ISerializationCallbackReceiver, IScene
     {
 #if UNITY_EDITOR
@@ -43,8 +44,12 @@ namespace FPS.Tools
 
         private void Validate()
         {
-            if (!SceneManager.GetSceneByName(name).IsValid())
-                throw new ArgumentException($"{name} not exists");
+            var sceneInBuild= 
+                EditorBuildSettings.scenes
+                    .Any(scene => scene.enabled && scene.path.Contains("/" + Name + ".unity"));
+            
+            if(!sceneInBuild)
+               throw new ArgumentException($"{name} not exists");
         }
     }
 }
