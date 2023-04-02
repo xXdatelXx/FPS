@@ -2,11 +2,11 @@
 
 namespace FPS.Input
 {
-    public sealed class PlayerTransformInput : IPlayerTransformInput
+    public sealed class PlayerMovementInput : IPlayerMovementInput
     {
         private readonly PlayerInputActionAsset _inputAction;
 
-        public PlayerTransformInput()
+        public PlayerMovementInput()
         {
             _inputAction = new PlayerInputActionAsset();
             _inputAction.Enable();
