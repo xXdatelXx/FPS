@@ -29,9 +29,6 @@ namespace FPS.Tools
                 _state = TimerState.End;
         }
 
-        public async UniTask End() =>
-            await UniTask.WaitUntil(() => !Playing);
-
         public void Cancel()
         {
             if (!Playing)

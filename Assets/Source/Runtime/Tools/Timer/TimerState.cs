@@ -4,7 +4,7 @@
     {
         None,
         Playing,
-        End,
-        Canceled
+        Canceled,
+        End
     }
 }
