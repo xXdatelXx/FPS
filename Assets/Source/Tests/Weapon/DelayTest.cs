@@ -10,21 +10,13 @@ namespace FPS.Tests
         [Test]
         public void CanNotCreateDoubleDelay()
         {
-            var wasException = false;
-
-            try
+            var delay = new WeaponDelay(new Timer(1));
+            
+            Assert.Throws<Exception>(() =>
             {
-                var delay = new WeaponDelay(new Timer(1));
-
                 delay.Play();
                 delay.Play();
-            }
-            catch (Exception e)
-            {
-                wasException = true;
-            }
-
-            Assert.True(wasException);
+            });
         }
 
         [Test]

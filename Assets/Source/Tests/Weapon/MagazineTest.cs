@@ -18,22 +18,8 @@ namespace FPS.Tests
         }
 
         [Test]
-        public void ThrowExceptionIfTakeFromEmptyMagazine()
-        {
-            var wasException = false;
-
-            try
-            {
-                new Magazine(0).Get();
-            }
-            catch (Exception e)
-            {
-                wasException = true;
-            }
-
-
-            Assert.True(wasException);
-        }
+        public void ThrowExceptionIfTakeFromEmptyMagazine() => 
+            Assert.Throws<Exception>(new Magazine(0).Get);
 
         [Test]
         public void ResetWorkCorrectly()
