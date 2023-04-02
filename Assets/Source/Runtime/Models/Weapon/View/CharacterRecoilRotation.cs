@@ -3,18 +3,18 @@ using UnityEngine;
 
 namespace FPS.Model
 {
-    public sealed class CharacterRecoilRotation : IGameObjectWithRotation
+    public sealed class CharacterRecoilRotation : IRotation
     {
-        private readonly IGameObjectWithRotation _head;
-        private readonly IGameObjectWithRotation _body;
+        private readonly IRotation _head;
+        private readonly IRotation _body;
 
-        public CharacterRecoilRotation(IGameObjectWithRotation head, IGameObjectWithRotation body)
+        public CharacterRecoilRotation(IRotation head, IRotation body)
         {
             _head = head.ThrowExceptionIfArgumentNull(nameof(head));
             _body = body.ThrowExceptionIfArgumentNull(nameof(body));
         }
 
-        public Vector3 Rotation => new(_head.Rotation.x, _body.Rotation.y);
+        public Vector3 Value => new(_head.Value.x, _body.Value.y);
 
         public void Rotate(Vector3 euler)
         {

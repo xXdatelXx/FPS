@@ -5,9 +5,9 @@ namespace FPS.Model
 {
     public sealed class BodyRotation : IBodyRotation
     {
-        private readonly IGameObjectWithRotation _body;
+        private readonly IRotation _body;
 
-        public BodyRotation(IGameObjectWithRotation body) =>
+        public BodyRotation(IRotation body) =>
             _body = body.ThrowExceptionIfArgumentNull(nameof(body));
 
         public void Rotate(float euler) =>
