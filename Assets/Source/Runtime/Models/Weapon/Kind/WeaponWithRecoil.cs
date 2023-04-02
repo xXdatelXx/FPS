@@ -5,10 +5,10 @@ namespace FPS.Model
     public sealed class WeaponWithRecoil : IWeapon
     {
         private readonly IWeapon _weapon;
-        private readonly IGameObjectWithRotation _rotationObject;
+        private readonly IRotation _rotationObject;
         private readonly IRecoil _recoil;
 
-        public WeaponWithRecoil(IWeapon weapon, IGameObjectWithRotation rotationObject, IRecoil recoil)
+        public WeaponWithRecoil(IWeapon weapon, IRotation rotationObject, IRecoil recoil)
         {
             _weapon = weapon.ThrowExceptionIfArgumentNull(nameof(weapon));
             _rotationObject = rotationObject.ThrowExceptionIfArgumentNull(nameof(rotationObject));

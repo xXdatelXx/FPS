@@ -4,10 +4,10 @@ namespace FPS.Model
 {
     public sealed class WeaponCollectionView : IWeaponCollectionView
     {
-        private readonly ISpite[] _spites;
-        private ISpite _active;
+        private readonly ISprite[] _spites;
+        private ISprite _active;
 
-        public WeaponCollectionView(ISpite[] spites)
+        public WeaponCollectionView(ISprite[] spites)
         {
             _spites = spites.ThrowExceptionIfArgumentNull(nameof(spites));
             Visualize(0);

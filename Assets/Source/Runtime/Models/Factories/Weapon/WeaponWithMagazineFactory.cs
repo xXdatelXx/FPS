@@ -22,8 +22,8 @@ namespace FPS.Factories
             var delay = new WeaponDelay(new AsyncTimer(_weaponData.Delay));
             var recoil = new CurveRecoil(new Curve(_weaponData.RecoilCurve), delay, magazine);
             var weaponView = _weaponViewFactory.Create();
-            var head = new GameObjectWithRotation(_head);
-            var body = new GameObjectWithRotation(_body);
+            var head = new Rotation(_head);
+            var body = new Rotation(_body);
             var characterRecoilRotation = new CharacterRecoilRotation(head, body);
 
             var weapon = new Weapon(bulletsFactory, weaponView);

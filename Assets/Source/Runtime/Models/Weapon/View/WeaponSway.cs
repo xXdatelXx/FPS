@@ -4,14 +4,17 @@ using UnityEngine;
 namespace FPS.Model
 {
     //TODO Composition > Aggregation (input)
+    /// <summary>
+    /// Makes the weapon not strictly attached to the camera
+    /// </summary>
     public sealed class WeaponSway : MonoBehaviour
     {
         [SerializeField] private float _speed;
         [SerializeField] private float _amount;
         [SerializeField] private float _maxAmount;
-        private IPlayerTransformInput _input;
+        private IPlayerMovementInput _input;
 
-        private void Awake() => _input = new PlayerTransformInput();
+        private void Awake() => _input = new PlayerMovementInput();
 
         private void Update() =>
             transform.localPosition =

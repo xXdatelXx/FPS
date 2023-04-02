@@ -31,7 +31,7 @@ namespace FPS.Factories
 
             var sprites =
                 _viewSprites.Select(i =>
-                    new UnitySpriteWithDisableState(new UnitySpriteRenderer(i.renderer), i.enable, i.disable)).ToArray();
+                    new UnitySpriteWithActivation(new UnitySpriteRenderer(i.renderer), i.enable, i.disable)).ToArray();
 
             return new WeaponCollection(weapons, new WeaponCollectionView(sprites));
         }
