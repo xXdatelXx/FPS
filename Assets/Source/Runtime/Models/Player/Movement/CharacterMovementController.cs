@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace FPS.Model
 {
-    public sealed class CharacterMovementController : IMovement
+    public sealed class CharacterMovementController : IGroundMovement
     {
         private readonly CharacterController _controller;
 
@@ -11,6 +11,7 @@ namespace FPS.Model
             _controller = controller.ThrowExceptionIfArgumentNull(nameof(controller));
 
         public bool Grounded => _controller.isGrounded;
+        public Vector3 Position => _controller.transform.position;
 
         public void Move(Vector3 motion) =>
             _controller.Move(motion);

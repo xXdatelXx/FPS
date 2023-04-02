@@ -13,8 +13,8 @@ namespace FPS.Factories
 
         public ICharacterRotation Create()
         {
-            var bodyRotation = new BodyRotation(new GameObjectWithRotation(_body.transform));
-            var headRotation = new HeadRotation(new GameObjectWithRotation(_head.transform), _xEuler);
+            var bodyRotation = new BodyRotation(new Rotation(_body.transform));
+            var headRotation = new HeadRotation(new Rotation(_head.transform), _xEuler);
 
             return new CharacterRotation(bodyRotation, headRotation, _sensitivity);
         }

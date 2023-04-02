@@ -5,32 +5,27 @@ namespace FPS.Model
 {
     public sealed class Player : IPlayer
     {
-        private readonly IPlayerTransformInput _input;
-        private readonly ICharacterMovement _movement;
-        private readonly ICharacterRotation _rotation;
+        private readonly IPlayerMovementInput _input;
+        private readonly ICharacter _character;
 
-        public Player(ICharacterMovement movement, ICharacterRotation rotation, IPlayerTransformInput input)
+        public Player(ICharacter character, IPlayerMovementInput input)
         {
-            _movement = movement.ThrowExceptionIfArgumentNull(nameof(movement));
-            _rotation = rotation.ThrowExceptionIfArgumentNull(nameof(rotation));
+            _character = character.ThrowExceptionIfArgumentNull(nameof(character));
             _input = input.ThrowExceptionIfArgumentNull(nameof(input));
         }
 
         public void Tick(float deltaTime)
         {
-            _movement.Tick(deltaTime);
+            _character.Tick(deltaTime);
 
-            if (_input.Jump() && _movement.CanJump)
-                _movement.Jump();
+            if (_input.Jump() && _character.Movement.CanJump)
+                _character.Movement.Jump();
 
             if (_input.Moving)
-                _movement.Move(_input.Movement(), deltaTime);
+                _character.Movement.Move(_input.Movement(), deltaTime);
 
             if (_input.Rotating)
-                _rotation.Rotate(_input.Rotation());
-
-            if (_movement.CanGravitate)
-                _movement.Gravitate(deltaTime);
+                _character.Rotation.Rotate(_input.Rotation());
         }
     }
 }
