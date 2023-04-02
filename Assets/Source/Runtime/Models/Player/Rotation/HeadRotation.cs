@@ -5,11 +5,11 @@ namespace FPS.Model
 {
     public sealed class HeadRotation : IHeadRotation
     {
-        private readonly IGameObjectWithRotation _head;
+        private readonly IRotation _head;
         private readonly Mathf _math = new();
         private readonly Range _xRange;
 
-        public HeadRotation(IGameObjectWithRotation head, Range xRange)
+        public HeadRotation(IRotation head, Range xRange)
         {
             _head = head.ThrowExceptionIfArgumentNull(nameof(head));
             _xRange = xRange;
@@ -23,9 +23,9 @@ namespace FPS.Model
 
         private void Clamp()
         {
-            var euler = _head.Rotation;
+            var euler = _head.Value;
             var clampedX = _math.ClampEuler(euler.x, _xRange.Min, _xRange.Max);
-            var motion = new Vector3(clampedX - _head.Rotation.x, 0);
+            var motion = new Vector3(clampedX - _head.Value.x, 0);
 
             _head.Rotate(motion);
         }

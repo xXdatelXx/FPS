@@ -9,12 +9,16 @@ namespace FPS.Model
         private readonly IRaySpawnPoint _spawnPoint;
         private readonly IBulletView _view;
 
-        public RayBulletFactory(IRaySpawnPoint spawnPoint, float damage, IDamageCoefficient damageCoefficient, IBulletView view = null)
+        public RayBulletFactory(IRaySpawnPoint spawnPoint, float damage, IDamageCoefficient damageCoefficient) 
+            : this(spawnPoint, damage,damageCoefficient, new NullBulletView())
+        { }
+        
+        public RayBulletFactory(IRaySpawnPoint spawnPoint, float damage, IDamageCoefficient damageCoefficient, IBulletView view)
         {
             _spawnPoint = spawnPoint.ThrowExceptionIfArgumentNull(nameof(spawnPoint));
             _damage = damage.ThrowExceptionIfValueSubZero(nameof(damage));
             _damageCoefficient = damageCoefficient.ThrowExceptionIfArgumentNull(nameof(damageCoefficient));
-            _view = view;
+            _view = view.ThrowExceptionIfArgumentNull(nameof(view));
         }
 
         public IBullet Create()

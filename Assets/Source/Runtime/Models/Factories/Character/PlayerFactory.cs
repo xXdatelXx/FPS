@@ -15,7 +15,7 @@ namespace FPS.Factories
         {
             _health.Create();
 
-            return new Player(_movement.Create(time), _rotation.Create(), new PlayerTransformInput());
+            return new Player(new Character(_movement.Create(time), _rotation.Create()), new PlayerMovementInput());
         }
     }
 }
