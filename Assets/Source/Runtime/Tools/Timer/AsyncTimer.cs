@@ -10,7 +10,7 @@ namespace FPS.Tools
         private TimerState _state;
 
         public AsyncTimer(float time) =>
-            Time = time.ThrowExceptionIfValueSubZero();
+            Time = time.ThrowExceptionIfValueSubZero(nameof(time));
 
         [field: SerializeField] public float Time { get; }
         public bool Playing => _state == TimerState.Playing;
