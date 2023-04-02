@@ -6,11 +6,11 @@ namespace FPS.Model
 {
     public sealed class CharacterJump : ICharacterJump
     {
-        private readonly IMovement _controller;
+        private readonly IGroundMovement _controller;
         private readonly ICurve _motion;
         private float _evaluatedTime;
 
-        public CharacterJump(IMovement controller, ICurve motion)
+        public CharacterJump(IGroundMovement controller, ICurve motion)
         {
             _controller = controller.ThrowExceptionIfArgumentNull(nameof(controller));
             _motion = motion
@@ -32,10 +32,11 @@ namespace FPS.Model
         public void Tick(float deltaTime)
         {
             if (!Jumping)
-                throw new InvalidOperationException(nameof(Tick));
+                return;
 
             _evaluatedTime += deltaTime;
-            _controller.Move(new Vector3(0, _motion[_evaluatedTime / _motion.Time] * deltaTime));
+            var motion = _motion[_evaluatedTime / _motion.Time];
+            _controller.Move(new Vector3(0, motion * deltaTime));
 
             if (_evaluatedTime >= _motion.Time)
             {

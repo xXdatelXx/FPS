@@ -1,8 +1,7 @@
+using FPS.Tools.GameLoop;
+
 namespace FPS.Model
 {
-    public interface IGravitation
-    {
-        bool CanGravitate { get; }
-        void Gravitate(float deltaTime);
-    }
+    public interface IGravitation : ITickable
+    { }
 }

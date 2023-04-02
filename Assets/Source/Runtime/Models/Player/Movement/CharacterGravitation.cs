@@ -6,23 +6,19 @@ namespace FPS.Model
 {
     public sealed class CharacterGravitation : IGravitation
     {
-        private readonly IMovement _controller;
+        private readonly IGroundMovement _movement;
         private readonly Vector3 _gravityMotion;
 
-        public CharacterGravitation(IMovement controller, float gravityForce = 9.81f)
+        public CharacterGravitation(IGroundMovement movement, float gravityForce = 9.81f)
         {
-            _controller = controller.ThrowExceptionIfArgumentNull(nameof(controller));
+            _movement = movement.ThrowExceptionIfArgumentNull(nameof(movement));
             _gravityMotion = new Vector3(0, -Math.Abs(gravityForce));
         }
 
-        public bool CanGravitate => !_controller.Grounded;
-
-        public void Gravitate(float deltaTime)
+        public void Tick(float deltaTime)
         {
-            if (!CanGravitate)
-                throw new InvalidOperationException(nameof(Gravitate));
-
-            _controller.Move(_gravityMotion * deltaTime);
+            if (!_movement.Grounded)
+                _movement.Move(_gravityMotion * deltaTime);
         }
     }
 }

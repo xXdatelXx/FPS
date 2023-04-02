@@ -6,12 +6,12 @@ namespace FPS.Model
 {
     public sealed class CharacterMovement : ICharacterMovement
     {
-        private readonly IMovement _controller;
+        private readonly IGroundMovement _controller;
         private readonly IGravitation _gravitation;
         private readonly ICharacterJump _jump;
         private readonly ISpeed _speed;
 
-        public CharacterMovement(IMovement controller, ICharacterJump jump, IGravitation gravitation, ISpeed speed)
+        public CharacterMovement(IGroundMovement controller, ICharacterJump jump, IGravitation gravitation, ISpeed speed)
         {
             _controller = controller.ThrowExceptionIfArgumentNull(nameof(controller));
             _jump = jump.ThrowExceptionIfArgumentNull(nameof(jump));
@@ -21,7 +21,6 @@ namespace FPS.Model
 
         public bool Jumping => _jump.Jumping;
         public bool CanJump => _jump.CanJump;
-        public bool CanGravitate => _gravitation.CanGravitate && !Jumping;
 
         public void Move(Vector3 direction, float deltaTime)
         {
@@ -33,14 +32,13 @@ namespace FPS.Model
             _controller.MoveByRotation(motion);
         }
 
-        public void Gravitate(float deltaTime) => _gravitation.Gravitate(deltaTime);
-
         public void Jump() => _jump.Jump();
 
         public void Tick(float deltaTime)
         {
-            if (_jump.Jumping)
-                _jump.Tick(deltaTime);
+            _jump.Tick(deltaTime);
+            if (!Jumping)
+                _gravitation.Tick(deltaTime);
         }
     }
 }
