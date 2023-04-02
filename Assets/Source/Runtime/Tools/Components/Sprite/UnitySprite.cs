@@ -2,12 +2,12 @@
 
 namespace FPS.Tools
 {
-    public sealed class UnitySpite : ISpite
+    public sealed class UnitySprite : ISprite
     {
         private readonly IUnitySpriteRenderer _renderer;
         private readonly Sprite _sprite;
 
-        public UnitySpite(IUnitySpriteRenderer renderer, Sprite sprite)
+        public UnitySprite(IUnitySpriteRenderer renderer, Sprite sprite)
         {
             _renderer = renderer.ThrowExceptionIfArgumentNull(nameof(renderer));
             _sprite = sprite.ThrowExceptionIfArgumentNull(nameof(sprite));
