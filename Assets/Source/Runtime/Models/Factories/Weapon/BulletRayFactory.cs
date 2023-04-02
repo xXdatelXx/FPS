@@ -20,7 +20,7 @@ namespace FPS.Factories
         {
             var prefab = Instantiate(_prefab, _spawnPoint.transform.position, Quaternion.identity, _parent);
 
-            var movement = new GameObjectWithDoTweenMovement(prefab, _raySpeed);
+            var movement = new MovementWithTeleport(prefab, new DoTweenMovement(prefab, _raySpeed));
             var standardMotion = prefab.TransformDirection(_standardMotion);
             var gameObject = new GameObject(prefab.gameObject);
 
