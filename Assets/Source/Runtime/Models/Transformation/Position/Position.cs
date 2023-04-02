@@ -10,8 +10,7 @@ namespace FPS.Model
         public Position(Transform transform) =>
             _transform = transform.ThrowExceptionIfArgumentNull(nameof(transform));
 
-        public Vector3 World => _transform.position;
-        public Vector3 Local => _transform.localPosition;
+        public Vector3 Value => _transform.position;
 
         public Vector3 TransformVector(Vector3 vector) =>
             _transform.TransformVector(vector);
