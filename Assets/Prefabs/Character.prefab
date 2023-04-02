@@ -140,7 +140,6 @@ GameObject:
   - component: {fileID: 2426024973517233680}
   - component: {fileID: 2426024973517233694}
   - component: {fileID: 2426024973517233681}
-  - component: {fileID: 2426024973517233695}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -236,20 +235,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 0.72007155, z: 1}
   m_Center: {x: 0, y: -0.44401908, z: 0}
---- !u!114 &2426024973517233695
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2426024973517233684}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eda2b1ed0011461aa5ac2ec597114fb8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _head: {fileID: 2426024975019816272}
-  _body: {fileID: 2426024973517233694}
 --- !u!1 &2426024974386602468
 GameObject:
   m_ObjectHideFlags: 0
@@ -518,12 +503,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2426024974576597903}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8656e451aee44e148b076141612f4a04, type: 3}
+  m_Script: {fileID: 11500000, guid: 84f06abe10026434b8baca8c8f4d0409, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 5
-  _amount: 0.1
-  _maxAmount: 0.2
+  _amount: 0.2
+  _maxAmount: 0.3
 --- !u!1 &2426024974750575612
 GameObject:
   m_ObjectHideFlags: 0

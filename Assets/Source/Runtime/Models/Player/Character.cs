@@ -1,13 +1,18 @@
-﻿using UnityEngine;
+﻿using FPS.Tools;
 
 namespace FPS.Model
 {
-    [DisallowMultipleComponent]
-    public sealed class Character : MonoBehaviour, ICharacter
+    public sealed class Character : ICharacter
     {
-        [SerializeField] private CharacterOrgan _head;
-        [SerializeField] private CharacterOrgan _body;
-        public ICharacterOrgan Head => _head;
-        public ICharacterOrgan Body => _body;
+        public Character(ICharacterMovement movement, ICharacterRotation rotation)
+        {
+            Movement = movement.ThrowExceptionIfArgumentNull(nameof(movement));
+            Rotation = rotation.ThrowExceptionIfArgumentNull(nameof(rotation));
+        }
+
+        public ICharacterMovement Movement { get; }
+        public ICharacterRotation Rotation { get; }
+        
+        public void Tick(float deltaTime) => Movement.Tick(deltaTime);
     }
 }
