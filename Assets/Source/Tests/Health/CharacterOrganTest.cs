@@ -3,7 +3,7 @@ using NUnit.Framework;
 
 namespace FPS.Tests
 {
-    public sealed class CharacterOrganTest
+    internal sealed class CharacterOrganTest
     {
         [Test]
         public void OrganWorkCorrectly()

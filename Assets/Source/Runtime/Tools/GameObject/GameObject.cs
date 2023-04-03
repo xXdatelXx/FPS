@@ -10,7 +10,7 @@ namespace FPS.Tools
         public GameObject(UnityEngine.GameObject obj) =>
             _object = obj.ThrowExceptionIfArgumentNull(nameof(obj));
 
-        public bool Active { get; private set; }
+        public bool Active { get; private set; } = true;
 
         public void Enable()
         {

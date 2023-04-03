@@ -4,7 +4,7 @@ using UnityGameObject = UnityEngine.GameObject;
 
 namespace FPS.Tools.Test
 {
-    public sealed class RayTest
+    internal sealed class RayTest
     {
         [Test]
         public void HitCorrectly()

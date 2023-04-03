@@ -7,7 +7,7 @@ using GameObject = UnityEngine.GameObject;
 namespace FPS.Tests.PlayMode
 {
     [TestFixture]
-    public sealed class WeaponTest
+    internal sealed class WeaponTest
     {
         private IHealth _targetHealth;
         private IWeapon _weapon;

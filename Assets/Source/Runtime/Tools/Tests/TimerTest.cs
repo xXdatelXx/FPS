@@ -3,7 +3,7 @@ using NUnit.Framework;
 
 namespace FPS.Tools.Tests
 {
-    public sealed class TimerTest
+    internal sealed class TimerTest
     {
         [Test]
         public async void AsyncTimerWorkCorrectly()

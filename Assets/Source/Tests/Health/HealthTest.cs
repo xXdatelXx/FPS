@@ -1,10 +1,11 @@
 ﻿using System;
 using FPS.Model;
+using FPS.Tools;
 using NUnit.Framework;
 
 namespace FPS.Tests
 {
-    public sealed class HealthTest
+    internal sealed class HealthTest
     {
         [Test]
         public void DieCorrectly()
@@ -18,12 +19,12 @@ namespace FPS.Tests
 
         [Test]
         public void CanNotHealByDamage() =>
-            Assert.Throws<Exception>(() => new Health(1).TakeDamage(-1));
+            Assert.Throws<ArgumentOutOfRangeException>(() => new Health(1).TakeDamage(-1));
 
         [Test]
         public void CanNotDamageCorpse()
         {
-            Assert.Throws<Exception>(() =>
+            Assert.Throws<InvalidOperationException>(() =>
             {
                 var health = new Health(1);
 
@@ -34,6 +35,6 @@ namespace FPS.Tests
 
         [Test]
         public void CanNotCreateCorpse() =>
-            Assert.Throws<Exception>(() => new Health(-1));
+            Assert.Throws<SubOrEqualZeroException>(() => new Health(-1));
     }
 }

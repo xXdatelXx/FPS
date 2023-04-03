@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace FPS.Tests
 {
-    public sealed class RecoilTest
+    internal sealed class RecoilTest
     {
         [Test]
         public void RecoilCurveWorkCorrectly()

@@ -4,7 +4,7 @@ using NUnit.Framework;
 
 namespace FPS.Tools.Tests
 {
-    public sealed class GameLoopTest
+    internal sealed class GameLoopTest
     {
         private readonly IGameLoop _loop;
         private readonly TickMarker _marker;

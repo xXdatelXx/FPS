@@ -2,7 +2,7 @@
 
 namespace FPS.Tests
 {
-    public sealed class DummyWeapon : IWeapon
+    internal sealed class DummyWeapon : IWeapon
     {
         public bool CanShoot => true;
 

@@ -5,14 +5,14 @@ using NUnit.Framework;
 
 namespace FPS.Tests
 {
-    public sealed class DelayTest
+    internal sealed class DelayTest
     {
         [Test]
         public void CanNotCreateDoubleDelay()
         {
             var delay = new WeaponDelay(new Timer(1));
             
-            Assert.Throws<Exception>(() =>
+            Assert.Throws<InvalidOperationException>(() =>
             {
                 delay.Play();
                 delay.Play();

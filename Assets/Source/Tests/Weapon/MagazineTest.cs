@@ -5,7 +5,7 @@ using NUnit.Framework;
 
 namespace FPS.Tests
 {
-    public sealed class MagazineTest
+    internal sealed class MagazineTest
     {
         [Test]
         public void CanNotGetBulletInEmptyMagazine()
@@ -19,7 +19,7 @@ namespace FPS.Tests
 
         [Test]
         public void ThrowExceptionIfTakeFromEmptyMagazine() => 
-            Assert.Throws<Exception>(new Magazine(0).Get);
+            Assert.Throws<InvalidOperationException>(new Magazine(0).Get);
 
         [Test]
         public void ResetWorkCorrectly()

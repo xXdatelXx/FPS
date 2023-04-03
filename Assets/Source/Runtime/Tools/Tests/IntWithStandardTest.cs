@@ -2,7 +2,7 @@
 
 namespace FPS.Tools.Tests
 {
-    public sealed class IntWithStandardTest
+    internal sealed class IntWithStandardTest
     {
         [Test]
         public void ResetWorkCorrectly()
