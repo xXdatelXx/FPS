@@ -1,5 +1,4 @@
 ﻿using System;
-using Cysharp.Threading.Tasks;
 using FPS.Tools.GameLoop;
 using UnityEngine;
 
@@ -12,9 +11,9 @@ namespace FPS.Tools
         private float _accumulatedTime;
 
         public Timer(float time) =>
-            Time = time.ThrowExceptionIfValueSubZero(nameof(time));
+            _time = time.ThrowExceptionIfValueSubZero(nameof(time));
 
-        [field: SerializeField] public float Time { get; }
+        [field: SerializeField] private float _time { get; }
         public bool Playing => _state == TimerState.Playing;
         public bool Canceled => _state == TimerState.Canceled;
 
@@ -31,9 +30,9 @@ namespace FPS.Tools
             if (!Playing)
                 return;
 
-            _accumulatedTime = Mathf.Min(_accumulatedTime + deltaTime, Time);
+            _accumulatedTime = Mathf.Min(_accumulatedTime + deltaTime, _time);
 
-            if (_accumulatedTime.Equals(Time))
+            if (_accumulatedTime.Equals(_time))
             {
                 _state = TimerState.End;
                 _accumulatedTime = 0;

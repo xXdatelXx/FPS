@@ -10,9 +10,9 @@ namespace FPS.Tools
         private TimerState _state;
 
         public AsyncTimer(float time) =>
-            Time = time.ThrowExceptionIfValueSubZero(nameof(time));
+            _time = time.ThrowExceptionIfValueSubZero(nameof(time));
 
-        [field: SerializeField] public float Time { get; }
+        [field: SerializeField] private float _time { get; }
         public bool Playing => _state == TimerState.Playing;
         public bool Canceled => _state == TimerState.Canceled;
 
@@ -23,7 +23,7 @@ namespace FPS.Tools
 
             _state = TimerState.Playing;
 
-            await UniTask.Delay(TimeSpan.FromSeconds(Time));
+            await UniTask.Delay(TimeSpan.FromSeconds(_time));
 
             if (!Canceled)
                 _state = TimerState.End;
