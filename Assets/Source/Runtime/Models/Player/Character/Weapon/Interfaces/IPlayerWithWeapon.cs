@@ -2,7 +2,7 @@
 
 namespace FPS.Model
 {
-    public interface IPlayerWithWeapon : ITickable
+    public interface IPlayerWithWeapon : IGameLoopObject
     {
         void Enable();
         void Disable();

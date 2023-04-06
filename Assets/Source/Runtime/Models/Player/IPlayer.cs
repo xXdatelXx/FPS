@@ -2,7 +2,7 @@
 
 namespace FPS.Model
 {
-    public interface IPlayer : ITickable
+    public interface IPlayer : IGameLoopObject
     {
     }
 }

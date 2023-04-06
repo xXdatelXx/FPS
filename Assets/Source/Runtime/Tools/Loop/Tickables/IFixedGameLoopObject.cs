@@ -1,6 +1,6 @@
 namespace FPS.Tools.GameLoop
 {
-    public interface IFixedTickable
+    public interface IFixedGameLoopObject
     {
         void FixedTick(float deltaTime);
     }

@@ -2,6 +2,6 @@ using FPS.Tools.GameLoop;
 
 namespace FPS.Model
 {
-    public interface IGravitation : ITickable
+    public interface IGravitation : IGameLoopObject
     { }
 }

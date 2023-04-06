@@ -2,8 +2,8 @@
 {
     public interface IReadOnlyGameLoop
     {
-        void Add(ITickable tickable);
-        void Add(ILateTickable tickable);
-        void Add(IFixedTickable tickable);
+        void Add(IGameLoopObject obj);
+        void Add(ILateGameLoopObject obj);
+        void Add(IFixedGameLoopObject obj);
     }
 }

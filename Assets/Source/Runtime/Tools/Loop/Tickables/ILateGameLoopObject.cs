@@ -1,6 +1,6 @@
 namespace FPS.Tools.GameLoop
 {
-    public interface ILateTickable
+    public interface ILateGameLoopObject
     {
         void LateTick();
     }

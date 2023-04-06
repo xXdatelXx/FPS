@@ -4,21 +4,21 @@ namespace FPS.Tools
 {
     public static class GameLoopExtension
     {
-        public static void Add(this IReadOnlyGameLoop loop, params ITickable[] tickables)
+        public static void Add(this IReadOnlyGameLoop loop, params IGameLoopObject[] objects)
         {
-            foreach (var i in tickables) 
+            foreach (var i in objects) 
                 loop.Add(i);
         }
         
-        public static void Add(this IReadOnlyGameLoop loop, params IFixedTickable[] tickables)
+        public static void Add(this IReadOnlyGameLoop loop, params IFixedGameLoopObject[] objects)
         {
-            foreach (var i in tickables) 
+            foreach (var i in objects) 
                 loop.Add(i);
         }
         
-        public static void Add(this IReadOnlyGameLoop loop, params ILateTickable[] tickables)
+        public static void Add(this IReadOnlyGameLoop loop, params ILateGameLoopObject[] objects)
         {
-            foreach (var i in tickables) 
+            foreach (var i in objects) 
                 loop.Add(i);
         }
     }

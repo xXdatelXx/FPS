@@ -2,7 +2,7 @@
 
 namespace FPS.Model
 {
-    public interface ICharacterJump : ITickable
+    public interface ICharacterJump : IGameLoopObject
     {
         bool Jumping { get; }
         bool CanJump { get; }

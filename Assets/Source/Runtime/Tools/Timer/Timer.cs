@@ -5,7 +5,7 @@ using UnityEngine;
 namespace FPS.Tools
 {
     [Serializable]
-    public sealed class Timer : ITimer, ITickable
+    public sealed class Timer : ITimer, IGameLoopObject
     {
         private TimerState _state;
         private float _accumulatedTime;
