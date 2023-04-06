@@ -7,10 +7,13 @@ namespace FPS.Tools
     {
         private readonly UnityEngine.GameObject _object;
 
-        public GameObject(UnityEngine.GameObject obj) =>
+        public GameObject(UnityEngine.GameObject obj)
+        {
             _object = obj.ThrowExceptionIfArgumentNull(nameof(obj));
+            Active = obj.activeSelf;
+        }
 
-        public bool Active { get; private set; } = true;
+        public bool Active { get; private set; }
 
         public void Enable()
         {
