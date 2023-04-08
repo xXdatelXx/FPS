@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using FPS.Tools;
-using JetBrains.Annotations;
 
 namespace FPS.Model
 {

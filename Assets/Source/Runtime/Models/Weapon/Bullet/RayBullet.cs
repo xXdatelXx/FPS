@@ -1,5 +1,4 @@
 ﻿using FPS.Tools;
-using JetBrains.Annotations;
 
 namespace FPS.Model
 {
