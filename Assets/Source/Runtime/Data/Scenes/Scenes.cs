@@ -4,7 +4,7 @@ using UnityEngine;
 namespace FPS.Data.Scenes
 {
     [CreateAssetMenu(fileName = nameof(Scenes), menuName = nameof(Scenes))]
-    public class Scenes : ScriptableObject, IScenes
+    public sealed class Scenes : ScriptableObject, IScenes
     {
         [SerializeField] private Scene _menu;
         [SerializeField] private Scene _game;
