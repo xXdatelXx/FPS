@@ -12,6 +12,7 @@ namespace FPS.Model
 
         private void Awake() => _health = new Health(100);
         public bool Died => _health.Died;
+        public float Points => _health.Points;
 
         public void TakeDamage(float damage)
         {
