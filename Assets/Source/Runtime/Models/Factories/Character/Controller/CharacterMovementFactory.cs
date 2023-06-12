@@ -10,7 +10,7 @@ namespace FPS.Factories
     {
         [SerializeField] private CharacterController _controller;
         [SerializeField] private AnimationCurve _jumpMotion;
-        [SerializeField] private ISpeed _speed;
+        [SerializeField, Range(0, 100)] private float _speed;
 
         public ICharacterMovement Create(IReadOnlyGameTime time)
         {

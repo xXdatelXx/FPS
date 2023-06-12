@@ -9,14 +9,14 @@ namespace FPS.Model
         private readonly IGroundMovement _controller;
         private readonly IGravitation _gravitation;
         private readonly ICharacterJump _jump;
-        private readonly ISpeed _speed;
+        private readonly float _speed;
 
-        public CharacterMovement(IGroundMovement controller, ICharacterJump jump, IGravitation gravitation, ISpeed speed)
+        public CharacterMovement(IGroundMovement controller, ICharacterJump jump, IGravitation gravitation, float speed)
         {
             _controller = controller.ThrowExceptionIfArgumentNull(nameof(controller));
             _jump = jump.ThrowExceptionIfArgumentNull(nameof(jump));
             _gravitation = gravitation.ThrowExceptionIfArgumentNull(nameof(gravitation));
-            _speed = speed.ThrowExceptionIfArgumentNull(nameof(speed));
+            _speed = speed.ThrowExceptionIfValueSubZero(nameof(speed));
         }
 
         public bool Jumping => _jump.Jumping;
@@ -27,9 +27,9 @@ namespace FPS.Model
             if (direction == Vector3.zero)
                 throw new InvalidOperationException(nameof(Move));
 
-            var motion = direction * _speed.Value * deltaTime;
+            var motion = direction * _speed * deltaTime;
 
-            _controller.MoveByRotation(motion);
+            _controller.Move(motion);
         }
 
         public void Jump() => _jump.Jump();

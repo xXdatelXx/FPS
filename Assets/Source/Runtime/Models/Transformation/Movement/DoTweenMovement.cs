@@ -1,15 +1,16 @@
 ﻿using DG.Tweening;
 using FPS.Tools;
 using UnityEngine;
+using UnityTransform = UnityEngine.Transform;
 
 namespace FPS.Model
 {
     public sealed class DoTweenMovement : IMovement
     {
         private readonly float _speed;
-        private readonly Transform _transform;
+        private readonly UnityTransform _transform;
 
-        public DoTweenMovement(Transform transform, float speed)
+        public DoTweenMovement(UnityTransform transform, float speed)
         {
             _transform = transform.ThrowExceptionIfArgumentNull(nameof(transform));
             _speed = speed.ThrowExceptionIfValueSubZero(nameof(speed));
@@ -24,7 +25,5 @@ namespace FPS.Model
             
             _transform.DOMove(nextPosition, duration);
         }
-
-        public void MoveByRotation(Vector3 motion) => Move(_transform.TransformVector(motion));
     }
 }

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace FPS.Model
+namespace FPS.Tools
 {
     public interface IRotation
     {

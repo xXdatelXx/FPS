@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
-namespace FPS.Model
+namespace FPS.Tools
 {
-    public interface IPosition
+    public interface IReadOnlyPosition
     {
         Vector3 Value { get; }
     }

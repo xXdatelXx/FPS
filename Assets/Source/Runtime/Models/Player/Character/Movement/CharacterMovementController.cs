@@ -14,9 +14,6 @@ namespace FPS.Model
         public Vector3 Position => _controller.transform.position;
 
         public void Move(Vector3 motion) =>
-            _controller.Move(motion);
-
-        public void MoveByRotation(Vector3 motion) =>
-            Move(_controller.TransformDirection(motion));
+            _controller.Move(_controller.TransformDirection(motion));
     }
 }

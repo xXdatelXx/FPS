@@ -6,6 +6,5 @@ namespace FPS.Model
     {
         Vector3 Position { get; }
         void Move(Vector3 motion);
-        void MoveByRotation(Vector3 motion);
     }
 }

@@ -1,7 +1,6 @@
-﻿using FPS.Tools;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace FPS.Model
+namespace FPS.Tools
 {
     public sealed class Rotation : IRotation
     {

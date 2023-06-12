@@ -7,10 +7,10 @@ namespace FPS.Model
     public sealed class CharacterJump : ICharacterJump
     {
         private readonly IGroundMovement _controller;
-        private readonly ICurve _motion;
+        private readonly Curve _motion;
         private float _evaluatedTime;
 
-        public CharacterJump(IGroundMovement controller, ICurve motion)
+        public CharacterJump(IGroundMovement controller, Curve motion)
         {
             _controller = controller.ThrowExceptionIfArgumentNull(nameof(controller));
             _motion = motion

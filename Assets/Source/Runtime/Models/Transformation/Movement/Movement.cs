@@ -5,14 +5,13 @@ namespace FPS.Model
 {
     public sealed class Movement : IMovement
     {
-        private readonly Transform _transform;
+        private readonly IPosition _position;
 
-        public Movement(Transform transform) =>
-            _transform = transform.ThrowExceptionIfArgumentNull(nameof(transform));
+        public Movement(IPosition position) =>
+            _position = position.ThrowExceptionIfArgumentNull(nameof(position));
 
-        public Vector3 Position => _transform.position;
+        public Vector3 Position => _position.Value;
 
-        public void Move(Vector3 motion) => _transform.position += motion;
-        public void MoveByRotation(Vector3 motion) => Move(_transform.TransformVector(motion));
+        public void Move(Vector3 motion) => _position.TeleportTo(_position.Value + motion);
     }
 }
