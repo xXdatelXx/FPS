@@ -5,9 +5,9 @@ namespace FPS.Model
     public sealed class CharacterHealthView : IHealthView
     {
         private readonly IGameObject _character;
-        private readonly ITextView _healthText;
+        private readonly IText _healthText;
 
-        public CharacterHealthView(IGameObject character, ITextView healthText)
+        public CharacterHealthView(IGameObject character, IText healthText)
         {
             _healthText = healthText.ThrowExceptionIfArgumentNull(nameof(healthText));
             _character = character.ThrowExceptionIfArgumentNull(nameof(character));

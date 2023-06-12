@@ -18,6 +18,7 @@ namespace FPS.Model
         }
 
         public bool Died => _health.Died;
+        public float Points => _health.Points;
 
         public void TakeDamage(float damage)
         {

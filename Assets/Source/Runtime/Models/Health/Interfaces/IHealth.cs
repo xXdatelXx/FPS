@@ -1,8 +1,7 @@
 ﻿namespace FPS.Model
 {
-    public interface IHealth
+    public interface IHealth : IReadOnlyHealth
     {
-        bool Died { get; }
         void TakeDamage(float damage);
     }
 }
