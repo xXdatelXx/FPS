@@ -2,6 +2,6 @@
 {
     public interface IText
     {
-        void Set(string value);
+        void Visualize(string value);
     }
 }
