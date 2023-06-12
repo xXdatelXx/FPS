@@ -4,9 +4,9 @@ namespace FPS.Model
 {
     public sealed class BulletsView : IBulletsView
     {
-        private readonly ITextView _text;
+        private readonly IText _text;
 
-        public BulletsView(ITextView text) =>
+        public BulletsView(IText text) =>
             _text = text.ThrowExceptionIfArgumentNull(nameof(text));
 
         public void Visualize(int bullets) =>
