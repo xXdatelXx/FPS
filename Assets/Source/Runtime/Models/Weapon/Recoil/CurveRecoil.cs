@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using Cysharp.Threading.Tasks;
+﻿using Cysharp.Threading.Tasks;
 using FPS.Tools;
 using UnityEngine;
 
@@ -7,12 +6,12 @@ namespace FPS.Model
 {
     public sealed class CurveRecoil : IRecoil
     {
-        private readonly ICurve _curve;
+        private readonly Curve _curve;
         private readonly float _curveStep;
         private readonly IWeaponDelay _delay;
         private float _curveProgress;
 
-        public CurveRecoil(ICurve curve, IWeaponDelay delay, IReadOnlyMagazine magazine)
+        public CurveRecoil(Curve curve, IWeaponDelay delay, IReadOnlyMagazine magazine)
         {
             _curve = curve.ThrowExceptionIfArgumentNull(nameof(curve));
             _delay = delay.ThrowExceptionIfArgumentNull(nameof(delay));
@@ -35,7 +34,7 @@ namespace FPS.Model
                 _curveProgress = 0;
         }
 
-        private async Task<bool> CanReset()
+        private async UniTask<bool> CanReset()
         {
             await _delay.End();
             await UniTask.Yield();

@@ -4,7 +4,7 @@ namespace FPS.Tools
 {
     public static class CurveExtension
     {
-        public static AnimationCurve ThrowExceptionIfValuesSubZero(this AnimationCurve curve, string name = nameof(Curve))
+        public static AnimationCurve ThrowExceptionIfValuesSubZero(this AnimationCurve curve, string name)
         {
             for (float i = 0; i < curve[curve.length - 1].time; i += Time.fixedTime)
                 curve.Evaluate(i).ThrowExceptionIfValueSubZero(name);
@@ -12,7 +12,7 @@ namespace FPS.Tools
             return curve;
         }
 
-        public static ICurve ThrowExceptionIfValuesSubZero(this ICurve curve, string name = nameof(Curve))
+        public static Curve ThrowExceptionIfValuesSubZero(this Curve curve, string name)
         {
             for (float i = 0; i <= curve.Time; i += Time.fixedDeltaTime)
                 curve[i].ThrowExceptionIfValueSubZero(name);

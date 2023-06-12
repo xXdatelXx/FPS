@@ -4,9 +4,9 @@ namespace FPS.Model
 {
     public sealed class CurveDamageCoefficient : IDamageCoefficient
     {
-        private readonly ICurve _curve;
+        private readonly Curve _curve;
 
-        public CurveDamageCoefficient(ICurve curve)
+        public CurveDamageCoefficient(Curve curve)
         {
             _curve = curve
                 .ThrowExceptionIfArgumentNull(nameof(curve))

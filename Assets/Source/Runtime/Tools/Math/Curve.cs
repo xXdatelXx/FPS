@@ -2,7 +2,7 @@
 
 namespace FPS.Tools
 {
-    public readonly struct Curve : ICurve
+    public readonly struct Curve
     {
         private readonly AnimationCurve _curve;
 
