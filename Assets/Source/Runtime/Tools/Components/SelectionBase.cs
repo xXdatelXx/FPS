@@ -2,8 +2,7 @@ using UnityEngine;
 
 namespace FPS.Tools
 {
-    [SelectionBase]
-    [DisallowMultipleComponent]
+    [DisallowMultipleComponent, SelectionBase]
     public sealed class SelectionBase : MonoBehaviour
     {
     }

@@ -1027,6 +1027,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _healthPoint: 100
+  _heal: 0.01
   _character: {fileID: 1715487331}
   _head: {fileID: 16262493}
   _body: {fileID: 1852115934}
@@ -1127,16 +1128,7 @@ MonoBehaviour:
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes:
-    - Name: _speed
-      Entry: 7
-      Data: 0|FPS.Model.Speed, Assembly
-    - Name: <Value>k__BackingField
-      Entry: 4
-      Data: 3.13
-    - Name: 
-      Entry: 8
-      Data: 
+    SerializationNodes: []
   _controller: {fileID: 1852115929}
   _jumpMotion:
     serializedVersion: 2
@@ -1171,6 +1163,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  _speed: 5
 --- !u!114 &679011740
 MonoBehaviour:
   m_ObjectHideFlags: 0

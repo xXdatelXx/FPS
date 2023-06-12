@@ -1,5 +1,4 @@
 ﻿using FPS.Data;
-using FPS.Model;
 using FPS.Tools.GameLoop;
 
 namespace FPS.Game
@@ -13,10 +12,8 @@ namespace FPS.Game
             var time = new GameTime();
             var player = engine.Factories.PlayerFactory.Create(time);
             var weapons = engine.Factories.PlayerWeaponFactory.Create();
-            
-            _gameLoop = new GameLoop(time);
-            _gameLoop.Add(player);
-            _gameLoop.Add(weapons);
+
+            _gameLoop = new GameLoop(time,player, weapons );
         }
 
         public void Play() => _gameLoop.Start();

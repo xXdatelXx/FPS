@@ -2,7 +2,7 @@
 
 namespace FPS.Tools
 {
-    public readonly struct PercentChance : IChance
+    public sealed class PercentChance : IChance
     {
         private readonly int _luckChance;
 
