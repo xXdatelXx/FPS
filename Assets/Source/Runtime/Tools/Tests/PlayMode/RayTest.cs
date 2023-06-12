@@ -10,15 +10,14 @@ namespace FPS.Tools.Test
         public void HitCorrectly()
         {
             var spawnPoint = Object.Instantiate(new UnityGameObject()).AddComponent<RaySpawnPoint>();
-            var ray = new UnityRay(spawnPoint);
+            var ray = new UnityRay<UnityEngine.GameObject>(spawnPoint);
             var border = Object.Instantiate(new UnityGameObject());
             border.transform.position = spawnPoint.Forward;
             border.AddComponent<BoxCollider>().size = Vector3.one;
 
             ray.Cast(out var hit);
-            hit.Is(out Collider hitObject);
 
-            Assert.AreEqual(hitObject.name, border.name);
+            Assert.AreEqual(hit.Target.name, border.name);
         }
     }
 }

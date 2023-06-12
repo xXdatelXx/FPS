@@ -1,22 +1,22 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace FPS.Tools
 {
-    public readonly struct RayHit : IRayHit
+    public readonly struct RayHit<TTarget>
     {
-        public RayHit(Vector3 point, float distance, Collider target)
+        private readonly TTarget _target;
+        
+        public RayHit(TTarget target, Vector3 start, Vector3 end)
         {
-            Point = point;
-            Distance = distance.ThrowExceptionIfValueSubZero(nameof(distance));
-            _target = target.ThrowExceptionIfArgumentNull(nameof(target));
+            _target = target;
+            Points = (start, end);
         }
+        
+        public bool Occurred => _target is not null;
 
-        public Vector3 Point { get; }
-        public float Distance { get; }
+        public (Vector3 Start, Vector3 End) Points { get; }
 
-        private readonly Collider _target;
-
-        public bool Is<T>(out T t) =>
-            _target.TryGetComponent(out t);
+        public TTarget Target => _target ?? throw new NotImplementedException($"There isn't hit target!");
     }
 }

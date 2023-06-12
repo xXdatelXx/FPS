@@ -23,7 +23,7 @@ namespace FPS.Model
 
         public IBullet Create()
         {
-            var ray = new UnityRay(_spawnPoint);
+            var ray = new UnityRay<IHealth>(_spawnPoint);
             var damagePolicy = new DamagePolicy(_damageCoefficient);
 
             return new RayBullet(_damage, damagePolicy, ray, _view);

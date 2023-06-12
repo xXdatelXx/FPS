@@ -2,9 +2,8 @@
 
 namespace FPS.Tools
 {
-    public interface IRaySpawnPoint
+    public interface IRaySpawnPoint : IReadOnlyPosition
     {
-        Vector3 Position { get; }
         Vector3 Forward { get; }
     }
 }

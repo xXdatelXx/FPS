@@ -2,26 +2,24 @@
 
 namespace FPS.Tools
 {
-    public sealed class UnityRay : IRay
+    public sealed class UnityRay<TTarget> : IRay<TTarget>
     {
         private readonly Ray _ray;
+        private readonly IRaySpawnPoint _origin;
 
         public UnityRay(IRaySpawnPoint origin)
         {
             origin.ThrowExceptionIfArgumentNull(nameof(origin));
-            _ray = new Ray(origin.Position, origin.Forward);
+            _ray = new Ray(origin.Value, origin.Forward);
+            _origin = origin;
         }
 
-        public bool Cast(out IRayHit hit)
+        public void Cast(out RayHit<TTarget> hit)
         {
-            if (Physics.Raycast(_ray, out var raycastHit))
-            {
-                hit = new RayHit(raycastHit.point, raycastHit.distance, raycastHit.collider);
-                return true;
-            }
-
-            hit = default;
-            return false;
+             hit = 
+                 Physics.Raycast(_ray, out var raycastHit) 
+                     ? new RayHit<TTarget>(raycastHit.collider.GetComponent<TTarget>(), _origin.Value, raycastHit.point) 
+                     : default;
         }
     }
 }

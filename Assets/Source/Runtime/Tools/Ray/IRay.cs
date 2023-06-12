@@ -1,7 +1,7 @@
 ﻿namespace FPS.Tools
 {
-    public interface IRay
+    public interface IRay<TTarget>
     {
-        bool Cast(out IRayHit hit);
+        void Cast(out RayHit<TTarget> hit);
     }
 }

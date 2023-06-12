@@ -6,14 +6,14 @@ namespace FPS.Model
     {
         private readonly float _damage;
         private readonly IDamagePolicy _damagePolicy;
-        private readonly IRay _ray;
+        private readonly IRay<IHealth> _ray;
         private readonly IBulletView _view;
         
-        public RayBullet(float damage, IDamagePolicy damagePolicy, IRay ray) : 
+        public RayBullet(float damage, IDamagePolicy damagePolicy, IRay<IHealth> ray) : 
             this(damage, damagePolicy, ray, new NullBulletView())
         { }
 
-        public RayBullet(float damage, IDamagePolicy damagePolicy, IRay ray, IBulletView view)
+        public RayBullet(float damage, IDamagePolicy damagePolicy, IRay<IHealth> ray, IBulletView view)
         {
             _damage = damage.ThrowExceptionIfValueSubZero(nameof(damage));
             _damagePolicy = damagePolicy.ThrowExceptionIfArgumentNull(nameof(damagePolicy));
@@ -23,25 +23,25 @@ namespace FPS.Model
 
         public void Fire()
         {
-            if (_ray.Cast(out var hit))
+            _ray.Cast(out var hit);
+            
+            if (hit.Occurred)
             {
-                if (CanDamage(out var health, hit))
+                var target = hit.Target;
+                if (target.Alive())
                 {
-                    var damage = _damagePolicy.Affect(_damage, hit.Distance);
-                    health.TakeDamage(damage);
+                    var damage = _damagePolicy.Affect(_damage, hit.Distance());
+                    target.TakeDamage(damage);
 
                     _view.Damage();
 
-                    if (health.Died)
+                    if (target.Died)
                         _view.Kill();
                 }
 
-                _view.Hit(hit.Point);
+                _view.Hit(hit.Points.End);
             }
             else _view.Miss();
         }
-
-        private bool CanDamage(out IHealth health, IRayHit hit) =>
-            hit.Is(out health) && !health.Died;
     }
 }
