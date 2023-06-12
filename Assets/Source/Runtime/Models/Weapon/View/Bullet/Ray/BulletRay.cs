@@ -7,23 +7,24 @@ namespace FPS.Model
     {
         private readonly IMovementWithTeleport _movement;
         private readonly IGameObject _gameObject;
-        private readonly IPositionWithVectorTransform _standardPosition;
+        private readonly IPositionWithVectorTransform _throwPosition;
         private readonly Vector3 _standardMotion;
 
-        public BulletRay(IMovementWithTeleport movement, IGameObject gameObject, IPositionWithVectorTransform standardPosition, Vector3 standardMotion)
+        public BulletRay(IMovementWithTeleport movement, IGameObject gameObject, IPositionWithVectorTransform throwPosition, Vector3 standardMotion)
         {
             _movement = movement.ThrowExceptionIfArgumentNull(nameof(movement));
             _gameObject = gameObject.ThrowExceptionIfArgumentNull(nameof(gameObject));
-            _standardPosition = standardPosition.ThrowExceptionIfArgumentNull(nameof(standardPosition));
+            _throwPosition = throwPosition.ThrowExceptionIfArgumentNull(nameof(throwPosition));
             _standardMotion = standardMotion;
         }
 
         public void Cast() =>
-            Cast(_standardPosition.Value + _standardPosition.TransformVector(_standardMotion));
+            Cast(_throwPosition.Value + _throwPosition.TransformVector(_standardMotion));
 
         public void Cast(Vector3 target)
         {
-            _movement.TeleportTo(_standardPosition.Value);
+            if (_movement.Position != _throwPosition.Value)
+                _movement.TeleportTo(_throwPosition.Value);
 
             if (!_gameObject.Active)
                 _gameObject.Enable();

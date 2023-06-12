@@ -1,4 +1,5 @@
 ﻿using FPS.Data;
+using FPS.Input;
 using FPS.Model;
 using FPS.Tools;
 using UnityEngine;

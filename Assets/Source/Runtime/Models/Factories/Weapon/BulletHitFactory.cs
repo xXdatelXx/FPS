@@ -15,7 +15,7 @@ namespace FPS.Factories
         {
             var prefab = Instantiate(_particle, _parent);
             var particle = new BulletParticle(prefab);
-            var movement = new Movement(prefab.transform);
+            var movement = new Movement(new Position(prefab.transform));
 
             return new BulletHitView(movement, particle);
         }

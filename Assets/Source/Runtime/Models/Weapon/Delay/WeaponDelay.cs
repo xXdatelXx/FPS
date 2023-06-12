@@ -1,5 +1,4 @@
 ﻿using System;
-using Cysharp.Threading.Tasks;
 using FPS.Tools;
 
 namespace FPS.Model
