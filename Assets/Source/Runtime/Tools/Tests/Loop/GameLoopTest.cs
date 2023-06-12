@@ -11,16 +11,12 @@ namespace FPS.Tools.Tests
 
         public GameLoopTest()
         {
-            _loop = new GameLoop.GameLoop(new GameTime());
             _marker = new TickMarker();
+            _loop = new GameLoop.GameLoop(new PhysicGameTime(), _marker);
         }
 
         [SetUp]
-        public void SetUp()
-        {
-            _loop.Add(_marker);
-            _loop.Start();
-        }
+        public void SetUp() => _loop.Start();
 
         [Test]
         public async void TickingCorrectly()

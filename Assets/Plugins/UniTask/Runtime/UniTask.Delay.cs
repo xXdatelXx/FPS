@@ -26,6 +26,12 @@ namespace Cysharp.Threading.Tasks
             // optimized for single continuation
             return new YieldAwaitable(PlayerLoopTiming.Update);
         }
+        
+        public static YieldAwaitable Yield(TimeSpan cancellationToken)
+        {
+            // optimized for single continuation
+            return new YieldAwaitable(PlayerLoopTiming.Update);
+        }
 
         public static YieldAwaitable Yield(PlayerLoopTiming timing)
         {
