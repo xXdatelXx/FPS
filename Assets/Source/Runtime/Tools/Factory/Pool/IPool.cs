@@ -1,9 +1,9 @@
 ﻿namespace FPS.Tools
 {
-    public interface IPool<T>
+    public interface IPool<TItem>
     {
-        bool Contains(T obj);
-        T Get();
-        void Return(T obj);
+        bool Contains(TItem obj);
+        TItem Get();
+        void Return(TItem obj);
     }
 }

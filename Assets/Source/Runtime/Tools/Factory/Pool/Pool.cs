@@ -3,23 +3,23 @@ using System.Collections.Generic;
 
 namespace FPS.Tools
 {
-    public sealed class Pool<T> : IPool<T>
+    public sealed class Pool<TItem> : IPool<TItem>
     {
-        private readonly IFactory<T> _factory;
-        private readonly Stack<T> _objects;
+        private readonly IFactory<TItem> _factory;
+        private readonly Stack<TItem> _objects;
 
-        public Pool(IFactory<T> factory, Stack<T> objects = null)
+        public Pool(IFactory<TItem> factory, Stack<TItem> objects = null)
         {
             _factory = factory.ThrowExceptionIfArgumentNull(nameof(factory));
             _objects = objects ?? new();
         }
 
-        public bool Contains(T obj) => _objects.Contains(obj);
+        public bool Contains(TItem obj) => _objects.Contains(obj);
 
-        public T Get() =>
+        public TItem Get() =>
             _objects.Count == 0 ? _factory.Create() : _objects.Pop();
 
-        public void Return(T obj)
+        public void Return(TItem obj)
         {
             if (Contains(obj))
                 throw new InvalidOperationException(nameof(Contains));
