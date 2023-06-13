@@ -12,8 +12,19 @@ namespace FPS.Tools
         public bool Playing => _timer.Playing;
         public bool Canceled { get; private set; }
         
-        public void Play() => _timer.Play();
-        public void Stop() => _timer.Stop();
+        public void Play()
+        {
+            Canceled = false;
+            _timer.Play();
+        }
+
+        public void Stop()
+        {
+            if (Canceled)
+                throw new InvalidOperationException(nameof(Canceled));
+            
+            _timer.Stop();
+        }
 
         public void Cancel()
         {

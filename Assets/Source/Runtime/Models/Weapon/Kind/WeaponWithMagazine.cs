@@ -11,9 +11,10 @@ namespace FPS.Model
         private readonly IWeapon _weapon;
         private bool _enabled;
 
-        public WeaponWithMagazine(IWeapon weapon, IMagazine magazine, ITimerWithCanceling reloadTimer) 
+        public WeaponWithMagazine(IWeapon weapon, IMagazine magazine, ITimerWithCanceling reloadTimer)
             : this(weapon, magazine, reloadTimer, new NullWeaponView())
-        { }
+        {
+        }
 
         public WeaponWithMagazine(IWeapon weapon, IMagazine magazine, ITimerWithCanceling reloadTimer, IWeaponView view)
         {
