@@ -4,12 +4,12 @@
     {
         private readonly IGameLoopObjects _objects;
         private readonly IReadOnlyGameTime _time;
-        
-        public GameLoop(IReadOnlyGameTime time, params IGameLoopObject[] loopObject) 
+
+        public GameLoop(IReadOnlyGameTime time, params IGameLoopObject[] loopObject)
             : this(new GameLoopObjects(loopObject), time)
         {
         }
-        
+
         public GameLoop(IGameLoopObjects objects, IReadOnlyGameTime time)
         {
             _objects = objects.ThrowExceptionIfArgumentNull(nameof(objects));

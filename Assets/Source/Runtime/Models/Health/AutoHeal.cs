@@ -16,7 +16,7 @@ namespace FPS.Model
 
         public void Tick(float deltaTime)
         {
-            if(_health.CanHeal)
+            if (_health.CanHeal)
                 _health.Heal(_heal);
         }
     }

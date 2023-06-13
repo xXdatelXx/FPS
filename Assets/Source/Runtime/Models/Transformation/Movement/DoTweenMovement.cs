@@ -22,7 +22,7 @@ namespace FPS.Model
         {
             var nextPosition = Position + motion;
             var duration = Vector3.Distance(Position, nextPosition) / _speed;
-            
+
             _transform.DOMove(nextPosition, duration);
         }
     }

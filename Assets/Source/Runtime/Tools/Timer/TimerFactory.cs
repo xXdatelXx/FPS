@@ -4,8 +4,8 @@ namespace FPS.Tools
 {
     public sealed class TimerFactory : IFactory<ITimer>
     {
-        private IGameLoopObjectsGroup _timers;
         private readonly float _time;
+        private readonly IGameLoopObjectsGroup _timers;
 
         public TimerFactory(float time, IGameLoopObjectsGroup timers)
         {
@@ -17,7 +17,7 @@ namespace FPS.Tools
         {
             var timer = new Timer(_time);
             _timers.Add(timer);
-            
+
             return timer;
         }
     }

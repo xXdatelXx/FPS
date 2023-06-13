@@ -1,5 +1,4 @@
 ﻿using FPS.Data;
-using FPS.Input;
 using FPS.Model;
 using FPS.Tools;
 using FPS.Tools.GameLoop;
@@ -23,7 +22,7 @@ namespace FPS.Factories
             var weaponWithMagazineTimer = new Timer(_weaponData.Reload);
             var gameLoop = new GameLoop(new GameTime(), delayTimer, handWeaponTimer, weaponWithMagazineTimer);
             gameLoop.Start();
-            
+
             var damageCoefficient = new CurveDamageCoefficient(new Curve(_weaponData.DamageCurve));
             var bulletsFactory = new RayBulletFactory(_bulletSpawnPoint, _weaponData.Damage, damageCoefficient, _bulletView.Create());
             var magazine = new Magazine(_weaponData.Bullets);

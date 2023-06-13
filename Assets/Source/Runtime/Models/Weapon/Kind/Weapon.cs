@@ -7,7 +7,7 @@ namespace FPS.Model
     {
         private readonly IBulletFactory _factory;
         private readonly IWeaponView _view;
-        
+
         public Weapon(IBulletFactory factory) : this(factory, new NullWeaponView())
         { }
 

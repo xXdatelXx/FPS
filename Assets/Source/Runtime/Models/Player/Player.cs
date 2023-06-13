@@ -5,8 +5,8 @@ namespace FPS.Model
 {
     public sealed class Player : IPlayer
     {
-        private readonly IPlayerMovementInput _input;
         private readonly ICharacter _character;
+        private readonly IPlayerMovementInput _input;
 
         public Player(ICharacter character, IPlayerMovementInput input)
         {

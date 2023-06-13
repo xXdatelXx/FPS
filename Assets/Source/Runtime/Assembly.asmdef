@@ -1,21 +1,21 @@
 {
-    "name": "Assembly",
-    "rootNamespace": "",
-    "references": [
-        "GUID:456e76650ea7cae40bf11951076572cf",
-        "GUID:f51ebe6a0ceec4240a699833d6309b23",
-        "GUID:cf82a635ab7b75645a2237ee77e50ee6",
-        "GUID:ff65e5abb8f4bb24f92391380622eeca",
-        "GUID:75469ad4d38634e559750d17036d5f7c",
-        "GUID:6055be8ebefd69e48b49212b09b47b2f"
-    ],
-    "includePlatforms": [],
-    "excludePlatforms": [],
-    "allowUnsafeCode": false,
-    "overrideReferences": false,
-    "precompiledReferences": [],
-    "autoReferenced": true,
-    "defineConstraints": [],
-    "versionDefines": [],
-    "noEngineReferences": false
+  "name": "Assembly",
+  "rootNamespace": "",
+  "references": [
+    "GUID:456e76650ea7cae40bf11951076572cf",
+    "GUID:f51ebe6a0ceec4240a699833d6309b23",
+    "GUID:cf82a635ab7b75645a2237ee77e50ee6",
+    "GUID:ff65e5abb8f4bb24f92391380622eeca",
+    "GUID:75469ad4d38634e559750d17036d5f7c",
+    "GUID:6055be8ebefd69e48b49212b09b47b2f"
+  ],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
 }

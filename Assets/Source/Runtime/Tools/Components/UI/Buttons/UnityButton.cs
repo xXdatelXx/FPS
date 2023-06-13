@@ -9,7 +9,7 @@ namespace FPS.Tools
         private IButton _button;
         private Button _unityButton;
 
-        private void Awake() => 
+        private void Awake() =>
             _unityButton = GetComponent<Button>();
 
         public void Subscribe(IButton button)
@@ -18,7 +18,7 @@ namespace FPS.Tools
             _unityButton.onClick.AddListener(button.Press);
         }
 
-        private void OnDestroy() => 
+        private void OnDestroy() =>
             _unityButton.onClick.RemoveListener(_button.Press);
     }
 }

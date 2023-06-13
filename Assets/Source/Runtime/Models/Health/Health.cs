@@ -5,8 +5,8 @@ namespace FPS.Model
 {
     public sealed class Health : IHealthWithHeal
     {
-        private readonly IHealthView _view;
         private readonly float _maxPoints;
+        private readonly IHealthView _view;
 
         public Health(float value) : this(value, new NullHealthView())
         {
@@ -44,7 +44,7 @@ namespace FPS.Model
                 throw new InvalidOperationException(nameof(Heal));
 
             heal.ThrowExceptionIfValueSubOrEqualZero(nameof(heal));
-            
+
             Points = Math.Min(Points + heal, _maxPoints);
             _view.Visualize(Points);
         }

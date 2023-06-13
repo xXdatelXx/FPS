@@ -8,7 +8,7 @@ namespace FPS.Tools.GameLoop
     {
         private readonly float _timeStep;
 
-        public PhysicGameTime(float timeStep = 0.02f) => 
+        public PhysicGameTime(float timeStep = 0.02f) =>
             _timeStep = timeStep.ThrowExceptionIfValueSubOrEqualZero(nameof(timeStep));
 
         public bool Active => Time.timeScale != 0;

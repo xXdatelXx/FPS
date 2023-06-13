@@ -4,7 +4,7 @@
     {
         private readonly IScene _scene;
 
-        public SceneLoadButton(IScene scene) => 
+        public SceneLoadButton(IScene scene) =>
             _scene = scene.ThrowExceptionIfArgumentNull(nameof(scene));
 
         public void Press() => _scene.Load();

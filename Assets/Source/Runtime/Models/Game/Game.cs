@@ -13,7 +13,7 @@ namespace FPS.Game
             var player = engine.Factories.PlayerFactory.Create(time);
             var weapons = engine.Factories.PlayerWeaponFactory.Create();
 
-            _gameLoop = new GameLoop(time,player, weapons );
+            _gameLoop = new GameLoop(time, player, weapons);
         }
 
         public void Play() => _gameLoop.Start();

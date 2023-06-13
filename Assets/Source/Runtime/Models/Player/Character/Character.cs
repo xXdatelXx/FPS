@@ -12,7 +12,7 @@ namespace FPS.Model
 
         public ICharacterMovement Movement { get; }
         public ICharacterRotation Rotation { get; }
-        
+
         public void Tick(float deltaTime) => Movement.Tick(deltaTime);
     }
 }
