@@ -2,6 +2,6 @@
 {
     public interface IRay<TTarget>
     {
-        void Cast(out RayHit<TTarget> hit);
+        bool Cast(out RayHit<TTarget> hit);
     }
 }

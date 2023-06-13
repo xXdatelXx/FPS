@@ -14,12 +14,15 @@ namespace FPS.Tools
             _origin = origin;
         }
 
-        public void Cast(out RayHit<TTarget> hit)
+        public bool Cast(out RayHit<TTarget> hit)
         {
-             hit = 
-                 Physics.Raycast(_ray, out var raycastHit) 
-                     ? new RayHit<TTarget>(raycastHit.collider.GetComponent<TTarget>(), _origin.Value, raycastHit.point) 
-                     : default;
+            var occured = Physics.Raycast(_ray, out var raycastHit);
+            
+            hit = occured
+                ? new(raycastHit.GetComponent<TTarget>(), _origin.Value, raycastHit.point)
+                : default;
+
+            return occured;
         }
     }
 }
