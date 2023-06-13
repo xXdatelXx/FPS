@@ -1,4 +1,5 @@
 ﻿using System;
+using FPS.Tools.GameLoop;
 using NUnit.Framework;
 
 namespace FPS.Tools.Tests
@@ -9,7 +10,8 @@ namespace FPS.Tools.Tests
         public async void AsyncTimerWorkCorrectly()
         {
             const int time = 3;
-            var timer = new AsyncTimer(time);
+            var timer = new Timer(time);
+            new GameLoop.GameLoop(new PhysicGameTime(), timer).Start();
             var oldTime = DateTime.Now;
 
             timer.Play();

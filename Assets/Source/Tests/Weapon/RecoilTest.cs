@@ -21,7 +21,7 @@ namespace FPS.Tests
             var unityCurve = new AnimationCurve();
             unityCurve.AddKey(1, 1);
             var curve = new Curve(unityCurve);
-            var weaponDelay = new WeaponDelay(new Timer(1));
+            var weaponDelay = new WeaponDelay(new TimerWithCanceling(new Timer(1)));
 
             return new CurveRecoil(curve, weaponDelay, magazine);
         }

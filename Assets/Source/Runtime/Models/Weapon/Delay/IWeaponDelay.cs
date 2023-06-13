@@ -2,6 +2,6 @@
 
 namespace FPS.Model
 {
-    public interface IWeaponDelay : ITimer, IReadOnlyWeaponDelay
+    public interface IWeaponDelay : ITimerWithCanceling, IReadOnlyWeaponDelay
     { }
 }

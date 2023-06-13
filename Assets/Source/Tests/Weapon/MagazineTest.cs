@@ -18,7 +18,7 @@ namespace FPS.Tests
         }
 
         [Test]
-        public void ThrowExceptionIfTakeFromEmptyMagazine() => 
+        public void ThrowExceptionIfTakeFromEmptyMagazine() =>
             Assert.Throws<InvalidOperationException>(new Magazine(0).Get);
 
         [Test]
@@ -35,7 +35,7 @@ namespace FPS.Tests
         [Test]
         public void WeaponCanNotShootWhileMagazineIsEmpty()
         {
-            var weapon = new WeaponWithMagazine(new DummyWeapon(), new Magazine(1), new Timer(0));
+            var weapon = new WeaponWithMagazine(new DummyWeapon(), new Magazine(1), new TimerWithCanceling(new Timer(0)));
 
             weapon.Enable();
             weapon.Shoot();

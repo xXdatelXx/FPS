@@ -6,16 +6,16 @@ namespace FPS.Model
     public sealed class WeaponWithMagazine : IWeaponWithMagazine
     {
         private readonly IMagazine _magazine;
-        private readonly ITimer _reloadTimer;
+        private readonly ITimerWithCanceling _reloadTimer;
         private readonly IWeaponView _view;
         private readonly IWeapon _weapon;
         private bool _enabled;
 
-        public WeaponWithMagazine(IWeapon weapon, IMagazine magazine, ITimer reloadTimer) 
+        public WeaponWithMagazine(IWeapon weapon, IMagazine magazine, ITimerWithCanceling reloadTimer) 
             : this(weapon, magazine, reloadTimer, new NullWeaponView())
         { }
 
-        public WeaponWithMagazine(IWeapon weapon, IMagazine magazine, ITimer reloadTimer, IWeaponView view)
+        public WeaponWithMagazine(IWeapon weapon, IMagazine magazine, ITimerWithCanceling reloadTimer, IWeaponView view)
         {
             _weapon = weapon.ThrowExceptionIfArgumentNull(nameof(weapon));
             _magazine = magazine.ThrowExceptionIfArgumentNull(nameof(magazine));

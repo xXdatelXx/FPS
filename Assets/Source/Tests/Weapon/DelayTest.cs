@@ -10,7 +10,7 @@ namespace FPS.Tests
         [Test]
         public void CanNotCreateDoubleDelay()
         {
-            var delay = new WeaponDelay(new Timer(1));
+            var delay = new WeaponDelay(new WeaponDelay(new TimerWithCanceling(new Timer(1))));
             
             Assert.Throws<InvalidOperationException>(() =>
             {
@@ -22,7 +22,7 @@ namespace FPS.Tests
         [Test]
         public void WeaponCanNotShootWhileDelayPlaying()
         {
-            var weapon = new WeaponWithDelay(new DummyWeapon(), new WeaponDelay(new Timer(1)));
+            var weapon = new WeaponWithDelay(new DummyWeapon(), new WeaponDelay(new TimerWithCanceling(new Timer(1))));
 
             weapon.Enable();
             weapon.Shoot();

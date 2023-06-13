@@ -4,7 +4,7 @@ namespace FPS.Tools
 {
     public static class TimerExtension
     {
-        public static async UniTask End(this ITimer timer) =>
+        public static async UniTask End(this IReadOnlyTimer timer) =>
             await UniTask.WaitUntil(() => !timer.Playing);
     }
 }

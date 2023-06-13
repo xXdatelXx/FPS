@@ -8,10 +8,10 @@ namespace FPS.Model
     {
         private readonly Curve _curve;
         private readonly float _curveStep;
-        private readonly IWeaponDelay _delay;
+        private readonly IReadOnlyWeaponDelay _delay;
         private float _curveProgress;
 
-        public CurveRecoil(Curve curve, IWeaponDelay delay, IReadOnlyMagazine magazine)
+        public CurveRecoil(Curve curve, IReadOnlyWeaponDelay delay, IReadOnlyMagazine magazine)
         {
             _curve = curve.ThrowExceptionIfArgumentNull(nameof(curve));
             _delay = delay.ThrowExceptionIfArgumentNull(nameof(delay));
