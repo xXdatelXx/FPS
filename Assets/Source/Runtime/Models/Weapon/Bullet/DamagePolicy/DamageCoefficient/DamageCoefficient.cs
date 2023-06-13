@@ -9,7 +9,7 @@ namespace FPS.Model
         public DamageCoefficient(float coefficient) =>
             _coefficient = coefficient.ThrowExceptionIfValueSubZero(nameof(coefficient));
 
-        public float Get(float distance)
+        public float Next(float distance)
         {
             distance.ThrowExceptionIfValueSubZero(nameof(distance));
             return distance * _coefficient;

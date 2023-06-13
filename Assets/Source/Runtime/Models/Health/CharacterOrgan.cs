@@ -27,8 +27,7 @@ namespace FPS.Model
 
             damage.ThrowExceptionIfValueSubZero(nameof(damage));
 
-            damage *= _multiplier;
-            _health.TakeDamage(damage);
+            _health.TakeDamage(damage * _multiplier);
         }
     }
 }

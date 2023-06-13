@@ -35,14 +35,22 @@ namespace FPS.Model
                 return;
 
             _evaluatedTime += deltaTime;
+            Move(deltaTime);
+            
+            if (_evaluatedTime >= _motion.Time) 
+                Ground();
+        }
+
+        private void Move(float deltaTime)
+        {
             var motion = _motion[_evaluatedTime / _motion.Time];
             _controller.Move(new Vector3(0, motion * deltaTime));
+        }
 
-            if (_evaluatedTime >= _motion.Time)
-            {
-                _evaluatedTime = 0;
-                Jumping = false;
-            }
+        private void Ground()
+        {
+            _evaluatedTime = 0;
+            Jumping = false;
         }
     }
 }

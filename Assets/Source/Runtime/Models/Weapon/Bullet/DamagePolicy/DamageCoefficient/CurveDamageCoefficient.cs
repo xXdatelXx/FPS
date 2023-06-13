@@ -13,7 +13,7 @@ namespace FPS.Model
                 .ThrowExceptionIfValuesSubZero(nameof(curve));
         }
 
-        public float Get(float distance)
+        public float Next(float distance)
         {
             distance.ThrowExceptionIfValueSubZero(nameof(distance));
             return _curve[distance];

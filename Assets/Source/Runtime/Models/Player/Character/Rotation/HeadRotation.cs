@@ -23,9 +23,8 @@ namespace FPS.Model
 
         private void Clamp()
         {
-            var euler = _head.Value;
-            var clampedX = _math.ClampEuler(euler.x, _xRange.Min, _xRange.Max);
-            var motion = new Vector3(clampedX - _head.Value.x, 0);
+            var clampedX = _math.ClampEuler(_head.Euler.x, _xRange.Min, _xRange.Max);
+            var motion = new Vector3(clampedX - _head.Euler.x, 0);
 
             _head.Rotate(motion);
         }

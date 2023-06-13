@@ -14,7 +14,7 @@ namespace FPS.Model
             _body = body.ThrowExceptionIfArgumentNull(nameof(body));
         }
 
-        public Vector3 Value => new(_head.Value.x, _body.Value.y);
+        public Vector3 Euler => new(_head.Euler.x, _body.Euler.y);
 
         public void Rotate(Vector3 euler)
         {

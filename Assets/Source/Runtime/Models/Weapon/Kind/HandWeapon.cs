@@ -5,12 +5,12 @@ namespace FPS.Model
 {
     public sealed class HandWeapon : IWeapon
     {
-        private readonly ITimer _enableTimer;
+        private readonly ITimerWithCanceling _enableTimer;
         private readonly IWeaponView _view;
         private readonly IWeapon _weapon;
         private bool _enabled;
 
-        public HandWeapon(IWeapon weapon, ITimer enableTimer, IWeaponView view)
+        public HandWeapon(IWeapon weapon, ITimerWithCanceling enableTimer, IWeaponView view)
         {
             _weapon = weapon.ThrowExceptionIfArgumentNull(nameof(weapon));
             _enableTimer = enableTimer.ThrowExceptionIfArgumentNull(nameof(enableTimer));
@@ -33,7 +33,7 @@ namespace FPS.Model
                 throw new InvalidOperationException(nameof(Enable));
 
             _enableTimer.Play();
-            _view.Enable();
+            _view.Equip();
 
             await _enableTimer.End();
 
@@ -52,7 +52,7 @@ namespace FPS.Model
             if (_enableTimer.Playing)
                 _enableTimer.Cancel();
 
-            _view.Disable();
+            _view.UneQuip();
             _enabled = false;
             _weapon.Disable();
         }

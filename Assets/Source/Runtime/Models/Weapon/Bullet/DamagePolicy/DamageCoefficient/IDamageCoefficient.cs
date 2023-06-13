@@ -2,6 +2,6 @@
 {
     public interface IDamageCoefficient
     {
-        float Get(float distance);
+        float Next(float distance);
     }
 }

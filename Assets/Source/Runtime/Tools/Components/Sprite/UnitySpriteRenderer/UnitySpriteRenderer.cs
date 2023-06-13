@@ -6,7 +6,7 @@ namespace FPS.Tools
 {
     public sealed class UnitySpriteRenderer : IUnitySpriteRenderer
     {
-        private readonly Func<Sprite, object> _render;
+        private readonly Action<Sprite> _render;
 
         public UnitySpriteRenderer(Image renderer) =>
             _render = sprite => renderer.sprite = sprite;

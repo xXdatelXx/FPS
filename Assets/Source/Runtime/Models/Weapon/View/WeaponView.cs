@@ -19,8 +19,8 @@ namespace FPS.Model
 
         public void VisualizeBullets(int bullets) => _bullets.Visualize(bullets);
 
-        public void Enable() => _animator.PlayEnable();
+        public void Equip() => _animator.PlayEnable();
 
-        public void Disable() => _animator.PlayDisable();
+        public void UneQuip() => _animator.PlayDisable();
     }
 }

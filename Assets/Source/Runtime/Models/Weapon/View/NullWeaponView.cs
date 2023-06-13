@@ -10,11 +10,11 @@
         {
         }
 
-        public void Enable()
+        public void Equip()
         {
         }
 
-        public void Disable()
+        public void UneQuip()
         {
         }
 

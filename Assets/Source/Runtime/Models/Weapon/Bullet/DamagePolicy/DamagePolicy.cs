@@ -16,8 +16,7 @@ namespace FPS.Model
             if (distance == 0)
                 distance = 1;
 
-            var coefficient = _coefficient.Get(distance).ThrowExceptionIfValueSubZero(nameof(_coefficient));
-            return damage / coefficient;
+            return damage / _coefficient.Next(distance);
         }
     }
 }

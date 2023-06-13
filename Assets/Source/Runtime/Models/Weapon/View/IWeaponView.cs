@@ -4,8 +4,8 @@
     {
         void Shoot();
         void Reload();
-        void Enable();
-        void Disable();
+        void Equip();
+        void UneQuip();
         void VisualizeBullets(int bullets);
     }
 }

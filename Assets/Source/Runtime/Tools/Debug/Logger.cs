@@ -8,7 +8,7 @@ public static class Logger
     public static void Log(params object[] obj)
     {
         var value = string.Join(_space, obj);
-        if (value.Length == 0)
+        if (string.IsNullOrEmpty(value))
             value = _defaultValue;
 
         Debug.Log(value);

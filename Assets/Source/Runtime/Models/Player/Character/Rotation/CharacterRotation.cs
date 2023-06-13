@@ -20,7 +20,7 @@ namespace FPS.Model
         public void Rotate(Vector3 direction)
         {
             if (direction == Vector3.zero)
-                throw new InvalidOperationException($"{nameof(direction)} empty");
+                throw new InvalidOperationException($"{nameof(direction)} is empty");
 
             _head.Rotate(direction.x * _sensitivity.x);
             _body.Rotate(direction.y * _sensitivity.y);
