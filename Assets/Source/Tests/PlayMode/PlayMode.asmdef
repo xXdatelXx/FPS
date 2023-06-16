@@ -5,7 +5,7 @@
     "UnityEngine.TestRunner",
     "UnityEditor.TestRunner",
     "Assembly",
-    "Tools"
+    "Toolkit"
   ],
   "includePlatforms": [],
   "excludePlatforms": [],

@@ -6,7 +6,7 @@
     "UnityEditor.TestRunner",
     "Assembly",
     "UniTask",
-    "Tools"
+    "Toolkit"
   ],
   "includePlatforms": [
     "Editor"
