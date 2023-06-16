@@ -1,0 +1,23 @@
+﻿using FPS.Tools;
+using UnityEngine;
+
+namespace FPS.Model
+{
+    public sealed class MovementWithTeleport : IMovementWithTeleport
+    {
+        private readonly IPosition _position;
+        private readonly IMovement _movement;
+
+        public MovementWithTeleport(IPosition position, IMovement movement)
+        {
+            _position = position.ThrowExceptionIfArgumentNull(nameof(position));
+            _movement = movement.ThrowExceptionIfArgumentNull(nameof(movement));
+        }
+
+        public Vector3 Position => _movement.Position;
+        
+        public void Move(Vector3 motion) => _movement.Move(motion);
+        
+        public void TeleportTo(Vector3 position) => _position.TeleportTo(position);
+    }
+}
