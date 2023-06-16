@@ -1,5 +1,5 @@
 ﻿using FPS.Model;
-using FPS.Tools;
+using FPS.Toolkit;
 using NUnit.Framework;
 using UnityEngine;
 using GameObject = UnityEngine.GameObject;
