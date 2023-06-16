@@ -6,13 +6,13 @@ namespace FPS.Toolkit
     {
         private readonly (IRandom<float> x, IRandom<float> y) _random;
 
-        public VectorRandom(Range x, Range y) => 
+        public VectorRandom(Range x, Range y) =>
             _random = (new RationalRandom(x), new RationalRandom(y));
 
         public VectorRandom(IRandom<float> x, IRandom<float> y)
         {
             _random = (
-                x.ThrowExceptionIfArgumentNull(nameof(x)), 
+                x.ThrowExceptionIfArgumentNull(nameof(x)),
                 y.ThrowExceptionIfArgumentNull(nameof(y)));
         }
 
