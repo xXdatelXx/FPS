@@ -17,7 +17,7 @@ namespace FPS.Tools
         public bool Cast(out RayHit<TTarget> hit)
         {
             var occured = Physics.Raycast(_ray, out var raycastHit);
-            
+
             hit = occured
                 ? new(raycastHit.GetComponent<TTarget>(), _origin.Value, raycastHit.point)
                 : default;

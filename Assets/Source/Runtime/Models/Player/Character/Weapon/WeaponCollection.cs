@@ -13,16 +13,16 @@ namespace FPS.Model
         private int _id;
 
         #region Constructors
-        
+
         public WeaponCollection(params IPlayerWithWeapon[] weapons) : this(weapons.ToList(), new NullWeaponCollectionView())
         { }
-        
+
         public WeaponCollection(IWeaponCollectionView view, params IPlayerWithWeapon[] weapons) : this(weapons.ToList(), view)
         { }
 
         public WeaponCollection(List<IPlayerWithWeapon> weapons) : this(weapons, new NullWeaponCollectionView())
         { }
-            
+
         public WeaponCollection(List<IPlayerWithWeapon> weapons, IWeaponCollectionView view)
         {
             _weapons = weapons.ThrowExceptionIfArgumentNull(nameof(weapons));

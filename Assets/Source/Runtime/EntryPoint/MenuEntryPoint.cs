@@ -9,7 +9,7 @@ namespace FPS.EntryPoint
         [SerializeField] private Scene _game;
         [SerializeField] private UnityButton _play;
 
-        private void Start() => 
+        private void Start() =>
             _play.Subscribe(new SceneLoadButton(_game));
     }
 }

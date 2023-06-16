@@ -42,19 +42,19 @@ namespace FPS.Tests
         {
             var health = new Health(2);
             var heal = new AutoHeal(health, 1);
-            
+
             health.TakeDamage(1);
             heal.Tick(0);
-            
+
             Assert.That(health.Points == 2);
         }
-        
+
         [Test]
         public void CanNotHealMoreThanMaxHealth()
         {
             var maxHealth = 2;
             var health = new Health(maxHealth);
-            
+
             Assert.Throws<InvalidOperationException>(() => health.Heal(1));
         }
     }

@@ -44,12 +44,12 @@ namespace FPS.Tools
 
         private void Validate()
         {
-            var sceneInBuild= 
+            var sceneInBuild =
                 EditorBuildSettings.scenes
                     .Any(scene => scene.enabled && scene.path.Contains("/" + Name + ".unity"));
-            
-            if(!sceneInBuild)
-               throw new ArgumentException($"{name} not exists");
+
+            if (!sceneInBuild)
+                throw new ArgumentException($"{name} not exists");
         }
     }
 }

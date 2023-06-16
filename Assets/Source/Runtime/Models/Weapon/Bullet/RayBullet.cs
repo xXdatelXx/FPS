@@ -11,8 +11,7 @@ namespace FPS.Model
 
         public RayBullet(float damage, IDamagePolicy damagePolicy, IRay<IHealth> ray) :
             this(damage, damagePolicy, ray, new NullBulletView())
-        {
-        }
+        { }
 
         public RayBullet(float damage, IDamagePolicy damagePolicy, IRay<IHealth> ray, IBulletView view)
         {
@@ -27,8 +26,8 @@ namespace FPS.Model
             if (_ray.Cast(out var hit))
             {
                 _view.Hit(hit.Points.End);
-                
-                if (CanDamage(hit, out var target)) 
+
+                if (CanDamage(hit, out var target))
                     InflictDamage(target, hit.Distance());
             }
             else _view.Miss();
@@ -43,11 +42,11 @@ namespace FPS.Model
         private void InflictDamage(IHealth target, float distance)
         {
             var damage = _damagePolicy.Affect(_damage, distance);
-            
+
             target.TakeDamage(damage);
             _view.Damage();
 
-            if (target.Died) 
+            if (target.Died)
                 _view.Kill();
         }
     }

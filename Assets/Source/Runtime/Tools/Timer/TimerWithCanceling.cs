@@ -6,12 +6,12 @@ namespace FPS.Tools
     {
         private readonly ITimer _timer;
 
-        public TimerWithCanceling(ITimer timer) => 
+        public TimerWithCanceling(ITimer timer) =>
             _timer = timer.ThrowExceptionIfArgumentNull(nameof(timer));
 
         public bool Playing => _timer.Playing;
         public bool Canceled { get; private set; }
-        
+
         public void Play()
         {
             Canceled = false;
@@ -22,7 +22,7 @@ namespace FPS.Tools
         {
             if (Canceled)
                 throw new InvalidOperationException(nameof(Canceled));
-            
+
             _timer.Stop();
         }
 

@@ -7,17 +7,17 @@ namespace FPS.Tools.GameLoop
     {
         private readonly List<IGameLoopObject> _loopObjects;
 
-        public GameLoopObjects(IEnumerable<IGameLoopObject> loopObjects) => 
+        public GameLoopObjects(IEnumerable<IGameLoopObject> loopObjects) =>
             _loopObjects = loopObjects.TryThrowNullReferenceForeach(nameof(loopObjects)).ToList();
 
         public GameLoopObjects() : this(new List<IGameLoopObject>())
         {
         }
 
-        public void Add(IGameLoopObject loopObject) => 
+        public void Add(IGameLoopObject loopObject) =>
             _loopObjects.Add(loopObject.ThrowExceptionIfArgumentNull(nameof(loopObject)));
 
-        public void Tick(float deltaTime) => 
+        public void Tick(float deltaTime) =>
             _loopObjects.ForEach(i => i.Tick(deltaTime));
     }
 }

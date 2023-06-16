@@ -36,8 +36,8 @@ namespace FPS.Model
 
             _evaluatedTime += deltaTime;
             Move(deltaTime);
-            
-            if (_evaluatedTime >= _motion.Time) 
+
+            if (_evaluatedTime >= _motion.Time)
                 Ground();
         }
 

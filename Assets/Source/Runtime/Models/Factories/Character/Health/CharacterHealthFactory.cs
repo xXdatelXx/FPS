@@ -36,7 +36,7 @@ namespace FPS.Factories
 
         public void Create()
         {
-            var obj = new FPS.Tools.GameObject(_character);
+            var obj = new Tools.GameObject(_character);
             var healthView = new CharacterHealthView(obj, _healthText);
             var health = new Health(_healthPoint, healthView);
 

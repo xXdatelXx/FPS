@@ -16,7 +16,7 @@ namespace FPS.Input
         public bool Reloading => _inputAction.Reload.IsPressed();
         public bool SwitchNext => SwitchDirection() > 0;
         public bool SwitchPrevious => SwitchDirection() < 0;
-        
+
         private float SwitchDirection() => _inputAction.Switch.ReadValue<Vector2>().y;
     }
 }
