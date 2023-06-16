@@ -7,15 +7,12 @@ namespace FPS.Tests
         public bool CanShoot => true;
 
         public void Shoot()
-        {
-        }
+        { }
 
         public void Enable()
-        {
-        }
+        { }
 
         public void Disable()
-        {
-        }
+        { }
     }
 }

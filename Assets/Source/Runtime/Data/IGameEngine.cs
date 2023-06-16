@@ -2,6 +2,6 @@
 {
     public interface IGameEngine
     {
-        IFactories Factories { get; }
+        IFactories Factories { get;  }
     }
 }

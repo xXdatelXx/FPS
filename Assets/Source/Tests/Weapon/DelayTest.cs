@@ -1,6 +1,6 @@
 ﻿using System;
 using FPS.Model;
-using FPS.Toolkit;
+using FPS.Tools;
 using NUnit.Framework;
 
 namespace FPS.Tests
@@ -11,7 +11,7 @@ namespace FPS.Tests
         public void CanNotCreateDoubleDelay()
         {
             var delay = new WeaponDelay(new WeaponDelay(new TimerWithCanceling(new Timer(1))));
-
+            
             Assert.Throws<InvalidOperationException>(() =>
             {
                 delay.Play();
