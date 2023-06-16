@@ -5,13 +5,14 @@ namespace FPS.Model
 {
     public sealed class RandomRecoil : IRecoil
     {
-        private readonly Range _x;
-        private readonly Range _y;
+        private readonly IRandom<Vector2> _random;
 
-        public RandomRecoil(Range x, Range y) =>
-            (_x, _y) = (x, y);
+        public RandomRecoil(Range x, Range y) => 
+            _random = new VectorRandom(x, y);
 
-        public Vector2 Next() =>
-            new(Random.Range(_x.Min, _x.Max), Random.Range(_y.Min, _y.Max));
+        public RandomRecoil(IRandom<Vector2> random) => 
+            _random = random.ThrowExceptionIfArgumentNull(nameof(random));
+
+        public Vector2 Next() => _random.Next();
     }
 }
