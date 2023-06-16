@@ -1,6 +1,6 @@
 ﻿using System;
 using FPS.Model;
-using FPS.Tools;
+using FPS.Toolkit;
 using NUnit.Framework;
 
 namespace FPS.Tests
