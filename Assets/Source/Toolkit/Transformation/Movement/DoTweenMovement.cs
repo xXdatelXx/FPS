@@ -1,5 +1,4 @@
 ﻿using DG.Tweening;
-using FPS.Toolkit;
 using UnityEngine;
 using UnityTransform = UnityEngine.Transform;
 
