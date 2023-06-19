@@ -19,7 +19,7 @@ namespace FPS.Tests
 
         [Test]
         public void CanNotHealByDamage() =>
-            Assert.Throws<ArgumentOutOfRangeException>(() => new Health(1).TakeDamage(-1));
+            Assert.Throws<SubZeroException>(() => new Health(1).TakeDamage(-1));
 
         [Test]
         public void CanNotDamageCorpse()
