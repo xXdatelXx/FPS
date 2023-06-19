@@ -1,4 +1,6 @@
-﻿namespace FPS.Toolkit
+﻿using FPS.Toolkit;
+
+namespace FPS.Ui
 {
     public sealed class SceneLoadButton : IButton
     {
