@@ -1,7 +1,7 @@
 ﻿using FPS.Data;
 using FPS.Toolkit.GameLoop;
 
-namespace FPS.Game
+namespace FPS.Core
 {
     public sealed class Game : IGame
     {

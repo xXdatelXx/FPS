@@ -2,7 +2,7 @@ using FPS.Data;
 using FPS.Factories;
 using UnityEngine;
 
-namespace FPS.EntryPoint
+namespace FPS.Core
 {
     [DisallowMultipleComponent]
     public sealed class GameEntryPoint : MonoBehaviour
@@ -13,7 +13,7 @@ namespace FPS.EntryPoint
         private void Start()
         {
             var gameEngine = new GameEngine(new Data.Factories(_playerFactory, _playerWeaponFactory));
-            new Game.Game(gameEngine).Play();
+            new Game(gameEngine).Play();
         }
     }
 }

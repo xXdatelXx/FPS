@@ -1,6 +1,6 @@
 ﻿using FPS.Toolkit;
 
-namespace FPS.Model
+namespace FPS.GamePlay
 {
     public sealed class Character : ICharacter
     {

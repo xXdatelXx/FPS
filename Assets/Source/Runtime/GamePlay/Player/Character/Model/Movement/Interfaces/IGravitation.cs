@@ -1,6 +1,6 @@
 using FPS.Toolkit.GameLoop;
 
-namespace FPS.Model
+namespace FPS.GamePlay
 {
     public interface IGravitation : IGameLoopObject
     { }

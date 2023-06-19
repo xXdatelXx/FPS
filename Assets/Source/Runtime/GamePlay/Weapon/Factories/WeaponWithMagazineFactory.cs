@@ -1,5 +1,5 @@
 ﻿using FPS.Data;
-using FPS.Model;
+using FPS.GamePlay;
 using FPS.Toolkit;
 using FPS.Toolkit.GameLoop;
 using UnityEngine;

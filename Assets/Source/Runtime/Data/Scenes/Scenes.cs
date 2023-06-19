@@ -1,7 +1,7 @@
 ﻿using FPS.Toolkit;
 using UnityEngine;
 
-namespace FPS.Data.Scenes
+namespace FPS.Data
 {
     [CreateAssetMenu(fileName = nameof(Scenes), menuName = nameof(Scenes))]
     public sealed class Scenes : ScriptableObject, IScenes

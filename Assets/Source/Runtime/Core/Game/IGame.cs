@@ -1,4 +1,4 @@
-﻿namespace FPS.Game
+﻿namespace FPS.Core
 {
     public interface IGame
     {

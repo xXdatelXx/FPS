@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using FPS.Input;
-using FPS.Model;
+using FPS.GamePlay;
 using FPS.Toolkit;
 using Sirenix.OdinInspector;
 using UnityEngine;

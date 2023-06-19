@@ -1,6 +1,6 @@
 ﻿using FPS.Toolkit;
 
-namespace FPS.Data.Scenes
+namespace FPS.Data
 {
     public interface IScenes
     {

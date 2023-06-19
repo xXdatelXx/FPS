@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using FPS.Toolkit;
 
-namespace FPS.Model
+namespace FPS.GamePlay
 {
     public sealed class WeaponCollection : IWeaponCollection
     {

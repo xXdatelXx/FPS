@@ -1,7 +1,7 @@
 ﻿using FPS.Toolkit;
 using UnityEngine;
 
-namespace FPS.EntryPoint
+namespace FPS.Core
 {
     [DisallowMultipleComponent]
     public sealed class MenuEntryPoint : MonoBehaviour

@@ -1,7 +1,7 @@
 ﻿using FPS.Toolkit;
 using UnityEngine;
 
-namespace FPS.Model
+namespace FPS.GamePlay
 {
     [RequireComponent(typeof(Animator))]
     public sealed class WeaponAnimator : MonoBehaviour, IWeaponAnimator

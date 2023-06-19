@@ -1,4 +1,4 @@
-﻿using FPS.Model;
+﻿using FPS.GamePlay;
 
 namespace FPS.Tests
 {

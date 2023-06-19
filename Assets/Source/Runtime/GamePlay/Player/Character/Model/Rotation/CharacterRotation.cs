@@ -2,7 +2,7 @@ using System;
 using FPS.Toolkit;
 using UnityEngine;
 
-namespace FPS.Model
+namespace FPS.GamePlay
 {
     public sealed class CharacterRotation : ICharacterRotation
     {

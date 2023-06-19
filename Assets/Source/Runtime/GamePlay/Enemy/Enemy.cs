@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
 
-namespace FPS.Model
+namespace FPS.GamePlay
 {
     // For test
     [RequireComponent(typeof(Collider))]

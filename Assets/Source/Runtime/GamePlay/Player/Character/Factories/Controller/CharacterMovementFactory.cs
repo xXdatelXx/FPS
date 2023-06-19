@@ -1,4 +1,4 @@
-﻿using FPS.Model;
+﻿using FPS.GamePlay;
 using FPS.Toolkit;
 using FPS.Toolkit.GameLoop;
 using Sirenix.OdinInspector;
