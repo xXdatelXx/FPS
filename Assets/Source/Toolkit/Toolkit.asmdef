@@ -1,17 +1,19 @@
 {
-  "name": "Toolkit",
-  "rootNamespace": "",
-  "references": [
-    "GUID:f51ebe6a0ceec4240a699833d6309b23",
-    "GUID:6055be8ebefd69e48b49212b09b47b2f"
-  ],
-  "includePlatforms": [],
-  "excludePlatforms": [],
-  "allowUnsafeCode": false,
-  "overrideReferences": false,
-  "precompiledReferences": [],
-  "autoReferenced": true,
-  "defineConstraints": [],
-  "versionDefines": [],
-  "noEngineReferences": false
+    "name": "Toolkit",
+    "rootNamespace": "FPS.Toolkit",
+    "references": [
+        "UniTask",
+        "Unity.TextMeshPro",
+        "Unity.Addressables",
+        "Unity.ResourceManager"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
 }
