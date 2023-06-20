@@ -1,4 +1,5 @@
 ﻿using FPS.GamePlay;
+using FPS.Input;
 using FPS.Toolkit;
 using UnityEngine;
 
@@ -8,7 +9,6 @@ namespace FPS.Factories
     {
         [SerializeField] private Camera _head;
         [SerializeField] private CharacterController _body;
-        [SerializeField] private Vector2 _sensitivity;
         [SerializeField] private Range _xEuler;
 
         public ICharacterRotation Create()
@@ -16,7 +16,7 @@ namespace FPS.Factories
             var bodyRotation = new BodyRotation(new Rotation(_body.transform));
             var headRotation = new HeadRotation(new Rotation(_head.transform), _xEuler);
 
-            return new CharacterRotation(bodyRotation, headRotation, _sensitivity);
+            return new CharacterRotation(bodyRotation, headRotation, new MouseSensitivity());
         }
     }
 }
