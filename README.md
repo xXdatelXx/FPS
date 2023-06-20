@@ -1,7 +1,7 @@
 # FPS
 The project is a prototype FPS that implements weapon control, shooting, movement, and damage reception.
 
-![Image](https://github.com/xXdatelXx/FPS/blob/main/Assets/Art/Sprites/ScreanShots/ScreanShot.png)
+![Image](https://github.com/xXdatelXx/FPS/blob/main/Assets/Art/Sprites/Screenshots/Screenshot.png)
 
 # About the Project
  - The architecture is built using the MV pattern.
