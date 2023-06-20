@@ -29,7 +29,8 @@ The project is a prototype FPS that implements weapon control, shooting, movemen
  - Vs code
  - Magica Voxel
  - Figma
- - Chat GPT 
+ - Chat GPT
+ - Addressables (not expert)
 
 # Outcome 
  - Completing the first stage of the project significantly helped me improve the quality of my code and better understand the essence of OOP.
