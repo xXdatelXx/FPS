@@ -7,28 +7,28 @@ namespace FPS.GamePlay
     {
         private readonly IBulletParticle _particle;
         private readonly IBulletHitView _hits;
-        private readonly IBulletRay _rays;
+        private readonly IBulletTrace _traces;
         private readonly ICrosshair _crosshair;
 
-        public BulletView(IBulletParticle particle, IBulletHitView hits, IBulletRay rays, ICrosshair crosshair)
+        public BulletView(IBulletParticle particle, IBulletHitView hits, IBulletTrace traces, ICrosshair crosshair)
         {
             _particle = particle.ThrowExceptionIfArgumentNull(nameof(particle));
             _hits = hits.ThrowExceptionIfArgumentNull(nameof(hits));
-            _rays = rays.ThrowExceptionIfArgumentNull(nameof(rays));
+            _traces = traces.ThrowExceptionIfArgumentNull(nameof(traces));
             _crosshair = crosshair.ThrowExceptionIfArgumentNull(nameof(crosshair));
         }
 
         public void Miss()
         {
             _particle.Play();
-            _rays.Cast();
+            _traces.Cast();
         }
 
         public void Hit(Vector3 target)
         {
             _particle.Play();
             _hits.Visualize(target);
-            _rays.Cast(target);
+            _traces.Cast(target);
         }
 
         public void Damage() => _crosshair.Hit();

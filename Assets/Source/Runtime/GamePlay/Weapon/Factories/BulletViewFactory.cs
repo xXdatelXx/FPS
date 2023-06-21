@@ -10,7 +10,7 @@ namespace FPS.Factories
         [SerializeField] private ParticleSystem _startBulletParticle;
         [SerializeField] private CrosshairFactory _crosshairFactory;
         [SerializeField] private BulletHitFactory _bulletHitFactory;
-        [SerializeField] private BulletRayFactory _bulletRayFactory;
+        [SerializeField] private BulletTraceFactory _bulletTraceFactory;
         [SerializeField] private float _rayWorkTime;
         private IGameLoopObjects _rays;
 
@@ -23,8 +23,8 @@ namespace FPS.Factories
         public IBulletView Create() =>
             new BulletView(new BulletParticle(_startBulletParticle), CreateHitsView(), CreateRays(), _crosshairFactory.Create());
 
-        private IBulletRay CreateRays() =>
-            new BulletRays(new Pool<IBulletRay>(_bulletRayFactory), new TimerFactory(_rayWorkTime, _rays));
+        private IBulletTrace CreateRays() =>
+            new BulletTraces(new Pool<IBulletTrace>(_bulletTraceFactory), new TimerFactory(_rayWorkTime, _rays));
 
         private IBulletHitView CreateHitsView() =>
             new BulletHitsView(new Pool<IBulletHitView>(_bulletHitFactory), 100);
