@@ -1,4 +1,5 @@
 ﻿using System;
+using Cysharp.Threading.Tasks;
 using FPS.Toolkit;
 
 namespace FPS.GamePlay
@@ -27,21 +28,26 @@ namespace FPS.GamePlay
             _weapon.Shoot();
         }
 
-        public async void Enable()
+        public void Enable()
         {
             if (_enabled)
                 throw new InvalidOperationException(nameof(Enable));
 
-            _enableTimer.Play();
-            _view.Equip();
+            Enable().Forget();
 
-            await _enableTimer.End();
+            async UniTaskVoid Enable()
+            {
+                _enableTimer.Play();
+                _view.Equip();
+                
+                await _enableTimer.End();
 
-            if (_enableTimer.Canceled)
-                return;
+                if (_enableTimer.Canceled)
+                    return;
 
-            _weapon.Enable();
-            _enabled = true;
+                _weapon.Enable();
+                _enabled = true;
+            }
         }
 
         public void Disable()

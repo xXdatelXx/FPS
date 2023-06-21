@@ -1,4 +1,6 @@
-﻿namespace FPS.Toolkit.GameLoop
+﻿using Cysharp.Threading.Tasks;
+
+namespace FPS.Toolkit.GameLoop
 {
     public sealed class GameLoop : IGameLoop
     {
@@ -16,14 +18,19 @@
             _time = time.ThrowExceptionIfArgumentNull(nameof(time));
         }
 
-        public async void Start()
+        public void Start()
         {
-            while (true)
+            Start().Forget();
+            
+            async UniTaskVoid Start()
             {
-                if (_time.Active)
-                    _objects.Tick(_time.FrameDelta);
+                while (true)
+                {
+                    if (_time.Active)
+                        _objects.Tick(_time.FrameDelta);
 
-                await _time.NextFrame();
+                    await _time.NextFrame();
+                }
             }
         }
     }

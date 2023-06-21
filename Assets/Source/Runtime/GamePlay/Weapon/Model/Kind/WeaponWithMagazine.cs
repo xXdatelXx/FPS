@@ -1,4 +1,5 @@
 ﻿using System;
+using Cysharp.Threading.Tasks;
 using FPS.Toolkit;
 
 namespace FPS.GamePlay
@@ -37,21 +38,26 @@ namespace FPS.GamePlay
             _view.VisualizeBullets(_magazine.Bullets);
         }
 
-        public async void Reload()
+        public void Reload()
         {
             if (!CanReload)
                 throw new InvalidOperationException(nameof(Reload));
 
-            _view.Reload();
-            _reloadTimer.Play();
+            Reload().Forget();
 
-            await _reloadTimer.End();
+            async UniTaskVoid Reload()
+            {
+                _view.Reload();
+                _reloadTimer.Play();
+                
+                await _reloadTimer.End();
 
-            if (!_enabled)
-                return;
+                if (!_enabled)
+                    return;
 
-            _magazine.Reset();
-            _view.VisualizeBullets(_magazine.Bullets);
+                _magazine.Reset();
+                _view.VisualizeBullets(_magazine.Bullets);
+            }
         }
 
         public void Enable()
