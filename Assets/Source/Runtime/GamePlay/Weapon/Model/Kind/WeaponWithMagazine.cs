@@ -4,7 +4,7 @@ using FPS.Toolkit;
 
 namespace FPS.GamePlay
 {
-    public sealed class WeaponWithMagazine : IWeaponWithMagazine
+    public sealed class WeaponWithMagazine : IWeaponWithAsyncReload
     {
         private readonly IMagazine _magazine;
         private readonly ITimerWithCanceling _reloadTimer;
@@ -38,26 +38,23 @@ namespace FPS.GamePlay
             _view.VisualizeBullets(_magazine.Bullets);
         }
 
-        public void Reload()
+        public void Reload() => ReloadAsync().Forget();
+
+        public async UniTask ReloadAsync()
         {
             if (!CanReload)
                 throw new InvalidOperationException(nameof(Reload));
 
-            Reload().Forget();
+            _view.Reload();
+            _reloadTimer.Play();
 
-            async UniTaskVoid Reload()
-            {
-                _view.Reload();
-                _reloadTimer.Play();
-                
-                await _reloadTimer.End();
+            await _reloadTimer.End();
 
-                if (!_enabled)
-                    return;
+            if (!_enabled)
+                return;
 
-                _magazine.Reset();
-                _view.VisualizeBullets(_magazine.Bullets);
-            }
+            _magazine.Reset();
+            _view.VisualizeBullets(_magazine.Bullets);
         }
 
         public void Enable()

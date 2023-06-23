@@ -4,7 +4,7 @@ using FPS.Toolkit;
 
 namespace FPS.GamePlay
 {
-    public sealed class HandWeapon : IWeapon
+    public sealed class HandWeapon : IWeapon, IHandWeapon
     {
         private readonly ITimerWithCanceling _enableTimer;
         private readonly IWeaponView _view;
@@ -28,26 +28,23 @@ namespace FPS.GamePlay
             _weapon.Shoot();
         }
 
-        public void Enable()
+        public void Enable() => EnableAsync().Forget();
+
+        public async UniTask EnableAsync()
         {
             if (_enabled)
                 throw new InvalidOperationException(nameof(Enable));
-
-            Enable().Forget();
-
-            async UniTaskVoid Enable()
-            {
-                _enableTimer.Play();
-                _view.Equip();
+            
+            _enableTimer.Play();
+            _view.Equip();
                 
-                await _enableTimer.End();
+            await _enableTimer.End();
 
-                if (_enableTimer.Canceled)
-                    return;
+            if (_enableTimer.Canceled)
+                return;
 
-                _weapon.Enable();
-                _enabled = true;
-            }
+            _weapon.Enable();
+            _enabled = true;
         }
 
         public void Disable()

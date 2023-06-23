@@ -21,12 +21,11 @@ namespace FPS.GamePlay
 
         public Vector2 Next()
         {
-            UpdateProgress();
-
+            UpdateProgress().Forget();
             return new(_curve[_curveProgress], _curveProgress);
         }
 
-        private async void UpdateProgress()
+        private async UniTaskVoid UpdateProgress()
         {
             _curveProgress += _curveStep;
 
