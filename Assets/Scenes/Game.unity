@@ -2139,7 +2139,7 @@ MonoBehaviour:
   _startBulletParticle: {fileID: 470876943}
   _crosshairFactory: {fileID: 127334897}
   _bulletHitFactory: {fileID: 970360909}
-  _bulletRayFactory: {fileID: 970360908}
+  _bulletTraceFactory: {fileID: 970360908}
   _rayWorkTime: 2
 --- !u!114 &970360908
 MonoBehaviour:
@@ -3528,7 +3528,7 @@ MonoBehaviour:
   _startBulletParticle: {fileID: 470876946}
   _crosshairFactory: {fileID: 127334897}
   _bulletHitFactory: {fileID: 1981626653}
-  _bulletRayFactory: {fileID: 1981626656}
+  _bulletTraceFactory: {fileID: 1981626656}
   _rayWorkTime: 2
 --- !u!114 &1981626656
 MonoBehaviour:
