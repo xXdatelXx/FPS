@@ -4,7 +4,7 @@ using FPS.Toolkit;
 
 namespace FPS.GamePlay
 {
-    public sealed class HandWeapon : IWeapon, IHandWeapon
+    public sealed class HandWeapon : IHandWeapon
     {
         private readonly ITimerWithCanceling _enableTimer;
         private readonly IWeaponView _view;
