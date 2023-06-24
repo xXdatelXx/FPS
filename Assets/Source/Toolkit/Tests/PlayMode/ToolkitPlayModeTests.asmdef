@@ -1,5 +1,5 @@
 {
-  "name": "ToolPlayMode",
+  "name": "ToolkitPlayModeTests",
   "rootNamespace": "",
   "references": [
     "UnityEngine.TestRunner",

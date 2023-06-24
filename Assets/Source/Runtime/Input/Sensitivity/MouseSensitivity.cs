@@ -23,7 +23,7 @@ namespace FPS.Input
 
         public void Update(float value)
         {
-            if (value == Value)
+            if (value.Equals(Value))
                 throw new InvalidOperationException(nameof(Update));
 
             value.ThrowExceptionIfValueSubZero(nameof(MouseSensitivity));
