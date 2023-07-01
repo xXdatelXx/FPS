@@ -1,25 +1,35 @@
-﻿using UnityEngine;
-using UnityEngine.Events;
+﻿using FPS.Toolkit;
+using UnityEngine;
+using static FPS.Toolkit.BehaviourNodeStatus;
 
 namespace FPS.GamePlay
 {
-    // For test
     [RequireComponent(typeof(Collider))]
-    public sealed class Enemy : MonoBehaviour, IHealth
+    public abstract class Enemy : MonoBehaviour, IHealth
     {
-        [SerializeField] private UnityEvent _onDie;
         private IHealth _health;
+        private IBehaviourNode _behaviourTree;
 
-        private void Awake() => _health = new Health(100);
+        public void Construct(IHealth health, ICharacter character)
+        {
+            _health = health.ThrowExceptionIfArgumentNull(nameof(health));
+            _behaviourTree = CreateBehaviour(character.ThrowExceptionIfArgumentNull(nameof(character)));
+        }
+
         public bool Died => _health.Died;
         public float Points => _health.Points;
 
-        public void TakeDamage(float damage)
-        {
+        public void TakeDamage(float damage) =>
             _health.TakeDamage(damage);
-
-            if (Died)
-                _onDie.Invoke();
+        
+        private void Update()
+        {
+            var result = _behaviourTree.Execute(Time.deltaTime);
+            
+            if (result is Failure or Success) 
+                _behaviourTree.Reset();
         }
+
+        protected abstract IBehaviourNode CreateBehaviour(ICharacter character);
     }
 }
