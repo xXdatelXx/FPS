@@ -3401,6 +3401,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1238631733, guid: ab24ae441abe6d449b5e6ede0d940b01, type: 3}
+      propertyPath: m_Name
+      value: Flashlight
+      objectReference: {fileID: 0}
+    - target: {fileID: 1238631735, guid: ab24ae441abe6d449b5e6ede0d940b01, type: 3}
+      propertyPath: m_Range
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 1238631735, guid: ab24ae441abe6d449b5e6ede0d940b01, type: 3}
+      propertyPath: m_Color.b
+      value: 0.20784314
+      objectReference: {fileID: 0}
+    - target: {fileID: 1238631735, guid: ab24ae441abe6d449b5e6ede0d940b01, type: 3}
+      propertyPath: m_Color.g
+      value: 0.54901963
+      objectReference: {fileID: 0}
+    - target: {fileID: 1238631735, guid: ab24ae441abe6d449b5e6ede0d940b01, type: 3}
+      propertyPath: m_Color.r
+      value: 0.65882355
+      objectReference: {fileID: 0}
+    - target: {fileID: 1238631735, guid: ab24ae441abe6d449b5e6ede0d940b01, type: 3}
+      propertyPath: m_Intensity
+      value: 0.8
+      objectReference: {fileID: 0}
     - target: {fileID: 1852115941, guid: ab24ae441abe6d449b5e6ede0d940b01, type: 3}
       propertyPath: _color.b
       value: 0.1509434
