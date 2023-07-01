@@ -16,7 +16,7 @@ namespace FPS.GamePlay
 
         public void Visualize(Vector3 target)
         {
-            _movement.Move(target - _movement.Position);
+            _movement.Move(target - _movement.Position.Value);
             _particle.Play();
         }
 

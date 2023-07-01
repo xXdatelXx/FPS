@@ -21,6 +21,7 @@ namespace FPS.GamePlay
 
         public bool Jumping => _jump.Jumping;
         public bool CanJump => _jump.CanJump;
+        public IReadOnlyPosition Position => _controller.Position;
 
         public void Move(Vector3 direction, float deltaTime)
         {

@@ -23,13 +23,13 @@ namespace FPS.GamePlay
 
         public void Cast(Vector3 target)
         {
-            if (_movement.Position != _throwPosition.Value)
+            if (!_movement.Position.IsSame(_throwPosition))
                 _movement.TeleportTo(_throwPosition.Value);
 
             if (!_gameObject.Active)
                 _gameObject.Enable();
 
-            _movement.Move(target - _movement.Position);
+            _movement.Move(target - _movement.Position.Value);
         }
 
         public void Hide()

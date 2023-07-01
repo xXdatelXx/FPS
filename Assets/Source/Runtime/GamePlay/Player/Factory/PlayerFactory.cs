@@ -13,9 +13,16 @@ namespace FPS.Factories
 
         public IPlayer Create(IReadOnlyGameTime time)
         {
-            _health.Create();
-
-            return new Player(new Character(_movement.Create(time), _rotation.Create()), new PlayerMovementInput());
+            return new Player
+            (
+                new Character
+                (
+                    _movement.Create(time),
+                    _rotation.Create(),
+                    _health.Create()
+                ),
+                new PlayerMovementInput()
+            );
         }
     }
 }

@@ -13,14 +13,15 @@ namespace FPS.Toolkit
         {
             _transform = transform.ThrowExceptionIfArgumentNull(nameof(transform));
             _speed = speed.ThrowExceptionIfValueSubZero(nameof(speed));
+            Position = new Position(transform);
         }
 
-        public Vector3 Position => _transform.position;
+        public IReadOnlyPosition Position { get; }
 
         public void Move(Vector3 motion)
         {
-            var nextPosition = Position + motion;
-            var duration = Vector3.Distance(Position, nextPosition) / _speed;
+            var nextPosition = Position.Value + motion;
+            var duration = Vector3.Distance(Position.Value, nextPosition) / _speed;
 
             _transform.DOMove(nextPosition, duration);
         }

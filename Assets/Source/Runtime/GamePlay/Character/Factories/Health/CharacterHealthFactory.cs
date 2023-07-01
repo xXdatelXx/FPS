@@ -7,7 +7,7 @@ using GameObject = UnityEngine.GameObject;
 
 namespace FPS.Factories
 {
-    public sealed class CharacterHealthFactory : MonoBehaviour, ICharacterHealthFactory
+    public sealed class CharacterHealthFactory : MonoBehaviour, IFactory<IHealth>
     {
         [SerializeField] private float _healthPoint;
         [SerializeField] private float _heal;
@@ -34,7 +34,7 @@ namespace FPS.Factories
             Validate(ref _body, nameof(_body));
         }
 
-        public void Create()
+        public IHealth Create()
         {
             var obj = new Toolkit.GameObject(_character);
             var healthView = new CharacterHealthView(obj, _healthText);
@@ -43,6 +43,8 @@ namespace FPS.Factories
             _healLoopObject = new AutoHeal(health, _heal);
             _head.Construct(health, 2);
             _body.Construct(health, 1);
+
+            return health;
         }
 
         private void Update() =>

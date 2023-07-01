@@ -4,6 +4,7 @@
     {
         ICharacterMovement Movement { get; }
         ICharacterRotation Rotation { get; }
+        IHealth Health { get; }
 
         void Tick(float deltaTime);
     }

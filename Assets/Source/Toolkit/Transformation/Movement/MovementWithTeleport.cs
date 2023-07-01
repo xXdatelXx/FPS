@@ -13,7 +13,7 @@ namespace FPS.Toolkit
             _movement = movement.ThrowExceptionIfArgumentNull(nameof(movement));
         }
 
-        public Vector3 Position => _movement.Position;
+        public IReadOnlyPosition Position => _position;
 
         public void Move(Vector3 motion) => _movement.Move(motion);
 
