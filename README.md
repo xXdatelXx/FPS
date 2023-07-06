@@ -22,6 +22,7 @@ The project is a prototype FPS that implements weapon control, shooting, movemen
  - UniTask
  - TMPro
  - NUnit
+ - Addressables (not expert)
 
 # Software Used
  - Unity
@@ -30,7 +31,6 @@ The project is a prototype FPS that implements weapon control, shooting, movemen
  - Magica Voxel
  - Figma
  - Chat GPT
- - Addressables (not expert)
 
 # Outcome 
  - Completing the first stage of the project significantly helped me improve the quality of my code and better understand the essence of OOP.
