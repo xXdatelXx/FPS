@@ -8,7 +8,7 @@ namespace FPS.Toolkit
         public static bool Has<T>(this IEnumerable<T> list, T item) =>
             list.Any(i => i.Equals(item));
 
-        public static IEnumerable<T> TryThrowNullReferenceForeach<T>(this IEnumerable<T> enumerable, string name) =>
+        public static IEnumerable<T> TryThrowNullReferenceForeach<T>(this IEnumerable<T> enumerable, string name) where T : class =>
             enumerable.Select(i => i.ThrowExceptionIfNull(name));
         
         public static T RandomElement<T>(this IEnumerable<T> enumerable)

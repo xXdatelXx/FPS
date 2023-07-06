@@ -13,9 +13,7 @@ namespace FPS.GamePlay
         public CharacterJump(IGroundMovement controller, Curve motion)
         {
             _controller = controller.ThrowExceptionIfArgumentNull(nameof(controller));
-            _motion = motion
-                .ThrowExceptionIfArgumentNull(nameof(motion))
-                .ThrowExceptionIfValuesSubZero(nameof(motion));
+            _motion = motion.ThrowExceptionIfValuesSubZero(nameof(motion));
         }
 
         public bool Jumping { get; private set; }

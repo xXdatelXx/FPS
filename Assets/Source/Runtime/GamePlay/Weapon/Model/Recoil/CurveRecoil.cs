@@ -13,7 +13,7 @@ namespace FPS.GamePlay
 
         public CurveRecoil(Curve curve, IReadOnlyWeaponDelay delay, IReadOnlyMagazine magazine)
         {
-            _curve = curve.ThrowExceptionIfArgumentNull(nameof(curve));
+            _curve = curve;
             _delay = delay.ThrowExceptionIfArgumentNull(nameof(delay));
             _curve.Time.ThrowExceptionIfValueSubOrEqualZero(nameof(curve.Time));
             _curveStep = curve.Time / magazine.Bullets;

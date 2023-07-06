@@ -8,7 +8,7 @@ namespace FPS.Toolkit
             collider.GetComponent<T>() != null;
 
         public static bool Is<T>(this Collider collider, out T obj) =>
-            collider.transform.TryGetComponent(out obj);
+            collider.TryGetComponent(out obj);
 
         public static bool Is<T>(this Collision collision) =>
             collision.gameObject.GetComponent<T>() != null;
