@@ -5,6 +5,6 @@ namespace FPS.Factories
 {
     public interface IPlayerFactory
     {
-        IPlayer Create(IReadOnlyGameTime time);
+        IPlayer Create(ICharacter character);
     }
 }

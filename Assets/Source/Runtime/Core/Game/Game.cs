@@ -10,10 +10,12 @@ namespace FPS.Core
         public Game(IGameEngine engine)
         {
             var time = new GameTime();
-            var player = engine.Factories.PlayerFactory.Create(time);
-            var weapons = engine.Factories.PlayerWeaponFactory.Create();
+            var character = engine.Factories.Character.Create(time);
+            var player = engine.Factories.Player.Create(character);
+            var weapons = engine.Factories.PlayerWeapon.Create();
+            var enemySimulation = engine.Factories.EnemySimulation.Create(character);
 
-            _gameLoop = new GameLoop(time, player, weapons);
+            _gameLoop = new GameLoop(time, player, weapons, enemySimulation);
         }
 
         public void Play() => _gameLoop.Start();

@@ -1,10 +1,13 @@
 ﻿using FPS.Factories;
+using FPS.GamePlay;
 
 namespace FPS.Data
 {
     public interface IFactories
     {
-        IPlayerFactory PlayerFactory { get; }
-        IPlayerWeaponCollectionFactory PlayerWeaponFactory { get; }
+        ICharacterFactory Character { get; }
+        IPlayerFactory Player { get; }
+        IPlayerWeaponCollectionFactory PlayerWeapon { get; }
+        IEnemySimulationFactory EnemySimulation { get; }
     }
 }
