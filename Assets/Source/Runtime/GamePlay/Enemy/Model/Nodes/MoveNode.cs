@@ -1,5 +1,4 @@
 ﻿using FPS.Toolkit;
-using UnityEngine;
 using static FPS.Toolkit.BehaviourNodeStatus;
 
 namespace FPS.GamePlay

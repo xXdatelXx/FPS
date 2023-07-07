@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using FPS.Input;
 using FPS.GamePlay;
+using FPS.Input;
 using FPS.Toolkit;
 using Sirenix.OdinInspector;
 using UnityEngine;

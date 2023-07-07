@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using static FPS.Toolkit.BehaviourNodeStatus;
+﻿using static FPS.Toolkit.BehaviourNodeStatus;
 
 namespace FPS.Toolkit
 {

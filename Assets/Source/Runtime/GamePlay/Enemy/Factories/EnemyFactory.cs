@@ -1,6 +1,5 @@
 ﻿using System;
 using FPS.Toolkit;
-using UnityEngine;
 
 namespace FPS.GamePlay
 {

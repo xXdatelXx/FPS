@@ -1,5 +1,5 @@
-﻿using FPS.Input;
-using FPS.GamePlay;
+﻿using FPS.GamePlay;
+using FPS.Input;
 using UnityEngine;
 
 namespace FPS.Factories

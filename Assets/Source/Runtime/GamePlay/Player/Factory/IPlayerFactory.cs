@@ -1,5 +1,4 @@
 using FPS.GamePlay;
-using FPS.Toolkit.GameLoop;
 
 namespace FPS.Factories
 {
