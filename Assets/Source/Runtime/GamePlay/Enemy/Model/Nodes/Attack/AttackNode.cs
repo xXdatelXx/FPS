@@ -7,22 +7,23 @@ namespace FPS.GamePlay
     {
         private readonly IHealth _target;
         private readonly float _damage;
+        private readonly IAttackView _view;
 
-        public AttackNode(IHealth target, float damage)
+        public AttackNode(IHealth target, float damage, IAttackView view)
         {
             _target = target.ThrowExceptionIfArgumentNull(nameof(target));
             _damage = damage.ThrowExceptionIfValueSubZero(nameof(damage));
+            _view = view.ThrowExceptionIfArgumentNull(nameof(view));
         }
 
         public BehaviourNodeStatus Execute(float time)
         {
-            if (_target.Alive())
-            {
-                _target.TakeDamage(_damage);
-                return Success;
-            }
+            _view.Attack();
             
-            return Failure;
+            if (_target.Alive()) 
+                _target.TakeDamage(_damage);
+
+            return Success;
         }
 
         public void Reset()
