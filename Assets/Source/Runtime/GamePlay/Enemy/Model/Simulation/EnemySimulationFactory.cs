@@ -7,11 +7,15 @@ namespace FPS.GamePlay
     {
         [SerializeField] private Enemy _prefab;
         [SerializeField] private Timer _spawnTimer;
+        [SerializeField] private Range _enemySpawnPositionRange;
+        [SerializeField] private Vector2 _levelBound;
 
         public IEnemySimulation Create(ICharacter character)
         {
             character.ThrowExceptionIfArgumentNull(nameof(character));
-            return new EnemySimulation(new EnemyFactory(_prefab, character), _spawnTimer);
+            
+            var enemyFactory = new EnemyFactory(_prefab, character, _enemySpawnPositionRange, _levelBound);
+            return new EnemySimulation(enemyFactory, _spawnTimer);
         }
     }
 }
