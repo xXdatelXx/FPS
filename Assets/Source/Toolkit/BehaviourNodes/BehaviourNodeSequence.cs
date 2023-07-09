@@ -1,4 +1,5 @@
-﻿using static FPS.Toolkit.BehaviourNodeStatus;
+﻿using System.Linq;
+using static FPS.Toolkit.BehaviourNodeStatus;
 
 namespace FPS.Toolkit
 {
@@ -6,8 +7,12 @@ namespace FPS.Toolkit
     {
         private readonly IBehaviourNode[] _childNodes;
 
-        public BehaviourNodeSequence(params IBehaviourNode[] childNodes) 
-        { }
+        public BehaviourNodeSequence(params IBehaviourNode[] childNodes)
+        {
+            _childNodes = childNodes
+                .TryThrowNullReferenceForeach(nameof(childNodes))
+                .ToArray();
+        }
 
         public BehaviourNodeStatus Status { get; private set; }
 
