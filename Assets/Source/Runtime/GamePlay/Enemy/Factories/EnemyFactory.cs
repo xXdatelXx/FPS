@@ -11,25 +11,21 @@ namespace FPS.GamePlay
         private readonly ICharacter _character;
         private readonly IHealth _health;
         private readonly IRandom<Vector2> _positionRandom;
+        private readonly Transform _parent;
 
-        public EnemyFactory(Enemy prefab, ICharacter character, Range positionRange)
+        public EnemyFactory(Enemy prefab, IHealth enemyHealth, ICharacter character, Range positionRange, Transform parent = null)
         {
             _prefab = prefab.ThrowExceptionIfArgumentNull(nameof(prefab));
             _character = character.ThrowExceptionIfArgumentNull(nameof(character));
-            _health = _prefab;
-
-            var axisRandom = new RandomNegative<float>
-            (
-                new RationalRandom(positionRange),
-                new BoolRandom(new FiftyFiftyChance())
-            );
-
-            _positionRandom = new VectorRandom(axisRandom, axisRandom);
+            _health = enemyHealth.ThrowExceptionIfArgumentNull(nameof(enemyHealth));
+            _parent = parent;
+            
+            _positionRandom = new CirclePointRandom(positionRange.Max, positionRange.Min);
         }
 
         public Enemy Create()
         {
-            var enemy = Object.Instantiate(_prefab, NextPosition(), Quaternion.identity);
+            var enemy = Object.Instantiate(_prefab, NextPosition(), Quaternion.identity, _parent);
             enemy.Construct(_health, _character);
 
             return enemy;
