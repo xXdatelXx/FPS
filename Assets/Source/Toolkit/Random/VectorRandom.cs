@@ -16,6 +16,6 @@ namespace FPS.Toolkit
                 y.ThrowExceptionIfArgumentNull(nameof(y)));
         }
 
-        public Vector2 Next() => new Vector2(_random.x.Next(), _random.y.Next());
+        public Vector2 Next() => new(_random.x.Next(), _random.y.Next());
     }
 }

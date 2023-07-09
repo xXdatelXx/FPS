@@ -5,19 +5,19 @@ namespace FPS.Toolkit
     public sealed class RandomNegative<T> : IRandom<T> where T : IComparable
     {
         private readonly IRandom<T> _random;
-        private readonly IChance _negateChance;
+        private readonly IRandom<bool> _negate;
 
-        public RandomNegative(IRandom<T> random, IChance negateChance)
+        public RandomNegative(IRandom<T> random, IRandom<bool> negate)
         {
             _random = random.ThrowExceptionIfArgumentNull(nameof(random));
-            _negateChance = negateChance.ThrowExceptionIfArgumentNull(nameof(negateChance));
+            _negate = negate.ThrowExceptionIfArgumentNull(nameof(negate));
         }
 
         public T Next()
         {
             var next = _random.Next();
 
-            if (_negateChance.TryLuck())
+            if (_negate.Next())
             {
                 dynamic negativeOne = -1;
                 next *= negativeOne;
