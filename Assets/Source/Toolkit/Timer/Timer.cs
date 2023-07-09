@@ -12,7 +12,7 @@ namespace FPS.Toolkit
         public Timer(float time) =>
             _time = time.ThrowExceptionIfValueSubZero(nameof(time));
 
-        [field: SerializeField] private float _time { get; }
+        [SerializeField] private float _time;
         public bool Playing { get; private set; }
 
         public void Play()
