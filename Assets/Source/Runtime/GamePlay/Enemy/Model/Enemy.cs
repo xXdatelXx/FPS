@@ -21,12 +21,12 @@ namespace FPS.GamePlay
 
         public void TakeDamage(float damage) =>
             _health.TakeDamage(damage);
-        
+
         private void Update()
         {
             var result = _behaviourTree.Execute(Time.deltaTime);
-            
-            if (result is Failure or Success) 
+
+            if (result is Failure or Success)
                 _behaviourTree.Reset();
         }
 
