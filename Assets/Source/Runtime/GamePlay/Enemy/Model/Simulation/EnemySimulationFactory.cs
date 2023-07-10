@@ -16,7 +16,7 @@ namespace FPS.GamePlay
         {
             character.ThrowExceptionIfArgumentNull(nameof(character));
 
-            var enemyFactory = new EnemyFactory(_prefab, new Health(_healthPoint), character, _enemySpawnPositionRange, _parent);
+            var enemyFactory = new EnemyFactory(_prefab, _healthPoint, character, _enemySpawnPositionRange, _parent);
             return new EnemySimulation(enemyFactory, _spawnTimer);
         }
 
