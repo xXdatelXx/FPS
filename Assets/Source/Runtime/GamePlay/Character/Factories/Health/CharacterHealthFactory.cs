@@ -12,6 +12,8 @@ namespace FPS.Factories
         [SerializeField] private float _healthPoint;
         [SerializeField] private float _heal;
         [SerializeField] private GameObject _character;
+        [SerializeField] private Animator _animator;
+        [SerializeField] private string _damageAnimation;
         [SerializeField] private CharacterOrgan _head;
         [SerializeField] private CharacterOrgan _body;
         [SerializeField] private ProText _healthText;
@@ -37,7 +39,8 @@ namespace FPS.Factories
         public IHealth Create()
         {
             var obj = new Toolkit.GameObject(_character);
-            var healthView = new CharacterHealthView(obj, _healthText);
+            var damageAnimation = new UnityAnimation(_animator, _damageAnimation);
+            var healthView = new CharacterHealthView(obj, _healthText, damageAnimation);
             var health = new Health(_healthPoint, healthView);
 
             _healLoopObject = new AutoHeal(health, _heal);

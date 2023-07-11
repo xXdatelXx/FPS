@@ -17,7 +17,7 @@ namespace FPS.GamePlay
             Points = value.ThrowExceptionIfValueSubOrEqualZero(nameof(Health));
             _maxPoints = Points;
             _view = view.ThrowExceptionIfArgumentNull(nameof(view));
-            _view.Visualize(value);
+            _view.Heal(value);
         }
 
         public float Points { get; private set; }
@@ -32,7 +32,7 @@ namespace FPS.GamePlay
             damage.ThrowExceptionIfValueSubZero(nameof(damage));
 
             Points = Math.Max(Points - damage, 0);
-            _view.Visualize(Points);
+            _view.Damage(Points);
 
             if (Died)
                 _view.Die();
@@ -46,7 +46,7 @@ namespace FPS.GamePlay
             heal.ThrowExceptionIfValueSubOrEqualZero(nameof(heal));
 
             Points = Math.Min(Points + heal, _maxPoints);
-            _view.Visualize(Points);
+            _view.Heal(Points);
         }
     }
 }

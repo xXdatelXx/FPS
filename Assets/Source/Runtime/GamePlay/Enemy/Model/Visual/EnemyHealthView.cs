@@ -10,10 +10,12 @@ namespace FPS.GamePlay
         private Animator _animator;
 
         private void Awake() => _animator = GetComponent<Animator>();
+        
+        public void Damage(float health)
+        { }
 
-        public void Visualize(float health)
-        {
-        }
+        public void Heal(float health)
+        { }
 
         public void Die()
         {

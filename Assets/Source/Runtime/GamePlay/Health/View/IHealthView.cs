@@ -2,7 +2,8 @@
 {
     public interface IHealthView
     {
-        void Visualize(float health);
+        void Damage(float health);
+        void Heal(float health);
         void Die();
     }
 }
