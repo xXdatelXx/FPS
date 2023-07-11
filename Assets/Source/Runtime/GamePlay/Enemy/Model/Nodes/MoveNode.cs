@@ -16,16 +16,18 @@ namespace FPS.GamePlay
             _successDistance = successDistance.ThrowExceptionIfValueSubZero(nameof(successDistance));
         }
 
+        public BehaviourNodeStatus Status { get; private set; }
+
         public BehaviourNodeStatus Execute(float time)
         {
             _movement.Move(_target.Value);
 
-            return _successDistance >= _target.Distance(_movement.Position) 
-                ? Running 
+            return Status = _successDistance <= _target.Distance(_movement.Position)
+                ? Running
                 : Success;
         }
 
-        public void Reset()
-        { }
+        public void Reset() => 
+            Status = Idle;
     }
 }

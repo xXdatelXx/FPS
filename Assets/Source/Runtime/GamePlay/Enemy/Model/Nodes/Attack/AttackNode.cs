@@ -16,17 +16,19 @@ namespace FPS.GamePlay
             _view = view.ThrowExceptionIfArgumentNull(nameof(view));
         }
 
+        public BehaviourNodeStatus Status { get; private set; }
+
         public BehaviourNodeStatus Execute(float time)
         {
             _view.Attack();
             
             if (_target.Alive()) 
                 _target.TakeDamage(_damage);
-
-            return Success;
+            
+            return Status = Success;
         }
 
-        public void Reset()
-        { }
+        public void Reset() => 
+            Status = Idle;
     }
 }

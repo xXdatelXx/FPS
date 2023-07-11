@@ -9,8 +9,10 @@ namespace FPS.GamePlay
         private readonly float _delay;
         private float _time;
 
-        public WaitNode(float delay) => 
+        public WaitNode(float delay) =>
             _delay = delay.ThrowExceptionIfValueSubZero(nameof(delay));
+
+        public BehaviourNodeStatus Status { get; private set; }
 
         public BehaviourNodeStatus Execute(float time)
         {
@@ -19,12 +21,16 @@ namespace FPS.GamePlay
             if (_time == _delay)
             {
                 Reset();
-                return Success;
+                return Status = Success;
             }
 
-            return Running;
+            return Status = Running;
         }
 
-        public void Reset() => _time = 0;
+        public void Reset()
+        {
+            Status = Idle;
+            _time = 0;
+        }
     }
 }

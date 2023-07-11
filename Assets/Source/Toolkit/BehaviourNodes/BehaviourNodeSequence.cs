@@ -20,8 +20,10 @@ namespace FPS.Toolkit
         {
             foreach (var child in _childNodes)
             {
-                var result = child.Execute(time);
+                if (child.Status is Success)
+                    continue;
 
+                var result = child.Execute(time);
                 if (result is not Success)
                 {
                     Status = result;
@@ -29,8 +31,7 @@ namespace FPS.Toolkit
                 }
             }
 
-            Status = Success;
-            return Success;
+            return Status = Success;
         }
 
         public void Reset()
