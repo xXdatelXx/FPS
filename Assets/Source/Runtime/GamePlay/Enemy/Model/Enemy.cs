@@ -7,13 +7,15 @@ namespace FPS.GamePlay
     [RequireComponent(typeof(Collider))]
     public abstract class Enemy : MonoBehaviour, IHealth
     {
+        [SerializeField, Range(0, 200)] private float _healthPoints;
+        [SerializeField] private EnemyHealthView _healthView;
         private IHealth _health;
         private IBehaviourNode _behaviourTree;
 
-        public void Construct(IHealth health, ICharacter character)
+        public void Construct(ICharacter character)
         {
-            _health = health.ThrowExceptionIfArgumentNull(nameof(health));
             _behaviourTree = CreateBehaviour(character.ThrowExceptionIfArgumentNull(nameof(character)));
+            _health = new Health(_healthPoints, _healthView);
         }
 
         public bool Died => _health.Died;
