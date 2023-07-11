@@ -44,7 +44,7 @@ namespace FPS.Tests
             var heal = new AutoHeal(health, 1);
 
             health.TakeDamage(1);
-            heal.Tick(0);
+            heal.Tick(1);
 
             Assert.That(health.Points == 2);
         }

@@ -850,9 +850,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _prefab: {fileID: 5622696975307662757, guid: eaea29692ffe880489d8486f2c102ae6, type: 3}
-  _healthPoint: 100
   _spawnTimer:
-    _time: 1
+    _time: 2
   _enemySpawnPositionRange:
     <Min>k__BackingField: 5
     <Max>k__BackingField: 20
@@ -1776,7 +1775,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _healthPoint: 100
-  _heal: 0.01
+  _heal: 1
   _character: {fileID: 1935226533}
   _head: {fileID: 1935226534}
   _body: {fileID: 1935226545}
