@@ -1,5 +1,8 @@
 using UnityEngine;
 
+// For comfort
+// if you use Debug.Log() and remove it then 'using UnityEngine' will not be removed
+// and you can't do that - Debug.Log(); only - Debug.Log("log");
 public static class Logger
 {
     private static string _space => " , ";
