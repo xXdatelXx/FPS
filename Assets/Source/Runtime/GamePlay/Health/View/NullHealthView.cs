@@ -2,7 +2,11 @@
 {
     public sealed class NullHealthView : IHealthView
     {
-        public void Visualize(float health)
+        public void Damage(float health)
+        {
+        }
+
+        public void Heal(float health)
         {
         }
 
