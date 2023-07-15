@@ -502,6 +502,103 @@ RectTransform:
   m_AnchoredPosition: {x: 99.082, y: 0}
   m_SizeDelta: {x: -198.164, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &282266279
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 282266280}
+  - component: {fileID: 282266282}
+  - component: {fileID: 282266281}
+  - component: {fileID: 282266283}
+  m_Layer: 5
+  m_Name: Blood
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &282266280
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 282266279}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1376179295}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &282266281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 282266279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.6886792, g: 0.23648982, b: 0.23648982, a: 0}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &282266282
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 282266279}
+  m_CullTransparentMesh: 1
+--- !u!95 &282266283
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 282266279}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 874c60de445cbad4f86a970ea6328658, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &408872680
 GameObject:
   m_ObjectHideFlags: 0
@@ -603,7 +700,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16c08ebf3f71ddd41be0bff43bab11d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _head: {fileID: 1935226546}
+  _head: {fileID: 1935226545}
   _body: {fileID: 1935226535}
   _xEuler:
     <Min>k__BackingField: -40
@@ -1378,6 +1475,7 @@ RectTransform:
   - {fileID: 2043925076}
   - {fileID: 228749739}
   - {fileID: 235427322}
+  - {fileID: 282266280}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1433,6 +1531,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bulletsText: {fileID: 1812950515}
   _animator: {fileID: 1935226540}
+  _camera: {fileID: 1539083708}
 --- !u!114 &1393988671
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1451,6 +1550,11 @@ MonoBehaviour:
   _body: {fileID: 1935226536}
   _bulletView: {fileID: 524107786}
   _weaponViewFactory: {fileID: 1393988670}
+--- !u!20 &1539083708 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 8964051709490793147, guid: ab24ae441abe6d449b5e6ede0d940b01, type: 3}
+  m_PrefabInstance: {fileID: 1935226532}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1720538815
 GameObject:
   m_ObjectHideFlags: 0
@@ -1710,6 +1814,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bulletsText: {fileID: 1812950515}
   _animator: {fileID: 1935226543}
+  _camera: {fileID: 1539083708}
 --- !u!114 &1799423904
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1777,6 +1882,8 @@ MonoBehaviour:
   _healthPoint: 100
   _heal: 1
   _character: {fileID: 1935226533}
+  _animator: {fileID: 282266283}
+  _damageAnimation: Damage
   _head: {fileID: 1935226534}
   _body: {fileID: 1935226545}
   _healthText: {fileID: 1925336301}
@@ -2457,11 +2564,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87d3773559c842fe9f35ee08b1a14610, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!20 &1935226546 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 2426024975019816277, guid: ab24ae441abe6d449b5e6ede0d940b01, type: 3}
-  m_PrefabInstance: {fileID: 1935226532}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2015056924
 GameObject:
   m_ObjectHideFlags: 0
