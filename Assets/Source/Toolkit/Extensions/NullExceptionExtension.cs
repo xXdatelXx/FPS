@@ -4,10 +4,21 @@ namespace FPS.Toolkit
 {
     public static class NullExceptionExtension
     {
-        public static T ThrowExceptionIfNull<T>(this T value, string name) =>
-            value ?? throw new NullReferenceException(name);
+        //Not ?? because unity
+        public static T ThrowExceptionIfNull<T>(this T value, string name)
+        {
+            if ((dynamic)value == null)
+                throw new NullReferenceException(name);
 
-        public static T ThrowExceptionIfArgumentNull<T>(this T value, string name) =>
-            value ?? throw new ArgumentNullException(name);
+            return value;
+        }
+
+        public static T ThrowExceptionIfArgumentNull<T>(this T value, string name)
+        {
+            if ((dynamic)value == null)
+                throw new ArgumentNullException(name);
+
+            return value;
+        }
     }
 }
