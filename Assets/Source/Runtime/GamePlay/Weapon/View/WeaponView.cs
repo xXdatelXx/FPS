@@ -1,4 +1,5 @@
 ﻿using FPS.Toolkit;
+using FPS.Visual;
 
 namespace FPS.GamePlay
 {
@@ -6,14 +7,20 @@ namespace FPS.GamePlay
     {
         private readonly IWeaponAnimator _animator;
         private readonly IBulletsView _bullets;
+        private readonly ICameraShake _camera;
 
-        public WeaponView(IBulletsView bullets, IWeaponAnimator animator)
+        public WeaponView(IBulletsView bullets, IWeaponAnimator animator, ICameraShake camera)
         {
             _bullets = bullets.ThrowExceptionIfArgumentNull(nameof(bullets));
             _animator = animator.ThrowExceptionIfArgumentNull(nameof(animator));
+            _camera = camera.ThrowExceptionIfArgumentNull(nameof(camera));
         }
 
-        public void Shoot() => _animator.PlayShoot();
+        public void Shoot()
+        {
+            _camera.Shake();
+            _animator.PlayShoot();
+        }
 
         public void Reload() => _animator.PlayReload();
 

@@ -7,7 +7,7 @@ namespace FPS.Factories
 {
     public sealed class CharacterRotationFactory : MonoBehaviour, ICharacterRotationFactory
     {
-        [SerializeField] private Camera _head;
+        [SerializeField] private CharacterOrgan _head;
         [SerializeField] private CharacterController _body;
         [SerializeField] private Range _xEuler;
 
