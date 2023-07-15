@@ -51,6 +51,6 @@ namespace FPS.Factories
         }
 
         private void Update() =>
-            _healLoopObject?.Tick(Time.deltaTime);
+            _healLoopObject.Tick(Time.deltaTime);
     }
 }
