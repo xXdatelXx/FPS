@@ -1566,6 +1566,7 @@ GameObject:
   - component: {fileID: 1720538816}
   - component: {fileID: 1720538818}
   - component: {fileID: 1720538817}
+  - component: {fileID: 1720538819}
   m_Layer: 0
   m_Name: Terrain
   m_TagString: Untagged
@@ -1646,6 +1647,20 @@ Terrain:
   m_AllowAutoConnect: 1
   m_EnableHeightmapRayTracing: 1
   m_EnableTreesAndDetailsRayTracing: 0
+--- !u!182 &1720538819
+WindZone:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1720538815}
+  m_Enabled: 1
+  m_Mode: 0
+  m_Radius: 20
+  m_WindMain: 0.01
+  m_WindTurbulence: 0.01
+  m_WindPulseMagnitude: 0.005
+  m_WindPulseFrequency: 0.001
 --- !u!1 &1722015387
 GameObject:
   m_ObjectHideFlags: 0
