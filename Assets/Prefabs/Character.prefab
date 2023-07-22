@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1238631734}
   - component: {fileID: 1238631735}
   m_Layer: 0
-  m_Name: Spot Light
+  m_Name: Flashlight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43,9 +43,9 @@ Light:
   serializedVersion: 10
   m_Type: 0
   m_Shape: 0
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
-  m_Range: 10
+  m_Color: {r: 0.65882355, g: 0.54901963, b: 0.20784314, a: 1}
+  m_Intensity: 0.8
+  m_Range: 80
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -256,7 +256,7 @@ Transform:
   - {fileID: 2426024973281369777}
   - {fileID: 2426024975019816274}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!143 &2426024973517233685
 CharacterController:
@@ -340,7 +340,7 @@ GameObject:
   - component: {fileID: 2426024974386602469}
   - component: {fileID: 2426024974386602467}
   - component: {fileID: 2426024974386602466}
-  m_Layer: 4
+  m_Layer: 0
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -423,7 +423,7 @@ GameObject:
   - component: {fileID: 2426024974502262091}
   - component: {fileID: 2426024974502262100}
   - component: {fileID: 2426024974502262101}
-  m_Layer: 4
+  m_Layer: 0
   m_Name: Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -494,7 +494,7 @@ GameObject:
   - component: {fileID: 2426024974558850410}
   - component: {fileID: 2426024974558850408}
   - component: {fileID: 2426024974558850409}
-  m_Layer: 4
+  m_Layer: 0
   m_Name: Weapon (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -564,7 +564,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2426024974576597900}
   - component: {fileID: 2426024974576597901}
-  m_Layer: 4
+  m_Layer: 0
   m_Name: Weapons
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -614,7 +614,7 @@ GameObject:
   - component: {fileID: 2426024974750575613}
   - component: {fileID: 2426024974750575611}
   - component: {fileID: 2426024974750575610}
-  m_Layer: 4
+  m_Layer: 0
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -982,11 +982,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2155050846781437322, guid: ed827a52f43e948439d3d6b12b533237, type: 3}
       propertyPath: m_Layer
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2155360865571485962, guid: ed827a52f43e948439d3d6b12b533237, type: 3}
       propertyPath: m_Layer
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2155783462682924452, guid: ed827a52f43e948439d3d6b12b533237, type: 3}
       propertyPath: m_Name
@@ -994,15 +994,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2155783462682924452, guid: ed827a52f43e948439d3d6b12b533237, type: 3}
       propertyPath: m_Layer
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2155957074489762888, guid: ed827a52f43e948439d3d6b12b533237, type: 3}
       propertyPath: m_Layer
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2157146721364191682, guid: ed827a52f43e948439d3d6b12b533237, type: 3}
       propertyPath: m_Layer
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2160700331683393652, guid: ed827a52f43e948439d3d6b12b533237, type: 3}
       propertyPath: m_RootOrder
@@ -1088,11 +1088,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2155050846781437322, guid: ed827a52f43e948439d3d6b12b533237, type: 3}
       propertyPath: m_Layer
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2155360865571485962, guid: ed827a52f43e948439d3d6b12b533237, type: 3}
       propertyPath: m_Layer
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2155783462682924452, guid: ed827a52f43e948439d3d6b12b533237, type: 3}
       propertyPath: m_Name
@@ -1100,15 +1100,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2155783462682924452, guid: ed827a52f43e948439d3d6b12b533237, type: 3}
       propertyPath: m_Layer
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2155957074489762888, guid: ed827a52f43e948439d3d6b12b533237, type: 3}
       propertyPath: m_Layer
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2157146721364191682, guid: ed827a52f43e948439d3d6b12b533237, type: 3}
       propertyPath: m_Layer
-      value: 4
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2160700331683393652, guid: ed827a52f43e948439d3d6b12b533237, type: 3}
       propertyPath: m_RootOrder
