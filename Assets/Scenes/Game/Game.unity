@@ -8,8 +8,8 @@ OcclusionCullingSettings:
     smallestOccluder: 5
     smallestHole: 0.25
     backfaceThreshold: 100
-  m_SceneGUID: 00000000000000000000000000000000
-  m_OcclusionCullingData: {fileID: 0}
+  m_SceneGUID: 6aacf8807ceb0344f87708b731c63c39
+  m_OcclusionCullingData: {fileID: 36300000, guid: 8329f3adaf2220441abde98216c12219, type: 2}
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
@@ -2651,6 +2651,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 36152303}
     m_Modifications:
+    - target: {fileID: 1320872867587151893, guid: b28122a270518fd41b365c37e939c43d, type: 3}
+      propertyPath: m_DrawInstanced
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1320872867587151893, guid: b28122a270518fd41b365c37e939c43d, type: 3}
+      propertyPath: m_HeightmapPixelError
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 1320872867587151895, guid: b28122a270518fd41b365c37e939c43d, type: 3}
       propertyPath: m_RootOrder
       value: -1
