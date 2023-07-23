@@ -17,6 +17,7 @@ namespace FPS.Factories
         [SerializeField] private CharacterOrgan _head;
         [SerializeField] private CharacterOrgan _body;
         [SerializeField] private ProText _healthText;
+        [SerializeField] private LoseFactory _lose;
         private IGameLoopObject _healLoopObject;
 
         private void OnValidate()
@@ -40,7 +41,7 @@ namespace FPS.Factories
         {
             var obj = new Toolkit.GameObject(_character);
             var damageAnimation = new UnityAnimation(_animator, _damageAnimation);
-            var healthView = new CharacterHealthView(obj, _healthText, damageAnimation);
+            var healthView = new CharacterHealthView(obj, _healthText, damageAnimation, _lose.Create());
             var health = new Health(_healthPoint, healthView);
 
             _healLoopObject = new AutoHeal(health, _heal);

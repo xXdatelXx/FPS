@@ -8,13 +8,15 @@ namespace FPS.GamePlay
         private readonly IGameObject _character;
         private readonly IText _healthText;
         private readonly IAnimation _damageAnimation;
+        private readonly ILoseView _lose;
         private readonly int _precision;
 
-        public CharacterHealthView(IGameObject character, IText healthText, IAnimation damageAnimation, int precision = 1)
+        public CharacterHealthView(IGameObject character, IText healthText, IAnimation damageAnimation, ILoseView lose, int precision = 1)
         {
-            _healthText = healthText.ThrowExceptionIfArgumentNull(nameof(healthText));
             _character = character.ThrowExceptionIfArgumentNull(nameof(character));
+            _healthText = healthText.ThrowExceptionIfArgumentNull(nameof(healthText));
             _damageAnimation = damageAnimation.ThrowExceptionIfArgumentNull(nameof(damageAnimation));
+            _lose = lose.ThrowExceptionIfArgumentNull(nameof(lose));
             _precision = precision.ThrowExceptionIfValueSubZero(nameof(precision));
         }
 
@@ -30,7 +32,10 @@ namespace FPS.GamePlay
         private void Visualize(float health) =>
             _healthText.Visualize(Math.Round(health, _precision));
 
-        public void Die() =>
+        public void Die()
+        {
             _character.Destroy();
+            _lose.Visualize();
+        }
     }
 }
