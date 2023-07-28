@@ -12,9 +12,10 @@ namespace FPS.GamePlay
         private IHealth _health;
         private IBehaviourNode _behaviourTree;
 
-        public void Construct(ICharacter character)
+        public void Construct(ICharacter character, IReword reword)
         {
             _behaviourTree = CreateBehaviour(character.ThrowExceptionIfArgumentNull(nameof(character)));
+            _healthView.Construct(reword.ThrowExceptionIfArgumentNull(nameof(reword)));
             _health = new Health(_healthPoints, _healthView);
         }
 

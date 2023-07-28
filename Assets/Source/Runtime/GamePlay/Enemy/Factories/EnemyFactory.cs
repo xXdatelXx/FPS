@@ -11,20 +11,22 @@ namespace FPS.GamePlay
         private readonly ICharacter _character;
         private readonly IRandom<Vector2> _positionRandom;
         private readonly Transform _parent;
+        private readonly IReword _reword;
 
-        public EnemyFactory(Enemy prefab, ICharacter character, Range positionRange, Transform parent = null)
+        public EnemyFactory(Enemy prefab, ICharacter character, Range positionRange, IReword reword, Transform parent = null)
         {
             _prefab = prefab.ThrowExceptionIfArgumentNull(nameof(prefab));
             _character = character.ThrowExceptionIfArgumentNull(nameof(character));
+            _reword = reword.ThrowExceptionIfArgumentNull(nameof(reword));
             _parent = parent;
-            
+
             _positionRandom = new CirclePointRandom(positionRange.Max, positionRange.Min);
         }
 
         public Enemy Create()
         {
             var enemy = Object.Instantiate(_prefab, NextPosition(), Quaternion.identity, _parent);
-            enemy.Construct(_character);
+            enemy.Construct(_character, _reword);
 
             return enemy;
         }
