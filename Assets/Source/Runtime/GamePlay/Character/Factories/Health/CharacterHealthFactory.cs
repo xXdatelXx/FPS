@@ -39,8 +39,9 @@ namespace FPS.Factories
 
         public IHealth Create()
         {
+            var obj = new Toolkit.GameObject(_character);
             var damageAnimation = new UnityAnimation(_animator, _damageAnimation);
-            var healthView = new HealthViewWithText(new CharacterHealthView(damageAnimation, _lose.Create()), _healthText);
+            var healthView = new CharacterHealthView(obj, _healthText, damageAnimation, _lose.Create());
             var health = new Health(_healthPoint, healthView);
 
             _healLoopObject = new AutoHeal(health, _heal);
