@@ -1,6 +1,6 @@
 ﻿namespace FPS.GamePlay
 {
-    public interface IReword
+    public interface IReward
     {
         void Receive();
     }

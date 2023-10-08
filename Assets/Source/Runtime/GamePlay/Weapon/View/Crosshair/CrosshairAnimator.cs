@@ -9,7 +9,7 @@ namespace FPS.GamePlay
         private readonly IAnimation _kill;
 
         public CrosshairAnimator(Animator animator, string hit, string kill)
-            : this(new UnityAnimation(animator, hit), new UnityAnimation(animator, kill))
+            : this(new UnityAnimationTrigger(animator, hit), new UnityAnimationTrigger(animator, kill))
         { }
 
         public CrosshairAnimator(IAnimation hit, IAnimation kill)
