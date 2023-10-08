@@ -44,6 +44,7 @@ ExportedObj/
 *.VC.db
 *.json
 *.DotSettings
+*.ini
 
 # Unity3D generated meta files
 *.pidb.meta
