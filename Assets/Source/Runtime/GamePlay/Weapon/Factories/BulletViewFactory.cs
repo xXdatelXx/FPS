@@ -20,15 +20,8 @@ namespace FPS.Factories
             new GameLoop(new GameTime(), _rays).Start();
         }
 
-        public IBulletView Create()
-        {
-            return new BulletViewSequence
-            (
-     new BulletViewWithCrosshair(_crosshairFactory.Create()),
-                new BulletViewWithTrace(CreateRays()),
-                new BulletViewWithParticles(new BulletParticle(_startBulletParticle), CreateHitsView())
-            );
-        }
+        public IBulletView Create() =>
+            new BulletView(new BulletParticle(_startBulletParticle), CreateHitsView(), CreateRays(), _crosshairFactory.Create());
 
         private IBulletTrace CreateRays() =>
             new BulletTraces(new Pool<IBulletTrace>(_bulletTraceFactory), new TimerFactory(_rayWorkTime, _rays));
