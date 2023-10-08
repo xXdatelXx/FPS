@@ -9,7 +9,6 @@ namespace FPS.Factories
         [SerializeField] private CharacterMovementFactory _movement;
         [SerializeField] private CharacterRotationFactory _rotation;
         [SerializeField] private CharacterHealthFactory _health;
-        [SerializeField] private CharacterScoreFactory _score;
 
         public ICharacter Create(IReadOnlyGameTime time)
         {
@@ -17,8 +16,7 @@ namespace FPS.Factories
             (
                 _movement.Create(time),
                 _rotation.Create(),
-                _health.Create(),
-                _score.Create()
+                _health.Create()
             );
         }
     }
