@@ -6,6 +6,9 @@ namespace FPS.GamePlay
     {
         private readonly IScoreView _view;
 
+        public Score() => 
+            _view = new NullScoreView();
+
         public Score(IScoreView view) => 
             _view = view.ThrowExceptionIfArgumentNull(nameof(view));
 
