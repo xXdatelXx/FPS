@@ -1309,7 +1309,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7551110306247348254, guid: ef81ae353ca07ea48a24153d3962aa01, type: 3}
       propertyPath: <FadeTime>k__BackingField
-      value: 0.3
+      value: 0.6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3226,7 +3226,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7e3b3826e0b4b6591f5aa3011281cd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _healthPoint: 1
+  _healthPoint: 100
   _heal: 1
   _character: {fileID: 1935226533}
   _animator: {fileID: 282266283}

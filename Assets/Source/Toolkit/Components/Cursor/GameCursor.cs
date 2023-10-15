@@ -2,16 +2,8 @@
 
 namespace FPS.Toolkit
 {
-    public sealed class GameCursor : MonoBehaviour
+    public sealed class GameCursor : IGameCursor
     {
-        [SerializeField] private bool _hideOnStart;
-
-        private void Awake()
-        {
-            if(_hideOnStart)
-                Hide();
-        }
-
         public void Show()
         {
             Cursor.lockState = CursorLockMode.None;

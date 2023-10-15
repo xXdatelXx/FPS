@@ -24,6 +24,8 @@ namespace FPS.Core
         {
             SetupPlayButton();
             SetupOptions();
+            
+            new GameCursor().Show();
         }
 
         private void SetupPlayButton()

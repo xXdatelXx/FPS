@@ -1,4 +1,5 @@
 ﻿using FPS.Data;
+using FPS.Toolkit;
 using FPS.Toolkit.GameLoop;
 
 namespace FPS.Core
@@ -15,6 +16,7 @@ namespace FPS.Core
             var lose = engine.Factories.LoseFactory.Create(character.Score);
             var weapons = engine.Factories.PlayerWeapon.Create();
             var enemySimulation = engine.Factories.EnemySimulation.Create(character);
+            new GameCursor().Hide();
 
             _gameLoop = new GameLoop(time, player, weapons, enemySimulation);
         }
