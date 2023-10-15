@@ -12,6 +12,7 @@ namespace FPS.Core
         [SerializeField] private PlayerFactory _playerFactory;
         [SerializeField] private PlayerWeaponCollectionFactory _playerWeaponFactory;
         [SerializeField] private EnemySimulationFactory _enemySimulationFactory;
+        [SerializeField] private LoseFactory _loseFactory;
 
         private void Start()
         {
@@ -22,7 +23,8 @@ namespace FPS.Core
                     _characterFactory, 
                     _playerFactory, 
                     _playerWeaponFactory, 
-                    _enemySimulationFactory
+                    _enemySimulationFactory,
+                    _loseFactory
                 )
             );
             

@@ -12,6 +12,7 @@ namespace FPS.Core
             var time = new GameTime();
             var character = engine.Factories.Character.Create(time);
             var player = engine.Factories.Player.Create(character);
+            var lose = engine.Factories.LoseFactory.Create(character.Score);
             var weapons = engine.Factories.PlayerWeapon.Create();
             var enemySimulation = engine.Factories.EnemySimulation.Create(character);
 
