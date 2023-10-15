@@ -9,5 +9,6 @@ namespace FPS.Data
         IPlayerFactory Player { get; }
         IPlayerWeaponCollectionFactory PlayerWeapon { get; }
         IEnemySimulationFactory EnemySimulation { get; }
+        ILoseFactory LoseFactory { get; }
     }
 }
