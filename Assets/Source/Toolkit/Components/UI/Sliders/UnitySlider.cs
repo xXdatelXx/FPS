@@ -9,13 +9,13 @@ namespace FPS.Toolkit
         private ISlider _slider;
         private Slider _unitySlider;
 
-        private void Awake() =>
-            _unitySlider = GetComponent<Slider>();
-        
         public void Subscribe(ISlider slider, float value = 0)
         {
+            _unitySlider ??= GetComponent<Slider>();
+            
             _slider = slider.ThrowExceptionIfArgumentNull(nameof(slider));
             _unitySlider.value = value.ThrowExceptionIfValueSubZero(nameof(value));
+            
             _unitySlider.onValueChanged.AddListener(_slider.Slide);
         }
 
