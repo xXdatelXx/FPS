@@ -1,27 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using FPS.Toolkit;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace FPS.GamePlay
 {
-    public sealed class EnemyMeshRandom : MonoBehaviour
+    public sealed class EnemyMeshRandom : SerializedMonoBehaviour
     {
-        [SerializeField] private List<MeshFilter> _organs;
-        [SerializeField] private List<List<Mesh>> _organsMeshes;
-
-        private void OnValidate()
-        {
-            if (_organsMeshes.Any(organs => organs.Count != _organs.Count))
-                throw new ArgumentOutOfRangeException(nameof(_organsMeshes));
-        }
+        [SerializeField] private MeshFilter _body;
+        [SerializeField] private MeshFilter _head;
+        [SerializeField] private MeshFilter _leftArm;
+        [SerializeField] private MeshFilter _rightArm;
+        [Header("body, head, arm")]
+        [SerializeField] private List<(Mesh body, Mesh head, Mesh arm)> _organSets;
 
         private void Awake()
         {
-            var meshes = _organsMeshes.RandomElement();
-            for (var i = 0; i < meshes.Count; i++) 
-                _organs[i].mesh = meshes[i];
+            var organMeshSet = _organSets.RandomElement();
+
+            _body.mesh = organMeshSet.body;
+            _head.mesh = organMeshSet.head;
+            _leftArm.mesh = organMeshSet.arm;
+            _rightArm.mesh = organMeshSet.arm;
         }
     }
 }
