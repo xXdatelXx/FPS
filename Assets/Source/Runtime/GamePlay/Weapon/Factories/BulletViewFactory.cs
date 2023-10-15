@@ -11,29 +11,31 @@ namespace FPS.Factories
         [SerializeField] private CrosshairFactory _crosshairFactory;
         [SerializeField] private BulletHitFactory _bulletHitFactory;
         [SerializeField] private BulletTraceFactory _bulletTraceFactory;
-        [SerializeField] private float _rayWorkTime;
-        private IGameLoopObjects _rays;
+        [SerializeField] private float _rayLifeTime;
+        [SerializeField] private float _hitsLifeTime;
+        private IGameLoopObjects _bulletsEffects;
 
         private void Awake()
         {
-            _rays = new GameLoopObjects();
-            new GameLoop(new GameTime(), _rays).Start();
+            _bulletsEffects = new GameLoopObjects();
+            new GameLoop(new GameTime(), _bulletsEffects).Start();
         }
 
         public IBulletView Create()
         {
+            var tracesPool = new Pool<IBulletTrace>(_bulletTraceFactory);
+            var tracesLifeTimers = new TimerFactory(_rayLifeTime, _bulletsEffects);
+
+            var hitsPool = new Pool<IBulletHitView>(_bulletHitFactory);
+            var hitsLifeTimers = new TimerFactory(_hitsLifeTime, _bulletsEffects);
+            
             return new BulletViewSequence
             (
      new BulletViewWithCrosshair(_crosshairFactory.Create()),
-                new BulletViewWithTrace(CreateRays()),
-                new BulletViewWithParticles(new BulletParticle(_startBulletParticle), CreateHitsView())
+                new BulletViewWithTrace(tracesPool, tracesLifeTimers),
+                new BulletViewWithHitEffect(hitsPool, hitsLifeTimers),
+                new BulletViewWithShootParticle(new BulletParticle(_startBulletParticle))
             );
         }
-
-        private IBulletTrace CreateRays() =>
-            new BulletTraces(new Pool<IBulletTrace>(_bulletTraceFactory), new TimerFactory(_rayWorkTime, _rays));
-
-        private IBulletHitView CreateHitsView() =>
-            new BulletHitsView(new Pool<IBulletHitView>(_bulletHitFactory), 100);
     }
 }
