@@ -2,13 +2,13 @@
 
 namespace FPS.Toolkit
 {
-    // I don't know if this is a good idea ¯\_(ツ)_/¯
+    // ¯\_(ツ)_/¯
     public sealed class AsyncScene : IAsyncScene
     {
         private readonly IScene _scene;
         private readonly ITimer _load;
 
-        public AsyncScene(IScene scene, float loadSeconds) : this(scene, new Timer(loadSeconds))
+        public AsyncScene(IScene scene, float loadSeconds) : this(scene, new AsyncTimer(loadSeconds))
         { }
 
         public AsyncScene(IScene scene, ITimer load)
@@ -19,10 +19,9 @@ namespace FPS.Toolkit
 
         public async UniTask Load()
         {
-            _scene.Load();
             _load.Play();
-            
             await _load.End();
+            _scene.Load();
         }
     }
 }
