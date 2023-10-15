@@ -27,7 +27,7 @@ namespace FPS.Tests
             var magazine = new Magazine(1);
 
             magazine.Get();
-            magazine.Reset();
+            magazine.Reload();
 
             Assert.AreEqual(magazine.Bullets, 1);
         }

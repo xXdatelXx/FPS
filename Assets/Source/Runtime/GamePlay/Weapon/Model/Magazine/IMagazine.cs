@@ -3,8 +3,8 @@
     public interface IMagazine : IReadOnlyMagazine
     {
         bool CanGet { get; }
-        bool CanReset { get; }
+        bool CanReload { get; }
         void Get();
-        void Reset();
+        void Reload();
     }
 }

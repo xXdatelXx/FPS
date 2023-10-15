@@ -4,21 +4,21 @@ using FPS.Toolkit;
 
 namespace FPS.GamePlay
 {
-    public sealed class HandWeapon : IHandWeapon
+    public sealed class HandWeapon : IWeapon
     {
         private readonly ITimerWithCanceling _enableTimer;
-        private readonly IWeaponView _view;
         private readonly IWeapon _weapon;
-        private bool _enabled;
 
-        public HandWeapon(IWeapon weapon, ITimerWithCanceling enableTimer, IWeaponView view)
+        public HandWeapon(IWeapon weapon, ITimer enableTimer) : this(weapon, new TimerWithCanceling(enableTimer))
+        { }
+
+        public HandWeapon(IWeapon weapon, ITimerWithCanceling enableTimer)
         {
             _weapon = weapon.ThrowExceptionIfArgumentNull(nameof(weapon));
             _enableTimer = enableTimer.ThrowExceptionIfArgumentNull(nameof(enableTimer));
-            _view = view.ThrowExceptionIfArgumentNull(nameof(view));
         }
 
-        public bool CanShoot => _weapon.CanShoot && _enabled;
+        public bool CanShoot => _weapon.CanShoot && !_enableTimer.Playing;
 
         public void Shoot()
         {
@@ -30,33 +30,24 @@ namespace FPS.GamePlay
 
         public void Enable() => EnableAsync().Forget();
 
-        public async UniTask EnableAsync()
+        private async UniTaskVoid EnableAsync()
         {
-            if (_enabled)
+            if (CanShoot)
                 throw new InvalidOperationException(nameof(Enable));
-            
-            _enableTimer.Play();
-            _view.Equip();
-                
-            await _enableTimer.End();
 
+            _enableTimer.Play();
+
+            await _enableTimer.End();
+            
             if (_enableTimer.Canceled)
                 return;
 
             _weapon.Enable();
-            _enabled = true;
         }
 
         public void Disable()
         {
-            if (!_enableTimer.Playing && !_enabled)
-                throw new InvalidOperationException(nameof(Disable));
-
-            if (_enableTimer.Playing)
-                _enableTimer.Cancel();
-
-            _view.UneQuip();
-            _enabled = false;
+            _enableTimer.Cancel();
             _weapon.Disable();
         }
     }

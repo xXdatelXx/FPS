@@ -6,6 +6,5 @@
         void Reload();
         void Equip();
         void UneQuip();
-        void VisualizeBullets(int bullets);
     }
 }

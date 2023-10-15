@@ -5,17 +5,10 @@ namespace FPS.GamePlay
 {
     public sealed class Weapon : IWeapon
     {
-        private readonly IBulletFactory _factory;
-        private readonly IWeaponView _view;
+        private readonly IBulletFactory _bullets;
 
-        public Weapon(IBulletFactory factory) : this(factory, new NullWeaponView())
-        { }
-
-        public Weapon(IBulletFactory factory, IWeaponView view)
-        {
-            _factory = factory.ThrowExceptionIfArgumentNull(nameof(factory));
-            _view = view.ThrowExceptionIfArgumentNull(nameof(view));
-        }
+        public Weapon(IBulletFactory factory) => 
+            _bullets = factory.ThrowExceptionIfArgumentNull(nameof(factory));
 
         public bool CanShoot { get; private set; }
 
@@ -24,8 +17,7 @@ namespace FPS.GamePlay
             if (!CanShoot)
                 throw new InvalidOperationException(nameof(Shoot));
 
-            _factory.Create().Fire();
-            _view.Shoot();
+            _bullets.Create().Fire();
         }
 
         public void Enable() => CanShoot = true;
