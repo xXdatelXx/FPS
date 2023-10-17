@@ -5,7 +5,7 @@ namespace FPS.Visual
     public sealed class PixelEffect : MonoBehaviour
     {
         [SerializeField] private Shader _shader;
-        [SerializeField, Range(0, 8)] private int _force = 0;
+        [SerializeField] private Vector2Int _screenSize;
         private Material _material;
 
         private void Awake()
@@ -18,40 +18,22 @@ namespace FPS.Visual
 
         private void OnRenderImage(RenderTexture source, RenderTexture destination)
         {
-            var textures = DownscaleTextures(source, _force);
-            UpscaleAndBlit(source, destination, textures);
+            var texture = DownscaleTextures(source);
+            UpscaleAndBlit(destination, texture);
         }
 
-        private RenderTexture[] DownscaleTextures(RenderTexture source, int force)
+        private RenderTexture DownscaleTextures(RenderTexture source)
         {
-            var width = source.width;
-            var height = source.height;
-            var textures = new RenderTexture[force];
-            var currentSource = source;
+            var texture = RenderTexture.GetTemporary(_screenSize.x, _screenSize.y, 0, source.format);
 
-            for (int i = 0; i < force; ++i)
-            {
-                width /= 2;
-                height /= 2;
-
-                if (height < 2)
-                    break;
-
-                textures[i] = RenderTexture.GetTemporary(width, height, 0, source.format);
-
-                Graphics.Blit(currentSource, textures[i], _material);
-                currentSource = textures[i];
-            }
-
-            return textures;
+            Graphics.Blit(source, texture, _material);
+            return texture;
         }
 
-        private void UpscaleAndBlit(RenderTexture source, RenderTexture destination, RenderTexture[] textures)
+        private void UpscaleAndBlit(RenderTexture destination, RenderTexture texture)
         {
-            Graphics.Blit(textures[^1], destination, _material);
-
-            foreach (var texture in textures)
-                RenderTexture.ReleaseTemporary(texture);
+            Graphics.Blit(texture, destination, _material);
+            RenderTexture.ReleaseTemporary(texture);
         }
     }
 }

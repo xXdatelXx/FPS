@@ -1008,7 +1008,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _shader: {fileID: 4800000, guid: c89048434528416183824b48980b5402, type: 3}
-  _force: 2
+  _screenSize: {x: 256, y: 125}
 --- !u!114 &1220835181
 MonoBehaviour:
   m_ObjectHideFlags: 0

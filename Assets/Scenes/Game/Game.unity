@@ -1835,7 +1835,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 29.099976, y: -7.100006}
+  m_AnchoredPosition: {x: 29.099976, y: -7.0999756}
   m_SizeDelta: {x: 191.1803, y: 51}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &1059144787
@@ -1998,6 +1998,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _key: 27
+--- !u!1 &1157101606 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 133393985, guid: ab24ae441abe6d449b5e6ede0d940b01, type: 3}
+  m_PrefabInstance: {fileID: 1935226532}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1157101609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1157101606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e69b25d063164f28b7e200d3aef21b5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _shader: {fileID: 4800000, guid: c89048434528416183824b48980b5402, type: 3}
+  _screenSize: {x: 512, y: 250}
 --- !u!1 &1173413235
 GameObject:
   m_ObjectHideFlags: 0
@@ -3706,9 +3725,25 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5056607689880956218, guid: ab24ae441abe6d449b5e6ede0d940b01, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5056607689880956218, guid: ab24ae441abe6d449b5e6ede0d940b01, type: 3}
+      propertyPath: _screenSize.x
+      value: 256
+      objectReference: {fileID: 0}
+    - target: {fileID: 5056607689880956218, guid: ab24ae441abe6d449b5e6ede0d940b01, type: 3}
+      propertyPath: _screenSize.y
+      value: 125
+      objectReference: {fileID: 0}
     - target: {fileID: 8964051709490793147, guid: ab24ae441abe6d449b5e6ede0d940b01, type: 3}
       propertyPath: m_TargetDisplay
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8964051709490793147, guid: ab24ae441abe6d449b5e6ede0d940b01, type: 3}
+      propertyPath: m_TargetTexture
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8964051709490793147, guid: ab24ae441abe6d449b5e6ede0d940b01, type: 3}
       propertyPath: near clip plane
@@ -3724,6 +3759,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 898536906, guid: ab24ae441abe6d449b5e6ede0d940b01, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 133393985, guid: ab24ae441abe6d449b5e6ede0d940b01, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1157101609}
   m_SourcePrefab: {fileID: 100100000, guid: ab24ae441abe6d449b5e6ede0d940b01, type: 3}
 --- !u!1 &1935226533 stripped
 GameObject:
