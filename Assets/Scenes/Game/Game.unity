@@ -379,7 +379,7 @@ GameObject:
   m_Component:
   - component: {fileID: 210880958}
   m_Layer: 0
-  m_Name: Weapon
+  m_Name: M4a4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1776,7 +1776,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1016086801}
   m_Layer: 0
-  m_Name: Weapon (1)
+  m_Name: FMS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1855,7 +1855,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1059144784}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e01555930dd043cba136b90a16ce6f6e, type: 3}
+  m_Script: {fileID: 11500000, guid: c1e318ab98ab42679b2ba1ba600e4410, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
@@ -1901,7 +1901,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 1
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 1024
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -1929,7 +1929,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 24.481686, y: 0, z: 0, w: 4.9490356}
+  m_margin: {x: 25, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -3441,7 +3441,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1925336299}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e01555930dd043cba136b90a16ce6f6e, type: 3}
+  m_Script: {fileID: 11500000, guid: c1e318ab98ab42679b2ba1ba600e4410, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
@@ -3487,7 +3487,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 1
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 1024
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -3515,7 +3515,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 24.481686, y: 0, z: 0, w: 4.9490356}
+  m_margin: {x: 26, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -3697,9 +3697,17 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2426024974502262090, guid: ab24ae441abe6d449b5e6ede0d940b01, type: 3}
+      propertyPath: m_Name
+      value: M4a4
+      objectReference: {fileID: 0}
     - target: {fileID: 2426024974502262091, guid: ab24ae441abe6d449b5e6ede0d940b01, type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.264
+      objectReference: {fileID: 0}
+    - target: {fileID: 2426024974558850413, guid: ab24ae441abe6d449b5e6ede0d940b01, type: 3}
+      propertyPath: m_Name
+      value: FMS
       objectReference: {fileID: 0}
     - target: {fileID: 2426024974750575612, guid: ab24ae441abe6d449b5e6ede0d940b01, type: 3}
       propertyPath: m_IsActive
