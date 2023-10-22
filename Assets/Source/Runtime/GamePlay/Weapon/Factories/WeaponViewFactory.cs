@@ -11,6 +11,7 @@ namespace FPS.Factories
     {
         [SerializeField] private WeaponAnimator _animator;
         [SerializeField] private Camera _camera;
+        [SerializeField] private WeaponAudio _audio;
         [SerializeField] private BulletSleevesFactory _sleevesFactory;
         [SerializeField, MinValue(0)] private float _sleeveThrowTime;
         private readonly IGameLoopObjects _sleevesWorkTimers = new GameLoopObjects();
@@ -22,10 +23,13 @@ namespace FPS.Factories
         {
             var sleevePool = new Pool<IBulletSleeve>(_sleevesFactory);
             var shootCameraShake = new CameraShake(_camera);
-            var weaponView = new WeaponView(_animator, shootCameraShake);
             var sleevesWorkTimersFactory = new TimerFactory(_sleeveThrowTime, _sleevesWorkTimers);
             
-            return new WeaponViewWithSleeve(weaponView, sleevePool, sleevesWorkTimersFactory);
+            var viewWithAnimator = new WeaponViewWithAnimator(_animator, shootCameraShake);
+            var viewWithSleeve = new WeaponViewWithSleeve(viewWithAnimator, sleevePool, sleevesWorkTimersFactory);
+            var viewWithAudio = new WeaponViewWithSounds(viewWithSleeve, _audio);
+            
+            return viewWithAudio;
         }
     }
 }

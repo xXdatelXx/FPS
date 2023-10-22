@@ -13,6 +13,8 @@ namespace FPS.Factories
         [SerializeField] private BulletTraceFactory _bulletTraceFactory;
         [SerializeField] private float _rayLifeTime;
         [SerializeField] private float _hitsLifeTime;
+        [SerializeField] private AudioClip _killSound;
+        [SerializeField] private AudioSource _audioSource;
         private IGameLoopObjects _bulletsEffects;
 
         private void Awake()
@@ -28,13 +30,16 @@ namespace FPS.Factories
 
             var hitsPool = new Pool<IBulletHitView>(_bulletHitFactory);
             var hitsLifeTimers = new TimerFactory(_hitsLifeTime, _bulletsEffects);
+
+            var killSound = new UnitySound(_audioSource, _killSound);
             
             return new BulletViewSequence
             (
      new BulletViewWithCrosshair(_crosshairFactory.Create()),
                 new BulletViewWithTrace(tracesPool, tracesLifeTimers),
                 new BulletViewWithHitEffect(hitsPool, hitsLifeTimers),
-                new BulletViewWithShootParticle(new BulletParticle(_startBulletParticle))
+                new BulletViewWithShootParticle(new BulletParticle(_startBulletParticle)),
+                new BulletViewWithSounds(killSound, new EmptySound())
             );
         }
     }

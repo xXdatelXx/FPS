@@ -3,12 +3,12 @@ using FPS.Visual;
 
 namespace FPS.GamePlay
 {
-    public sealed class WeaponView : IWeaponView
+    public sealed class WeaponViewWithAnimator : IWeaponView
     {
         private readonly IWeaponAnimator _animator;
         private readonly ICameraShake _camera;
 
-        public WeaponView(IWeaponAnimator animator, ICameraShake camera)
+        public WeaponViewWithAnimator(IWeaponAnimator animator, ICameraShake camera)
         {
             _animator = animator.ThrowExceptionIfArgumentNull(nameof(animator));
             _camera = camera.ThrowExceptionIfArgumentNull(nameof(camera));
