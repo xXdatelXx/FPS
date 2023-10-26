@@ -14,10 +14,10 @@ namespace FPS.GamePlay
         [SerializeField] private AudioClip _damageSound;
         [SerializeField] private AudioClip _dieSound;
 
-        private void Awake() => 
+        private void Awake() =>
             _animator = GetComponent<Animator>();
 
-        public void Damage(float health) => 
+        public void Damage(float health) =>
             _audioSource.PlayOneShot(_damageSound);
 
         public void Heal(float health)

@@ -6,7 +6,7 @@ namespace FPS.GamePlay
     {
         private readonly IAnimation _animation;
 
-        public AttackView(IAnimation animation) => 
+        public AttackView(IAnimation animation) =>
             _animation = animation.ThrowExceptionIfArgumentNull(nameof(animation));
 
         public void Attack() => _animation.Play();

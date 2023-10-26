@@ -4,7 +4,7 @@
     {
         private readonly IFadePanel _fadePanel;
 
-        public FadePanelSceneLoadView(IFadePanel fadePanel) => 
+        public FadePanelSceneLoadView(IFadePanel fadePanel) =>
             _fadePanel = fadePanel.ThrowExceptionIfArgumentNull(nameof(fadePanel));
 
         public void VisualizeLoad() => _fadePanel.FadeIn();

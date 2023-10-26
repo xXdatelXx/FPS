@@ -25,7 +25,7 @@ namespace FPS.GamePlay
         {
             if (!CanShoot)
                 throw new InvalidOperationException(nameof(Shoot));
-            
+
             _magazine.Get();
             _weapon.Shoot();
         }
@@ -44,7 +44,7 @@ namespace FPS.GamePlay
 
             if (!_weapon.CanShoot)
                 return;
-            
+
             _magazine.Reload();
             _enabled = true;
         }

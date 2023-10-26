@@ -10,14 +10,15 @@ namespace FPS.GamePlay
         private readonly IPool<IBulletHitView> _hitsPool;
         private readonly IFactory<ITimer> _hitsLifeTimers;
 
-        public BulletViewWithHitEffect(IBulletView bullet, IPool<IBulletHitView> hitsPool, IFactory<ITimer> hitsLifeTimers)
+        public BulletViewWithHitEffect(IBulletView bullet, IPool<IBulletHitView> hitsPool,
+            IFactory<ITimer> hitsLifeTimers)
         {
             _bullet = bullet.ThrowExceptionIfArgumentNull(nameof(bullet));
             _hitsPool = hitsPool.ThrowExceptionIfArgumentNull(nameof(hitsPool));
             _hitsLifeTimers = hitsLifeTimers.ThrowExceptionIfArgumentNull(nameof(hitsLifeTimers));
         }
 
-        public BulletViewWithHitEffect(IPool<IBulletHitView> hitsPool, IFactory<ITimer> hitsLifeTimers) 
+        public BulletViewWithHitEffect(IPool<IBulletHitView> hitsPool, IFactory<ITimer> hitsLifeTimers)
             : this(new NullBulletView(), hitsPool, hitsLifeTimers)
         { }
 
@@ -33,7 +34,7 @@ namespace FPS.GamePlay
         {
             var hit = _hitsPool.Get();
             hit.Visualize(target);
-            
+
             var timer = _hitsLifeTimers.Create();
             timer.Play();
             await timer.End();

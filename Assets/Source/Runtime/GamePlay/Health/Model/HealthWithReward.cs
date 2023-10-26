@@ -22,7 +22,7 @@ namespace FPS.GamePlay
                 return;
 
             _health.TakeDamage(damage);
-            
+
             if (_health.Died)
                 _reward.Receive();
         }

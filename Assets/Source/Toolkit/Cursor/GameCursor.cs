@@ -13,7 +13,7 @@ namespace FPS.Toolkit
         public void Hide()
         {
             Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;   
+            Cursor.visible = false;
         }
     }
 }

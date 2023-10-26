@@ -7,7 +7,7 @@ namespace FPS.Toolkit.Tests.Dummys
     {
         public string Name;
         public int Id;
-        
+
         public DummySaveData(int id, string name)
         {
             Id = id;

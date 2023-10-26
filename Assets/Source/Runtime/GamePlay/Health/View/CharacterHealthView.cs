@@ -13,13 +13,13 @@ namespace FPS.GamePlay
             _lose = lose.ThrowExceptionIfArgumentNull(nameof(lose));
         }
 
-        public void Damage(float health) => 
+        public void Damage(float health) =>
             _damageAnimation.Play();
 
         public void Heal(float health)
         { }
 
-        public void Die() => 
+        public void Die() =>
             _lose.Visualize();
     }
 }

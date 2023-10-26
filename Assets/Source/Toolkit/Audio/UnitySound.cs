@@ -16,7 +16,7 @@ namespace FPS.Toolkit
         public UnitySound(AudioSource source) : this(source, source.clip)
         { }
 
-        public void Play() => 
+        public void Play() =>
             _source.PlayOneShot(_clip);
     }
 }

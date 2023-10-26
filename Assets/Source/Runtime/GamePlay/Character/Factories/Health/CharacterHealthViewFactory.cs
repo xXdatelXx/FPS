@@ -16,7 +16,7 @@ namespace FPS.Factories
         [Header("Other")]
         [SerializeField] private ProText _healthText;
         [SerializeField] private LoseView _lose;
-        
+
         public IHealthView Create()
         {
             var damageAnimation = new UnityAnimation(_animator, _damageAnimation);

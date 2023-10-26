@@ -4,12 +4,12 @@
     {
         private readonly IGameObject _gameObject;
 
-        public GameObjectActivationButton(IGameObject gameObject) => 
+        public GameObjectActivationButton(IGameObject gameObject) =>
             _gameObject = gameObject.ThrowExceptionIfArgumentNull(nameof(gameObject));
 
         public void Press()
         {
-            if(_gameObject.Active)
+            if (_gameObject.Active)
                 _gameObject.Disable();
             else
                 _gameObject.Enable();

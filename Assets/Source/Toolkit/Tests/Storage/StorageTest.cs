@@ -19,7 +19,7 @@ namespace FPS.Toolkit.Tests
         {
             _storage.Save(_value);
             var loadedValue = _storage.Load();
-            
+
             Assert.That(loadedValue.Id == _value.Id && loadedValue.Name == _value.Name);
         }
     }

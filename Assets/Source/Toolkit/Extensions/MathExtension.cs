@@ -14,7 +14,7 @@ namespace FPS.Toolkit
             return Mathf.Clamp(value > 180 ? value - 360 : value, min, max);
         }
 
-        public static float RandomValue(this Range range) => 
+        public static float RandomValue(this Range range) =>
             Random.Range(range.Min, range.Max);
     }
 }

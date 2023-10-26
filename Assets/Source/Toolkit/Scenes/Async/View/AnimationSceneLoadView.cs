@@ -8,10 +8,10 @@ namespace FPS.Toolkit.View
         [SerializeField] private string _loadAnimation;
         private Animator _animator;
 
-        private void Awake() => 
+        private void Awake() =>
             _animator = GetComponent<Animator>();
 
-        public void VisualizeLoad() => 
+        public void VisualizeLoad() =>
             _animator.Play(_loadAnimation);
     }
 }

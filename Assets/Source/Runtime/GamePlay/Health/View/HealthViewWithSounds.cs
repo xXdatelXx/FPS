@@ -14,14 +14,14 @@ namespace FPS.GamePlay
             _damage = damage.ThrowExceptionIfArgumentNull(nameof(damage));
             _die = die.ThrowExceptionIfArgumentNull(nameof(die));
         }
-        
+
         public void Damage(float health)
         {
             _damage.Play();
             _view.Damage(health);
         }
 
-        public void Heal(float health) => 
+        public void Heal(float health) =>
             _view.Heal(health);
 
         public void Die()

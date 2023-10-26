@@ -13,7 +13,7 @@ namespace FPS.GamePlay
             _reward = reword.ThrowExceptionIfValueSubZero(nameof(reword));
         }
 
-        public void Receive() => 
+        public void Receive() =>
             _score.Increase(_reward);
     }
 }

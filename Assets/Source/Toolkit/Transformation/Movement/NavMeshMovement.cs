@@ -14,7 +14,7 @@ namespace FPS.Toolkit
         }
 
         public IReadOnlyPosition Position { get; }
-        
+
         public void Move(Vector3 motion) => _agent.SetDestination(motion);
     }
 }

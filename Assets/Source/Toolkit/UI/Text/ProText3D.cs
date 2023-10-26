@@ -2,7 +2,7 @@
 
 namespace FPS.Toolkit
 {
-    public sealed class ProText3D: TextMeshPro, IText
+    public sealed class ProText3D : TextMeshPro, IText
     {
         public void Visualize(string value) =>
             text = value;

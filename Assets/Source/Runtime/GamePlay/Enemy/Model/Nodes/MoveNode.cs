@@ -27,7 +27,7 @@ namespace FPS.GamePlay
                 : Success;
         }
 
-        public void Reset() => 
+        public void Reset() =>
             Status = Idle;
     }
 }

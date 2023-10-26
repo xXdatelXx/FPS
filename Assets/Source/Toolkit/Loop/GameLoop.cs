@@ -21,7 +21,7 @@ namespace FPS.Toolkit.GameLoop
         public void Start()
         {
             Start().Forget();
-            
+
             async UniTaskVoid Start()
             {
                 while (true)

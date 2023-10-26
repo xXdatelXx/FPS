@@ -6,7 +6,7 @@ namespace FPS.GamePlay
     {
         private readonly Curve _curve;
 
-        public CurveDamageCoefficient(Curve curve) => 
+        public CurveDamageCoefficient(Curve curve) =>
             _curve = curve.ThrowExceptionIfValuesSubZero(nameof(curve));
 
         public float Next(float distance)

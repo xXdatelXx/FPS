@@ -19,7 +19,7 @@ namespace FPS.GamePlay
         public void Cast() =>
             Cast(_throwPosition.Value + _throwPosition.Forward * _standardMotion);
 
-        public void Cast(Vector3 target) => 
+        public void Cast(Vector3 target) =>
             _movement.Move(target - _throwPosition.Value);
     }
 }

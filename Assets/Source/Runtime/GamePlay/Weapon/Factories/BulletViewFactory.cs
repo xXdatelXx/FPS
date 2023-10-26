@@ -28,10 +28,10 @@ namespace FPS.Factories
             var hitsLifeTimers = new TimerFactory(_hitsLifeTime, _bulletsEffects);
 
             var killSound = new UnitySound(_audioSource, _killSound);
-            
+
             return new BulletViewSequence
             (
-     new BulletViewWithCrosshair(_crosshairFactory.Create()),
+                new BulletViewWithCrosshair(_crosshairFactory.Create()),
                 new BulletViewWithTrace(_bulletTraceFactory),
                 new BulletViewWithHitEffect(hitsPool, hitsLifeTimers),
                 new BulletViewWithShootParticle(new BulletParticle(_startBulletParticle)),

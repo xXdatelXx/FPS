@@ -6,7 +6,7 @@ namespace FPS.Toolkit.Storage
     public sealed class JsonStorage<TValue> : IStorage<TValue>
     {
         private readonly string _pathName;
-        
+
         public JsonStorage(string path) : this(new Path(path))
         { }
 
@@ -22,7 +22,7 @@ namespace FPS.Toolkit.Storage
         {
             if (Exists == false)
                 throw new HasNotSaveException(nameof(TValue), _pathName);
-            
+
             var saveJson = File.ReadAllText(_pathName);
             return JsonUtility.FromJson<TValue>(saveJson);
         }
@@ -30,7 +30,7 @@ namespace FPS.Toolkit.Storage
         public void Save(TValue value)
         {
             value.ThrowExceptionIfArgumentNull(nameof(value));
-            
+
             var saveJson = JsonUtility.ToJson(value);
             File.WriteAllText(_pathName, saveJson);
         }

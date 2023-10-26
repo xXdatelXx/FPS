@@ -12,12 +12,12 @@ namespace FPS.Toolkit
         [SerializeField, MinValue(0)] private float _time;
         private CancellationTokenSource _cancellationTokenSource;
 
-        public AsyncTimer(float time) => 
+        public AsyncTimer(float time) =>
             _time = time.ThrowExceptionIfValueSubZero(nameof(time));
 
         public bool Playing { get; private set; }
 
-        public void Play() => 
+        public void Play() =>
             PlayAsync().Forget();
 
         private async UniTaskVoid PlayAsync()
@@ -28,12 +28,12 @@ namespace FPS.Toolkit
             _cancellationTokenSource = new CancellationTokenSource();
 
             Playing = true;
-            
+
             await UniTask.Delay(TimeSpan.FromSeconds(_time), cancellationToken: _cancellationTokenSource.Token);
-            
+
             Playing = false;
         }
-
+        
         public void Stop()
         {
             if (!Playing)

@@ -7,7 +7,7 @@ namespace FPS.GamePlay
     {
         private readonly IWeapon _weapon;
 
-        public AttackWithWeaponNode(IWeapon weapon) => 
+        public AttackWithWeaponNode(IWeapon weapon) =>
             _weapon = weapon.ThrowExceptionIfArgumentNull(nameof(weapon));
 
         public BehaviourNodeStatus Status { get; private set; }
@@ -23,7 +23,7 @@ namespace FPS.GamePlay
             return Status = Failure;
         }
 
-        public void Reset() => 
+        public void Reset() =>
             Status = Idle;
     }
 }

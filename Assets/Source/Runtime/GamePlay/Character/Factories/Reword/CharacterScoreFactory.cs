@@ -8,7 +8,7 @@ namespace FPS.Factories
     {
         [SerializeField] private ProText _scoreText;
         [SerializeField] private ProText3D _maxScoreText;
-        
+
         public IScore Create()
         {
             var scoreView = new ScoreView(_scoreText);

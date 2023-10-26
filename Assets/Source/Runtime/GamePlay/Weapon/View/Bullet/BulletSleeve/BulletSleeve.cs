@@ -25,7 +25,7 @@ namespace FPS.GamePlay
             _rigidbody.AddRelativeForce(_direction * _force);
         }
 
-        public void Hide() => 
+        public void Hide() =>
             _rigidbody.gameObject.SetActive(false);
     }
 }

@@ -5,9 +5,9 @@ namespace FPS.GamePlay
 {
     public sealed class WeaponViewWithSleeve : IWeaponView
     {
-        private readonly IWeaponView _view;
         private readonly IPool<IBulletSleeve> _pool;
         private readonly IFactory<ITimer> _timerFactory;
+        private readonly IWeaponView _view;
 
         public WeaponViewWithSleeve(IWeaponView view, IPool<IBulletSleeve> pool, IFactory<ITimer> timerFactory)
         {
@@ -22,11 +22,17 @@ namespace FPS.GamePlay
             _view.Shoot();
         }
 
+        public void Reload() => _view.Reload();
+
+        public void Equip() => _view.Equip();
+
+        public void UneQuip() => _view.UneQuip();
+
         private void ThrowSleeve()
         {
             var sleeve = _pool.Get();
             sleeve.Throw();
-            
+
             ReturnSleeve(sleeve).Forget();
         }
 
@@ -36,14 +42,9 @@ namespace FPS.GamePlay
             timer.Play();
 
             await timer.End();
-            
+
             sleeve.Hide();
             _pool.Return(sleeve);
         }
-        public void Reload() => _view.Reload();
-
-        public void Equip() => _view.Equip();
-
-        public void UneQuip() => _view.UneQuip();
     }
 }

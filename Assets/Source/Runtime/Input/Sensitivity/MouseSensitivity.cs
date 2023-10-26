@@ -12,7 +12,7 @@ namespace FPS.Input
         {
             _storage = new BinaryStorage<float>(nameof(MouseSensitivity));
 
-            if (_storage.NullOrDefault()) 
+            if (_storage.NullOrDefault())
                 _storage.Save(1);
 
             Value = _storage.Load();

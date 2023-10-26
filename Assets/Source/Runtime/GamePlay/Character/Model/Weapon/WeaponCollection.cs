@@ -32,7 +32,7 @@ namespace FPS.GamePlay
         }
 
         #endregion
-        
+
         public IPlayerWithWeapon Weapon => _weapons[_id];
         public bool CanSwitch => _weapons.Count > 1;
 

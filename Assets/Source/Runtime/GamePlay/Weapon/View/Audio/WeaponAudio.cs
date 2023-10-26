@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using FPS.Toolkit;
+﻿using FPS.Toolkit;
 using UnityEngine;
 
 namespace FPS.GamePlay
@@ -14,19 +12,19 @@ namespace FPS.GamePlay
         [SerializeField] private AudioClip _uneQuip;
         private AudioSource _audioSource;
 
-        private void Awake() => 
+        private void Awake() =>
             _audioSource = GetComponent<AudioSource>();
 
-        public void Shoot() => 
+        public void Shoot() =>
             _audioSource.PlayOneShot(_shootClips.RandomElement());
 
-        public void Reload() => 
+        public void Reload() =>
             _audioSource.PlayOneShot(_reload);
 
-        public void Equip() => 
+        public void Equip() =>
             _audioSource.PlayOneShot(_equip);
 
-        public void UneQuip() => 
+        public void UneQuip() =>
             _audioSource.PlayOneShot(_uneQuip);
     }
 }

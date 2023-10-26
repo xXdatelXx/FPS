@@ -10,7 +10,7 @@ namespace FPS.GamePlay
         [SerializeField] private float _limit;
         private IPlayerMovementInput _input;
 
-        private void Awake() => 
+        private void Awake() =>
             _input = new PlayerMovementInput();
 
         private void Update() =>

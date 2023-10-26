@@ -21,7 +21,7 @@ namespace FPS.GamePlay
             _scoreView = scoreView.ThrowExceptionIfArgumentNull(nameof(scoreView));
         }
 
-        public void Visualize() => 
+        public void Visualize() =>
             StartLoseAnimation().Forget();
 
         private async UniTaskVoid StartLoseAnimation()
@@ -29,7 +29,7 @@ namespace FPS.GamePlay
             _scoreView.Visualize(_score.Value);
 
             _fadePanel.FadeIn();
-            
+
             var timerForFoolFade = new AsyncTimer(_fadePanel.FadeTime);
             timerForFoolFade.Play();
             await timerForFoolFade.End();
@@ -39,7 +39,7 @@ namespace FPS.GamePlay
             _character.gameObject.SetActive(false);
 
             _fadePanel.FadeOut();
-            
+
             _animator.Play(_loseAnimation);
         }
     }

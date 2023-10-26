@@ -1,7 +1,5 @@
 ﻿using FPS.Toolkit;
 using UnityEngine;
-using Object = UnityEngine.Object;
-using Range = FPS.Toolkit.Range;
 
 namespace FPS.GamePlay
 {

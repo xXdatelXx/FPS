@@ -8,11 +8,11 @@ namespace FPS.GamePlay
 
         public MagazineView(IText text) =>
             _text = text.ThrowExceptionIfArgumentNull(nameof(text));
-        
-        public void GetBullet(int bulletsCount) => 
+
+        public void GetBullet(int bulletsCount) =>
             _text.Visualize(bulletsCount);
 
-        public void Reload(int bulletsCount) => 
+        public void Reload(int bulletsCount) =>
             _text.Visualize(bulletsCount);
     }
 }

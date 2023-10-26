@@ -20,14 +20,14 @@ namespace FPS.Core
             (
                 new Data.Factories
                 (
-                    _characterFactory, 
-                    _playerFactory, 
-                    _playerWeaponFactory, 
+                    _characterFactory,
+                    _playerFactory,
+                    _playerWeaponFactory,
                     _enemySimulationFactory,
                     _loseFactory
                 )
             );
-            
+
             new Game(gameEngine).Play();
         }
     }

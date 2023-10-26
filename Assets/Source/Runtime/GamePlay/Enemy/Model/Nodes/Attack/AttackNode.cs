@@ -21,14 +21,14 @@ namespace FPS.GamePlay
         public BehaviourNodeStatus Execute(float time)
         {
             _view.Attack();
-            
-            if (_target.Alive()) 
+
+            if (_target.Alive())
                 _target.TakeDamage(_damage);
-            
+
             return Status = Success;
         }
 
-        public void Reset() => 
+        public void Reset() =>
             Status = Idle;
     }
 }

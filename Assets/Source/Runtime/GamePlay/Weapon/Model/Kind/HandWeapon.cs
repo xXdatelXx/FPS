@@ -38,7 +38,7 @@ namespace FPS.GamePlay
             _enableTimer.Play();
 
             await _enableTimer.End();
-            
+
             if (_enableTimer.Canceled)
                 return;
 

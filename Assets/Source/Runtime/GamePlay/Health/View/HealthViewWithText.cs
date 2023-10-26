@@ -8,14 +8,14 @@ namespace FPS.GamePlay
         private readonly IHealthView _healthView;
         private readonly IText _healthText;
         private readonly int _textPrecision;
-        
+
         public HealthViewWithText(IHealthView view, IText healthText, int textPrecision = 1)
         {
             _healthView = view.ThrowExceptionIfArgumentNull(nameof(view));
             _healthText = healthText.ThrowExceptionIfArgumentNull(nameof(healthText));
             _textPrecision = textPrecision.ThrowExceptionIfValueSubZero(nameof(textPrecision));
         }
-        
+
         public void Damage(float health)
         {
             _healthView.Damage(health);
@@ -33,7 +33,7 @@ namespace FPS.GamePlay
             _healthView.Die();
             Visualize(0);
         }
-        
+
         private void Visualize(float health) =>
             _healthText.Visualize(Math.Round(health, _textPrecision));
     }

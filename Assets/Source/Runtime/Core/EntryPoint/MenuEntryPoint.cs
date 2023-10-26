@@ -24,7 +24,7 @@ namespace FPS.Core
         {
             SetupPlayButton();
             SetupOptions();
-            
+
             new GameCursor().Show();
         }
 
@@ -39,7 +39,7 @@ namespace FPS.Core
         {
             var optionsToggleActiveButton = new GameObjectActivationButton(new GameObject(_sensitivity.gameObject));
             _options.Subscribe(optionsToggleActiveButton);
-            
+
             var sensitivity = new MouseSensitivity();
             _sensitivity.Subscribe(new MouseSensitivitySlider(sensitivity), sensitivity.Value);
         }

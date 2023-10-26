@@ -18,7 +18,7 @@ namespace FPS.GamePlay
 
         public bool Playing => _timer.Playing;
         public bool Canceled => _timer.Canceled;
-        
+
         public void Play()
         {
             _timer.Play();

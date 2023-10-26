@@ -24,9 +24,9 @@ namespace FPS.GamePlay
 
         public void Tick(float deltaTime)
         {
-            if(_spawnTimer.Playing)
+            if (_spawnTimer.Playing)
                 return;
-            
+
             _spawnTimer.Play();
             _factory.Create();
         }

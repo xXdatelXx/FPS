@@ -8,7 +8,7 @@ namespace FPS.Toolkit.Storage
         public Path(string name)
         {
             name.ThrowExceptionIfArgumentNull(nameof(name));
-            
+
 #if UNITY_ANDROID && !UNITY_EDITOR
             var folder = Application.persistentDataPath + "Game Saves";
             Name = System.IO.Path.Combine(Application.persistentDataPath, SavesFolder, name);

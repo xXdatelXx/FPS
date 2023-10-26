@@ -7,7 +7,7 @@ namespace FPS.GamePlay
     {
         private readonly IBulletFactory _bullets;
 
-        public Weapon(IBulletFactory factory) => 
+        public Weapon(IBulletFactory factory) =>
             _bullets = factory.ThrowExceptionIfArgumentNull(nameof(factory));
 
         public bool CanShoot { get; private set; }

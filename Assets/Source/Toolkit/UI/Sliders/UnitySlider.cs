@@ -12,10 +12,10 @@ namespace FPS.Toolkit
         public void Subscribe(ISlider slider, float value = 0)
         {
             _unitySlider ??= GetComponent<Slider>();
-            
+
             _slider = slider.ThrowExceptionIfArgumentNull(nameof(slider));
             _unitySlider.value = value.ThrowExceptionIfValueSubZero(nameof(value));
-            
+
             _unitySlider.onValueChanged.AddListener(_slider.Slide);
         }
 

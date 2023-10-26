@@ -7,7 +7,7 @@ namespace FPS.Toolkit.Storage
     {
         private readonly BinaryFormatter _formatter;
         private readonly string _pathName;
-        
+
         public BinaryStorage(IPath path) : this(path.Name)
         { }
 

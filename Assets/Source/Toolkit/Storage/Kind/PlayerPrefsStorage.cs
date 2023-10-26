@@ -14,7 +14,7 @@ namespace FPS.Toolkit.Storage
             path.ThrowExceptionIfArgumentNull(nameof(path));
             _pathName = path.Name;
         }
-        
+
         public bool Exists => PlayerPrefs.HasKey(_pathName);
 
         public TValue Load()
@@ -29,7 +29,7 @@ namespace FPS.Toolkit.Storage
         public void Save(TValue value)
         {
             value.ThrowExceptionIfArgumentNull(nameof(value));
-            
+
             var saveJson = JsonUtility.ToJson(value);
             PlayerPrefs.SetString(_pathName, saveJson);
         }

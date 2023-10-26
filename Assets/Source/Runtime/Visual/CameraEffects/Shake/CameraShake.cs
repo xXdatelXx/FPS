@@ -17,7 +17,7 @@ namespace FPS.Visual
             _strength = strength;
         }
 
-        public void Shake() => 
+        public void Shake() =>
             _camera.DOShakeRotation(_duration, _strength);
     }
 }

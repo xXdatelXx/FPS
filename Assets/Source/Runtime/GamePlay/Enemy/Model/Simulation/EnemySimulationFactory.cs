@@ -1,6 +1,5 @@
 ﻿using FPS.Toolkit;
 using UnityEngine;
-using Range = FPS.Toolkit.Range;
 
 namespace FPS.GamePlay
 {
@@ -15,7 +14,7 @@ namespace FPS.GamePlay
         {
             character.ThrowExceptionIfArgumentNull(nameof(character));
 
-            var enemyFactory = new EnemyFactory(_prefab, character, _enemySpawnPositionRange, new ScoreReward(character.Score, 1),  _parent);
+            var enemyFactory = new EnemyFactory(_prefab, character, _enemySpawnPositionRange, new ScoreReward(character.Score, 1), _parent);
             return new EnemySimulation(enemyFactory, _spawnTimer);
         }
 

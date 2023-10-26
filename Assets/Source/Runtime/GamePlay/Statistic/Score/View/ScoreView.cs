@@ -9,7 +9,7 @@ namespace FPS.GamePlay
         public ScoreView(IText text) =>
             _text = text.ThrowExceptionIfArgumentNull(nameof(text));
 
-        public void Visualize(int value) => 
+        public void Visualize(int value) =>
             _text.Visualize(value);
     }
 }

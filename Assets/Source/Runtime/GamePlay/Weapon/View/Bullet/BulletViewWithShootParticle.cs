@@ -1,9 +1,9 @@
-﻿using UnityEngine;
-using FPS.Toolkit;
+﻿using FPS.Toolkit;
+using UnityEngine;
 
 namespace FPS.GamePlay
 {
-    public sealed class BulletViewWithShootParticle: IBulletView
+    public sealed class BulletViewWithShootParticle : IBulletView
     {
         private readonly IBulletView _bullet;
         private readonly IBulletParticle _shootParticle;

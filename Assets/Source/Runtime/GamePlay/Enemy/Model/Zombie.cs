@@ -16,7 +16,7 @@ namespace FPS.GamePlay
             var agent = GetComponent<NavMeshAgent>();
             var movement = new NavMeshMovement(agent);
             var attackView = new AttackView(new UnityAnimation(GetComponent<Animator>(), _attackAnimation));
-            
+
             return new BehaviourNodeSequence
             (
                 new MoveNode(movement, character.Movement.Position, agent.stoppingDistance),

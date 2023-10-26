@@ -6,7 +6,6 @@ namespace FPS.Toolkit
     [RequireComponent(typeof(CanvasGroup))]
     public class FadePanel : MonoBehaviour, IFadePanel
     {
-        [field: SerializeField] public float FadeTime { get; private set; }
         [SerializeField] private OnStart _onStart;
         private CanvasGroup _canvasGroup;
 
@@ -17,6 +16,8 @@ namespace FPS.Toolkit
             if (_onStart is not OnStart.Null)
                 Fade((int)--_onStart);
         }
+
+        [field: SerializeField] public float FadeTime { get; private set; }
 
         public void FadeIn() => Fade(1);
 

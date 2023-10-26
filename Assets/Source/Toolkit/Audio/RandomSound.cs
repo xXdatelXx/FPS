@@ -7,13 +7,13 @@ namespace FPS.Toolkit
     {
         private readonly IEnumerable<ISound> _sounds;
 
-        public RandomSound(IEnumerable<ISound> sounds) => 
+        public RandomSound(IEnumerable<ISound> sounds) =>
             _sounds = sounds.TryThrowNullReferenceForeach(nameof(sounds));
-        
+
         public RandomSound(params ISound[] sounds) : this(sounds.ToList())
         { }
 
-        public void Play() => 
+        public void Play() =>
             _sounds.RandomElement().Play();
     }
 }

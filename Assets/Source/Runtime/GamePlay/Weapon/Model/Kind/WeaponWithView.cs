@@ -14,7 +14,7 @@ namespace FPS.GamePlay
         }
 
         public bool CanShoot => _weapon.CanShoot;
-        
+
         public void Shoot()
         {
             _weapon.Shoot();

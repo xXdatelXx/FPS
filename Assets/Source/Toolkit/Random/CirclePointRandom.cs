@@ -18,7 +18,7 @@ namespace FPS.Toolkit
                 throw new ArgumentOutOfRangeException("radius < offset");
         }
 
-        public Vector2 Next() => 
+        public Vector2 Next() =>
             Random.insideUnitCircle.normalized * (_radius - _offset);
     }
 }

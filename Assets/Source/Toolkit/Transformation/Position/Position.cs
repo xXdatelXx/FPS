@@ -15,7 +15,7 @@ namespace FPS.Toolkit
             get => _transform.position;
             private set => _transform.position = value;
         }
-        
+
         public Vector3 Forward => _transform.forward;
 
         public void TeleportTo(Vector3 position)
