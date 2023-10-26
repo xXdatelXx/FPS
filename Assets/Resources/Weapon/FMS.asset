@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af36141c46b343f2a09477fbea14bb8e, type: 3}
   m_Name: FMS
   m_EditorClassIdentifier: 
-  <Damage>k__BackingField: 10
+  <Damage>k__BackingField: 20
   <DamageCurve>k__BackingField:
     serializedVersion: 2
     m_Curve:

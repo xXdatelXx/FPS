@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af36141c46b343f2a09477fbea14bb8e, type: 3}
   m_Name: M4A4
   m_EditorClassIdentifier: 
-  <Damage>k__BackingField: 5
+  <Damage>k__BackingField: 12
   <DamageCurve>k__BackingField:
     serializedVersion: 2
     m_Curve:
@@ -38,7 +38,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   <Reload>k__BackingField: 1
-  <Bullets>k__BackingField: 30
+  <Bullets>k__BackingField: 40
   <Delay>k__BackingField: 0.15
   <Enable>k__BackingField: 0.1
   <RecoilCurve>k__BackingField:
