@@ -44,12 +44,14 @@ namespace FPS.Toolkit
 
         private void Validate()
         {
+#if UNITY_EDITOR
             var sceneInBuild =
                 EditorBuildSettings.scenes
                     .Any(scene => scene.enabled && scene.path.Contains("/" + Name + ".unity"));
 
             if (!sceneInBuild)
                 throw new ArgumentException($"{name} not exists");
+#endif
         }
     }
 }
