@@ -6,6 +6,5 @@ namespace FPS.GamePlay
     {
         void Cast();
         void Cast(Vector3 target);
-        void Hide();
     }
 }

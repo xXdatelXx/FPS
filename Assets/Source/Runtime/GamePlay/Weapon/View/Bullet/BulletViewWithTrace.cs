@@ -7,48 +7,33 @@ namespace FPS.GamePlay
     public sealed class BulletViewWithTrace : IBulletView
     {
         private readonly IBulletView _bullet;
-        private readonly IPool<IBulletTrace> _tracePool;
-        private readonly IFactory<ITimer> _traceLifeTimers;
+        private readonly IFactory<IBulletTrace> _factory;
         
-        public BulletViewWithTrace(IBulletView bullet, IPool<IBulletTrace> tracePool, IFactory<ITimer> traceLifeTimers)
+        public BulletViewWithTrace(IBulletView bullet, IFactory<IBulletTrace> factory)
         {
             _bullet = bullet.ThrowExceptionIfArgumentNull(nameof(bullet));
-            _tracePool = tracePool.ThrowExceptionIfArgumentNull(nameof(tracePool));
-            _traceLifeTimers = traceLifeTimers.ThrowExceptionIfArgumentNull(nameof(traceLifeTimers));
+            _factory = factory.ThrowExceptionIfArgumentNull(nameof(factory));
         }
         
-        public BulletViewWithTrace(IPool<IBulletTrace> pool, IFactory<ITimer> timerFactory) 
-            : this(new NullBulletView(), pool, timerFactory)
+        public BulletViewWithTrace(IFactory<IBulletTrace> factory) : this(new NullBulletView(), factory)
         { }
 
         public void Miss()
         {
             _bullet.Miss();
             
-            var trace = _tracePool.Get();
+            var trace = _factory.Create();
             trace.Cast();
-            Hide(trace).Forget();
         }
 
         public void Hit(Vector3 target)
         {
             _bullet.Hit(target);
             
-            var trace = _tracePool.Get();
+            var trace = _factory.Create();
             trace.Cast(target);
-            Hide(trace).Forget();
         }
         
-        private async UniTaskVoid Hide(IBulletTrace trace)
-        {
-            var timer = _traceLifeTimers.Create();
-            timer.Play();
-            await timer.End();
-
-            trace.Hide();
-            _tracePool.Return(trace);
-        }
-
         public void Kill() => _bullet.Kill();
 
         public void Damage() => _bullet.Damage();

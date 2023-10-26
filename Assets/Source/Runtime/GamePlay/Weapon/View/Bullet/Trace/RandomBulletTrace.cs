@@ -25,7 +25,5 @@ namespace FPS.GamePlay
             if (_random.Next())
                 _trace.Cast(target);
         }
-
-        public void Hide() => _trace.Hide();
     }
 }

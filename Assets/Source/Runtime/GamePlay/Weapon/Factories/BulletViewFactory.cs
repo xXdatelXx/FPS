@@ -11,7 +11,6 @@ namespace FPS.Factories
         [SerializeField] private CrosshairFactory _crosshairFactory;
         [SerializeField] private BulletHitFactory _bulletHitFactory;
         [SerializeField] private BulletTraceFactory _bulletTraceFactory;
-        [SerializeField] private float _rayLifeTime;
         [SerializeField] private float _hitsLifeTime;
         [SerializeField] private AudioClip _killSound;
         [SerializeField] private AudioSource _audioSource;
@@ -25,9 +24,6 @@ namespace FPS.Factories
 
         public IBulletView Create()
         {
-            var tracesPool = new Pool<IBulletTrace>(_bulletTraceFactory);
-            var tracesLifeTimers = new TimerFactory(_rayLifeTime, _bulletsEffects);
-
             var hitsPool = new Pool<IBulletHitView>(_bulletHitFactory);
             var hitsLifeTimers = new TimerFactory(_hitsLifeTime, _bulletsEffects);
 
@@ -36,7 +32,7 @@ namespace FPS.Factories
             return new BulletViewSequence
             (
      new BulletViewWithCrosshair(_crosshairFactory.Create()),
-                new BulletViewWithTrace(tracesPool, tracesLifeTimers),
+                new BulletViewWithTrace(_bulletTraceFactory),
                 new BulletViewWithHitEffect(hitsPool, hitsLifeTimers),
                 new BulletViewWithShootParticle(new BulletParticle(_startBulletParticle)),
                 new BulletViewWithSounds(killSound, new EmptySound())
