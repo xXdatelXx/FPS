@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace FPS.Toolkit
 {
-    public sealed class Position : IPosition, IPositionWithVectorTransform
+    public sealed class Position : IPosition
     {
         private readonly Transform _transform;
 
@@ -15,6 +15,8 @@ namespace FPS.Toolkit
             get => _transform.position;
             private set => _transform.position = value;
         }
+        
+        public Vector3 Forward => _transform.forward;
 
         public void TeleportTo(Vector3 position)
         {
@@ -23,14 +25,5 @@ namespace FPS.Toolkit
 
             Value = position;
         }
-
-        public Vector3 TransformVector(Vector3 vector) =>
-            _transform.TransformVector(vector);
-
-        public Vector3 TransformPoint(Vector3 vector) =>
-            _transform.TransformPoint(vector);
-
-        public Vector3 TransformDirection(Vector3 vector) =>
-            _transform.TransformDirection(vector);
     }
 }
