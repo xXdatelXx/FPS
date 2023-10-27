@@ -4,7 +4,7 @@ using FPS.Toolkit;
 
 namespace FPS.Data
 {
-    public struct GameFactories
+    public readonly struct GameFactories
     {
         public GameFactories(ICharacterFactory character, IPlayerFactory player, IPlayerWeaponCollectionFactory playerWeapon, IEnemySimulationFactory enemySimulation, ILoseFactory loseFactory)
         {
