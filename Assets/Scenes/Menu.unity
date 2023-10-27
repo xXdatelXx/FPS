@@ -364,8 +364,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3da3874581b6423ea75df68fca16a1cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <FadeTime>k__BackingField: 2
   _onStart: 0
+  <FadeTime>k__BackingField: 2
 --- !u!225 &383854974
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -1856,10 +1856,10 @@ MonoBehaviour:
   m_FillRect: {fileID: 1148177442}
   m_HandleRect: {fileID: 768777696}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 1
+  m_MinValue: 0.5
+  m_MaxValue: 3
   m_WholeNumbers: 0
-  m_Value: 0.477
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
