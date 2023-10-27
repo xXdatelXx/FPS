@@ -13,7 +13,7 @@ namespace FPS.GamePlay
         {
             _weapons = weapons.ThrowExceptionIfArgumentNull(nameof(weapons));
             _input = input.ThrowExceptionIfArgumentNull(nameof(input));
-            _weapon = _weapons.Weapon;
+            _weapon = _weapons.Current;
             _weapon.Enable();
         }
 

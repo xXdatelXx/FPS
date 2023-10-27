@@ -2,7 +2,7 @@
 {
     public interface IWeaponCollection
     {
-        IPlayerWithWeapon Weapon { get; }
+        IPlayerWithWeapon Current { get; }
 
         bool CanSwitch { get; }
 

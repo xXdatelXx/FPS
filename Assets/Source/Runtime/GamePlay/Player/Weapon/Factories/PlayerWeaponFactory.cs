@@ -14,7 +14,7 @@ namespace FPS.Factories
             var weapon = _weaponFactory.Create();
 
             var playerWeapon = new PlayerWithWeapon(weapon, input);
-            var playerWeaponWithMagazine = new PlayerWeaponWithMagazine(playerWeapon, weapon, input);
+            var playerWeaponWithMagazine = new PlayerWithMagazineWeapon(playerWeapon, weapon, input);
 
             return playerWeaponWithMagazine;
         }

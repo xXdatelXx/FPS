@@ -3,13 +3,13 @@ using FPS.Toolkit;
 
 namespace FPS.GamePlay
 {
-    public sealed class PlayerWeaponWithMagazine : IPlayerWithWeapon
+    public sealed class PlayerWithMagazineWeapon : IPlayerWithWeapon
     {
         private readonly IPlayerWeaponInput _input;
         private readonly IPlayerWithWeapon _playerWithWeapon;
         private readonly IWeaponWithMagazine _weapon;
 
-        public PlayerWeaponWithMagazine(IPlayerWithWeapon playerWithWeapon, IWeaponWithMagazine weapon, IPlayerWeaponInput input)
+        public PlayerWithMagazineWeapon(IPlayerWithWeapon playerWithWeapon, IWeaponWithMagazine weapon, IPlayerWeaponInput input)
         {
             _playerWithWeapon = playerWithWeapon.ThrowExceptionIfArgumentNull(nameof(playerWithWeapon));
             _weapon = weapon.ThrowExceptionIfArgumentNull(nameof(weapon));
