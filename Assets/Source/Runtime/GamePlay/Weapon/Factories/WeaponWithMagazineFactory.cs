@@ -9,7 +9,7 @@ namespace FPS.Factories
     public sealed class WeaponWithMagazineFactory : MonoBehaviour, IFactory<IWeaponWithMagazine>
     {
         [SerializeField] private RaySpawnPoint _bulletSpawnPoint;
-        [SerializeField] private FullWeaponData _weaponData;
+        [SerializeField] private WeaponData _weaponData;
         [SerializeField] private Transform _head;
         [SerializeField] private Transform _body;
         [SerializeField] private BulletViewFactory _bulletView;

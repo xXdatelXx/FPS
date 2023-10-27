@@ -8,14 +8,14 @@ namespace FPS.Core
     {
         private readonly IGameLoop _gameLoop;
 
-        public Game(IGameEngine engine)
+        public Game(GameFactories factories)
         {
             var time = new GameTime();
-            var character = engine.Factories.Character.Create(time);
-            var player = engine.Factories.Player.Create(character);
-            var lose = engine.Factories.LoseFactory.Create(character.Score);
-            var weapons = engine.Factories.PlayerWeapon.Create();
-            var enemySimulation = engine.Factories.EnemySimulation.Create(character);
+            var character = factories.Character.Create(time);
+            var player = factories.Player.Create(character);
+            var lose = factories.LoseFactory.Create(character.Score);
+            var weapons = factories.PlayerWeapon.Create();
+            var enemySimulation = factories.EnemySimulation.Create(character);
             new GameCursor().Hide();
 
             _gameLoop = new GameLoop(time, player, weapons, enemySimulation);

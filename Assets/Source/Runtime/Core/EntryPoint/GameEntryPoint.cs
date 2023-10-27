@@ -16,19 +16,16 @@ namespace FPS.Core
 
         private void Start()
         {
-            var gameEngine = new GameEngine
+            var factories = new GameFactories
             (
-                new Data.Factories
-                (
-                    _characterFactory,
-                    _playerFactory,
-                    _playerWeaponFactory,
-                    _enemySimulationFactory,
-                    _loseFactory
-                )
+                _characterFactory,
+                _playerFactory,
+                _playerWeaponFactory,
+                _enemySimulationFactory,
+                _loseFactory
             );
 
-            new Game(gameEngine).Play();
+            new Game(factories).Play();
         }
     }
 }

@@ -1761,7 +1761,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 850891262}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba006a4ba644453f854a41cd781fb09c, type: 3}
+  m_Script: {fileID: 11500000, guid: bbf329ba25a244abad0df1ceac950ae3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
@@ -1868,7 +1868,7 @@ GameObject:
   - component: {fileID: 902680344}
   - component: {fileID: 902680343}
   m_Layer: 5
-  m_Name: Weapon2
+  m_Name: FMS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3832,7 +3832,7 @@ GameObject:
   - component: {fileID: 1926876202}
   - component: {fileID: 1926876201}
   m_Layer: 5
-  m_Name: Weapon
+  m_Name: M4a4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

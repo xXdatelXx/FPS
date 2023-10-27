@@ -4,9 +4,9 @@ using FPS.Toolkit;
 
 namespace FPS.Data
 {
-    public sealed class Factories : IFactories
+    public struct GameFactories
     {
-        public Factories(ICharacterFactory character, IPlayerFactory player, IPlayerWeaponCollectionFactory playerWeapon, IEnemySimulationFactory enemySimulation, ILoseFactory loseFactory)
+        public GameFactories(ICharacterFactory character, IPlayerFactory player, IPlayerWeaponCollectionFactory playerWeapon, IEnemySimulationFactory enemySimulation, ILoseFactory loseFactory)
         {
             Character = character.ThrowExceptionIfArgumentNull(nameof(character));
             Player = player.ThrowExceptionIfArgumentNull(nameof(player));
