@@ -1,40 +1,93 @@
-# FPS
-The project is a prototype FPS that implements weapon control, shooting, movement, and damage reception.
+# `Project:` FPS Techno Demo
 
-![Image](https://github.com/xXdatelXx/FPS/blob/main/Assets/Art/Sprites/Screenshots/Screenshot.png)
+## `Navigation`
 
-# About the Project
- - The architecture is built using the MV pattern.
+- [**Overview**](#overview)
+- [**Screenshots**](#screenshots)
+- [**About the Project**](#about-the-project)
+    - [**Toolkit**](#toolkit)
+- [**Plugins**](#plugins)
+- [**Software Used**](#software-used)
+- [**Future Plans**](#future-plans)
+- [**Game Installation**](#game-installation)
+- [**Outcome**](#outcome)
+- [**Communication**](#communication)
+- [**License**](#license)
 
- - In this project, the absence of classes inheriting MonoBehaviour can be noticed, indicating a desire to distribute responsibilities among application components.
+## `Overview`
+This project is a techno demo FPS game built with Unity. The architecture follows the MV pattern with a focus on strict OOP principles.
 
- - The project strictly adheres to object-oriented programming (OOP) principles and is covered by tests, which is a good sign of a well-designed architecture and ensures stable application functionality.
+## [**Video gameplay**](https://youtu.be/fRHIoj7SJIo)
 
- - It also employs clean Dependency Injection, which helps avoid dependencies on specific implementations and facilitates easy replacement of application components when needed.
+## `Screenshots`
+<details open>
+  <summary>View Screenshots</summary>
 
- - An attempt has been made in this project to hide Unity code behind abstractions, making the code more understandable and convenient to work with.
+  [<img style="border-radius: 2%; width: 49%;" src="ReadmeContent/Screenshots/Menu.png"/>](ReadmeContent/Screenshots/Menu.png)
+  [<img style="border-radius: 2%; width: 49%;" src="ReadmeContent/Screenshots/Gameplay1.png"/>](ReadmeContent/Screenshots/Gameplay1.png)
+  [<img style="border-radius: 2%; width: 49%;" src="ReadmeContent/Screenshots/Gameplay2.png"/>](ReadmeContent/Screenshots/Gameplay2.png)
+  [<img style="border-radius: 2%; width: 49%;" src="ReadmeContent/Screenshots/Gameplay3.png"/>](ReadmeContent/Screenshots/Gameplay3.png)
+  [<img style="border-radius: 2%; width: 49%;" src="ReadmeContent/Screenshots/Gameplay4.png"/>](ReadmeContent/Screenshots/Gameplay4.png)
+  [<img style="border-radius: 2%; width: 49%;" src="ReadmeContent/Screenshots/Death.png"/>](ReadmeContent/Screenshots/Death.png)
 
- - The project includes a "toolkit" folder containing useful elements that can be used in many games. Some of these elements can be used as separate components, while others can be integrated into existing game systems. In the future, I plan to make this folder a separate package for Unity.
+</details>
 
-# Plugins used in the Project
- - DoTween
- - Odin inspector (not used frequently due to possible build issues)
- - UniTask
- - TMPro
- - NUnit
- - Addressables (not expert)
+## `About the Project`
+- **Architecture:** MV pattern with a focus on scalability and maintainability.
+- **Coding Style:** Minimal use of MonoBehaviour classes for better modularity and testability.
+- **Code Quality:** Thoroughly tested codebase, adhering to OOP principles for robust functionality.
+- **Abstraction:** Unity-specific code is abstracted for clarity and ease of collaboration.
 
-# Software Used
- - Unity
- - Rider
- - Vs code
- - Magica Voxel
- - Figma
- - Chat GPT
+### Toolkit
+The project includes a [Toolkit](Assets/Source/Toolkit) folder containing reusable components for various game systems. Future plans include turning this folder into a Unity package.
 
-# Outcome 
- - Completing the first stage of the project significantly helped me improve the quality of my code and better understand the essence of OOP.
- - I have become more experienced in using C# and applying language constructs that were previously unfamiliar to me.
- - I have successfully solved tasks that seemed insurmountable to me before. 
- - All these skills and knowledge will be valuable to me in future projects and will help me create higher-quality and more scalable code.
- - oop > fp; c# > java; rider > vs
+## `Plugins`
+- **DoTween:** Animation engine for smooth transitions.
+- **Odin Inspector:** Occasionally used for enhanced inspector functionality (careful due to potential build issues).
+- **UniTask:** Simplifies asynchronous programming in Unity.
+- **TextMeshPro:** High-performance text rendering.
+- **NUnit:** Unit testing framework.
+- **Addressables:** Efficient asset management (learning in progress).
+- **Git lfs:** Extension for efficient versioning of large files. 
+
+## `Software Used`
+- **Unity:** Game development platform.
+- **Rider:** IDE for C# and Unity development.
+- **VS Code:** Lightweight code editor for quick edits.
+- **Magica Voxel:** 3D voxel art creation.
+- **Git:** Version control.
+- **Figma:** UI editor.
+- **Chat GPT:** AI-powered assistance for brainstorming and problem-solving.
+- **Audacity:** Audio editing for immersive soundscapes.
+
+## `Future Plans`
+The roadmap includes:
+- Refining gameplay mechanics for a more immersive experience.
+- Expanding the [Toolkit](Assets/Source/Toolkit) with additional versatile components.
+- Adding new mechanics, enemies, building creation elements, and an online leaderboard.
+
+## `Game Installation`
+
+1. Download archive [`Build.rar`](https://github.com/xXdatelXx/FPS/releases/latest)
+2. Unpack it
+3. Create a Shortcut on the desktop to the .exe file
+4. Start this Shortcut
+
+## `Outcome`
+Completing the first stage of the project brought significant improvements:
+- Enhanced understanding of OOP and its practical application.
+- Advanced proficiency in C# and utilization of previously unfamiliar language constructs.
+- Successful resolution of challenges that seemed insurmountable.
+  
+These acquired skills and knowledge will undoubtedly contribute to future projects, enabling the creation of even higher-quality and more scalable code.
+
+## `Communication`
+- **Telegram:** [@X_datel_X](https://t.me/X_datel_X) (preferably)
+- **Email:** artemgurv@gmail.com
+
+## `License`
+This game is under the GNU General Public License.
+
+***
+
+_**OOP > FP; C# > Java; Rider > VS.**_
