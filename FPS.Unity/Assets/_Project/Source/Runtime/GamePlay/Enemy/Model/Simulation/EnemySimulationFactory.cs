@@ -1,4 +1,5 @@
-﻿using FPS.Data;
+﻿using System;
+using FPS.Data;
 using FPS.Toolkit;
 using UnityEngine;
 
@@ -10,7 +11,7 @@ namespace FPS.GamePlay
         [SerializeField] private Transform _parent;
         private Timer _spawnTimer;
 
-        private void OnValidate() => 
+        private void Awake() => 
             _spawnTimer = new Timer(_config.SpawnTime);
 
         public IEnemySimulation Create(ICharacter character)
