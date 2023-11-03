@@ -15,11 +15,5 @@ namespace FPS.Toolkit
 
             return vector;
         }
-
-        public static Vector3Int ThrowExceptionIfValuesSubZero(this Vector3Int vector, string name)
-        {
-            ThrowExceptionIfValuesSubZero((Vector3)vector, name);
-            return vector;
-        }
     }
 }
