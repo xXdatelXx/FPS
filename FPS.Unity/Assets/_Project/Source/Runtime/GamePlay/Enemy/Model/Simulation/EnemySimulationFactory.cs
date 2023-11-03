@@ -1,20 +1,26 @@
-﻿using FPS.Toolkit;
+﻿using FPS.Data;
+using FPS.Toolkit;
 using UnityEngine;
 
 namespace FPS.GamePlay
 {
     public sealed class EnemySimulationFactory : MonoBehaviour, IEnemySimulationFactory
     {
-        [SerializeField] private Enemy _prefab;
-        [SerializeField] private Timer _spawnTimer;
-        [SerializeField] private Range _enemySpawnPositionRange;
+        [SerializeField] private EnemySimulationConfig _config;
         [SerializeField] private Transform _parent;
+        private Timer _spawnTimer;
+
+        private void OnValidate() => 
+            _spawnTimer = new Timer(_config.SpawnTime);
 
         public IEnemySimulation Create(ICharacter character)
         {
             character.ThrowExceptionIfArgumentNull(nameof(character));
 
-            var enemyFactory = new EnemyFactory(_prefab, character, _enemySpawnPositionRange, new ScoreReward(character.Score, 1), _parent);
+            var enemyKillReword = new ScoreReward(character.Score, _config.EnemyKillReword);
+            var enemyFactory = 
+                new EnemyFactory(_config.Enemy, character, _config.SpawnDistanceFromCharacterDiapason, enemyKillReword, _parent);
+           
             return new EnemySimulation(enemyFactory, _spawnTimer);
         }
 
