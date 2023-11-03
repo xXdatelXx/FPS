@@ -1,4 +1,5 @@
-﻿using FPS.GamePlay;
+﻿using FPS.Data;
+using FPS.GamePlay;
 using FPS.Toolkit;
 using FPS.Toolkit.GameLoop;
 using Sirenix.OdinInspector;
@@ -9,16 +10,15 @@ namespace FPS.Factories
     public sealed class CharacterMovementFactory : SerializedMonoBehaviour, ICharacterMovementFactory
     {
         [SerializeField] private CharacterController _controller;
-        [SerializeField] private AnimationCurve _jumpMotion;
-        [SerializeField, Range(0, 100)] private float _speed;
+        [SerializeField] private CharacterConfig _config;
 
         public ICharacterMovement Create(IReadOnlyGameTime time)
         {
             var controller = new CharacterMovementController(_controller);
             var gravitation = new CharacterGravitation(controller);
-            var jump = new CharacterJump(controller, new Curve(_jumpMotion));
+            var jump = new CharacterJump(controller, new Curve(_config.JumpMotion));
 
-            return new CharacterMovement(controller, jump, gravitation, _speed);
+            return new CharacterMovement(controller, jump, gravitation, _config.Speed);
         }
     }
 }

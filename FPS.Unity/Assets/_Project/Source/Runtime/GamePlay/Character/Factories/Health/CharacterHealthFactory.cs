@@ -1,4 +1,5 @@
 ﻿using System;
+using FPS.Data;
 using FPS.GamePlay;
 using FPS.Toolkit;
 using FPS.Toolkit.GameLoop;
@@ -9,8 +10,7 @@ namespace FPS.Factories
 {
     public sealed class CharacterHealthFactory : MonoBehaviour, IFactory<IHealth>
     {
-        [SerializeField] private float _healthPoint;
-        [SerializeField] private float _heal;
+        [SerializeField] private CharacterConfig _config;
         [SerializeField] private GameObject _character;
         [SerializeField] private CharacterOrgan _head;
         [SerializeField] private CharacterOrgan _body;
@@ -36,9 +36,9 @@ namespace FPS.Factories
 
         public IHealth Create()
         {
-            var health = new Health(_healthPoint, _viewFactory.Create());
+            var health = new Health(_config.Health, _viewFactory.Create());
 
-            _healLoopObject = new AutoHeal(health, _heal);
+            _healLoopObject = new AutoHeal(health, _config.HealPerTick);
             _head.Construct(health, 2);
             _body.Construct(health, 1);
 
