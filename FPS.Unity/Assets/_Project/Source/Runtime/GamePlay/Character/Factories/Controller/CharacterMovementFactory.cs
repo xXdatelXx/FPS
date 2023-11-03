@@ -15,7 +15,7 @@ namespace FPS.Factories
         public ICharacterMovement Create(IReadOnlyGameTime time)
         {
             var controller = new CharacterMovementController(_controller);
-            var gravitation = new CharacterGravitation(controller);
+            var gravitation = new CharacterGravitation(controller, _config.Gravitation);
             var jump = new CharacterJump(controller, new Curve(_config.JumpMotion));
 
             return new CharacterMovement(controller, jump, gravitation, _config.Speed);
