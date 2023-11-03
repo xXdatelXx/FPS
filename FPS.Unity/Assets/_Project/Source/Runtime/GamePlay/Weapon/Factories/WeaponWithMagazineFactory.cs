@@ -9,7 +9,7 @@ namespace FPS.Factories
     public sealed class WeaponWithMagazineFactory : MonoBehaviour, IFactory<IWeaponWithMagazine>
     {
         [SerializeField] private RaySpawnPoint _bulletSpawnPoint;
-        [SerializeField] private WeaponData _weaponData;
+        [SerializeField] private WeaponConfig _weaponConfig;
         [SerializeField] private Transform _head;
         [SerializeField] private Transform _body;
         [SerializeField] private BulletViewFactory _bulletView;
@@ -18,17 +18,17 @@ namespace FPS.Factories
 
         public IWeaponWithMagazine Create()
         {
-            var delayTimer = new Timer(_weaponData.Delay);
-            var equippingTimer = new Timer(_weaponData.Enable);
-            var reloadTimer = new Timer(_weaponData.Reload);
+            var delayTimer = new Timer(_weaponConfig.Delay);
+            var equippingTimer = new Timer(_weaponConfig.Enable);
+            var reloadTimer = new Timer(_weaponConfig.Reload);
             var gameLoop = new GameLoop(new GameTime(), delayTimer, equippingTimer, reloadTimer);
             gameLoop.Start();
 
-            var damageCoefficient = new CurveDamageCoefficient(new Curve(_weaponData.DamageCurve));
-            var bulletsFactory = new RayBulletFactory(_bulletSpawnPoint, _weaponData.Damage, damageCoefficient, _bulletView.Create());
-            var magazine = new Magazine(_weaponData.Bullets, new MagazineView(_bulletsText));
+            var damageCoefficient = new CurveDamageCoefficient(new Curve(_weaponConfig.DamageCurve));
+            var bulletsFactory = new RayBulletFactory(_bulletSpawnPoint, _weaponConfig.Damage, damageCoefficient, _bulletView.Create());
+            var magazine = new Magazine(_weaponConfig.Bullets, new MagazineView(_bulletsText));
             var delay = new WeaponDelay(new TimerWithCanceling(delayTimer));
-            var recoil = new CurveRecoil(new Curve(_weaponData.RecoilCurve), delay, magazine);
+            var recoil = new CurveRecoil(new Curve(_weaponConfig.RecoilCurve), delay, magazine);
             var weaponView = _weaponViewFactory.Create();
             var head = new Rotation(_head);
             var body = new Rotation(_body);

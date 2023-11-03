@@ -2,8 +2,8 @@
 
 namespace FPS.Data
 {
-    [CreateAssetMenu(menuName = nameof(WeaponData))]
-    public sealed class WeaponData : ScriptableObject
+    [CreateAssetMenu(menuName = nameof(WeaponConfig))]
+    public sealed class WeaponConfig : ScriptableObject
     {
         [field: SerializeField] public float Damage { get; private set; }
         [field: SerializeField] public AnimationCurve DamageCurve { get; private set; }

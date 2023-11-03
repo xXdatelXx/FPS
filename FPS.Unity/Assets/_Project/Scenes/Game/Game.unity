@@ -268,8 +268,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7e3b3826e0b4b6591f5aa3011281cd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _healthPoint: 100
-  _heal: 1
+  _config: {fileID: 11400000, guid: cacdfc42b3853694ea6d9957ae4f20ac, type: 2}
   _character: {fileID: 1935226533}
   _head: {fileID: 1935226534}
   _body: {fileID: 1935226545}
@@ -836,67 +835,7 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   _controller: {fileID: 1935226535}
-  _jumpMotion:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 21.190094
-      outSlope: 21.190094
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.05632311
-      value: 1.193492
-      inSlope: 17.429075
-      outSlope: 17.429075
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.0952461
-      value: 1.7254937
-      inSlope: 29.647861
-      outSlope: 29.647861
-      tangentMode: 34
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.14214943
-      value: 3.8655834
-      inSlope: 28.271223
-      outSlope: 28.271223
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.15692304
-      value: 3.9181116
-      inSlope: 0.24602236
-      outSlope: 0.24602236
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.17411788
-      value: 3.9581084
-      inSlope: -9.47073
-      outSlope: -9.47073
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.45089722
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  _speed: 6
+  _config: {fileID: 11400000, guid: cacdfc42b3853694ea6d9957ae4f20ac, type: 2}
 --- !u!114 &408872683
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1386,12 +1325,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8e5ce96eb1c4992ab3ad85305cce9a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _prefab: {fileID: 5622696975307662757, guid: eaea29692ffe880489d8486f2c102ae6, type: 3}
-  _spawnTimer:
-    _time: 2
-  _enemySpawnPositionRange:
-    <Min>k__BackingField: 5
-    <Max>k__BackingField: 20
+  _config: {fileID: 11400000, guid: abd8e88717db7704383333546d374e98, type: 2}
   _parent: {fileID: 616370623}
 --- !u!21 &788562552
 Material:
@@ -2878,7 +2812,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _bulletSpawnPoint: {fileID: 1935226544}
-  _weaponData: {fileID: 11400000, guid: d602754750a59d04d99d8a0cb51d4e38, type: 2}
+  _weaponConfig: {fileID: 11400000, guid: d602754750a59d04d99d8a0cb51d4e38, type: 2}
   _head: {fileID: 1935226537}
   _body: {fileID: 1935226536}
   _bulletView: {fileID: 524107786}
@@ -3503,7 +3437,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _bulletSpawnPoint: {fileID: 1935226544}
-  _weaponData: {fileID: 11400000, guid: 2ca69c171e385b24da1a2a7c85d79b43, type: 2}
+  _weaponConfig: {fileID: 11400000, guid: 2ca69c171e385b24da1a2a7c85d79b43, type: 2}
   _head: {fileID: 1935226537}
   _body: {fileID: 1935226536}
   _bulletView: {fileID: 503925038}
