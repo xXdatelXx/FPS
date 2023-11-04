@@ -39,7 +39,7 @@ This project is a techno demo FPS game built with Unity. The architecture follow
 - **Abstraction:** Unity-specific code is abstracted for clarity and ease of collaboration.
 
 ### Toolkit
-The project includes a [Toolkit](Assets/Source/Toolkit) folder containing reusable components for various game systems. Future plans include turning this folder into a Unity package.
+The project includes a [Toolkit](FPS.Unity/Assets/_Project/Source/Toolkit) folder containing reusable components for various game systems. Future plans include turning this folder into a Unity package.
 
 ## `Plugins`
 - **DoTween:** Animation engine for smooth transitions.
@@ -63,7 +63,7 @@ The project includes a [Toolkit](Assets/Source/Toolkit) folder containing reusab
 ## `Future Plans`
 The roadmap includes:
 - Refining gameplay mechanics for a more immersive experience.
-- Expanding the [Toolkit](Assets/Source/Toolkit) with additional versatile components.
+- Expanding the [Toolkit](FPS.Unity/Assets/_Project/Source/Toolkit) with additional versatile components.
 - Adding new mechanics, enemies, building creation elements, and an online leaderboard.
 
 ## `Game Installation`
