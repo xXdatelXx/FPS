@@ -87,7 +87,3 @@ These acquired skills and knowledge will undoubtedly contribute to future projec
 
 ## `License`
 This game is under the GNU General Public License.
-
-***
-
-_**OOP > FP; C# > Java; Rider > VS.**_
